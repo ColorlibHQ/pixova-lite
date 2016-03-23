@@ -776,6 +776,136 @@ function pixova_lite_customize_register( $wp_customize ) {
 	        )
     );
 
+    /************************************************/
+ 	/******************* WooCommerce ****************/
+ 	/************************************************/
+	if( class_exists( 'WooCommerce' ) ) {
+		$wp_customize->add_section( 'pixova_lite_woocommerce' ,
+			array(
+				'title'       => esc_html__( 'WooCommerce', 'pixova-lite' ),
+				'description' => esc_html__( 'Control various for WooCommerce.', 'pixova-lite'),
+				'panel' 	  => 'pixova_lite_panel_general'
+			)
+		);
+
+		// Show Header Image?
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_show_header_image',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_radio_buttons',
+				'default'			=> 'show'
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_show_header_image',
+			array(
+				'type'			=> 'radio',
+				'label'			=> esc_html__( 'Show Header Image?', 'pixova-lite' ),
+				'description'	=> esc_html__( 'Select to show or not to show the header image on WooCommerce pages.', 'pixova-lite' ),
+				'choices'		=> array(
+					'show'	=> esc_html__( 'Show', 'pixova-lite' ),
+					'hide'	=> esc_html__( 'Hide', 'pixova-lite' )
+				),
+				'section'		=> 'pixova_lite_woocommerce',
+			)
+		);
+
+		// Header Image
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_header_image',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_file_url',
+				'default'			=> esc_url( get_template_directory_uri() . '/layout/images/header-bg.jpg' ),
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Image_Control(
+			$wp_customize,
+			'pixova_lite_woocommerce_header_image',
+				array(
+					'label'				=> __( 'Header Image', 'pixova-lite' ),
+					'description'		=> esc_html__( 'Select custom header image for WooCommerce pages.', 'pixova-lite' ),
+					'section'			=> 'pixova_lite_woocommerce',
+					'active_callback'	=> 'is_woocommerce_show_header_image'
+				)
+		) );
+
+		// Title
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_title',
+			array(
+				'sanitize_callback'	=> 'sanitize_text_field',
+				'default'			=> __( 'WooCommerce', 'pixova-lite' ),
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_title',
+			array(
+				'label'				=> __( 'Title', 'pixova-lite' ),
+				'description'		=> esc_html__( 'Add the custom title for WooCommerce pages.', 'pixova-lite' ),
+				'section'			=> 'pixova_lite_woocommerce',
+				'active_callback'	=> 'is_woocommerce_show_header_image'
+			)
+		);
+
+		// Description
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_description',
+			array(
+				'sanitize_callback'	=> 'sanitize_text_field',
+				'default'			=> esc_html__( 'We have the best products.', 'pixova-lite' ),
+			)
+		);
+		$wp_customize->add_control( new Pixova_Lite_Textarea_Custom_Control(
+			$wp_customize,
+			'pixova_lite_woocommerce_description',
+			array(
+				'label'				=> __( 'Description', 'pixova-lite' ),
+				'description'		=> __( 'Add the custom description for WooCommerce pages.', 'pixova-lite' ),
+				'section'			=> 'pixova_lite_woocommerce',
+				'active_callback'	=> 'is_woocommerce_show_header_image'
+			)
+		) );
+
+		// Show Sidebar on Shop Page?
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_show_sidebar_on_shop_page',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_radio_buttons',
+				'default'			=> 'show'
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_show_sidebar_on_shop_page',
+			array(
+				'type'			=> 'radio',
+				'label'			=> esc_html__( 'Show sidebar on Shop Page?', 'pixova-lite' ),
+				'description'	=> esc_html__( 'Select to show or not to show the sidebar on WooCommerce Shop Page.', 'pixova-lite' ),
+				'choices'		=> array(
+					'show'	=> esc_html__( 'Show', 'pixova-lite' ),
+					'hide'	=> esc_html__( 'Hide', 'pixova-lite' )
+				),
+				'section'		=> 'pixova_lite_woocommerce',
+			)
+		);
+
+		// Show Sidebar on Left or Right side?
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_show_sidebar_on_left_or_right_side',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_radio_buttons',
+				'default'			=> 'left'
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_show_sidebar_on_left_or_right_side',
+			array(
+				'type'				=> 'radio',
+				'label'				=> esc_html__( 'Show Sidebar on Left or Right side?', 'pixova-lite' ),
+				'description'		=> esc_html__( 'Select where you want to show the sidebar on WooCommerce Shop Page.', 'pixova-lite' ),
+				'choices'			=> array(
+					'left'	=> esc_html__( 'Left', 'pixova-lite' ),
+					'right'	=> esc_html__( 'Right', 'pixova-lite' )
+				),
+				'section'			=> 'pixova_lite_woocommerce',
+				'active_callback'	=> 'is_woocommerce_show_sidebar_on_shop_page'
+			)
+		);
+	}
+
 
 	/***********************************************/
 	/************** Intro  ***************/
@@ -3108,30 +3238,56 @@ function pixova_lite_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'pixova_lite_customize_register' );
 
-function pixova_lite_active_callback_contact_section_type() {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-	if( is_plugin_active( 'pirate-forms/pirate-forms.php' ) || is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
-		return true;
-	} else {
-		return false;
+if( !function_exists( 'is_woocommerce_show_header_image' ) ) {
+	function is_woocommerce_show_header_image() {
+		if( get_theme_mod( 'pixova_lite_woocommerce_show_header_image', 'show' ) == 'show' ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
-function pixova_lite_active_callback_contact_section_cf7( $control ) {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-	if( $control->manager->get_setting( 'pixova_lite_contact_section_type' )->value() == 'contact-form-7' && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
-		return true;
-	} else {
-		return false;
+if( !function_exists( 'is_woocommerce_show_sidebar_on_shop_page' ) ) {
+	function is_woocommerce_show_sidebar_on_shop_page() {
+		if( get_theme_mod( 'pixova_lite_woocommerce_show_sidebar_on_shop_page', 'show' ) == 'show' ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
-function pixova_lite_customize_preview_js() {
-	wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'customize-preview' ), '1.0', true );
+if( !function_exists( 'pixova_lite_active_callback_contact_section_type' ) ) {
+	function pixova_lite_active_callback_contact_section_type() {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		if( is_plugin_active( 'pirate-forms/pirate-forms.php' ) || is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
-add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
+
+if( !function_exists( 'pixova_lite_active_callback_contact_section_cf7' ) ) {
+	function pixova_lite_active_callback_contact_section_cf7( $control ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		if( $control->manager->get_setting( 'pixova_lite_contact_section_type' )->value() == 'contact-form-7' && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+if( !function_exists( 'pixova_lite_customize_preview_js' ) ) {
+	function pixova_lite_customize_preview_js() {
+		wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'customize-preview' ), '1.0', true );
+	}
+	add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
+}
 
 
 if( !function_exists( 'pixova_lite_sanitize_radio_buttons' ) ) {
