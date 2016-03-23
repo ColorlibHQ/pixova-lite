@@ -4,7 +4,7 @@
  */
 if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 	// Add Image Size
-	add_image_size( 'pixova-lite-custom-logo', 141, 30, true );
+	add_image_size( 'pixova-lite-custom-logo', 210, 90, true );
 
 	// Add Theme Support: Custom Logo
 	add_theme_support( 'custom-logo', array(
@@ -32,14 +32,8 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 
         if( function_exists( 'has_custom_logo' ) ) {
             if( has_custom_logo() ) {
-                $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. get_custom_logo() .'</a>';
+                $output .= get_custom_logo();
             } elseif ( $image_logo ) {
-                $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'"><img src="'. esc_url( $image_logo ) .'" alt="'. esc_attr( get_bloginfo( 'title' ) ) .'" title="'. esc_attr( get_bloginfo( 'title' ) ) .'" /></a>';
-            } else {
-                $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $logo_text ) .'</a>';
-            }
-        } else {
-            if ( $image_logo ) {
                 $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'"><img src="'. esc_url( $image_logo ) .'" alt="'. esc_attr( get_bloginfo( 'title' ) ) .'" title="'. esc_attr( get_bloginfo( 'title' ) ) .'" /></a>';
             } else {
                 $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $logo_text ) .'</a>';

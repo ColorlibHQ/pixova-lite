@@ -6,8 +6,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	// Remove sections from customizer front-view
-	$wp_customize->remove_section('colors');
-    $wp_customize->remove_section('background_image');
+	$wp_customize->remove_section( 'colors' );
+    $wp_customize->remove_section( 'background_image' );
 
 	# Necessary since we can't debug on IIS servers
 	# Mac OS X rules for dev :)
