@@ -2,12 +2,13 @@
 
 function pixova_lite_customize_register( $wp_customize ) {
 
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'site_logo' )->transport = 'postMessage';
 
 	// Remove sections from customizer front-view
 	$wp_customize->remove_section('colors');
-        $wp_customize->remove_section('background_image');
+    $wp_customize->remove_section('background_image');
 
 	# Necessary since we can't debug on IIS servers
 	# Mac OS X rules for dev :)
@@ -19,9 +20,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		// Change panel for Background Image
 		/*
-    $site_title        = $wp_customize->get_section( 'background_image' );
+		$site_title        = $wp_customize->get_section( 'background_image' );
 		$site_title->panel = 'pixova_lite_panel_general';
-    */
+		*/
 
 		// Change panel for Header Image
 		$site_title2        = $wp_customize->get_section( 'header_image' );
