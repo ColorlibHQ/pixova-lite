@@ -2700,20 +2700,20 @@ function pixova_lite_customize_register( $wp_customize ) {
 			);
 
 
-			/* Team: team member #1 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_1_email',
+			/* Team: team member #1 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_1_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email( 'contact@site.com' )
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_1_email',
 				array(
-					'label' => esc_html__('Team member #1 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_1',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #1 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_1',
+					'priority'	=> 5
 				)
 			);
 
@@ -2798,20 +2798,20 @@ function pixova_lite_customize_register( $wp_customize ) {
 				)
 			);
 
-			/* Team: team member #2 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_2_email',
+			/* Team: team member #2 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_2_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email( 'contact@site.com' )
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_2_email',
 				array(
-					'label' => esc_html__('Team member #2 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_2',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #2 Email', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_2',
+					'priority'	=> 5
 				)
 			);
 
@@ -2894,20 +2894,20 @@ function pixova_lite_customize_register( $wp_customize ) {
                 )
             );
 
-			/* Team: team member #3 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_3_email',
+			/* Team: team member #3 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_3_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email('contact@site.com')
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_3_email',
 				array(
-					'label' => esc_html__('Team member #3 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_3',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #3 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_3',
+					'priority'	=> 5
 				)
 			);
 
@@ -2990,20 +2990,20 @@ function pixova_lite_customize_register( $wp_customize ) {
                 )
             );
 
-            /* Team: team member #4 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_4_email',
+            /* Team: team member #4 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_4_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email('contact@site.com')
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_4_email',
 				array(
-					'label' => esc_html__('Team member #4 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_4',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #4 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_4',
+					'priority'	=> 5
 				)
 			);
 
@@ -3086,20 +3086,20 @@ function pixova_lite_customize_register( $wp_customize ) {
                 )
             );
 
-            /* Team: team member #5 Email */
+            /* Team: team member #5 E-mail Address */
 			$wp_customize->add_setting('pixova_lite_team_member_5_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email('contact@site.com')
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_5_email',
 				array(
-					'label' => esc_html__('Team member #5 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_3',
-					'priority' => 5
+					'label'		=> esc_html__( 'Team member #5 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_3',
+					'priority'	=> 5
 				)
 			);
 
