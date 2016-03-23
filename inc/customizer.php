@@ -4,7 +4,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'site_logo' )->transport = 'postMessage';
 
 	// Remove sections from customizer front-view
 	$wp_customize->remove_section('colors');
