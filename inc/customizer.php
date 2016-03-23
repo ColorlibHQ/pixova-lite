@@ -1126,7 +1126,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_intro_button_text_color',
 			array(
 				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
-				'default' => esc_attr('#2ecc71'),
+				'default' => esc_attr('#ffffff'),
 				'transport' => 'postMessage'
 			)
 		);
@@ -3391,3 +3391,23 @@ function pixova_lite_customizer_css_load()
 	wp_enqueue_style('mt-customizer-css', get_template_directory_uri() .'/layout/css/pixova-pro.css');
 }
 add_action('customize_controls_print_styles','pixova_lite_customizer_css_load');
+
+/**
+ *	Customizer CSS
+ */
+if( !function_exists( 'pixova_lite_customizer_css' ) ) {
+	function pixova_lite_customizer_css() {
+		$pixova_lite_intro_button_color = get_theme_mod( 'pixova_lite_intro_button_color', esc_attr( '#2ecc71' ) );
+		$pixova_lite_intro_button_text_color = get_theme_mod( 'pixova_lite_intro_button_text_color', esc_attr( '#ffffff' ) );
+
+		$output = '';
+
+		$output .= '<style type="text/css">';
+			$output .= $pixova_lite_intro_button_color ? 'body .btn-cta-intro {background-color: '. esc_attr( $pixova_lite_intro_button_color ) .';}' : '';
+			$output .= $pixova_lite_intro_button_text_color ? 'body .btn-cta-intro {color: '. esc_attr( $pixova_lite_intro_button_text_color ) .';}' : '';
+		$output .= '</style>';
+
+		echo $output;
+	}
+	add_action( 'wp_head', 'pixova_lite_customizer_css');
+}
