@@ -11,6 +11,17 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 		'size'	=> 'pixova-lite-custom-logo'
 	) );
 
+    // If a logo has been set previously, update to use logo feature introduced in WordPress 4.5
+    if( function_exists( 'the_custom_logo' ) && get_theme_mod( 'pixova_lite_image_logo', false ) ) {
+        $logo = attachment_url_to_postid( get_theme_mod( 'pixova_lite_image_logo' ) );
+
+        if( is_int( $logo ) ) {
+            set_theme_mod( 'custom_logo', attachment_url_to_postid( get_theme_mod( 'pixova_lite_image_logo' ) ) );
+        }
+
+        remove_theme_mod( 'pixova_lite_image_logo' );
+    }
+
 	// Logo
 	add_action( 'pixova_lite_logo', 'pixova_lite_logo_over_442', 1 );
     function pixova_lite_logo_over_442() {
