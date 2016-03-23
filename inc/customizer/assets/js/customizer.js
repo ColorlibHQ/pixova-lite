@@ -18,11 +18,4 @@
 			$( '.site-description' ).text( to );
 		} );
 	});
-
-	// Site logo
-	wp.customize( 'site_logo', function( value ) {
-		value.bind( function( to ) {
-			$( '.logo' ).text( to );
-		} );
-	});
 } )( jQuery );
