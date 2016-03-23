@@ -1,6 +1,5 @@
-+<?php
-$pixova_lite_header_logo_text = get_theme_mod('pixova_lite_text_logo', 'Pixova');
-$pixova_lite_image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
+<?php
+$image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 $pixova_lite_woocommerce_show_header_image = get_theme_mod( 'pixova_lite_woocommerce_show_header_image', 'show' );
 $pixova_lite_woocommerce_header_image = get_theme_mod( 'pixova_lite_woocommerce_header_image', esc_url( get_template_directory_uri() . '/layout/images/header-bg.jpg' ) );
 $pixova_lite_woocommerce_title = get_theme_mod( 'pixova_lite_woocommerce_title', __( 'WooCommerce', 'pixova-lite' ) );
@@ -10,16 +9,12 @@ $pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_d
     <div class="container header clearfix">
         <div class="row">
             <div class="col-md-12">
-                <?php if( $pixova_lite_image_logo ) { ?>
-                    <a class="logo" href="<?php echo esc_url( get_site_url() ); ?>"><img src="<?php echo esc_url( $pixova_lite_image_logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'title' ) ); ?>" /></a>
-                <?php } else { ?>
-                    <a class="logo" href="<?php echo esc_url( get_site_url() ); ?>"><?php echo esc_html( $pixova_lite_header_logo_text ); ?></a>
-                <?php } ?>
+                <?php do_action( 'pixova_lite_logo' ); ?>
                 <a id="nav-expander" class="pull-right" href="#">
                     <i class="fa fa-bars fa-lg white"></i>
                 </a>
                 <?php
-                if( $pixova_lite_image_logo ) {
+                if( $image_logo ) {
                     $main_navigation_class = 'main-navigation logo-image';
                 } else {
                     $main_navigation_class = 'main-navigation';

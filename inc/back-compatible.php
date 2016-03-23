@@ -1,12 +1,6 @@
 <?php
 /**
- * Pixova Lite back compat functionality
- *
- * Prevents Pixova Lite from running on WordPress versions prior to 4.1,
- * since this theme is not meant to be backward compatible beyond that and
- * relies on many newer functions and markup changes introduced in 4.1.
- *
- * @since Pixova Lite 1.16
+ *  Back compatible functionality: less as 4.1-alpha
  */
 if( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
     if( !function_exists( 'pixova_lite_switch_theme' ) ) {
@@ -73,5 +67,27 @@ if( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
         }
 
         add_action('template_redirect', 'pixova_lite_preview');
+    }
+}
+
+/**
+ *  Back compatible functionality: less as 4.5
+ */
+if( version_compare( $GLOBALS['wp_version'], '4.5', '<' ) ) {
+    // Logo
+    add_action( 'pixova_lite_logo', 'pixova_lite_logo', 1 );
+    function pixova_lite_logo() {
+        $text_logo = get_theme_mod( 'pixova_lite_text_logo', 'Pixova' );
+        $image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
+
+        $output = '';
+
+        if( $image_logo ) {
+            $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'"><img src="'. esc_url( $image_logo ) .'" alt="'. esc_attr( get_bloginfo( 'title' ) ) .'" title="'. esc_attr( get_bloginfo( 'title' ) ) .'" /></a>';
+        } else {
+            $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $text_logo ) .'</a>';
+        }
+
+        echo $output;
     }
 }
