@@ -1,8 +1,8 @@
 <?php
 /**
- *	Next compatible functionality: over or equal as 4.5
+ *	Next compatible functionality: over 4.4.2
  */
-if( version_compare( $GLOBALS['wp_version'], '4.5', '>=' ) ) {
+if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 	// Add Image Size
 	add_image_size( 'pixova-lite-custom-logo', 141, 30 );
 
@@ -12,8 +12,8 @@ if( version_compare( $GLOBALS['wp_version'], '4.5', '>=' ) ) {
 	) );
 
 	// Logo
-	add_action( 'pixova_lite_logo', 'pixova_lite_logo', 1 );
-    function pixova_lite_logo() {
+	add_action( 'pixova_lite_logo', 'pixova_lite_logo_over_442', 1 );
+    function pixova_lite_logo_over_442() {
         $text_logo = get_theme_mod( 'pixova_lite_text_logo', 'Pixova' );
         $image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 
