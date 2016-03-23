@@ -1,6 +1,6 @@
 <?php
 
-$pixova_lite_main_cta_text = get_theme_mod('pixova_lite_intro_cta', __('Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support.', 'pixova-lite') );
+$pixova_lite_main_cta_text = get_theme_mod( 'pixova_lite_intro_cta', __( 'Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support.', 'pixova-lite' ) );
 $pixova_lite_main_cta_sub_text = get_theme_mod('pixova_lite_intro_sub_cta', __('60fps smooth parallax header; Random header images (multiple images allowed here).', 'pixova-lite') );
 $pixova_lite_main_cta_button_text = get_theme_mod('pixova_lite_intro_button_text', __('Explore Pixova.', 'pixova-lite') );
 $pixova_lite_main_cta_button_url = get_theme_mod('pixova_lite_intro_button_url', '#about');
@@ -11,7 +11,6 @@ $pixova_lite_what_we_do_2 = get_theme_mod('pixova_lite_intro_what_we_do_2_title'
 $pixova_lite_what_we_do_2_description = get_theme_mod('pixova_lite_intro_what_we_do_2_description', __('Lorem ipsum dolor sit amet. Lorem ipsum.', 'pixova-lite') );
 $pixova_lite_what_we_do_3 = get_theme_mod('pixova_lite_intro_what_we_do_3_title', __('Print design', 'pixova-lite') );
 $pixova_lite_what_we_do_3_description = get_theme_mod('pixova_lite_intro_what_we_do_3_description', __('Lorem ipsum dolor sit amet. Lorem ipsum.', 'pixova-lite') );
-
 
 echo '<section id="intro" class="home-intro" >';
         echo '<div class="parallax-bg-container">';
@@ -27,8 +26,8 @@ echo '<section id="intro" class="home-intro" >';
                 echo '<div class="row">';
                     echo '<div class="col-md-12">';
                         echo '<div class="text-center">';
-                            echo '<h1 class="intro-title">'.esc_html( $pixova_lite_main_cta_text ).'</h1>';
-                            echo '<p class="intro-tagline">'.esc_html( $pixova_lite_main_cta_sub_text ).'</p>';
+                            echo '<h1 class="intro-title">'. $pixova_lite_main_cta_text .'</h1>';
+                            echo '<p class="intro-tagline">'. esc_html( $pixova_lite_main_cta_sub_text ) .'</p>';
                             echo '<a class="btn btn-cta btn-cta-intro" href="'.esc_url( $pixova_lite_main_cta_button_url ).'"><span>'.esc_html( $pixova_lite_main_cta_button_text ).'</span></a>';
                         echo '</div><!--/.text-center-->';
                     echo '</div><!--/.col-md-12-->';

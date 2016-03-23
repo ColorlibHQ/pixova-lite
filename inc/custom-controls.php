@@ -8,31 +8,6 @@ if ( !class_exists('WP_Customize_Control') ) {
   return null;
 }
 
-/**
- * Customize for textarea, extend the WP customizer
- *
- * @since Pixova Lite 1.0.0
- */
-if( !class_exists( 'Pixova_Lite_Textarea_Custom_Control' ) ) {
-    class Pixova_Lite_Textarea_Custom_Control extends WP_Customize_Control {
-
-        public $type = 'textarea';
-
-        public function render_content()
-        {
-
-           ?>
-            <label>
-                <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
-                  <textarea class="large-text" cols="20" rows="5" <?php $this->link(); ?>>
-                    <?php echo esc_textarea($this->value()); ?>
-                  </textarea>
-            </label>
-            <?php
-        }
-    }
-}
-
 if( !class_exists( 'Pixova_lite_Controls_Slider_Control' ) ) {
     class Pixova_lite_Controls_Slider_Control extends WP_Customize_Control {
 

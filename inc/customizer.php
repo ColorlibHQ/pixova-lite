@@ -851,16 +851,16 @@ function pixova_lite_customize_register( $wp_customize ) {
 				'default'			=> esc_html__( 'We have the best products.', 'pixova-lite' ),
 			)
 		);
-		$wp_customize->add_control( new Pixova_Lite_Textarea_Custom_Control(
-			$wp_customize,
+		$wp_customize->add_control(
 			'pixova_lite_woocommerce_description',
 			array(
 				'label'				=> __( 'Description', 'pixova-lite' ),
 				'description'		=> __( 'Add the custom description for WooCommerce pages.', 'pixova-lite' ),
 				'section'			=> 'pixova_lite_woocommerce',
-				'active_callback'	=> 'is_woocommerce_show_header_image'
+				'active_callback'	=> 'is_woocommerce_show_header_image',
+				'type'				=> 'textarea'
 			)
-		) );
+		);
 
 		// Show Sidebar on Shop Page?
 		$wp_customize->add_setting( 'pixova_lite_woocommerce_show_sidebar_on_shop_page',
@@ -1022,21 +1022,19 @@ function pixova_lite_customize_register( $wp_customize ) {
 		/* Main CTA text */
 		$wp_customize->add_setting( 'pixova_lite_intro_cta',
 			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support', 'pixova-lite'),
-				'transport' => 'postMessage'
+				'sanitize_callback'	=> 'pixova_lite_sanitize_textarea_nl2br',
+				'default'			=> __( 'Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support', 'pixova-lite' ),
+				'transport'			=> 'refresh'
 			)
 		);
-
 		$wp_customize->add_control(
 			'pixova_lite_intro_cta',
-				array(
-					'type'	=> 'textarea',
-					'label' 	=> esc_html__('Main CTA text ', 'pixova-lite'),
-					'description' => esc_html__('This is your main attention grabber. Make the best of it.' , 'pixova-lite'),
-					'section' 	=> 'pixova_lite_intro_text',
-				)
-
+			array(
+				'type'				=> 'textarea',
+				'label'				=> esc_html__( 'Main CTA text', 'pixova-lite' ),
+				'description'		=> esc_html__( 'This is your main attention grabber. Make the best of it.' , 'pixova-lite' ),
+				'section'			=> 'pixova_lite_intro_text'
+			)
 		);
 
 		/* Main CTA sub-text */
@@ -3287,6 +3285,12 @@ if( !function_exists( 'pixova_lite_customize_preview_js' ) ) {
 		wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'customize-preview' ), '1.0', true );
 	}
 	add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
+}
+
+if( !function_exists( 'pixova_lite_sanitize_textarea_nl2br' ) ) {
+	function pixova_lite_sanitize_textarea_nl2br( $input ) {
+		return nl2br( $input );
+	}
 }
 
 
