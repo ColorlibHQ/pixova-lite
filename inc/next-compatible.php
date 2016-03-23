@@ -42,4 +42,14 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 
         echo $output;
     }
+
+    // Register Customizer
+    add_action( 'customize_register', 'pixova_lite_customize_register_442', 50 );
+    function pixova_lite_customize_register_442( $wp_customize ) {
+        // Remove Setting
+        $wp_customize->remove_setting( 'pixova_lite_image_logo' );
+
+        // Remove Control
+        $wp_customize->remove_control( 'pixova_lite_image_logo' );
+    }
 }

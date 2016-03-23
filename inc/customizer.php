@@ -3231,9 +3231,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 					'priority'	=> 5
 				)
 			);
-
-
-
 }
 add_action( 'customize_register', 'pixova_lite_customize_register' );
 
