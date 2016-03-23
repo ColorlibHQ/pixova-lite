@@ -13,10 +13,10 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 
     // If a logo has been set previously, update to use logo feature introduced in WordPress 4.5
     if( function_exists( 'the_custom_logo' ) && get_theme_mod( 'pixova_lite_image_logo', false ) ) {
-        $logo = attachment_url_to_postid( get_theme_mod( 'pixova_lite_image_logo' ) );
+        $logo = attachment_url_to_postid( get_theme_mod( 'pixova_lite_image_logo', false ) );
 
         if( is_int( $logo ) ) {
-            set_theme_mod( 'custom_logo', attachment_url_to_postid( get_theme_mod( 'pixova_lite_image_logo' ) ) );
+            set_theme_mod( 'custom_logo', attachment_url_to_postid( get_theme_mod( 'pixova_lite_image_logo', false ) ) );
         }
 
         remove_theme_mod( 'pixova_lite_image_logo' );
@@ -26,7 +26,7 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 	add_action( 'pixova_lite_logo', 'pixova_lite_logo_over_442', 1 );
     function pixova_lite_logo_over_442() {
         $text_logo = get_theme_mod( 'pixova_lite_text_logo', 'Pixova' );
-        $image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
+        $image_logo = get_theme_mod( 'pixova_lite_image_logo', false );
 
         $output = '';
 
@@ -36,7 +36,7 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
             } elseif ( $image_logo ) {
                 $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'"><img src="'. esc_url( $image_logo ) .'" alt="'. esc_attr( get_bloginfo( 'title' ) ) .'" title="'. esc_attr( get_bloginfo( 'title' ) ) .'" /></a>';
             } else {
-                $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $logo_text ) .'</a>';
+                $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $text_logo ) .'</a>';
             }
         }
 
