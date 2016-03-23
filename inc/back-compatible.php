@@ -71,9 +71,9 @@ if( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
 }
 
 /**
- *  Back compatible functionality: less as 4.5
+ *  Back compatible functionality: less or equal as 4.4.2
  */
-if( version_compare( $GLOBALS['wp_version'], '4.5', '<' ) ) {
+if( version_compare( $GLOBALS['wp_version'], '4.4.2', '<=' ) ) {
     // Logo
     add_action( 'pixova_lite_logo', 'pixova_lite_logo_less_45', 1 );
     function pixova_lite_logo_less_45() {
