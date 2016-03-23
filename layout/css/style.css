@@ -1405,7 +1405,34 @@ body.logged-in section {
 .blog .mt-date {padding-right: 15px;}
 .blog .mt-comments {padding-left: 15px;}
 
+.owl-controls .owl-page,
+.owl-controls .owl-buttons {}
+          
+.owl-controls .owl-buttons .fa {
+    font-size: 30px;
+}
 
+.owl-controls .owl-buttons .owl-prev {
+    width: 11px;
+    height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.owl-controls .owl-buttons .owl-next {
+    width: 11px;
+    height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
 
 .mt-chart {
     display: block;
