@@ -128,7 +128,7 @@ if( !function_exists( 'pixova_lite_prefix_upsell_notice' ) ) {
                 'prefixSupportLabel' => esc_html__('Get theme support', 'pixova-lite'),
 
                 # Documentation URLs
-                'prefixDocURL' => esc_url( __('http://docs.machothemes.com/collection/49-pixova-lite', 'pixova-lite') ),
+                'prefixDocURL' => esc_url( __('http://docs.machothemes.com/category/106-pixova-lite', 'pixova-lite') ),
                 'prefixDocLabel' => __('Theme Documentation', 'pixova-lite'),
 
             )
