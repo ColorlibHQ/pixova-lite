@@ -1412,7 +1412,7 @@ body.logged-in section {
     font-size: 30px;
 }
 
-.owl-controls .owl-buttons .owl-prev {
+.mt-blogpost-wrapper .owl-controls .owl-buttons .owl-prev {
     width: 11px;
     height: 30px;
     margin-top: auto;
@@ -1423,7 +1423,7 @@ body.logged-in section {
     left: 0;
 }
 
-.owl-controls .owl-buttons .owl-next {
+.mt-blogpost-wrapper .owl-controls .owl-buttons .owl-next {
     width: 11px;
     height: 30px;
     margin-top: auto;
