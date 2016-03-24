@@ -213,3 +213,16 @@
 #customize-controls .customize-info {
     border-bottom: 0 !important;
 }
+
+#accordion-section-pixova_lite_woocommerce {}
+
+#accordion-section-pixova_lite_woocommerce .accordion-section-title,
+#accordion-section-pixova_lite_woocommerce .accordion-section-title:hover {
+    background-color: #a46497 !important;
+    color: #ffffff !important;
+}
+
+#accordion-section-pixova_lite_woocommerce .accordion-section-title:after,
+#accordion-section-pixova_lite_woocommerce .accordion-section-title:hover:after {
+    color: #ffffff !important;
+}

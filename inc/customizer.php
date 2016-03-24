@@ -784,7 +784,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 			array(
 				'title'			=> esc_html__( 'WooCommerce', 'pixova-lite' ),
 				'description'	=> esc_html__( 'Control various for WooCommerce.', 'pixova-lite'),
-				'priority'		=> 24
+				'priority'		=> 39
 			)
 		);
 
