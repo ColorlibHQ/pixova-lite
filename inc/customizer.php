@@ -4,7 +4,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
 
 	// Remove sections from customizer front-view
 	$wp_customize->remove_section( 'colors' );
@@ -227,7 +226,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		$wp_customize->add_panel( 'pixova_lite_panel_general',
 			array(
-				'priority' => 25,
+				'priority' => 24,
 				'capability' => 'edit_theme_options',
 				'theme_supports' => '',
 				'title' => esc_html__( 'Theme options', 'pixova-lite' )
@@ -783,9 +782,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 	if( class_exists( 'WooCommerce' ) ) {
 		$wp_customize->add_section( 'pixova_lite_woocommerce' ,
 			array(
-				'title'       => esc_html__( 'WooCommerce', 'pixova-lite' ),
-				'description' => esc_html__( 'Control various for WooCommerce.', 'pixova-lite'),
-				'panel' 	  => 'pixova_lite_panel_general'
+				'title'			=> esc_html__( 'WooCommerce', 'pixova-lite' ),
+				'description'	=> esc_html__( 'Control various for WooCommerce.', 'pixova-lite'),
+				'priority'		=> 24
 			)
 		);
 

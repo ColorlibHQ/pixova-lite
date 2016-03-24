@@ -46,6 +46,9 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
     // Register Customizer
     add_action( 'customize_register', 'pixova_lite_customize_register_442', 50 );
     function pixova_lite_customize_register_442( $wp_customize ) {
+        // Get Setting
+        $wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
+
         // Remove Setting
         $wp_customize->remove_setting( 'pixova_lite_image_logo' );
 
