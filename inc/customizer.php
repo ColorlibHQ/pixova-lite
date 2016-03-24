@@ -2546,30 +2546,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 					)
 			);
 
-		$wp_customize->add_setting( 'pixova_lite_howmany_blog_posts_front',
-			array(
-				'sanitize_callback' => 'absint',
-				'default' => 4
-			)
-		);
-
-	$wp_customize->add_control( new Pixova_lite_Controls_Slider_Control($wp_customize,
-			'pixova_lite_howmany_blog_posts_front',
-					array(
-							'label' => esc_html__('How many blog posts to display on the front page at once?', 'pixova-lite'),
-							'description' => esc_html__('Controls how many blog posts you would like to show on the front page.', 'pixova-lite'),
-							'choices' => array(
-									'min' => 1,
-									'max' => 10,
-									'step' => 1,
-							),
-							'section' => 'pixova_lite_news_general',
-							'default' => 3
-					)
-			)
-	);
-
-
 
 	/***********************************************/
 	/************** Contact  ***************/
