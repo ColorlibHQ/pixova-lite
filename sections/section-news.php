@@ -26,12 +26,10 @@ $random_featured_images = get_theme_mod('pixova_lite_enable_default_images', 'im
 echo '<section class="has-padding" id="news">';
     echo '<div class="container">';
         echo '<div class="row">';
-            echo '<div class="text-center">';
-                echo '<h2 class="section-heading light-section-heading">';
-                    echo esc_html( $pixova_lite_section_title );
-                    echo '<span>'. esc_html( $pixova_lite_section_sub_title ) .'</span>';
-                echo '</h2>';
-            echo '</div><!--/.text-center-->';
+            echo '<div class="text-center section-heading">';
+                echo '<h2 class="light-section-heading">'. esc_html( $pixova_lite_section_title ) .'</h2>';
+                echo '<div class="section-sub-heading">'. esc_html( $pixova_lite_section_sub_title ) .'</div>';
+            echo '</div><!--/.text-center.section-heading-->';
         echo '</div><!--/.row-->';
         echo '<div class="row">';
         // query args
