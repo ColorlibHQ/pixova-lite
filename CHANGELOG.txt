@@ -1,3 +1,13 @@
+### v1.40.0
+  - Has been added field in customizer for team section from front page.
+  - Has been added OWL Carousel for Latest News section from front page.
+  - Has been added couple of fields in customizer for WooCommerce plugin.
+  - Has been added breakline CTA section from front page.
+  - Has been fixed CTA button color fields.
+  - Has been added support for custom logo. This feature will appear on WordPress v4.5.0.
+  - Has been updated Theme Documentation link in customizer.
+  - Has been removed "How many posts to show on homepage..." field from front page.
+
 ==========================================================================================
             V 1.39    -   28 January, 2016
 ==========================================================================================
