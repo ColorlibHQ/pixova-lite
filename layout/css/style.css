@@ -1405,7 +1405,34 @@ body.logged-in section {
 .blog .mt-date {padding-right: 15px;}
 .blog .mt-comments {padding-left: 15px;}
 
+.owl-controls .owl-page,
+.owl-controls .owl-buttons {}
+          
+.owl-controls .owl-buttons .fa {
+    font-size: 30px;
+}
 
+.mt-blogpost-wrapper .owl-controls .owl-buttons .owl-prev {
+    width: 11px;
+    height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.mt-blogpost-wrapper .owl-controls .owl-buttons .owl-next {
+    width: 11px;
+    height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
 
 .mt-chart {
     display: block;
@@ -1841,17 +1868,17 @@ body.logged-in section {
     padding: 0!important;
 }
 .mt-team-description {
-    -moz-transition: all .35s ease;
     -webkit-transition: all .35s ease;
     background: #363636;
-    left: 10%;
+    left: 30%;
     margin-top: 15px;
     opacity: 0;
     padding: 14px 0;
     position: absolute;
     transition: all .35s ease;
     visibility: hidden;
-    width: 80%;
+    width: 40%;
+    border-radius: 5px;
 }
 .mt-team-description:before {
     border-bottom: 6px solid #363636;

@@ -197,6 +197,18 @@
 
         }
 
+        if( $( '.mt-blogpost-wrapper' ).length ) {
+            $( '.mt-blogpost-wrapper' ).owlCarousel({
+                items: 4,
+                navigation: true,
+                pagination: false,
+                navigationText: [
+                    "<i class='fa fa-angle-left'></i>",
+                    "<i class='fa fa-angle-right'></i>"
+                ],
+            });
+        }
+
         // simplePlaceholder - polyfill for mimicking the HTML5 placeholder attribute using jQuery
         // https://github.com/marcgg/Simple-Placeholder/blob/master/README.md
         if(typeof $.fn.simplePlaceholder != 'undefined'){

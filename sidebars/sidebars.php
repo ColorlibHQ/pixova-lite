@@ -59,8 +59,17 @@ if (function_exists('register_sidebar')) {
                     'after_widget' => '</div>')
             );
 
-
-
+            if( class_exists( 'WooCommerce' ) ) {
+                register_sidebar(array(
+                    'id'            => 'woocommerce-sidebar',
+                    'name'          => __( '[WooCommerce] Sidebar', 'pixova-lite' ),
+                    'description'   => __( 'In WooCommerce, Shop Page.', 'pixova-lite' ),
+                    'before_title'  => '<h3 class="widget-title"><span>',
+                    'after_title'   => '</span></h3>',
+                    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                    'after_widget'  => '</div>')
+                );
+            }
 
         } // function pixova_lite_register_sidebars end
 

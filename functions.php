@@ -21,13 +21,15 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
             $content_width = 1140;
         }
 
+        /**
+         *  Next compatible
+         */
+        require get_template_directory() . '/inc/next-compatible.php';
 
         /**
-         * Pixova Lite only works in WordPress 4.1 or later.
+         *  Back compatible
          */
-        if ( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
-            require get_template_directory() . '/inc/back-compat.php';
-        }
+        require get_template_directory() . '/inc/back-compatible.php';
 
         /**
          * Custom Header Support

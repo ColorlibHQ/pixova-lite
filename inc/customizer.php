@@ -2,12 +2,12 @@
 
 function pixova_lite_customize_register( $wp_customize ) {
 
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	// Remove sections from customizer front-view
-	$wp_customize->remove_section('colors');
-        $wp_customize->remove_section('background_image');
+	$wp_customize->remove_section( 'colors' );
+    $wp_customize->remove_section( 'background_image' );
 
 	# Necessary since we can't debug on IIS servers
 	# Mac OS X rules for dev :)
@@ -19,9 +19,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		// Change panel for Background Image
 		/*
-    $site_title        = $wp_customize->get_section( 'background_image' );
+		$site_title        = $wp_customize->get_section( 'background_image' );
 		$site_title->panel = 'pixova_lite_panel_general';
-    */
+		*/
 
 		// Change panel for Header Image
 		$site_title2        = $wp_customize->get_section( 'header_image' );
@@ -226,7 +226,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		$wp_customize->add_panel( 'pixova_lite_panel_general',
 			array(
-				'priority' => 25,
+				'priority' => 24,
 				'capability' => 'edit_theme_options',
 				'theme_supports' => '',
 				'title' => esc_html__( 'Theme options', 'pixova-lite' )
@@ -776,6 +776,136 @@ function pixova_lite_customize_register( $wp_customize ) {
 	        )
     );
 
+    /************************************************/
+ 	/******************* WooCommerce ****************/
+ 	/************************************************/
+	if( class_exists( 'WooCommerce' ) ) {
+		$wp_customize->add_section( 'pixova_lite_woocommerce' ,
+			array(
+				'title'			=> esc_html__( 'WooCommerce', 'pixova-lite' ),
+				'description'	=> esc_html__( 'Control various for WooCommerce.', 'pixova-lite'),
+				'priority'		=> 39
+			)
+		);
+
+		// Show Header Image?
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_show_header_image',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_radio_buttons',
+				'default'			=> 'show'
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_show_header_image',
+			array(
+				'type'			=> 'radio',
+				'label'			=> esc_html__( 'Show Header Image?', 'pixova-lite' ),
+				'description'	=> esc_html__( 'Select to show or not to show the header image on WooCommerce pages.', 'pixova-lite' ),
+				'choices'		=> array(
+					'show'	=> esc_html__( 'Show', 'pixova-lite' ),
+					'hide'	=> esc_html__( 'Hide', 'pixova-lite' )
+				),
+				'section'		=> 'pixova_lite_woocommerce',
+			)
+		);
+
+		// Header Image
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_header_image',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_file_url',
+				'default'			=> esc_url( get_template_directory_uri() . '/layout/images/header-bg.jpg' ),
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Image_Control(
+			$wp_customize,
+			'pixova_lite_woocommerce_header_image',
+				array(
+					'label'				=> __( 'Header Image', 'pixova-lite' ),
+					'description'		=> esc_html__( 'Select custom header image for WooCommerce pages.', 'pixova-lite' ),
+					'section'			=> 'pixova_lite_woocommerce',
+					'active_callback'	=> 'is_woocommerce_show_header_image'
+				)
+		) );
+
+		// Title
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_title',
+			array(
+				'sanitize_callback'	=> 'sanitize_text_field',
+				'default'			=> __( 'WooCommerce', 'pixova-lite' ),
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_title',
+			array(
+				'label'				=> __( 'Title', 'pixova-lite' ),
+				'description'		=> esc_html__( 'Add the custom title for WooCommerce pages.', 'pixova-lite' ),
+				'section'			=> 'pixova_lite_woocommerce',
+				'active_callback'	=> 'is_woocommerce_show_header_image'
+			)
+		);
+
+		// Description
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_description',
+			array(
+				'sanitize_callback'	=> 'sanitize_text_field',
+				'default'			=> esc_html__( 'We have the best products.', 'pixova-lite' ),
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_description',
+			array(
+				'label'				=> __( 'Description', 'pixova-lite' ),
+				'description'		=> __( 'Add the custom description for WooCommerce pages.', 'pixova-lite' ),
+				'section'			=> 'pixova_lite_woocommerce',
+				'active_callback'	=> 'is_woocommerce_show_header_image',
+				'type'				=> 'textarea'
+			)
+		);
+
+		// Show Sidebar on Shop Page?
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_show_sidebar_on_shop_page',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_radio_buttons',
+				'default'			=> 'show'
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_show_sidebar_on_shop_page',
+			array(
+				'type'			=> 'radio',
+				'label'			=> esc_html__( 'Show sidebar on Shop Page?', 'pixova-lite' ),
+				'description'	=> esc_html__( 'Select to show or not to show the sidebar on WooCommerce Shop Page.', 'pixova-lite' ),
+				'choices'		=> array(
+					'show'	=> esc_html__( 'Show', 'pixova-lite' ),
+					'hide'	=> esc_html__( 'Hide', 'pixova-lite' )
+				),
+				'section'		=> 'pixova_lite_woocommerce',
+			)
+		);
+
+		// Show Sidebar on Left or Right side?
+		$wp_customize->add_setting( 'pixova_lite_woocommerce_show_sidebar_on_left_or_right_side',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_radio_buttons',
+				'default'			=> 'left'
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_woocommerce_show_sidebar_on_left_or_right_side',
+			array(
+				'type'				=> 'radio',
+				'label'				=> esc_html__( 'Show Sidebar on Left or Right side?', 'pixova-lite' ),
+				'description'		=> esc_html__( 'Select where you want to show the sidebar on WooCommerce Shop Page.', 'pixova-lite' ),
+				'choices'			=> array(
+					'left'	=> esc_html__( 'Left', 'pixova-lite' ),
+					'right'	=> esc_html__( 'Right', 'pixova-lite' )
+				),
+				'section'			=> 'pixova_lite_woocommerce',
+				'active_callback'	=> 'is_woocommerce_show_sidebar_on_shop_page'
+			)
+		);
+	}
+
 
 	/***********************************************/
 	/************** Intro  ***************/
@@ -892,21 +1022,19 @@ function pixova_lite_customize_register( $wp_customize ) {
 		/* Main CTA text */
 		$wp_customize->add_setting( 'pixova_lite_intro_cta',
 			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support', 'pixova-lite'),
-				'transport' => 'postMessage'
+				'sanitize_callback'	=> 'pixova_lite_sanitize_textarea_nl2br',
+				'default'			=> __( 'Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support', 'pixova-lite' ),
+				'transport'			=> 'refresh'
 			)
 		);
-
 		$wp_customize->add_control(
 			'pixova_lite_intro_cta',
-				array(
-					'type'	=> 'textarea',
-					'label' 	=> esc_html__('Main CTA text ', 'pixova-lite'),
-					'description' => esc_html__('This is your main attention grabber. Make the best of it.' , 'pixova-lite'),
-					'section' 	=> 'pixova_lite_intro_text',
-				)
-
+			array(
+				'type'				=> 'textarea',
+				'label'				=> esc_html__( 'Main CTA text', 'pixova-lite' ),
+				'description'		=> esc_html__( 'This is your main attention grabber. Make the best of it.' , 'pixova-lite' ),
+				'section'			=> 'pixova_lite_intro_text'
+			)
 		);
 
 		/* Main CTA sub-text */
@@ -998,7 +1126,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_intro_button_text_color',
 			array(
 				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
-				'default' => esc_attr('#2ecc71'),
+				'default' => esc_attr('#ffffff'),
 				'transport' => 'postMessage'
 			)
 		);
@@ -2418,30 +2546,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 					)
 			);
 
-		$wp_customize->add_setting( 'pixova_lite_howmany_blog_posts_front',
-			array(
-				'sanitize_callback' => 'absint',
-				'default' => 4
-			)
-		);
-
-	$wp_customize->add_control( new Pixova_lite_Controls_Slider_Control($wp_customize,
-			'pixova_lite_howmany_blog_posts_front',
-					array(
-							'label' => esc_html__('How many blog posts to display on the front page at once?', 'pixova-lite'),
-							'description' => esc_html__('Controls how many blog posts you would like to show on the front page.', 'pixova-lite'),
-							'choices' => array(
-									'min' => 1,
-									'max' => 10,
-									'step' => 1,
-							),
-							'section' => 'pixova_lite_news_general',
-							'default' => 3
-					)
-			)
-	);
-
-
 
 	/***********************************************/
 	/************** Contact  ***************/
@@ -2700,20 +2804,20 @@ function pixova_lite_customize_register( $wp_customize ) {
 			);
 
 
-			/* Team: team member #1 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_1_email',
+			/* Team: team member #1 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_1_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email( 'contact@site.com' )
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_1_email',
 				array(
-					'label' => esc_html__('Team member #1 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_1',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #1 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_1',
+					'priority'	=> 5
 				)
 			);
 
@@ -2798,20 +2902,20 @@ function pixova_lite_customize_register( $wp_customize ) {
 				)
 			);
 
-			/* Team: team member #2 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_2_email',
+			/* Team: team member #2 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_2_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email( 'contact@site.com' )
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_2_email',
 				array(
-					'label' => esc_html__('Team member #2 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_2',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #2 Email', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_2',
+					'priority'	=> 5
 				)
 			);
 
@@ -2894,20 +2998,20 @@ function pixova_lite_customize_register( $wp_customize ) {
                 )
             );
 
-			/* Team: team member #3 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_3_email',
+			/* Team: team member #3 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_3_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email('contact@site.com')
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_3_email',
 				array(
-					'label' => esc_html__('Team member #3 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_3',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #3 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_3',
+					'priority'	=> 5
 				)
 			);
 
@@ -2990,20 +3094,20 @@ function pixova_lite_customize_register( $wp_customize ) {
                 )
             );
 
-            /* Team: team member #4 Email */
-			$wp_customize->add_setting('pixova_lite_team_member_4_email',
+            /* Team: team member #4 E-mail Address */
+			$wp_customize->add_setting( 'pixova_lite_team_member_4_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email('contact@site.com')
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_4_email',
 				array(
-					'label' => esc_html__('Team member #4 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_4',
-					'priority' => 5
+					'label'		=> esc_html__('Team member #4 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_4',
+					'priority'	=> 5
 				)
 			);
 
@@ -3086,52 +3190,81 @@ function pixova_lite_customize_register( $wp_customize ) {
                 )
             );
 
-            /* Team: team member #5 Email */
+            /* Team: team member #5 E-mail Address */
 			$wp_customize->add_setting('pixova_lite_team_member_5_email',
 				array(
-					'sanitize_callback' => 'esc_attr',
-					'default' => esc_attr('contact@site.com')
+					'sanitize_callback'	=> 'sanitize_email',
+					'default'			=> sanitize_email('contact@site.com')
 				)
 			);
 
 			$wp_customize->add_control(
 				'pixova_lite_team_member_5_email',
 				array(
-					'label' => esc_html__('Team member #5 Email', 'pixova-lite'),
-					'section' => 'pixova_lite_team_member_3',
-					'priority' => 5
+					'label'		=> esc_html__( 'Team member #5 E-mail Address', 'pixova-lite'),
+					'section'	=> 'pixova_lite_team_member_3',
+					'priority'	=> 5
 				)
 			);
-
-
-
 }
 add_action( 'customize_register', 'pixova_lite_customize_register' );
 
-function pixova_lite_active_callback_contact_section_type() {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-	if( is_plugin_active( 'pirate-forms/pirate-forms.php' ) || is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
-		return true;
-	} else {
-		return false;
+if( !function_exists( 'is_woocommerce_show_header_image' ) ) {
+	function is_woocommerce_show_header_image() {
+		if( get_theme_mod( 'pixova_lite_woocommerce_show_header_image', 'show' ) == 'show' ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
-function pixova_lite_active_callback_contact_section_cf7( $control ) {
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-	if( $control->manager->get_setting( 'pixova_lite_contact_section_type' )->value() == 'contact-form-7' && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
-		return true;
-	} else {
-		return false;
+if( !function_exists( 'is_woocommerce_show_sidebar_on_shop_page' ) ) {
+	function is_woocommerce_show_sidebar_on_shop_page() {
+		if( get_theme_mod( 'pixova_lite_woocommerce_show_sidebar_on_shop_page', 'show' ) == 'show' ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
-function pixova_lite_customize_preview_js() {
-	wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'customize-preview' ), '1.0', true );
+if( !function_exists( 'pixova_lite_active_callback_contact_section_type' ) ) {
+	function pixova_lite_active_callback_contact_section_type() {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		if( is_plugin_active( 'pirate-forms/pirate-forms.php' ) || is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
-add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
+
+if( !function_exists( 'pixova_lite_active_callback_contact_section_cf7' ) ) {
+	function pixova_lite_active_callback_contact_section_cf7( $control ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		if( $control->manager->get_setting( 'pixova_lite_contact_section_type' )->value() == 'contact-form-7' && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+if( !function_exists( 'pixova_lite_customize_preview_js' ) ) {
+	function pixova_lite_customize_preview_js() {
+		wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'customize-preview' ), '1.0', true );
+	}
+	add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
+}
+
+if( !function_exists( 'pixova_lite_sanitize_textarea_nl2br' ) ) {
+	function pixova_lite_sanitize_textarea_nl2br( $input ) {
+		return nl2br( $input );
+	}
+}
 
 
 if( !function_exists( 'pixova_lite_sanitize_radio_buttons' ) ) {
@@ -3231,3 +3364,23 @@ function pixova_lite_customizer_css_load()
 	wp_enqueue_style('mt-customizer-css', get_template_directory_uri() .'/layout/css/pixova-pro.css');
 }
 add_action('customize_controls_print_styles','pixova_lite_customizer_css_load');
+
+/**
+ *	Customizer CSS
+ */
+if( !function_exists( 'pixova_lite_customizer_css' ) ) {
+	function pixova_lite_customizer_css() {
+		$pixova_lite_intro_button_color = get_theme_mod( 'pixova_lite_intro_button_color', esc_attr( '#2ecc71' ) );
+		$pixova_lite_intro_button_text_color = get_theme_mod( 'pixova_lite_intro_button_text_color', esc_attr( '#ffffff' ) );
+
+		$output = '';
+
+		$output .= '<style type="text/css">';
+			$output .= $pixova_lite_intro_button_color ? 'body .btn-cta-intro {background-color: '. esc_attr( $pixova_lite_intro_button_color ) .';}' : '';
+			$output .= $pixova_lite_intro_button_text_color ? 'body .btn-cta-intro {color: '. esc_attr( $pixova_lite_intro_button_text_color ) .';}' : '';
+		$output .= '</style>';
+
+		echo $output;
+	}
+	add_action( 'wp_head', 'pixova_lite_customizer_css');
+}

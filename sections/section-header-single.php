@@ -1,28 +1,24 @@
 <?php
-$pixova_lite_header_logo_text = get_theme_mod('pixova_lite_text_logo', 'Pixova');
-$pixova_lite_image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
+$image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 
 echo '<!-- Header -->';
 echo '<header id="header-wrap">';
     echo '<div class="container header clearfix">';
         echo '<div class="row">';
             echo '<div class="col-md-12">';
-            if( $pixova_lite_image_logo ) {
-                  echo '<a class="logo" href="'. esc_url( get_site_url() ) .'"><img src="'. esc_url( $pixova_lite_image_logo ) .'" alt="'. esc_attr( get_bloginfo( 'title' ) ) .'" title="'. esc_attr( get_bloginfo( 'title' ) ) .'" /></a>';
-              } else {
-                 echo '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $pixova_lite_header_logo_text ) .'</a>';
-              }
+
+                do_action( 'pixova_lite_logo' );
 
                 echo '<!-- menu icon -->';
                 echo '<a id="nav-expander" class="pull-right" href="#">';
                     echo '<i class="fa fa-bars fa-lg white"></i>';
                 echo '</a>';
 
-                if( $pixova_lite_image_logo ) {
-                             $main_navigation_class = 'main-navigation logo-image';
-                      } else {
-                             $main_navigation_class = 'main-navigation';
-                      }
+                if( $image_logo ) {
+                    $main_navigation_class = 'main-navigation logo-image';
+                } else {
+                    $main_navigation_class = 'main-navigation';
+                }
 
                      echo '<nav class="'. $main_navigation_class .'">';
 

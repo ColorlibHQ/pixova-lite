@@ -17,7 +17,7 @@ if( !$pixova_lite_team_member_1_image ) {
 
 $pixova_lite_team_member_1_fburl = get_theme_mod('pixova_lite_team_member_1_facebook', 'https://www.facebook.com/machothemes/');
 $pixova_lite_team_member_1_dribbble_url = get_theme_mod('pixova_lite_team_member_1_dribbble', 'http://www.dribbble.com/');
-$pixova_lite_team_member_1_email = get_theme_mod('pixova_lite_team_member_1_email', esc_attr('contact@site.com') );
+$pixova_lite_team_member_1_email = get_theme_mod('pixova_lite_team_member_1_email', sanitize_email('contact@site.com') );
 
 // Team member #2
 $pixova_lite_team_member_2_name = get_theme_mod('pixova_lite_team_member_2_name', __('John Doe', 'pixova-lite') );
@@ -33,7 +33,7 @@ if( !$pixova_lite_team_member_2_image ) {
 
 $pixova_lite_team_member_2_fburl = get_theme_mod('pixova_lite_team_member_2_facebook', 'https://www.facebook.com/machothemes/');
 $pixova_lite_team_member_2_dribbble_url = get_theme_mod('pixova_lite_team_member_2_dribbble', 'http://www.dribbble.com/');
-$pixova_lite_team_member_2_email = get_theme_mod('pixova_lite_team_member_2_email', esc_attr('contact@site.com') );
+$pixova_lite_team_member_2_email = get_theme_mod('pixova_lite_team_member_2_email', sanitize_email('contact@site.com') );
 
 // Team member #3
 $pixova_lite_team_member_3_name = get_theme_mod('pixova_lite_team_member_3_name', __('Angelina Doe', 'pixova-lite') );
@@ -49,7 +49,7 @@ if( !$pixova_lite_team_member_3_image ) {
 
 $pixova_lite_team_member_3_fburl = get_theme_mod('pixova_lite_team_member_3_facebook', 'https://www.facebook.com/machothemes/');
 $pixova_lite_team_member_3_dribbble_url = get_theme_mod('pixova_lite_team_member_3_dribbble', 'http://www.dribbble.com/');
-$pixova_lite_team_member_3_email = get_theme_mod('pixova_lite_team_member_3_email', esc_attr('contact@site.com') );
+$pixova_lite_team_member_3_email = get_theme_mod('pixova_lite_team_member_3_email', sanitize_email('contact@site.com') );
 
 // Team member #4
 $pixova_lite_team_member_4_name = get_theme_mod('pixova_lite_team_member_4_name', __('Angelina Doe', 'pixova-lite') );
@@ -64,7 +64,7 @@ if( !$pixova_lite_team_member_4_image ) {
 
 $pixova_lite_team_member_4_fburl = get_theme_mod('pixova_lite_team_member_4_facebook', 'https://www.facebook.com/machothemes/');
 $pixova_lite_team_member_4_dribbble_url = get_theme_mod('pixova_lite_team_member_4_dribbble', 'http://www.dribbble.com/');
-$pixova_lite_team_member_4_email = get_theme_mod('pixova_lite_team_member_4_email', esc_attr('contact@site.com') );
+$pixova_lite_team_member_4_email = get_theme_mod('pixova_lite_team_member_4_email', sanitize_email('contact@site.com') );
 
 // Team member #5
 $pixova_lite_team_member_5_name = get_theme_mod('pixova_lite_team_member_5_name');

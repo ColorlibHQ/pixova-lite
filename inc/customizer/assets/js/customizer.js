@@ -5,20 +5,17 @@
  */
 
 ( function( $ ) {
-	// Site title and description.
+	// Blogname
 	wp.customize( 'blogname', function( value ) {
-
 		value.bind( function( to ) {
 			$( '.site-title a' ).text( to );
-		} );
-
+		});
 	} );
 
+	// Blog description
 	wp.customize( 'blogdescription', function( value ) {
-
 		value.bind( function( to ) {
 			$( '.site-description' ).text( to );
 		} );
-
-	} );
+	});
 } )( jQuery );
