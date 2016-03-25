@@ -1,3 +1,6 @@
+### v1.40.1
+  - Has been added current version of WordPress theme on wp_enqueue_style/ wp_enqueue_script functions.
+
 ### v1.40.0
   - Has been added field in customizer for team section from front page.
   - Has been added OWL Carousel for Latest News section from front page.
