@@ -54,14 +54,14 @@
 				$( '.logo' ).append( '<img src="" alt="'+ wp.customize._value.pixova_lite_image_logo +'" title="'+ wp.customize._value.pixova_lite_image_logo +'" />' );
 				$( '.logo img' ).attr( 'src', newval );
 			} else {
-				$( '.logo' ).text( wp.customize._value.pixova_lite_text_logo() );
+				$( '.logo' ).text( wp.customize._value.blogname() );
 			}
 
 		} );
 	} );
 
 	// Company text logo
-	wp.customize( 'pixova_lite_text_logo', function( value ) {
+	wp.customize( 'blogname', function( value ) {
 		value.bind( function( newval ) {
 				$( '.logo' ).text( newval );
 		} );

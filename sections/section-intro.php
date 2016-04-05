@@ -21,10 +21,10 @@ $pixova_lite_what_we_do_3_description = get_theme_mod('pixova_lite_intro_what_we
 
 echo '<section id="intro" class="home-intro" >';
         echo '<div class="parallax-bg-container">';
-            if ( get_header_image() !== '' ) {
+            if ( get_header_image() && get_header_image() !== '' ) {
                 echo '<div class="parallax-bg-image" data-image-source="'. get_header_image() .'"></div>';
             } else {
-                echo '<div class="parallax-bg-image" data-image-source='. get_template_directory_uri() .'/layout/images/header-bg.jpg"></div>';
+                echo '<div class="parallax-bg-image" data-image-source='. get_template_directory_uri() .'/layout/images/header-bg.jpg></div>';
             }
         echo '</div><!--/.parallax-bg-container-->';
 
