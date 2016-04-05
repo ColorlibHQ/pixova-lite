@@ -2,7 +2,7 @@
 Contributors:		machothemes
 Tags:               one-column, two-columns, three-columns, four-columns, right-sidebar, custom-header, custom-menu, featured-image-header, featured-images, full-width-template, threaded-comments, translation-ready
 Requires at least:	4.0
-Tested up to:		4.2
+Tested up to:		4.4.2
 
 Pixova Lite
 == Description ==

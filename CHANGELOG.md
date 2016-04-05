@@ -1,7 +1,7 @@
-### V 1.41
-  - Changed the way the front-page.php is handled
-  - Integrated a new notifications system to help guide users around the theme
-  - Small code cleanup
+### v1.41.0
+  - Changed the way the front-page.php is handled.
+  - Integrated a new notifications system to help guide users around the theme.
+  - Small code cleanup.
 
 ### v1.40.1
   - Has been added current version of WordPress theme on wp_enqueue_style/ wp_enqueue_script functions.

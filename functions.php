@@ -265,10 +265,10 @@ if( !function_exists( 'pixova_lite_enqueue_scripts' ) ) {
         wp_register_script( 'pathloader-js', get_template_directory_uri() . '/layout/js/pathLoader.js', array(), '2.1.7', true );
 
         # Scripts JS
-        wp_register_script ( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array('jquery', 'classie-js'), '1.40.1', true );
+        wp_register_script ( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array('jquery', 'classie-js'), '1.41.0', true );
 
         // Plugins JS
-        wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array('jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js'), '1.40.1', true );
+        wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array('jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js'), '1.41.0', true );
 
 
         /*
