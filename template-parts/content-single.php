@@ -40,16 +40,18 @@
 
                     <div class="entry-content">
                         <?php
-
                         the_content();
 
                         wp_link_pages( array(
                             'before' => '<nav class="page-links">' . __( 'Pages:', 'pixova-lite' ),
                             'after'  => '</nav>',
                         ) );
-
-
                         ?>
+                        <?php if( get_the_tag_list() ): ?>
+                            <ul class="entry-content-tags">
+                                <?php the_tags( '<li>'. __( 'Tags:', 'pixova-lite' ) .'</li> <li>', '</li>, <li>', '</li></ul>' ); ?>
+                            </ul><!--/.entry-content-tags-->
+                        <?php endif; ?>
                     </div><!-- .entry-content -->
                     <div class="clearfix"></div><!--/.clearfix-->
                 </div>

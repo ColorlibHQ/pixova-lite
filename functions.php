@@ -53,7 +53,6 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
         /**
          * Custom functions that act independently of the theme templates.
          */
-
         require get_template_directory() . '/inc/extras.php';
         require get_template_directory() . '/inc/components/breadcrumbs/class.mt-breadcrumbs.php';
         require get_template_directory() . '/inc/components/related-posts/class.mt-related-posts.php';
@@ -62,7 +61,6 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
         /**
          * Customizer additions.
          */
-
         require get_template_directory() . '/inc/customizer.php';
         require get_template_directory() . '/inc/custom-controls.php';
 
