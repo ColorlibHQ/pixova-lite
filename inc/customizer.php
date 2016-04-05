@@ -33,7 +33,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		// Change priority for Site Title
 		$site_title4           = $wp_customize->get_control( 'blogname' );
-		$site_title4->priority = 15;
+		$site_title4->section = 'pixova_lite_general_section';
+		$site_title4->description = esc_html__('Company name in text format below', 'pixova-lite');
+		$site_title4->priority = 1;
 
 		// Change priority for Site Tagline
 		$site_title5           = $wp_customize->get_control( 'blogdescription' );
@@ -247,22 +249,22 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 
 		/* Company text logo */
-		$wp_customize->add_setting('pixova_lite_text_logo',
-			array(
-					'sanitize_callback' => 'sanitize_text_field',
-					'default' => esc_html__('Pixova', 'pixova-lite'),
-					'transport' => 'postMessage'
-				)
-		);
+		// $wp_customize->add_setting('pixova_lite_text_logo',
+		// 	array(
+		// 			'sanitize_callback' => 'sanitize_text_field',
+		// 			'default' => esc_html__('Pixova', 'pixova-lite'),
+		// 			'transport' => 'postMessage'
+		// 		)
+		// );
 
-		$wp_customize->add_control(
-			'pixova_lite_text_logo',
-			array(
-				'label' 		=> esc_html__('Enter company name', 'pixova-lite'),
-				'section' 		=> 'pixova_lite_general_section',
-				'description'   => esc_html__('Company name in text format below', 'pixova-lite'),
-			)
-		);
+		// $wp_customize->add_control(
+		// 	'pixova_lite_text_logo',
+		// 	array(
+		// 		'label' 		=> esc_html__('Enter company name', 'pixova-lite'),
+		// 		'section' 		=> 'pixova_lite_general_section',
+		// 		'description'   => esc_html__('Company name in text format below', 'pixova-lite'),
+		// 	)
+		// );
 
 		/* Company image logo : PRO Feature */
     $wp_customize->add_setting('pixova_lite_image_logo',
@@ -413,7 +415,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'pixova_lite_enable_default_images',
 		array(
 			'sanitize_callback' => 'pixova_lite_sanitize_radio_buttons',
-			'default' => 'images_enabled'
+			'default' => 'images_disabled'
 		)
 	);
 
@@ -606,6 +608,7 @@ function pixova_lite_customize_register( $wp_customize ) {
             'panel' 	  => 'pixova_lite_panel_general'
         )
     );
+		
 
 		/*  Header Image */
 		$wp_customize->add_setting( 'pixova_lite_enable_blog_header_image',
@@ -623,6 +626,40 @@ function pixova_lite_customize_register( $wp_customize ) {
 							'label' => esc_html__('Header image on blog?', 'pixova-lite'),
 							'section' => 'pixova_lite_blog_related_section',
 					)
+			)
+		);
+
+		/* Blog Page Title */
+		$wp_customize->add_setting('pixova_lite_blog_text_title',
+			array(
+					'sanitize_callback' => 'sanitize_text_field',
+					'default' => esc_html__('Blog', 'pixova-lite'),
+					'transport' => 'postMessage'
+				)
+		);
+
+		$wp_customize->add_control(
+			'pixova_lite_blog_text_title',
+			array(
+				'label' 		=> esc_html__('Enter Archive(Blog) Page Title', 'pixova-lite'),
+				'section' 		=> 'pixova_lite_blog_related_section',
+			)
+		);
+
+		/* Blog Page Description */
+		$wp_customize->add_setting('pixova_lite_blog_text_description',
+			array(
+					'sanitize_callback' => 'sanitize_text_field',
+					'default' => esc_html__('Maecenas eget nisl vitae nunc molestie elementum non id urna.', 'pixova-lite'),
+					'transport' => 'postMessage'
+				)
+		);
+
+		$wp_customize->add_control(
+			'pixova_lite_blog_text_description',
+			array(
+				'label' 		=> esc_html__('Enter Archive(Blog) Page Description', 'pixova-lite'),
+				'section' 		=> 'pixova_lite_blog_related_section',
 			)
 		);
 
@@ -1019,11 +1056,29 @@ function pixova_lite_customize_register( $wp_customize ) {
 		)
 	);
 
+		/* Main CTA title */
+		$wp_customize->add_setting( 'pixova_lite_intro_title_cta',
+			array(
+				'sanitize_callback'	=> 'pixova_lite_sanitize_textarea_nl2br',
+				'default'			=> __( 'WELCOME TO PIXOVA LITE', 'pixova-lite' ),
+				'transport'			=> 'refresh'
+			)
+		);
+		$wp_customize->add_control(
+			'pixova_lite_intro_title_cta',
+			array(
+				'type'				=> 'textarea',
+				'label'				=> esc_html__( 'Main CTA title', 'pixova-lite' ),
+				// 'description'		=> esc_html__( 'This is your main attention grabber. Make the best of it.' , 'pixova-lite' ),
+				'section'			=> 'pixova_lite_intro_text'
+			)
+		);
+
 		/* Main CTA text */
 		$wp_customize->add_setting( 'pixova_lite_intro_cta',
 			array(
 				'sanitize_callback'	=> 'pixova_lite_sanitize_textarea_nl2br',
-				'default'			=> __( 'Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support', 'pixova-lite' ),
+				'default'			=> __( 'Free & Modern One-Page Parallax WordPress Theme', 'pixova-lite' ),
 				'transport'			=> 'refresh'
 			)
 		);
@@ -1040,8 +1095,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		/* Main CTA sub-text */
 		$wp_customize->add_setting('pixova_lite_intro_sub_cta',
 			array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('60fps smooth parallax header; Random header images (multiple images allowed here).', 'pixova-lite'),
+				'sanitize_callback' => 'pixova_lite_saniteze_intro',
+				'default' => esc_html__('Your cool business headline here. You can even <u><strong>insert HTML here & images</strong></u>.<br> Lorem ipsum dolor sit amet lorem dolor sit amet.', 'pixova-lite'),
 				'transport' => 'postMessage'
 			)
 		);
@@ -1057,6 +1112,94 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		);
 
+
+	/* Outline Button Section */
+	$wp_customize->add_section( 'pixova_lite_intro_outline_button' ,
+		array(
+			'title'       => esc_html__( 'Outline Button', 'pixova-lite' ),
+			'panel' 			=> 'pixova_lite_panel_intro'
+		)
+	);
+
+		/* Outline Button text */
+		$wp_customize->add_setting('pixova_lite_intro_outline_button_text',
+			array(
+				'sanitize_callback' => 'sanitize_text_field',
+				'default' => esc_html__('LEARN MORE', 'pixova-lite'),
+				'transport' => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'pixova_lite_intro_outline_button_text',
+			array(
+				'label' 	=> esc_html__('Button text ', 'pixova-lite'),
+				'description' => esc_html__('Text to be displayed on the button. Like BUY NOW or other Call To Action Text', 'pixova-lite'),
+				'section' 	=> 'pixova_lite_intro_outline_button',
+			)
+
+		);
+		
+		/* Outline Button URL */
+		$wp_customize->add_setting('pixova_lite_intro_outline_button_url',
+			array(
+				'sanitize_callback' => 'esc_url',
+				'default' => esc_url('#about'),
+				'transport' => 'postMessage'
+			)
+		);
+
+		$wp_customize->add_control(
+			'pixova_lite_intro_outline_button_url',
+			array(
+				'label' 	=> esc_html__('Button URL ', 'pixova-lite'),
+				'description' => esc_html__('You can make this button link to a section on the homepage, by using the section id and a # in front of it', 'pixova-lite'),
+				'section' 	=> 'pixova_lite_intro_outline_button',
+			)
+		);
+
+		# Outline Button Background color
+		$wp_customize->add_setting('pixova_lite_intro_outline_button_color',
+			array(
+				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
+				'default' => esc_attr('#ffffff'),
+				'transport' => 'postMessage'
+			)
+		);
+
+		$wp_customize->add_control( new WP_Customize_Color_Control (
+		$wp_customize,
+			'pixova_lite_intro_outline_button_color',
+				array(
+					'label' 		=> esc_html__('Button border color ', 'pixova-lite'),
+					'description' => esc_html__('Change the button border color from here.', 'pixova-lite'),
+					'section' 	=> 'pixova_lite_intro_outline_button',
+				)
+			)
+		);
+
+		# Outline Button Text color
+		$wp_customize->add_setting('pixova_lite_intro_outline_button_text_color',
+			array(
+				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
+				'default' => esc_attr('#ffffff'),
+				'transport' => 'postMessage'
+			)
+		);
+
+		$wp_customize->add_control( new WP_Customize_Color_Control (
+		$wp_customize,
+			'pixova_lite_intro_outline_button_text_color',
+				array(
+					'label' 		=> esc_html__('Button text color ', 'pixova-lite'),
+					'description' => esc_html__('Change the button text color from here.', 'pixova-lite'),
+					'section' 	=> 'pixova_lite_intro_outline_button',
+				)
+			)
+		);
+
+
+
 	/* Button Section */
 	$wp_customize->add_section( 'pixova_lite_intro_button' ,
 		array(
@@ -1069,7 +1212,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_intro_button_text',
 			array(
 				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('Explore Pixova.', 'pixova-lite'),
+				'default' => esc_html__('CONTACT US', 'pixova-lite'),
 				'transport' => 'postMessage',
 			)
 		);
@@ -1106,7 +1249,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_intro_button_color',
 			array(
 				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
-				'default' => esc_attr('#2ecc71'),
+				'default' => esc_attr('#f2c351'),
 				'transport' => 'postMessage'
 			)
 		);
@@ -1142,6 +1285,32 @@ function pixova_lite_customize_register( $wp_customize ) {
 			)
 		);
 
+		/* Show what we do ? */
+		$wp_customize->add_section( 'pixova_lite_show_what_we_do' ,
+			array(
+				'title'       		=> esc_html__( 'Show what we do section ?', 'pixova-lite' ),
+				'panel' 					=> 'pixova_lite_panel_intro'
+			)
+		);
+
+
+		/* What we do #1: change icon */
+		$wp_customize->add_setting('pixova_lite_intro_what_we_do_enabled',
+						array(
+										'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
+										'default' => esc_html__(0, 'pixova-lite'),
+						)
+		);
+
+		$wp_customize->add_control(
+						'pixova_lite_intro_what_we_do_enabled',
+						array(
+										'type'      => 'checkbox',
+										'label' 		=> esc_html__('Enable what we do section?', 'pixova-lite'),
+										'section' 	=> 'pixova_lite_show_what_we_do',
+										'default' => esc_html__(0, 'pixova-lite'),
+						)
+		);
 
 
 	/* What we do Section #1 */
@@ -1493,7 +1662,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_about_section_chart_1_bar_color',
 			array(
 				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
-				'default' => pixova_lite_sanitize_hex_color( '#2cc36b' ),
+				'default' => pixova_lite_sanitize_hex_color( '#f2c351' ),
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -1579,7 +1748,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_about_section_chart_2_bar_color',
 			array(
 				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
-				'default' => '#2cc36b'
+				'default' => '#f2c351'
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -1663,7 +1832,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_about_section_chart_3_bar_color',
 			array(
 				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
-				'default' => '#2cc36b'
+				'default' => '#f2c351'
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -1747,7 +1916,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_about_section_chart_4_bar_color',
 			array(
 				'sanitize_callback' => 'pixova_lite_sanitize_hex_color',
-				'default' => '#2cc36b'
+				'default' => '#f2c351'
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
@@ -3206,6 +3375,25 @@ function pixova_lite_customize_register( $wp_customize ) {
 					'priority'	=> 5
 				)
 			);
+
+			/***********************************************/
+			/************** Theme Support  ***************/
+			/***********************************************/
+
+			$wp_customize->add_section( 'pixova_lite_theme_support' , array(
+					'title'       => esc_html__( 'Theme Support', 'pixova-lite' ),
+					'priority'    => 36,
+			));
+
+				/* Theme Suppor Links */
+				$wp_customize->add_setting('pixova_lite_theme_support_link', array() );
+
+				$wp_customize->add_control( new Pixova_Lite_HTML_Custom_Control( $wp_customize, 'pixova_lite_theme_support_link', array(
+				 'section' => 'pixova_lite_theme_support',
+				 'priority' => 20,
+				) ) );
+
+
 }
 add_action( 'customize_register', 'pixova_lite_customize_register' );
 
@@ -3353,6 +3541,11 @@ function pixova_lite_sanitize_allowed_html ( $value ) {
 
 }
 
+function pixova_lite_saniteze_intro( $str ) {
+	$allowedHTML = array( 'u'=>array(), 'br' =>array(), 'strong' => array() );
+	return wp_kses( $str, $allowedHTML);
+}
+
 function pixova_lite_customizer_js_load() {
     wp_register_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array('jquery'), '1.0', true  );
     wp_enqueue_script( 'pixova_lite_customizer_script' );
@@ -3370,14 +3563,19 @@ add_action('customize_controls_print_styles','pixova_lite_customizer_css_load');
  */
 if( !function_exists( 'pixova_lite_customizer_css' ) ) {
 	function pixova_lite_customizer_css() {
-		$pixova_lite_intro_button_color = get_theme_mod( 'pixova_lite_intro_button_color', esc_attr( '#2ecc71' ) );
+		$pixova_lite_intro_button_color = get_theme_mod( 'pixova_lite_intro_button_color', esc_attr( '#f2c351' ) );
 		$pixova_lite_intro_button_text_color = get_theme_mod( 'pixova_lite_intro_button_text_color', esc_attr( '#ffffff' ) );
+
+		$pixova_lite_intro_outline_button_color = get_theme_mod( 'pixova_lite_intro_outline_button_color', esc_attr( '#ffffff' ) );
+		$pixova_lite_intro_outline_button_text_color = get_theme_mod( 'pixova_lite_intro_outline_button_text_color', esc_attr( '#ffffff' ) );
 
 		$output = '';
 
 		$output .= '<style type="text/css">';
 			$output .= $pixova_lite_intro_button_color ? 'body .btn-cta-intro {background-color: '. esc_attr( $pixova_lite_intro_button_color ) .';}' : '';
 			$output .= $pixova_lite_intro_button_text_color ? 'body .btn-cta-intro {color: '. esc_attr( $pixova_lite_intro_button_text_color ) .';}' : '';
+			$output .= $pixova_lite_intro_outline_button_color ? 'body .btn-cta-intro-outline {border-color: '. esc_attr( $pixova_lite_intro_outline_button_color ) .';}' : '';
+			$output .= $pixova_lite_intro_outline_button_text_color ? 'body .btn-cta-intro-outline {color: '. esc_attr( $pixova_lite_intro_outline_button_text_color ) .';}' : '';
 		$output .= '</style>';
 
 		echo $output;

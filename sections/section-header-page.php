@@ -60,7 +60,7 @@ echo '<header id="header-wrap">';
 
 
 
-    echo '<div class="container">';
+    echo '<div class="container" id="intro-holder">';
         echo '<div class="intro-content parallax-text-fade">';
             echo '<div class="row">';
                 echo '<div class="col-md-12">';

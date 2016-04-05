@@ -1,10 +1,17 @@
 <?php
 
-$pixova_lite_main_cta_text = get_theme_mod( 'pixova_lite_intro_cta', __( 'Probably the BEST FREE WordPress theme of all times. Now with WooCommerce Support.', 'pixova-lite' ) );
-$pixova_lite_main_cta_sub_text = get_theme_mod('pixova_lite_intro_sub_cta', __('60fps smooth parallax header; Random header images (multiple images allowed here).', 'pixova-lite') );
-$pixova_lite_main_cta_button_text = get_theme_mod('pixova_lite_intro_button_text', __('Explore Pixova.', 'pixova-lite') );
+$pixova_lite_main_cta_title = get_theme_mod( 'pixova_lite_intro_title_cta', __( 'WELCOME TO PIXOVA LITE', 'pixova-lite' ) );
+$pixova_lite_main_cta_text = get_theme_mod( 'pixova_lite_intro_cta', __( 'Free & Modern One-Page Parallax WordPress Theme', 'pixova-lite' ) );
+$pixova_lite_main_cta_sub_text = get_theme_mod('pixova_lite_intro_sub_cta', __('Your cool business headline here. You can even <u><strong>insert HTML here & images</strong></u>.<br> Lorem ipsum dolor sit amet lorem dolor sit amet.', 'pixova-lite') );
+$pixova_lite_main_cta_button_text = get_theme_mod('pixova_lite_intro_button_text', __('CONTACT US', 'pixova-lite') );
 $pixova_lite_main_cta_button_url = get_theme_mod('pixova_lite_intro_button_url', '#about');
 
+//Outline Button
+
+$pixova_lite_main_cta_outline_button_text = get_theme_mod('pixova_lite_intro_outline_button_text', __('LEARN MORE', 'pixova-lite') );
+$pixova_lite_main_cta_outline_button_url = get_theme_mod('pixova_lite_intro_outline_button_url', '#about');
+
+$pixova_lite_what_we_do_enabled = get_theme_mod('pixova_lite_intro_what_we_do_enabled', 0);
 $pixova_lite_what_we_do_1 = get_theme_mod('pixova_lite_intro_what_we_do_1_title', __('Web design', 'pixova-lite') );
 $pixova_lite_what_we_do_1_description = get_theme_mod('pixova_lite_intro_what_we_do_1_description', __('Lorem ipsum dolor sit amet. Lorem ipsum.', 'pixova-lite') );
 $pixova_lite_what_we_do_2 = get_theme_mod('pixova_lite_intro_what_we_do_2_title', __('Development', 'pixova-lite') );
@@ -21,13 +28,15 @@ echo '<section id="intro" class="home-intro" >';
             }
         echo '</div><!--/.parallax-bg-container-->';
 
-        echo '<div class="container">';
+        echo '<div class="container" id="intro-holder">';
             echo '<div class="intro-content parallax-text-fade">';
                 echo '<div class="row">';
                     echo '<div class="col-md-12">';
                         echo '<div class="text-center">';
+                            echo '<h1 class="intro-cta-title">'. $pixova_lite_main_cta_title .'</h1>';
                             echo '<h1 class="intro-title">'. $pixova_lite_main_cta_text .'</h1>';
-                            echo '<p class="intro-tagline">'. esc_html( $pixova_lite_main_cta_sub_text ) .'</p>';
+                            echo '<p class="intro-tagline">'. wp_kses( $pixova_lite_main_cta_sub_text, array( 'u'=>array(), 'br' =>array(), 'strong' => array() ) ) .'</p>';
+                            echo '<a class="btn btn-cta btn-cta-intro-outline" href="'.esc_url( $pixova_lite_main_cta_outline_button_url ).'"><span>'.esc_html( $pixova_lite_main_cta_outline_button_text ).'</span></a>';
                             echo '<a class="btn btn-cta btn-cta-intro" href="'.esc_url( $pixova_lite_main_cta_button_url ).'"><span>'.esc_html( $pixova_lite_main_cta_button_text ).'</span></a>';
                         echo '</div><!--/.text-center-->';
                     echo '</div><!--/.col-md-12-->';
@@ -35,6 +44,7 @@ echo '<section id="intro" class="home-intro" >';
             echo '</div><!--/.intro-content.parallax-text-fade-->';
         echo '</div><!--/.container-->';
 
+if( $pixova_lite_what_we_do_enabled == 1 ) {
         echo '<div class="container">';
                 echo '<div class="intro-services parallax-text-fade">';
                     echo '<div class="row">';
@@ -67,4 +77,7 @@ echo '<section id="intro" class="home-intro" >';
             echo '</div><!--/.row-->';
         echo '</div><!--/.intro-services.parallax-text-fade-->';
     echo '</div><!--/.container-->';
+
+  } // end if
+
 echo '</section><!--/#intro.home-intro-->';

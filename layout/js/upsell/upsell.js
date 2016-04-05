@@ -30,9 +30,10 @@
 
 		$('#customize-theme-controls > ul').prepend('<li class="accordion-section upsell-links">');
 
-		$('.upsell-links').prepend( documentatLink );
-		 $('.upsell-links').prepend( supportLink );
-		$('.upsell-links').prepend( upsellLink );
+		// $('.upsell-links').prepend( documentatLink );
+		// $('.upsell-links').prepend( supportLink );
+		// $('.upsell-links').prepend( upsellLink );
+		$('.preview-notice').append( upsellLink );
 
 	}
 

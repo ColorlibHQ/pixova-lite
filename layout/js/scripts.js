@@ -60,7 +60,7 @@
     function woocommerceTabs() {
 
          $('.woocommerce-tabs .wc-tabs > li > a').click(function(){
-           
+
             var selector = $(this).attr('href');
 
             $( '.woocommerce-tabs .wc-tabs > li' ).removeClass('active');
@@ -213,11 +213,11 @@
      ========================================================================== */
 
     function animateElements() {
-        if ($('.btn-cta-intro').length ){
-            $('.btn-cta-intro').each(function(){
-                $(this).addClass('wow bounceInUp');
-            });
-        }
+        // if ($('.btn-cta-intro').length ){
+        //     $('.btn-cta-intro').each(function(){
+        //         $(this).addClass('wow bounceInUp');
+        //     });
+        // }
 
         if ($('#about .container').length ){
             $('#about .container').each(function(){
@@ -347,14 +347,14 @@
         teamsettings();
         woocommerceTabs();
     });
-
+    /*
     if( viewportSize.getHeight() > 800 && !isMobile() && pixova_lite_localization.parallax_enabled == 'header_effect_enabled' ) {
 
         jQuery(window).scroll(function($){
             fadeOutTextOnScroll();
         });
     }
-
+    */
     jQuery(window).scroll(function($) {
 
         initNavbar();

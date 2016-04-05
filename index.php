@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php get_template_part('sections/section','header-archive'); ?>
+<?php //get_template_part('sections/section','header-archive'); ?>
 
     <div class="container">
         <div class="row">
@@ -14,20 +14,16 @@
 
                             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                                <div class="mt-date">
-                                    <time datetime="<?php printf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ); ?>"><?php echo get_the_date( get_option('date_format'), $post->ID); ?></time>
-                                </div><!--/.mt-date-->
-
                                 <header class="entry-header">
                                     <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
                                 </header><!-- .entry-header -->
 
                                 <div class="entry-meta">
-                                    <?php echo 'Written by: '.get_the_author(); ?>
+                                    <time datetime="<?php printf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ); ?>"><?php echo get_the_date( get_option('date_format'), $post->ID); ?></time>
                                     <?php echo '&middot;'; ?>
-                                    <?php echo 'Posted in: '.get_the_category_list(', ', '', false); ?>
+                                    <?php echo __('by', 'pixova-lite').' '.get_the_author(); ?>
                                     <?php echo '&middot;'; ?>
-                                    <?php the_tags( __('Tags:', 'pixova-lite') , ', ', '<br />' ); ?>
+                                    <?php echo get_the_category_list(', ', '', false); ?>
                                 </div><!--/.entry-meta-->
 
                                 <?php if( has_post_thumbnail() ) { ?>
@@ -71,7 +67,7 @@
                 </div><!--/.col-lg-3-->
 
                 <nav class="mt-custom-pagination col-lg-12">
-                    <?php pixova_lite_pagination(); ?>
+                    <?php the_posts_pagination(); ?>
                 </nav><!--/.mt-custom-pagination-->
 
 

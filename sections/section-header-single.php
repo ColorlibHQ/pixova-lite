@@ -54,15 +54,17 @@ echo '<section id="intro" class="blog-intro">';
    echo '</div><!--/.parallax-bg-container-->';
 
 
-    echo '<div class="container">';
+    echo '<div class="container" id="intro-holder">';
         echo '<div class="intro-content parallax-text-fade">';
             echo '<div class="row">';
                 echo '<div class="col-md-12">';
                     echo '<div class="text-center">';
-                        echo '<div class="mt-date"><time datetime="'. sprintf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ) .'">'. get_the_date(get_option('date_format'), $post->ID) .'</time></div>';
                         echo '<h1 class="intro-title">'.esc_html( get_the_title() ).'</h1>';
                         echo '<p class="intro-tagline">';
+                            echo '<time datetime="'. sprintf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ) .'">'. get_the_date(get_option('date_format'), $post->ID) .'</time>';
+                            echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;';
                             echo '<span class="mt-category">'.get_the_category_list(', ', '', false).'</span>';
+                            echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;';
                             echo '<span class="mt-comments">'.pixova_lite_get_number_of_comments($post->ID).'</span>';
                         echo '</p>';
                     echo '</div><!--/.text-center-->';
