@@ -16,14 +16,47 @@
 
     if( !isset( $wp_customize ) && $preloader_enabled == 'preloader_enabled' ) { ?>
 
-        <!-- Site Preloader -->
-        <div id="page-loader">
-            <div class="page-loader-inner">
-                <div class="loader"><strong><?php echo esc_html__('Loading', 'pixova-lite'); ?></strong></div>
+        <!-- New Site Preloader -->
+
+        <div id="awesome-loader" class="loading">
+            <div class="logo-holder">
+                <?php do_action( 'pixova_lite_logo' ); ?>
+            </div>
+            <div class="loader-holder">
+                <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                    <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                    <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                </svg>
             </div>
         </div>
+
         <!-- END Site Preloader -->
 
     <?php } ?>
 
     <div id="container" class="hfeed">
+
+<?php
+
+if ( is_front_page() ) {
+
+	get_template_part('sections/section', 'header');
+	$intro_section_show = get_theme_mod('pixova_lite_intro_visibility', 1);
+
+	if( isset( $intro_section_show ) && $intro_section_show == 1 ) {
+		get_template_part('sections/section', 'intro');
+	}
+}elseif ( is_search() || is_archive() || is_home() || is_page_template( 'page-templates/blog-template.php' ) ) {
+	get_template_part('sections/section','header-archive');
+}elseif ( is_page() || is_author() || is_404() ) {
+	get_template_part('sections/section', 'header-page');
+}elseif ( is_single() ) {
+	get_template_part('sections/section','header-single');
+}elseif ( function_exists( is_woocommerce() ) && is_woocommerce() ) {
+	get_template_part( 'sections/section', 'header-woocommerce' );
+}else{
+	get_template_part('sections/section', 'header');
+}
+
+
+?>

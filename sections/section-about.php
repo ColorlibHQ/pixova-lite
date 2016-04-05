@@ -11,25 +11,25 @@ $pixova_lite_section_text_blockquote = get_theme_mod('pixova_lite_about_section_
 // Section #1 Chart
 $pixova_lite_section_1_chart_heading = get_theme_mod('pixova_lite_about_section_chart_1_heading', __('Web development', 'pixova-lite') );
 $pixova_lite_section_1_chart_percentage = get_theme_mod('pixova_lite_about_section_chart_1_percentage', '70');
-$pixova_lite_section_1_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_1_bar_color', '#2cc36b');
+$pixova_lite_section_1_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_1_bar_color', '#f2c351');
 $pixova_lite_section_1_chart_track_color = get_theme_mod('pixova_lite_about_section_chart_1_track_color', '#EEEEEE');
 
 // Section #2 Chart
 $pixova_lite_section_2_chart_heading = get_theme_mod('pixova_lite_about_section_chart_2_heading', __('Web Design', 'pixova-lite') );
 $pixova_lite_section_2_chart_percentage = get_theme_mod('pixova_lite_about_section_chart_2_percentage', '70');
-$pixova_lite_section_2_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_2_bar_color', '#2cc36b');
+$pixova_lite_section_2_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_2_bar_color', '#f2c351');
 $pixova_lite_section_2_chart_track_color = get_theme_mod('pixova_lite_about_section_chart_2_track_color', '#EEEEEE');
 
 // Section #3 Chart
 $pixova_lite_section_3_chart_heading = get_theme_mod('pixova_lite_about_section_chart_3_heading', __('Print Design', 'pixova-lite') );
 $pixova_lite_section_3_chart_percentage = get_theme_mod('pixova_lite_about_section_chart_3_percentage', '70');
-$pixova_lite_section_3_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_3_bar_color', '#2cc36b');
+$pixova_lite_section_3_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_3_bar_color', '#f2c351');
 $pixova_lite_section_3_chart_track_color = get_theme_mod('pixova_lite_about_section_chart_3_track_color', '#EEEEEE');
 
 // Section #4 Chart
 $pixova_lite_section_4_chart_heading = get_theme_mod('pixova_lite_about_section_chart_4_heading', __('Graphic Identity', 'pixova-lite') );
 $pixova_lite_section_4_chart_percentage = get_theme_mod('pixova_lite_about_section_chart_4_percentage', '70');
-$pixova_lite_section_4_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_4_bar_color', '#2cc36b');
+$pixova_lite_section_4_chart_bar_color = get_theme_mod('pixova_lite_about_section_chart_4_bar_color', '#f2c351');
 $pixova_lite_section_4_chart_track_color = get_theme_mod('pixova_lite_about_section_chart_4_track_color', '#EEEEEE');
 
 // Logic used to dynamically create the layout, based on how many charts are active

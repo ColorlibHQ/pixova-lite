@@ -1,7 +1,7 @@
 <?php /* Template Name: Blog Template */ ?>
 
 <?php get_header(); ?>
-<?php get_template_part('sections/section', 'header-archive'); ?>
+<?php //get_template_part('sections/section', 'header-archive'); ?>
 
 <div class="container">
     <div class="row">
@@ -39,7 +39,7 @@
                 </div><!--/.col-lg-3-->
 
                 <div class="mt-custom-pagination col-lg-12">
-                    <?php pixova_lite_pagination(); ?>
+                    <?php the_posts_pagination(); ?>
                 </div><!--/.mt-custom-pagination-->
 
         </section><!--/section-->

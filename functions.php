@@ -87,6 +87,11 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
          */
         require get_template_directory() . '/inc/plugin-activation.php';
 
+        /**
+         * HTML Custom control
+         */
+        require get_template_directory() . '/inc/customizer/pixova_lite_custom_control.php';
+
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
@@ -153,10 +158,64 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
         add_image_size('pixova-lite-recent-works-image', 285, 450, true);
 
 
+        /*******************************************/
+        /*************  Welcome screen *************/
+        /*******************************************/
+
+        if ( is_admin() ) {
+
+            global $pixova_lite_required_actions;
+
+            /*
+             * id - unique id; required
+             * title
+             * description
+             * check - check for plugins (if installed)
+             * plugin_slug - the plugin's slug (used for installing the plugin)
+             *
+             */
+            $pixova_lite_required_actions = array(
+                array(
+                    "id" => 'pixova-lite-req-ac-frontpage-latest-news',
+                    "title" => esc_html__( 'Get the one page template' ,'pixova-lite' ),
+                    "description"=> esc_html__( 'If you just installed Pixova Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Static Page".','pixova-lite' ),
+                    "check" => pixova_lite_is_not_static_page()
+                ),
+                array(
+                    "id" => 'pixova-lite-req-ac-install-pirate-forms',
+                    "title" => esc_html__( 'Install Pirate Forms' ,'pixova-lite' ),
+                    "description"=> esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
+                    "check" => defined("PIRATE_FORMS_VERSION"),
+                    "plugin_slug" => 'pirate-forms'
+                ),
+                /*
+                array(
+                    "id" => 'pixova-lite-req-ac-install-contact-forms',
+                    "title" => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
+                    "description"=> esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
+                    "plugin_slug" => 'contact-form-7'
+                ),
+                */
+                array(
+                    "id" => 'pixova-lite-req-ac-check-pirate-forms',
+                    "title" => esc_html__( 'Check the contact form after installing Pirate Forms' ,'pixova-lite' ),
+                    "description"=> esc_html__( "After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Pixova Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.",'pixova-lite' ),
+                )
+            );
+
+            require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
+        }
+
+
     } // function pixova_lite_theme_setup
     add_action( 'after_setup_theme', 'pixova_lite_theme_setup', 9 );
 } // function exists (pixova_lite_theme_setup) check
 
+if( !function_exists( 'pixova_lite_is_not_latest_posts' ) ) {
+    function pixova_lite_is_not_static_page() {
+        return ('page' == get_option( 'show_on_front' ) ? true : false);
+    }
+}
 
 if( !function_exists( 'pixova_lite_enqueue_scripts' ) ) {
     /**
@@ -202,11 +261,14 @@ if( !function_exists( 'pixova_lite_enqueue_scripts' ) ) {
         # jQuery Easy Pie Charts
         wp_register_script( 'pie-chart-js', get_template_directory_uri() . '/layout/js/easypiechart/easypiechart.min.js', array('jquery', 'viewport-min-js'), '2.1.7', true );
 
+        # jQuery Easy Pie Charts
+        wp_register_script( 'pathloader-js', get_template_directory_uri() . '/layout/js/pathLoader.js', array(), '2.1.7', true );
+
         # Scripts JS
-        wp_register_script ( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array('jquery', 'classie-js'), '1.40.1', true );
+        wp_register_script ( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array('jquery', 'classie-js'), '1.41.0', true );
 
         // Plugins JS
-        wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array('jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js'), '1.40.1', true );
+        wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array('jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js'), '1.41.0', true );
 
 
         /*
@@ -231,6 +293,7 @@ if( !function_exists( 'pixova_lite_enqueue_scripts' ) ) {
         $preloader_enabled = get_theme_mod('pixova_lite_preloader_enabled', 'preloader_enabled');
 
         if ( !isset( $wp_customize ) && $preloader_enabled == 'preloader_enabled' ) {
+            wp_enqueue_script( 'pathloader-js' );
             wp_enqueue_script('pace-loader-min-js');
             wp_enqueue_script('pixova-lite-preloader');
         } else {
@@ -244,6 +307,7 @@ if( !function_exists( 'pixova_lite_enqueue_scripts' ) ) {
         wp_enqueue_script( 'smooth-scroll-js' );
         wp_enqueue_script( 'viewport-min-js' );
         wp_enqueue_script( 'parallax-min-js' );
+        
 
         # Animations Enabled ?
         $animations_enabled = get_theme_mod('pixova_lite_animations_enabled', 'animations_enabled');
@@ -407,18 +471,6 @@ if( !function_exists('pixova_lite_register_required_plugins') ) {
          * If the source is NOT from the .org repo, then source is also required.
          */
         $plugins = array(
-
-            // This is an example of how to include a plugin pre-packaged with a theme.
-            array(
-                'name'                  => 'Contact Form 7', // The plugin name.
-                'slug'                  => 'contact-form-7', // The plugin slug (typically the folder name).
-                'source'                => '', // The plugin source.
-                'required'              => false, // If false, the plugin is only 'recommended' instead of required.
-                'version'               => '4.2', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-                'force_activation'      => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-                'force_deactivation'    => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-                'external_url'          => '', // If set, overrides default API URL and points to an external URL.
-            ),
             array(
                 'name'                  => 'Pirate Forms - Contact Form and SMTP Plugin', // The plugin name.
                 'slug'                  => 'pirate-forms', // The plugin slug (typically the folder name).
@@ -559,16 +611,16 @@ if ( ! function_exists( 'pixova_lite_fonts_url' ) ) {
          * Translators: If there are characters in your language that are not supported
          * by Source Sans Pro Sans Serif, translate this to 'off'. Do not translate into your own language.
          */
-        if ('off' !== _x('on', 'Source Sans Pro font: on or off', 'pixova-lite')) {
-            $fonts[] = 'Source Sans Pro:300,400,600,700';
+        if ('off' !== _x('on', 'Poppins font: on or off', 'pixova-lite')) {
+            $fonts[] = 'Poppins:600';
         }
 
         /*
          * Translators: If there are characters in your language that are not supported
          * by Souce Sans Pro Sans Serif, translate this to 'off'. Do not translate into your own language.
          */
-        if ('off' !== _x('on', 'Source Sans Pro font: on or off', 'pixova-lite')) {
-            $fonts[] = 'Source Sans Pro:300,400,600,700';
+        if ('off' !== _x('on', 'Roboto: on or off', 'pixova-lite')) {
+            $fonts[] = 'Roboto:400,500,700,400italic,700italic';
         }
 
         /*
@@ -611,7 +663,7 @@ if( !function_exists( 'pixova_lite_add_default_widgets' ) ) {
   */
   function pixova_lite_add_default_widgets() {
 
-      $json = '{"orphaned_widgets_1":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"shop-sidebar":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"blog-sidebar":{"search-2":{"title":""},"recent-posts-2":{"title":"","number":5},"recent-comments-2":{"title":"","number":5},"archives-2":{"title":"","count":0,"dropdown":0},"categories-2":{"title":"","count":0,"hierarchical":0,"dropdown":0},"meta-2":{"title":""}},"footer-sidebar-1":{"pixova_lite_widget_about-2":{"title":"About","about_text":"The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour.\r\n\r\n","show_title":"1"}},"footer-sidebar-2":{"text-2":{"title":"Quick nav","text":"  <ul id=\"menu-pixova-footer-menu\" class=\"menu\">\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#about\">About<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#works\">Recent Works<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#testimonials\">Testimonials<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#news\">News<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#team\">Team<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#contact\">Contact<\/a><\/li>\r\n                                    <\/ul>","filter":false}},"footer-sidebar-3":{"pixova_lite_widget_latest_posts-2":{"title":"Latest post","items":"1","show_title":"1"}},"footer-sidebar-4":{"pixova_lite_widget_social_media-3":{"title":"Follow us","profile_facebook":"#","profile_twitter":"#","profile_plus":"#","profile_pinterest":"#","profile_youtube":"#","profile_dribbble":"#","profile_tumblr":"#","profile_instagram":"#","profile_github":"#","profile_bitbucket":"#","profile_codepen":"#","show_title":""}}}';
+      $json = '{"orphaned_widgets_1":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"shop-sidebar":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"blog-sidebar":{"search-2":{"title":""},"recent-posts-2":{"title":"","number":5},"recent-comments-2":{"title":"","number":5},"archives-2":{"title":"","count":0,"dropdown":0},"categories-2":{"title":"","count":0,"hierarchical":0,"dropdown":0},"meta-2":{"title":""}},"footer-sidebar-1":{"pixova_lite_widget_about-2":{"title":"About","about_text":"The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour.\r\n\r\n","show_title":"1"}},"footer-sidebar-2":{"text-2":{"title":"Quick nav","text":"  <ul id=\"menu-pixova-footer-menu\" class=\"menu\">\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#about\">About<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#works\">Recent Works<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#testimonials\">Testimonials<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#news\">News<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#team\">Team<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#contact\">Contact<\/a><\/li>\r\n                                    <\/ul>","filter":false}},"footer-sidebar-3":{"pixova_lite_widget_latest_posts-2":{"title":"Latest post","items":"1","show_title":"1"}},"footer-sidebar-4":{"pixova_lite_widget_social_media-3":{"title":"Follow us","profile_facebook":" ","profile_twitter":" ","profile_plus":" ","profile_pinterest":" ","profile_youtube":" ","profile_dribbble":" ","profile_tumblr":" ","profile_instagram":" ","profile_github":" ","profile_bitbucket":" ","profile_codepen":"","show_title":""}}}';
       $config = json_decode($json);
 
       $sidebars_widgets = get_option( 'sidebars_widgets' );

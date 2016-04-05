@@ -1,6 +1,9 @@
 <?php
 $image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 
+$blog_title = get_theme_mod( 'pixova_lite_blog_text_title', esc_html__('Blog', 'pixova-lite') );
+$blog_description = get_theme_mod( 'pixova_lite_blog_text_description', esc_html__('Maecenas eget nisl vitae nunc molestie elementum non id urna.', 'pixova-lite') );
+
 echo '<!-- Header -->';
 echo '<header id="header-wrap">';
     echo '<div class="container header clearfix">';
@@ -56,14 +59,14 @@ echo '<section id="intro" class="blog-intro">';
 
    echo '</div><!--/.parallax-bg-container-->';
 
-    echo '<div class="container">';
+    echo '<div class="container" id="intro-holder">';
         echo '<div class="intro-content parallax-text-fade">';
             echo '<div class="row">';
                 echo '<div class="col-md-12">';
                     echo '<div class="text-center">';
                     if( is_page_template('page-templates/blog-template.php') ) {
-                        echo '<h1 class="intro-title">'.esc_html( get_option('blogname') ).'</h1>';
-                        echo '<p class="intro-tagline">'.esc_html( get_option('blogdescription') ).'</p>';
+                        echo '<h1 class="intro-title">'.esc_html( $blog_title ).'</h1>';
+                        echo '<p class="intro-tagline">'.esc_html( $blog_description ).'</p>';
                     } else if(is_category() ) {
                         echo the_archive_title('<h1 class="intro-title">', '</h1>');
                         echo the_archive_description('<p class="intro-tagline">', '</p>');

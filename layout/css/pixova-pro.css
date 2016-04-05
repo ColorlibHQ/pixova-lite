@@ -97,7 +97,6 @@
 
 
 /* Upsell link */
-.upsell-link,
 .doc-link,
 .review-link {
     display: block;
@@ -110,6 +109,18 @@
     font-size: 14px;
     margin: 10px auto;
 
+}
+
+.upsell-link {
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    border: none;
+    text-align: center;
+    font-size: 12px;
+    margin: 10px auto 0;
 }
 
 .upsell-link:hover,
