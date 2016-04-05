@@ -13,11 +13,10 @@
 							</header><!-- .entry-header -->
 
 							<div class="entry-meta">
-								<?php echo __('Written by: ', 'pixova-lite') . '<a href="'.esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ).'" rel="author">'.get_the_author().'</a>'; ?>
-								<?php echo '&middot;'; ?>
-								<?php echo __('Posted in: ', 'pixova-lite').get_the_category_list(', ', '', false); ?>
-								<?php echo '&middot;'; ?>
-								<?php the_tags( __('Tags:', 'pixova-lite') , ', ', '<br />' ); ?>
+								<?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
+                                <?php echo __('by', 'pixova-lite').' '.get_the_author(); ?>
+                                <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
+                                <?php echo get_the_category_list(', ', '', false); ?>
 							</div><!--/.entry-meta-->
 
 							<?php if( has_post_thumbnail() ) { ?>
@@ -57,7 +56,7 @@
 		</aside><!--/.col-lg-3-->
 
 		<nav class="mt-custom-pagination col-lg-12">
-			<?php pixova_lite_pagination(); ?>
+			<?php the_posts_pagination(); ?>
 		</nav> <!--/.mt-custom-pagination-->
 
         </section><!--/section-->

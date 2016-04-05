@@ -356,218 +356,6 @@ if ( !function_exists( 'pixova_lite_pagination' ) ) {
     }
 }
 
-#
-# More Themes Functionality
-#
-
-
-if( !function_exists( 'pixova_lite_more_themes_styles' ) ) {
-    /**
-     *
-     */
-    function pixova_lite_more_themes_styles() {
-        wp_enqueue_style('more-theme-style', get_template_directory_uri() . '/layout/css/more-themes.min.css');
-    }
-}
-
-# Add upsell page to the menu.
-if( !function_exists( 'pixova_lite_add_upsell' ) ) {
-    /**
-     *
-     */
-    function pixova_lite_lite_add_upsell() {
-
-        $page = add_theme_page(
-            __( 'More Themes', 'pixova-lite' ),
-            __( 'More Themes', 'pixova-lite' ),
-            'administrator',
-            'macho-themes',
-            'pixova_lite_display_upsell'
-        );
-
-        add_action( 'admin_print_styles-' . $page, 'pixova_lite_more_themes_styles' );
-    }
-
-    add_action( 'admin_menu', 'pixova_lite_lite_add_upsell', 11 );
-}
-
-
-# Define markup for the upsell page.
-if( !function_exists( 'pixova_lite_display_upsell' ) ) {
-    function pixova_lite_display_upsell() {
-
-        // Set template directory uri
-        $directory_uri = get_template_directory_uri();
-        ?>
-        <div class="wrap">
-            <div class="container-fluid">
-                <div id="upsell_container">
-                    <div class="row">
-                        <div id="upsell_header" class="col-md-12">
-
-                            <a href="http://www.machothemes.com/" target="_blank">
-                                <img
-                                    src="<?php echo get_template_directory_uri(); ?>/layout/images/upsell/macho-themes-logo.png"/>
-                            </a>
-
-                            <h3><?php printf( __( 'Simple. Powerful. Flexible. That\'s how we at %s build all of our themes.', 'pixova-lite' ), sprintf( '<a href="http://www.machothemes.com" target="_blank" rel="nofollow">%s</a>', __( 'Macho Themes', 'pixova-lite' ) ) ); ?></h3>
-
-                        </div>
-                    </div>
-                    <div id="upsell_themes" class="row">
-                        <?php
-
-                        // Set the argument array with author name.
-                        $args = array(
-                            'author' => 'cristianraiber-1',
-                        );
-
-                        // Set the $request array.
-                        $request = array(
-                            'body' => array(
-                                'action'  => 'query_themes',
-                                'request' => serialize( (object) $args )
-                            )
-                        );
-
-                        $themes       = pixova_lite_get_themes( $request );
-                        $active_theme = wp_get_theme()->get( 'Name' );
-                        $counter      = 1;
-
-                        // For currently active theme.
-                        foreach ( $themes->themes as $theme ) {
-                            if ( $active_theme == $theme->name ) { ?>
-
-                                <div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4">
-                                    <div class="image-container">
-                                        <img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
-
-                                        <div class="theme-description">
-                                            <p><?php echo $theme->description; ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="theme-details active">
-											<span
-                                                class="theme-name"><?php echo $theme->name . ':' . __( ' Current theme', 'pixova-lite' ); ?></span>
-                                        <a class="button button-secondary customize right" target="_blank"
-                                           href="<?php echo get_site_url() . '/wp-admin/customize.php' ?>">Customize</a>
-                                    </div>
-                                </div>
-
-                                <?php
-                                $counter ++;
-                                break;
-                            }
-                        }
-
-                        // For all other themes.
-                        foreach ( $themes->themes as $theme ) {
-                            if ( $active_theme != $theme->name ) {
-
-                                // Set the argument array with author name.
-                                $args = array(
-                                    'slug' => $theme->slug,
-                                );
-
-                                // Set the $request array.
-                                $request = array(
-                                    'body' => array(
-                                        'action'  => 'theme_information',
-                                        'request' => serialize( (object) $args )
-                                    )
-                                );
-
-                                $theme_details = pixova_lite_get_themes( $request );
-                                ?>
-
-                                <div id="<?php echo $theme->slug; ?>"
-                                     class="theme-container col-md-6 col-lg-4 <?php echo $counter % 3 == 1 ? 'no-left-megin' : ""; ?>">
-                                    <div class="image-container">
-                                        <img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
-
-                                        <div class="theme-description">
-                                            <p><?php echo $theme->description; ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="theme-details">
-                                        <span class="theme-name"><?php echo $theme->name; ?></span>
-
-                                        <!-- Check if the theme is installed -->
-                                        <?php if ( wp_get_theme( $theme->slug )->exists() ) { ?>
-
-                                            <!-- Activate Button -->
-                                            <a class="button button-primary activate right"
-                                               href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug ); ?>">Activate</a>
-                                        <?php } else {
-
-                                            // Set the install url for the theme.
-                                            $install_url = add_query_arg( array(
-                                                'action' => 'install-theme',
-                                                'theme'  => $theme->slug,
-                                            ), self_admin_url( 'update.php' ) );
-                                            ?>
-                                            <!-- Install Button -->
-                                            <a data-toggle="tooltip" data-placement="bottom"
-                                               title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>"
-                                               class="button button-primary install right"
-                                               href="<?php echo esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ); ?>"><?php _e( 'Install Now', 'pixova-lite' ); ?></a>
-                                        <?php } ?>
-
-                                        <!-- Preview button -->
-                                        <a class="button button-secondary preview right" target="_blank"
-                                           href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'pixova-lite' ); ?></a>
-                                    </div>
-                                </div>
-                                <?php
-                                $counter ++;
-                            }
-                        } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <?php
-    }
-}
-
-# Get all Macho Themes themes by using WP API.
-if( !function_exists( 'pixova_lite_get_themes' ) ) {
-    function pixova_lite_get_themes( $request ) {
-
-        // Generate a cache key that would hold the response for this request:
-        $key = 'pixova-lite_' . md5( serialize( $request ) );
-
-        // Check transient. If it's there - use that, if not re fetch the theme
-        if ( false === ( $themes = get_transient( $key ) ) ) {
-
-            // Transient expired/does not exist. Send request to the API.
-            $response = wp_remote_post( 'http://api.wordpress.org/themes/info/1.0/', $request );
-
-            // Check for the error.
-            if ( ! is_wp_error( $response ) ) {
-
-                $themes = unserialize( wp_remote_retrieve_body( $response ) );
-
-
-                if ( ! is_object( $themes ) && ! is_array( $themes ) ) {
-
-                    // Response body does not contain an object/array
-                    return new WP_Error( 'theme_api_error', 'An unexpected error has occurred' );
-                }
-
-                // Set transient for next time... keep it for 24 hours should be good
-                set_transient( $key, $themes, 60 * 60 * 24 );
-            } else {
-                // Error object returned
-                return $response;
-            }
-        }
-
-        return $themes;
-    }
-}
 
 # Check if it's an IIS powered server
 if( !function_exists( 'pixova_lite_on_iis' ) ){
@@ -689,4 +477,41 @@ if( !function_exists( 'pixova_lite_get_customizer_image_by_url' ) ) {
     return esc_url( $thumb[0] );
 
   }
+}
+
+
+#Create admin notice
+
+$pixova_show_update_notice = get_option( 'pixova-lite-remove-update-notice', false );
+
+if ( !$pixova_show_update_notice && 'posts' == get_option( 'show_on_front' ) && current_user_can( 'manage_options' ) ) {
+
+    add_action( 'admin_enqueue_scripts', 'pixova_lite_enqueue_notice_js' );
+    add_action( 'admin_notices', 'pixova_lite_admin_notice_html' );
+    add_action( 'wp_ajax_pixova_lite_remove_upate_notice', 'pixova_lite_disable_notice_ajax' );
+
+}
+
+function pixova_lite_enqueue_notice_js($hook) {
+
+    wp_enqueue_script( 'pixova-lite-update-error-status', get_template_directory_uri() . '/layout/js/pixova_lite_notice.js' , array( 'jquery' ), '1.0', true );
+}
+
+function pixova_lite_admin_notice_html() {
+    ?>
+    <div class="notice error pixova-error-update is-dismissible">
+        <p>
+        <?php 
+            _e( 'Some changes were made in the latest version so that the theme would properly work with core WordPress\' front page system.  If you\'d like to continue using the custom front page, visit', 'pixova-lite' ); 
+            echo ' <a href="'.esc_url(admin_url('/wp-admin')).'options-reading.php">'.__( 'Settings > Readings', 'pixova-lite' ).'</a> ';
+            _e( 'and set your front page to display a page.', 'pixova-lite' );
+        ?>
+        </p>
+    </div>
+    <?php
+}
+
+function pixova_lite_disable_notice_ajax() {
+    update_option( 'pixova-lite-remove-update-notice', true );
+    wp_die();
 }

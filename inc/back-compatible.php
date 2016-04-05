@@ -77,7 +77,7 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '<=' ) ) {
     // Logo
     add_action( 'pixova_lite_logo', 'pixova_lite_logo_less_45', 1 );
     function pixova_lite_logo_less_45() {
-        $text_logo = get_theme_mod( 'pixova_lite_text_logo', 'Pixova' );
+        $text_logo = esc_html( get_option('blogname') );
         $image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 
         $output = '';

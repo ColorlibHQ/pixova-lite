@@ -37,6 +37,7 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
         $profile_bitbucket = esc_url( $instance['profile_bitbucket'] );
         $profile_codepen = esc_url( $instance['profile_codepen'] );
 
+        print_r($instance);
 
         echo $before_widget;
 

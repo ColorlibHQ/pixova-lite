@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?Php get_template_part('sections/section', 'header'); ?>
+<?Php //get_template_part('sections/section', 'header'); ?>
 
 <div class="container">
 	<div class="row">

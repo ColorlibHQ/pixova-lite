@@ -1,3 +1,8 @@
+### V 1.41
+  - Changed the way the front-page.php is handled
+  - Integrated a new notifications system to help guide users around the theme
+  - Small code cleanup
+
 ### v1.40.1
   - Has been added current version of WordPress theme on wp_enqueue_style/ wp_enqueue_script functions.
 
@@ -11,9 +16,9 @@
   - Has been updated Theme Documentation link in customizer.
   - Has been removed "How many posts to show on homepage..." field from front page.
 
-==========================================================================================
-            V 1.39    -   28 January, 2016
-==========================================================================================
+
+### V 1.39    -   28 January, 2016
+
   * Fixed #26 ( WooCommerce product tabs not working )
   * Fixed #28 ( Add email field to team members )
   * Optimized images using Kraken
@@ -35,13 +40,13 @@
   * Made the related posts box be removable from single posts
   * Made the content navigation links box (prev/next posts) be removable from single posts
 
-V 1.38.1
+### V 1.38.1
     * Fixed a JS bug.
 
-V 1.38
+### V 1.38
     * Added WordPress credit
 
-V 1.37.1:
+### V 1.37.1:
     * Added image logo field
     * Updated theme documentation link in Customizer
     * Slight CSS improvements to the upsell badges
@@ -51,16 +56,16 @@ V 1.37.1:
     * Updated testimonial images
     * Updated readme.txt with proper links for updated images
 
-V 1.37:
+### V 1.37:
     * Improvment: W3C Valid.
     * Improvment: HTML5.
 
-V 1.36.1:
+### V 1.36.1:
     * Fixed WooCommerce Tabs: Description and Reviews.
     * Fixed WooCommers rating.
     * Fixed responsive footer.
 
-V 1.36
+### V 1.36
     * Fixed CSS layout problems introduced in Customizer by WP 4.4
     * Fixed broken  documentation link (now leads to the proper resource)
     * Fixed footer links from social media widget (now they're displaying color white instead of blue)
@@ -72,14 +77,14 @@ V 1.36
     * Added proper anchors for widget: quick nav
     * Removed (old) screenshot.png
 
-V 1.35
+### V 1.35
     * Removed a debugging function
     * Added a debugging function; pixova_lite_nice_debug
 
-V 1.34.19
+### V 1.34.19
     * Added Pirate Forms in Contact Section.
 
-V 1.34.18
+### V 1.34.18
     * Added logo image field in customizer.
     * Added Related Posts section in single content.
     * Has been removed WP Title support for old WP versions.
@@ -87,84 +92,84 @@ V 1.34.18
     * Added possibility to insert image logo in header
     * Added Related Posts Functionality
 
-V 1.34.17
+### V 1.34.17
     * Updated theme default header BG
     * Updated readme.txt
     * Updated documentation link
 
-V 1.34.16
+### V 1.34.16
     * Updated theme screenshot
 
-V 1.34.15
+###V 1.34.15
    * Minor customizer up-sell tweaks.
 
-V 1.34.14
+### V 1.34.14
    * Added Uber reCaptcha as a recommended plugin
 
-V 1.34.13
+### V 1.34.13
    * Resolves #8 ( Check to see if there any more discounted links )
 
-V 1.34.12
+###V 1.34.12
    * Resolves #6 ( Latest news section -> option in customizer to change text on button )
    * Resolves #7 ( Issues reported by GlotPress team )
    * Removed Pirate Forms plugin recommendation
    * Resolved #9 ( No option to disable parallax header effect in Customizer )
 
-V 1.34.11
+###V 1.34.11
     * Removes the 2nd link to Macho Themes homepage from the footer (only 1 link allowed in the footer as per #TRT guidelines)
 
-V 1.34.10
+### V 1.34.10
   * Fixes a problem where testimonials wouldn't show up if images weren't set.
   * Fixes a problem where team members wouldn't show up if images weren't set.
 
-V 1.34.9
+### V 1.34.9
   * Fixes missing images problem on archive post types (was using apply_filters on the_content instead of the_excerpt for manipulating the character number).
 
-V 1.34.8
+### V 1.34.8
   * Fixed customizer up-sell buttons. Now they're not overlaying with customizer panels
 
-V 1.34.7
+### V 1.34.7
   * Reverted image sizing fix for section-works.php; was causing more problems
   * Added lock indicator on customizer * PRO sections (better UX)
 
-V 1.34.6
+### V 1.34.6
   * Fixed some image sizing problems with the testimonials image size
 
-V 1.34.5
+###V 1.34.5
   * Fixed some image sizing problems with the project image size
 
-V 1.34.4
+### V 1.34.4
   * Removed some broken links
   * Details about theme now send to LITE version instead of PRO one
 
-V 1.34.3
+### V 1.34.3
   * Updated up-sell link, sending now to theme details page instead of check-out.
   * Updated section-news.php so that thumbnails now link to the post.
   * Removed instructions.txt, link to documentation is available in the customizer back-end.
   * Updated up-sell CSS to have hover effects on all up-sell related buttons.
 
-V 1.34.2
+### V 1.34.2
   * Replaced plugin recommendation: Login Customizer with Pirate Forms
 
-V 1.34.1
+### V 1.34.1
   * Updated documentation link
 
-V 1.34
+### V 1.34
   * Replaced our custom Parallax JS code with Parallax.js * a dedicated JS library for Parallax effects
   * Small tweak to the "Rate us text " -> changed from "If you like it, rate it ! (it will help us)" to "If you like it, rate it !"
   * Rebuilt POT file
   * Fixed a few CSS quirks
 
-V 1.33.5
+### V 1.33.5
   * Fixed a small bug with the 'read more link' (was showing up twice)
 
-V 1.33.4
+### V 1.33.4
    * Fixed upsell link
 
-V 1.33.3
+### V 1.33.3
    * Updated screenshot
 
-V 1.33.2
+### V 1.33.2
     * Replaced apply_filters on the_content with the_excerpt()
     * Added custom filters for the_excerpt() to limit the content length as well as add a custom 'read more' button
     * Fixed a small CSS bug with featured images in blog posts
@@ -177,20 +182,20 @@ V 1.33.2
     * Applied the Parallax Text Fade Out Effect only on devices with a resolution of > 800px in height && !isMobile() && only IF animations if effect is enabled from the customizer
     * Animated the pie charts
 
-V 1.33.1
+### V 1.33.1
     * Fixed a small bug in section-news
     * Fixed a mark-up bug on blog archive
     * Introduced a function that gets the ID of a page using a certain page template
     * Moved some code from functions.php to inc/extras.php
 
-V 1.33
+### V 1.33
     * Fixed a bug that prevented the user to access the Customizer on IIS Servers
     * Added front-page text / image fade-out effect
     * Slightly re-worked the up-sell feature in the Customizer
     * Remove some un-used code throughout the theme files
     * Different theme screenshot
 
-V 1.32
+### V 1.32
     * Fixed a PHP 5.4 BUG that affected sites who were running older versions of PHP
     * Fixed a bug where the "Contact Details tab" wasn't being displayed in the customizer
     * Moved content-single.php, content-search.php, content.php & content-none.php in /template-parts/ folder
@@ -198,7 +203,7 @@ V 1.32
     * Increased the content width on blog posts (from 8 -> 9 cols)
 
 
-V 1.31
+### V 1.31
     * Added "More Themes" sub-page in Appearance
     * Fixed a CSS bug that affected the "See Project" button, on hover
     * Added possibility to disable animations from the Customizer
@@ -206,7 +211,7 @@ V 1.31
     * Fixed a CSS bug where (if) the team img logo was too big, it didn't scale down
 
 
-V 1.30
+### V 1.30
     * Removed link from WordPress.org in footer, added link to theme page
     * Replaced QueryLoader2 with Pace JS
     * Fixed a small CSS bug on the nav menu
@@ -220,11 +225,11 @@ V 1.30
     * Updated Screenshot
 
 
-V 1.29
+### V 1.29
     * Added QueryLoader2 JS files (missing from a borked build-archive Grunt JS task)
     * Added plugin recommendation: Login Customizer (great for styling the login experience.)
 
-V 1.28
+### V 1.28
     * Updated screenshot.
     * Removed GitHub Updater Class (apparently, not allowed on WordPress.org).
     * Fixed a few errors that were being thrown by an update to Theme Check plugin.
@@ -233,27 +238,27 @@ V 1.28
     * Removed blog-template.php
 
 
-V 1.27
+### V 1.27
     * Updated screenshot
     * Added GitHub updater class
     * Fixed some small bugs with the theme customizer
 
-V 1.26
+### V 1.26
   * Fixed "About" section not showing up in the customizer
   * Moved some WP Default panels to the 'Theme Options' Panel.
 
-V 1.25
+### V 1.25
     * Fixed translation issues in search.php
     * Updated Grunt process for building .POT files to include POEedit headers in our .POT file as well as add team translator support links
 
-V 1.24
+### V 1.24
    * Fixed preloader script from loading in the customizer window (black screen of death should be gone now)
    * Updated languages/*.pot file
    * Fixed two more non-internationalized strings in search.php
    * Re-generated all .min & .min.js.map files with & added banner type comments
    * Updated Gruntfile.js with more tasks (you can get this from the mirror GitHub account)
 
-V 1.23
+### V 1.23
     * Removed from inc/custom-header.php the fallback get_custom_header(); it's not needed since WordPress 3.4 (it's in core)
     * Properly prefixed widgets/*.php with {theme_slug}
     * Added wp_reset_postdata() && wp_reset_query() to widgets/widget-latest-posts.php
@@ -261,7 +266,7 @@ V 1.23
     * get_template_part('sections/section', 'header'); was missing from 404.php * added it now
     * Changed the way the shop link is added by the pixova_lite_fallback_cb(); It only gets added now IF WooCommerce is already active (as a plugin).
 
-V 1.22
+### V 1.22
     * Increased number of possible testimonials from 2 -> 5
     * Increased number of possible team members from 2 -> 5
     * Added function to fix responsive videos
@@ -269,14 +274,14 @@ V 1.22
     * Renamed customizer panel from General Options to Theme Options
     * Found two more non-internationalized strings
 
-V 1.21
+### V 1.21
     * Two strings weren't translated.
 
-V 1.20
+### V 1.20
 	* Made all strings translatable in the theme
 	* Fixed a few strings that weren't available for translation.
 
-V 1.19
+### V 1.19
     * Made TGMPA plugin install notices to be dismissable
     * Updated QueryLoader2 jQuery plugin from v2.0 to v.3.0.16
     * Fixed a small JS error
@@ -285,11 +290,11 @@ V 1.19
     * Header was missing from author.php archive
     * Prefixed panel names in inc/customizer.php with {theme_slug}
 
-V 1.18
+### V 1.18
 	* Moved wp_footer() before </body> tag
 	* Added comments form on pages
 
-V 1.17
+### V 1.17
     * Removed /plugins/ folder; now CF7 is installed through TGMPA from WP repo
     * Added proper link to documentation
     * Removed FlickR widget because it's plugin territory.
@@ -298,7 +303,7 @@ V 1.17
     * Updated readme.txt
     * Added editor-style.min.css
 
-V 1.16
+### V 1.16
     * Removed Oxygen Google Fonts (was only being used on some headings)
     * Added editor styles for certain elements (headings, paragraphs & blockquotes)
     * Added Custom Google Fonts in Editor
@@ -308,12 +313,12 @@ V 1.16
     * Added doc-block PHP comments
     * Added a function to dequeue the site preloader when we're in the customizer
 
-V 1.15
+### V 1.15
     * Fixed a small bug where the page title might not show up if WooCommerce wasn't installed
     * Fixed a even smaller bug with a typo in a variable.
     * Updated search template
 
-V 1.14
+### V 1.14
     * Updated readme.txt with link to header image & attribution
     * Removed up-selling messages on the homepage (up-sell is now only done in the admin area)
     * Removed some unused image sizes
@@ -323,17 +328,17 @@ V 1.14
     * Minified JS
     * Added active_callback in the customizer for the CF7 section (section isn't displayed anymore if the plugin isn't active); The user can choose to NOT display the contact area.
 
-V 1.13
+### V 1.13
 	* Updated Screenshot
 
-V 1.12
+### V 1.12
     * Added author info box (end of the post)
     * Added author archive type (author.php)
     * Fixed a few CSS bugs
     * Updated readme
     * Linked the author name with the author archive
 
-V 1.11
+### V 1.11
     * Added sanitization callbacks for custom controls used in the front-end (files affected: sections/* && widgets/*)
     * Fixed a small bug in inc/customizer.php that was causing the pie chart headings to display all in one panel (instead of each in their own panels)
     * Fixed a small bug with: pixova_lite_child_manage_woocommerce_styles() * now it only fires IF WooCommerce is installed & active
@@ -341,13 +346,13 @@ V 1.11
     * Added /shop/ link to the pixova_lite_fallback_cb function
     * Made translatable a handful of hard-coded text strings
 
-V 1.10
+### V 1.10
     * Updated text strings to advertise the inclusion of WooCommerce Support
         * affected files: customizer.php & sections/section-intro.php
     * Updated all links to the premium version of the theme to include the 10% discount coupon.
     * Updated changelog for previous version; forgot to mention the addition of two new page templates: left / right sidebar pages
 
-V 1.0.9
+### V 1.0.9
     * Changed text domain from macho-lite to pixova-lite.
     * Updated /languages/pixova-lite.pot & /languages/pixova-lite.mo to include all strings.
     * Updated theme screenshot * using a better cropped version.
@@ -376,7 +381,7 @@ V 1.0.9
     * Updated instructions.txt with WooCommerce support.
     * Added left-sidebar / right-sidebar page-templates
 
-V 1.0.8
+### V 1.0.8
     * Removed some extra code from customizer.php (some files were being loaded for nothing).
     * Renamed pixova_lite_registers to pixova_lite_customizer_js_load.
     * Moved & improved the title_tag fallback function (from functions.php to extras.php).
@@ -391,7 +396,7 @@ V 1.0.8
     * Updated TGMPA from 2.5.1 to 2.5.2.
     * Removed template-tags.php and moved functions to inc/extras.php
 
-V 1.0.7
+### V 1.0.7
     * Changed header-bg.jpg image to match WordPress.org theme license image usage (all images must be CC0 licensed)
     * Changed layout/images/team/ images for the same reason as above.
     * Changed layout/images/testimonials/ images for the same reason as above.
@@ -400,8 +405,7 @@ V 1.0.7
         * Affected files by this change: customizer.php & sections/section-works.php
     * Updated readme.txt with proper image licenses
 
-
-V 1.0.6
+### V 1.0.6
     * Added pagination on home.php (don't know how this got uploaded without pagination)
     * Removed some variables from functions.php that were left there from the premium version of the theme.
     * Removed some functions from scripts.php that belonged to the premium version of the theme.
@@ -428,7 +432,7 @@ V 1.0.6
     * Removed fonts/glyphicons & linea fonts
     * Added JetPack support
 
-V 1.0.5
+### V 1.0.5
     * Added default text for logo in customizer.php (text_logo variable).
     * Added default widgets in the footer using the_widget (replacement for old code that was importing & placing widgets in the sidebar by reading a JSON config file).
     * Added conditionals so that mark-up isn't displayed unless strings have values in them (example: blockquote on the front page).
@@ -438,7 +442,7 @@ V 1.0.5
     * Updated readme.txt.
     * Fixed a few typos in the changelog :)
 
-V 1.0.4
+### V 1.0.4
     * Re-worked how TGMPA works; instead of forcing activation of the CF7 plugin, it's now recommending it.
     * Re-worked how the custom CF7 control works, if the plugin isn't installed a message is shown instructing the user to install it.
     * Added defaults for about section (title / sub-title).
@@ -446,7 +450,7 @@ V 1.0.4
     * Removed /demo-content/ since it's not allowed to import content upon theme activation (will re-work this in a future plugin).
     * Added default fallback for testimonial images, in case the client doesn't add any.
 
-V 1.0.3
+### V 1.0.3
   	* Updated TGMPA plugin from 2.4.1 to 2.5.0
   	* Changed the way front-page.php handles the content display.
   	* Replaced include with require_once.
@@ -457,14 +461,14 @@ V 1.0.3
   	* Added featured images to blog posts.
   	* Added sidebar to single blog posts.
 
-V 1.0.2
+### V 1.0.2
   	* Fixed some strings that had non-printable characters in them.
   	* Fixed some translatable strings that had links hard-coded in them.
 
-V 1.0.1
+### V 1.0.1
   	* Updated screenshot
   	* Updated Theme / Author URI in style.css
   	* Updated CSS styling for sticky posts.
 
-V 1.0.0
+### V 1.0.0
 	 * Initial release.

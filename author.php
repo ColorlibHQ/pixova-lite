@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php get_template_part('sections/section', 'header'); ?>
+<?php //get_template_part('sections/section', 'header'); ?>
     <div class="container">
         <div class="row">
 
@@ -44,24 +44,10 @@
 
 
                             <div class="entry-meta">
-
-
-                                <?php echo __('Written by: ', 'pixova-lite'). get_the_author(); ?>
-
-                                
-                                <?php
-
-                                    echo '&middot;';
-                                    echo __('Posted in:', 'pixova-lite') . get_the_category_list(', ', '', false);
-
-                                ?>
-                                
-                                <?php
-
-                                echo '&middot;';
-                                 the_tags( __('Tags:', 'pixova-lite') , ', ', '<br />' );
-
-                                ?>
+                                <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
+                                <?php echo __('by', 'pixova-lite').' '.get_the_author(); ?>
+                                <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
+                                <?php echo get_the_category_list(', ', '', false); ?>
                             </div><!--/.entry-meta-->
                             
                             <?php
@@ -105,7 +91,7 @@
 
 
         <nav class="mt-custom-pagination col-lg-12">
-            <?php pixova_lite_pagination(); ?>
+            <?php the_posts_pagination(); ?>
         </nav><!--/.mt-custom-pagination-->
 
     </div><!-- SECTION -->

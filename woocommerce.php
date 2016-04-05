@@ -7,7 +7,7 @@
  */
 ?>
 <?php get_header(); ?>
-<?php get_template_part( 'sections/section', 'header-woocommerce' ); ?>
+<?php //get_template_part( 'sections/section', 'header-woocommerce' ); ?>
 <?php
 $pixova_lite_woocommerce_show_sidebar_on_shop_page = get_theme_mod( 'pixova_lite_woocommerce_show_sidebar_on_shop_page', 'show' );
 $pixova_lite_woocommerce_show_sidebar_on_left_or_right_side = get_theme_mod( 'pixova_lite_woocommerce_show_sidebar_on_left_or_right_side', 'left' );

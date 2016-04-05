@@ -3,6 +3,7 @@
 
     'use strict';
 
+    
     /* ==========================================================================
                      When document is ready, do
    ========================================================================== */
@@ -199,7 +200,7 @@
 
         if( $( '.mt-blogpost-wrapper' ).length ) {
             $( '.mt-blogpost-wrapper' ).owlCarousel({
-                items: 4,
+                items: 2,
                 navigation: true,
                 pagination: false,
                 navigationText: [
@@ -250,6 +251,8 @@
             animatePieCharts();
         });
     });
+
+    
 
 })(window.jQuery);
 

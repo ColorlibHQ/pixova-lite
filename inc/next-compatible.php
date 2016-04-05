@@ -25,7 +25,7 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 	// Logo
 	add_action( 'pixova_lite_logo', 'pixova_lite_logo_over_442', 1 );
     function pixova_lite_logo_over_442() {
-        $text_logo = get_theme_mod( 'pixova_lite_text_logo', 'Pixova' );
+        $text_logo = esc_html( get_option('blogname') );
         $image_logo = get_theme_mod( 'pixova_lite_image_logo', false );
 
         $output = '';
@@ -39,7 +39,7 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
                 $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $text_logo ) .'</a>';
             }
         }
-
+        print_r($text_logo);
         echo $output;
     }
 

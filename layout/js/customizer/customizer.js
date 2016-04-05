@@ -71,7 +71,7 @@
 	// Main CTA :: subtitle
 	wp.customize( 'pixova_lite_intro_sub_cta', function( value ) {
 		value.bind( function( newval ) {
-				$( '.intro-tagline' ).text( newval );
+				$( '.intro-tagline' ).html( newval );
 		} );
 	} );
 
