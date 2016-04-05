@@ -1298,7 +1298,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$wp_customize->add_setting('pixova_lite_intro_what_we_do_enabled',
 						array(
 										'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
-										'default' => esc_html__(0, 'pixova-lite'),
+										'default' => 0,
 						)
 		);
 
@@ -1308,7 +1308,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 										'type'      => 'checkbox',
 										'label' 		=> esc_html__('Enable what we do section?', 'pixova-lite'),
 										'section' 	=> 'pixova_lite_show_what_we_do',
-										'default' => esc_html__(0, 'pixova-lite'),
+										'default' => 0,
 						)
 		);
 
@@ -3379,14 +3379,16 @@ function pixova_lite_customize_register( $wp_customize ) {
 			/***********************************************/
 			/************** Theme Support  ***************/
 			/***********************************************/
-
+			/* Aici */
 			$wp_customize->add_section( 'pixova_lite_theme_support' , array(
-					'title'       => esc_html__( 'Theme Support', 'pixova-lite' ),
-					'priority'    => 36,
+					'title'       		=> esc_html__( 'Theme Support', 'pixova-lite' ),
+					'priority'    		=> 36,
 			));
 
 				/* Theme Suppor Links */
-				$wp_customize->add_setting('pixova_lite_theme_support_link', array() );
+				$wp_customize->add_setting( 'pixova_lite_theme_support_link', array(
+					'sanitize_callback'	=> 'esc_html'
+				) );
 
 				$wp_customize->add_control( new Pixova_Lite_HTML_Custom_Control( $wp_customize, 'pixova_lite_theme_support_link', array(
 				 'section' => 'pixova_lite_theme_support',
