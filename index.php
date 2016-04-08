@@ -20,10 +20,13 @@
 
                                 <div class="entry-meta">
                                     <time datetime="<?php printf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ); ?>"><?php echo get_the_date( get_option('date_format'), $post->ID); ?></time>
-                                    <?php echo '&middot;'; ?>
-                                    <?php echo __('by', 'pixova-lite').' '.get_the_author(); ?>
-                                    <?php echo '&middot;'; ?>
-                                    <?php echo get_the_category_list(', ', '', false); ?>
+                                    <?php printf(
+                                        // Translators: 1 is the post author, 2 is the category list.
+                                        __( '<span class="post-meta-separator">&middot</span>by %1$s<span class="post-meta-separator">&middot</span>%2$s', 'pixova-lite' ),
+                                        get_the_author(),
+                                        // Translators: Category list separator.
+                                        get_the_category_list( __( ', ', 'pixova-lite' ), '', false )
+                                    ); ?>
                                 </div><!--/.entry-meta-->
 
                                 <?php if( has_post_thumbnail() ) { ?>

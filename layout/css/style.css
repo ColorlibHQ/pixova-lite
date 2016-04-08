@@ -3691,3 +3691,7 @@ a.btn,
     font-weight: 400;
     color: #777777;
 }
+span.post-meta-separator {
+    display: inline-block;
+    margin: 0 10px;
+}

@@ -1,6 +1,17 @@
 <?php
+
+if ( current_user_can( 'edit_theme_options' ) ) {
+
 $pixova_lite_section_title = get_theme_mod('pixova_lite_news_section_title', __('Latest news', 'pixova-lite') );
 $pixova_lite_section_sub_title = get_theme_mod('pixova_lite_news_section_sub_title', __('Straight from our blog', 'pixova-lite') );
+
+}else{
+
+$pixova_lite_section_title = get_theme_mod('pixova_lite_news_section_title' );
+$pixova_lite_section_sub_title = get_theme_mod('pixova_lite_news_section_sub_title' );
+
+}
+
 // section args
 $pixova_lite_limit = get_option('posts_per_page', 4);
 // Logic used to dynamically create the layout, based on how blog posts have been set in the reading options

@@ -503,7 +503,7 @@ function pixova_lite_admin_notice_html() {
         <p>
         <?php 
             _e( 'Some changes were made in the latest version so that the theme would properly work with core WordPress\' front page system.  If you\'d like to continue using the custom front page, visit', 'pixova-lite' ); 
-            echo ' <a href="'.esc_url(admin_url('/wp-admin')).'options-reading.php">'.__( 'Settings > Readings', 'pixova-lite' ).'</a> ';
+            echo ' <a href="'.esc_url( admin_url( 'options-reading.php' ) ).'">'.__( 'Settings > Readings', 'pixova-lite' ).'</a> ';
             _e( 'and set your front page to display a page.', 'pixova-lite' );
         ?>
         </p>

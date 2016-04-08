@@ -1,3 +1,6 @@
+### v1.41.1
+  - Has been removed demo content.
+
 ### v1.41.0
   - Changed the way the front-page.php is handled.
   - Integrated a new notifications system to help guide users around the theme.

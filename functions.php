@@ -263,10 +263,10 @@ if( !function_exists( 'pixova_lite_enqueue_scripts' ) ) {
         wp_register_script( 'pathloader-js', get_template_directory_uri() . '/layout/js/pathLoader.js', array(), '2.1.7', true );
 
         # Scripts JS
-        wp_register_script ( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array('jquery', 'classie-js'), '1.41.0', true );
+        wp_register_script ( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array('jquery', 'classie-js'), '1.41.1', true );
 
         // Plugins JS
-        wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array('jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js'), '1.41.0', true );
+        wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array('jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js'), '1.41.1', true );
 
 
         /*
@@ -651,6 +651,29 @@ if ( ! function_exists( 'pixova_lite_fonts_url' ) ) {
 
         return $fonts_url;
     }
+}
+
+
+//Create function to get templates from Pixova Lite Companion
+function pixova_lite_get_section_template( $template, $force_companion = false ) {
+    $pixova_first_path = get_template_directory().'/';
+    $pixova_second_path = defined( 'Pixova_Lite_Companion_PATH' ) ? Pixova_Lite_Companion_PATH : '';
+    $template_with_suffix = $template.'.php';
+
+    if ( $force_companion && $pixova_second_path != '' ) {
+        $aux_path = $pixova_first_path;
+        $pixova_first_path = $pixova_second_path;
+        $pixova_second_path = $aux_path;
+    }
+
+    if ( locate_template($template_with_suffix) && !$force_companion ) {
+        get_template_part($template);
+    }elseif ( file_exists ( $pixova_first_path.'sections/'.$template_with_suffix ) ) {
+        require_once ( $pixova_first_path.'sections/'.$template_with_suffix );
+    }elseif ( file_exists ( $pixova_second_path.'sections/'.$template_with_suffix ) ) {
+        require_once ( $pixova_second_path.'sections/'.$template_with_suffix );
+    }
+
 }
 
 if( !function_exists( 'pixova_lite_add_default_widgets' ) ) {

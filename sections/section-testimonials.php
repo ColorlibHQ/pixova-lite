@@ -1,5 +1,7 @@
 <?php
 
+if ( current_user_can( 'edit_theme_options' ) ) {
+
 $pixova_lite_section_title = get_theme_mod('pixova_lite_testimonial_section_title', __('Some words from our clients', 'pixova-lite') );
 $pixova_lite_section_sub_title = get_theme_mod('pixova_lite_testimonial_section_sub_title', __('We don not like to brag, others do it for us.', 'pixova-lite') );
 
@@ -65,6 +67,76 @@ $pixova_lite_section_sub_title = get_theme_mod('pixova_lite_testimonial_section_
   if( !$pixova_lite_testimonial_5_person_image ) {
     $pixova_lite_testimonial_5_person_image = $pixova_lite_testimonial_5_person_image_customizer;
   }
+
+}else{
+
+$pixova_lite_section_title = get_theme_mod('pixova_lite_testimonial_section_title' );
+$pixova_lite_section_sub_title = get_theme_mod('pixova_lite_testimonial_section_sub_title' );
+
+// Testimonial #1
+  $pixova_lite_testimonial_1_person_name = get_theme_mod('pixova_lite_testimonial_1_person_name' );
+  $pixova_lite_testimonial_1_person_description = get_theme_mod('pixova_lite_testimonial_1_person_description' );
+
+  # Image Manipulation
+  $pixova_lite_testimonial_1_person_image_customizer = get_theme_mod('pixova_lite_testimonial_1_person_image' );
+  $pixova_lite_testimonial_1_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_1_person_image_customizer, 'thumbnail' );
+
+    # For default images, we don't have an ID stored
+    if( !$pixova_lite_testimonial_1_person_image ) {
+      $pixova_lite_testimonial_1_person_image = $pixova_lite_testimonial_1_person_image_customizer;
+    }
+
+// Testimonial #2
+  $pixova_lite_testimonial_2_person_name = get_theme_mod('pixova_lite_testimonial_2_person_name' );
+  $pixova_lite_testimonial_2_person_description = get_theme_mod('pixova_lite_testimonial_2_person_description' );
+
+  # Image Manipulation
+  $pixova_lite_testimonial_2_person_image_customizer = get_theme_mod('pixova_lite_testimonial_2_person_image' );
+  $pixova_lite_testimonial_2_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_2_person_image_customizer, 'thumbnail' );
+
+  if( !$pixova_lite_testimonial_2_person_image ) {
+    $pixova_lite_testimonial_2_person_image = $pixova_lite_testimonial_2_person_image_customizer;
+  }
+
+// Testimonial #3
+  $pixova_lite_testimonial_3_person_name = get_theme_mod('pixova_lite_testimonial_3_person_name' );
+  $pixova_lite_testimonial_3_person_description = get_theme_mod('pixova_lite_testimonial_3_person_description' );
+
+  # Image Manipulation
+  $pixova_lite_testimonial_3_person_image_customizer = get_theme_mod('pixova_lite_testimonial_3_person_image' );
+  $pixova_lite_testimonial_3_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_3_person_image_customizer, 'thumbnail' );
+
+  if( !$pixova_lite_testimonial_3_person_image ) {
+    $pixova_lite_testimonial_3_person_image = $pixova_lite_testimonial_3_person_image_customizer;
+  }
+
+
+// Testimonial #4
+  $pixova_lite_testimonial_4_person_name = get_theme_mod('pixova_lite_testimonial_4_person_name' );
+  $pixova_lite_testimonial_4_person_description = get_theme_mod('pixova_lite_testimonial_4_person_description' );
+
+  # Image Manipulation
+  $pixova_lite_testimonial_4_person_image_customizer = get_theme_mod('pixova_lite_testimonial_4_person_image' );
+  $pixova_lite_testimonial_4_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_4_person_image_customizer, 'thumbnail' );
+
+  if( !$pixova_lite_testimonial_4_person_image ) {
+    $pixova_lite_testimonial_4_person_image = $pixova_lite_testimonial_4_person_image_customizer;
+  }
+
+
+// Testimonial #5
+  $pixova_lite_testimonial_5_person_name = get_theme_mod('pixova_lite_testimonial_5_person_name' );
+  $pixova_lite_testimonial_5_person_description = get_theme_mod('pixova_lite_testimonial_5_person_description' );
+
+  # Image Manipulation
+  $pixova_lite_testimonial_5_person_image_customizer = get_theme_mod('pixova_lite_testimonial_5_person_image' );
+  $pixova_lite_testimonial_5_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_5_person_image_customizer, 'thumbnail' );
+
+  if( !$pixova_lite_testimonial_5_person_image ) {
+    $pixova_lite_testimonial_5_person_image = $pixova_lite_testimonial_5_person_image_customizer;
+  }
+
+}
 
 $pixova_lite_no_of_testimonials = 0;
 
