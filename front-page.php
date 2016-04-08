@@ -2,20 +2,20 @@
 <?php //get_template_part('sections/section', 'header'); ?>
 
 <?php 
-	
-	/**
-	 * Header section
-	 * @var [type]
-	 */
-	//$intro_section_show = get_theme_mod('pixova_lite_intro_visibility', 1);
+    
+    /**
+     * Header section
+     * @var [type]
+     */
+    //$intro_section_show = get_theme_mod('pixova_lite_intro_visibility', 1);
 
-	//if( isset( $intro_section_show ) && $intro_section_show == 1 ) {
-	//	get_template_part('sections/section', 'intro');
-	//}
+    //if( isset( $intro_section_show ) && $intro_section_show == 1 ) {
+    //  get_template_part('sections/section', 'intro');
+    //}
 
-	
+    
 
-	if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
+    if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 
     <div class="container">
         <div class="row">
@@ -40,10 +40,13 @@
 
                                 <div class="entry-meta">
                                     <time datetime="<?php printf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ); ?>"><?php echo get_the_date( get_option('date_format'), $post->ID); ?></time>
-                                    <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
-                                    <?php echo __('by', 'pixova-lite').' '.get_the_author(); ?>
-                                    <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
-                                    <?php echo get_the_category_list(', ', '', false); ?>
+                                    <?php printf(
+                                        // Translators: 1 is the post author, 2 is the category list.
+                                        __( '<span class="post-meta-separator">&middot</span>by %1$s<span class="post-meta-separator">&middot</span>%2$s', 'pixova-lite' ),
+                                        get_the_author(),
+                                        // Translators: Category list separator.
+                                        get_the_category_list( __( ', ', 'pixova-lite' ), '', false )
+                                    ); ?>
                                 </div><!--/.entry-meta-->
 
                                 <?php if( has_post_thumbnail() ) { ?>
@@ -99,61 +102,61 @@
 else {
 
 
-	$about_section_show = get_theme_mod('pixova_lite_about_visibility', 1);
+    $about_section_show = get_theme_mod('pixova_lite_about_visibility', 1);
 
-	if( isset( $about_section_show ) && $about_section_show == 1 ) {
-		get_template_part('sections/section', 'about');
-	}
-	
-	/**
-	 * Recent works section
-	 * @var [type]
-	 */
-	$works_section_show = get_theme_mod('pixova_lite_works_visibility', 1);
+    if( isset( $about_section_show ) && $about_section_show == 1 ) {
+        get_template_part('sections/section', 'about');
+    }
+    
+    /**
+     * Recent works section
+     * @var [type]
+     */
+    $works_section_show = get_theme_mod('pixova_lite_works_visibility', 1);
 
-	if( isset( $works_section_show ) && $works_section_show == 1) {
-		get_template_part('sections/section', 'works');
-	}
-	/**
-	 * Testimonials section
-	 * @var [type]
-	 */
-	$testimonials_section_show = get_theme_mod('pixova_lite_testimonials_visibility', 1);
+    if( isset( $works_section_show ) && $works_section_show == 1) {
+        get_template_part('sections/section', 'works');
+    }
+    /**
+     * Testimonials section
+     * @var [type]
+     */
+    $testimonials_section_show = get_theme_mod('pixova_lite_testimonials_visibility', 1);
 
-	if( isset( $testimonials_section_show ) && $testimonials_section_show == 1 ) {
-		get_template_part('sections/section', 'testimonials');
-	}
+    if( isset( $testimonials_section_show ) && $testimonials_section_show == 1 ) {
+        get_template_part('sections/section', 'testimonials');
+    }
 
-	/**
-	 * News section
-	 * @var [type]
-	 */
-	$news_section_show = get_theme_mod('pixova_lite_news_visibility', 1);
+    /**
+     * News section
+     * @var [type]
+     */
+    $news_section_show = get_theme_mod('pixova_lite_news_visibility', 1);
 
-	if( isset( $news_section_show ) && $news_section_show == 1 ) {
-		get_template_part('sections/section', 'news');
-	}
+    if( isset( $news_section_show ) && $news_section_show == 1 ) {
+        get_template_part('sections/section', 'news');
+    }
 
-	/**
-	 * Team section
-	 * @var [type]
-	 */
-	$team_section_show = get_theme_mod('pixova_lite_team_visibility', 1);
-	if( isset( $team_section_show ) && $team_section_show == 1 ) {
-		get_template_part('sections/section', 'team');
-	}
+    /**
+     * Team section
+     * @var [type]
+     */
+    $team_section_show = get_theme_mod('pixova_lite_team_visibility', 1);
+    if( isset( $team_section_show ) && $team_section_show == 1 ) {
+        get_template_part('sections/section', 'team');
+    }
 
-	/**
-	 * Contact section
-	 * @var [type]
-	 */
-	$contact_section_show = get_theme_mod('pixova_lite_contact_visibility', 1);
+    /**
+     * Contact section
+     * @var [type]
+     */
+    $contact_section_show = get_theme_mod('pixova_lite_contact_visibility', 1);
 
-	if( isset( $contact_section_show ) && $contact_section_show == 1 ) {
-		get_template_part('sections/section', 'contact');
-	}
+    if( isset( $contact_section_show ) && $contact_section_show == 1 ) {
+        get_template_part('sections/section', 'contact');
+    }
 
-	} // else
+    } // else
 ?>
 
 

@@ -7,10 +7,13 @@
 
     <div class="entry-meta">
         <time datetime="<?php printf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ); ?>"><?php echo get_the_date( get_option('date_format'), $post->ID); ?></time>
-        <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
-        <?php echo __('by ', 'pixova-lite').get_the_author(); ?>
-        <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
-        <?php echo get_the_category_list(', ', '', false); ?>
+        <?php printf(
+            // Translators: 1 is the post author, 2 is the category list.
+            __( '<span class="post-meta-separator">&middot</span>by %1$s<span class="post-meta-separator">&middot</span>%2$s', 'pixova-lite' ),
+            get_the_author(),
+            // Translators: Category list separator.
+            get_the_category_list( __( ', ', 'pixova-lite' ), '', false )
+        ); ?>
         <?php //echo '&middot;'; ?>
         <?php //the_tags( __('Tags:', 'pixova-lite') , ', ', '<br />' ); ?>
     </div><!--/.entry-meta-->

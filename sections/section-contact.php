@@ -1,15 +1,32 @@
 <?php
 
+if ( !current_user_can( 'edit_theme_options' ) ) { 
 
-$pixova_lite_section__title = get_theme_mod('pixova_lite_contact_section_title', __('Contact us', 'pixova-lite') );
-$pixova_lite_section__sub_title = get_theme_mod('pixova_lite_contact_section_sub_title', __('And we\'ll reply in no time', 'pixova-lite') );
+	$pixova_lite_section__title = get_theme_mod('pixova_lite_contact_section_title' );
+	$pixova_lite_section__sub_title = get_theme_mod('pixova_lite_contact_section_sub_title' );
 
-// section args
-$pixova_lite_contact_section_address = get_theme_mod('pixova_lite_address', __('Street 221B Baker Street, London, UK', 'pixova-lite') );
-$pixova_lite_contact_section_phone = get_theme_mod('pixova_lite_phone', '+444 974 525');
-$pixova_lite_contact_section_email = get_theme_mod('pixova_lite_email', 'office@machothemes.com');
-$pixova_lite_contact_cf7_form = get_theme_mod('pixova_lite_contact_section_cf7', '');
-$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
+	// section args
+	$pixova_lite_contact_section_address = get_theme_mod('pixova_lite_address' );
+	$pixova_lite_contact_section_phone = get_theme_mod('pixova_lite_phone' );
+	$pixova_lite_contact_section_email = get_theme_mod('pixova_lite_email' );
+	$pixova_lite_contact_cf7_form = get_theme_mod('pixova_lite_contact_section_cf7' );
+	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type' );
+
+}else{
+
+	$pixova_lite_section__title = get_theme_mod('pixova_lite_contact_section_title', __('Contact us', 'pixova-lite') );
+	$pixova_lite_section__sub_title = get_theme_mod('pixova_lite_contact_section_sub_title', __('And we\'ll reply in no time', 'pixova-lite') );
+
+	// section args
+	$pixova_lite_contact_section_address = get_theme_mod('pixova_lite_address', __('Street 221B Baker Street, London, UK', 'pixova-lite') );
+	$pixova_lite_contact_section_phone = get_theme_mod('pixova_lite_phone', '+444 974 525');
+	$pixova_lite_contact_section_email = get_theme_mod('pixova_lite_email', 'office@machothemes.com');
+	$pixova_lite_contact_cf7_form = get_theme_mod('pixova_lite_contact_section_cf7', '');
+	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
+
+}
+
+
 
 
 echo '<section class="has-padding" id="contact">';

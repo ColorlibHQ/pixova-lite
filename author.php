@@ -44,10 +44,13 @@
 
 
                             <div class="entry-meta">
-                                <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
-                                <?php echo __('by', 'pixova-lite').' '.get_the_author(); ?>
-                                <?php echo '&nbsp;&nbsp;&middot;&nbsp;&nbsp;'; ?>
-                                <?php echo get_the_category_list(', ', '', false); ?>
+                                <?php printf(
+                                    // Translators: 1 is the post author, 2 is the category list.
+                                    __( '<span class="post-meta-separator">&middot</span>by %1$s<span class="post-meta-separator">&middot</span>%2$s', 'pixova-lite' ),
+                                    get_the_author(),
+                                    // Translators: Category list separator.
+                                    get_the_category_list( __( ', ', 'pixova-lite' ), '', false )
+                                ); ?>
                             </div><!--/.entry-meta-->
                             
                             <?php

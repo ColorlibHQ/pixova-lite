@@ -79,6 +79,9 @@ echo '<section id="intro" class="blog-intro">';
                         echo '<h1 class="intro-title">';
                             printf( __( 'Search Results for: %s', 'pixova-lite' ), '<span><u>' . esc_html( get_search_query() ). '</u></span>' );
                         echo '</h1>';
+                    }else{
+                        echo '<h1 class="intro-title">'.esc_html( get_option('blogname') ).'</h1>';
+                        echo '<p class="intro-tagline">'.esc_html( get_option('blogdescription') ).'</p>';
                     }
                     echo '</div><!--/.text-center-->';
                 echo '</div><!--/.col-md-12-->';

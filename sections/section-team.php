@@ -1,5 +1,6 @@
 <?php
 
+if ( current_user_can( 'edit_theme_options' ) ) {
 
 $pixova_lite_section_title = get_theme_mod('pixova_lite_team_section_title', __('The team', 'pixova-lite') );
 $pixova_lite_section_sub_title = get_theme_mod('pixova_lite_team_section_sub_title', __('Meet the people that made it all happen.', 'pixova-lite') );
@@ -82,6 +83,95 @@ $pixova_lite_team_member_5_fburl = get_theme_mod('pixova_lite_team_member_5_face
 $pixova_lite_team_member_5_dribbble_url = get_theme_mod('pixova_lite_team_member_5_dribbble');
 $pixova_lite_team_member_5_email = get_theme_mod('pixova_lite_team_member_5_email');
 
+}else{
+
+$pixova_lite_section_title = get_theme_mod('pixova_lite_team_section_title' );
+$pixova_lite_section_sub_title = get_theme_mod('pixova_lite_team_section_sub_title' );
+
+// Team member #1
+$pixova_lite_team_member_1_name = get_theme_mod('pixova_lite_team_member_1_name' );
+
+# Image Manipulation
+$pixova_lite_team_member_1_image_customizer = get_theme_mod('pixova_lite_team_member_1_image' );
+$pixova_lite_team_member_1_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_1_image_customizer, 'thumbnail' );
+
+
+if( !$pixova_lite_team_member_1_image ) {
+    $pixova_lite_team_member_1_image = $pixova_lite_team_member_1_image_customizer;
+  }
+
+$pixova_lite_team_member_1_fburl = get_theme_mod('pixova_lite_team_member_1_facebook' );
+$pixova_lite_team_member_1_dribbble_url = get_theme_mod('pixova_lite_team_member_1_dribbble' );
+$pixova_lite_team_member_1_email = get_theme_mod('pixova_lite_team_member_1_email' );
+
+// Team member #2
+$pixova_lite_team_member_2_name = get_theme_mod('pixova_lite_team_member_2_name' );
+
+# Image Manipulation
+$pixova_lite_team_member_2_image_customizer = get_theme_mod('pixova_lite_team_member_2_image' );
+$pixova_lite_team_member_2_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_2_image_customizer, 'thumbnail' );
+
+
+
+if( !$pixova_lite_team_member_2_image ) {
+    $pixova_lite_team_member_2_image = $pixova_lite_team_member_2_image_customizer;
+  }
+
+
+$pixova_lite_team_member_2_fburl = get_theme_mod('pixova_lite_team_member_2_facebook' );
+$pixova_lite_team_member_2_dribbble_url = get_theme_mod('pixova_lite_team_member_2_dribbble' );
+$pixova_lite_team_member_2_email = get_theme_mod('pixova_lite_team_member_2_email' );
+
+// Team member #3
+$pixova_lite_team_member_3_name = get_theme_mod('pixova_lite_team_member_3_name' );
+
+# Image Manipulation
+$pixova_lite_team_member_3_image_customizer = get_theme_mod('pixova_lite_team_member_3_image' );
+$pixova_lite_team_member_3_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_3_image_customizer, 'thumbnail' );
+
+
+
+if( !$pixova_lite_team_member_3_image ) {
+    $pixova_lite_team_member_3_image = $pixova_lite_team_member_3_image_customizer;
+  }
+
+
+$pixova_lite_team_member_3_fburl = get_theme_mod('pixova_lite_team_member_3_facebook');
+$pixova_lite_team_member_3_dribbble_url = get_theme_mod('pixova_lite_team_member_3_dribbble' );
+$pixova_lite_team_member_3_email = get_theme_mod('pixova_lite_team_member_3_email' );
+
+// Team member #4
+$pixova_lite_team_member_4_name = get_theme_mod('pixova_lite_team_member_4_name' );
+
+# Image Manipulation
+$pixova_lite_team_member_4_image_customizer = get_theme_mod('pixova_lite_team_member_4_image' );
+$pixova_lite_team_member_4_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_4_image_customizer, 'thumbnail' );
+
+if( !$pixova_lite_team_member_4_image ) {
+    $pixova_lite_team_member_4_image = $pixova_lite_team_member_4_image_customizer;
+  }
+
+$pixova_lite_team_member_4_fburl = get_theme_mod('pixova_lite_team_member_4_facebook' );
+$pixova_lite_team_member_4_dribbble_url = get_theme_mod('pixova_lite_team_member_4_dribbble' );
+$pixova_lite_team_member_4_email = get_theme_mod('pixova_lite_team_member_4_email' );
+
+// Team member #5
+$pixova_lite_team_member_5_name = get_theme_mod('pixova_lite_team_member_5_name');
+
+# Image Manipulation
+$pixova_lite_team_member_5_image_customizer = get_theme_mod('pixova_lite_team_member_5_image');
+$pixova_lite_team_member_5_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_5_image_customizer, 'thumbnail' );
+
+if( !$pixova_lite_team_member_5_image ) {
+    $pixova_lite_team_member_5_image = $pixova_lite_team_member_5_image_customizer;
+  }
+
+
+$pixova_lite_team_member_5_fburl = get_theme_mod('pixova_lite_team_member_5_facebook');
+$pixova_lite_team_member_5_dribbble_url = get_theme_mod('pixova_lite_team_member_5_dribbble');
+$pixova_lite_team_member_5_email = get_theme_mod('pixova_lite_team_member_5_email');
+
+}
 if($pixova_lite_team_member_1_image && $pixova_lite_team_member_2_image && $pixova_lite_team_member_3_image && $pixova_lite_team_member_4_image && !$pixova_lite_team_member_5_image) {
     $sizing = 'col-sm-3';
 } else {

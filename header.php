@@ -38,15 +38,13 @@
 
 <?php
 
-if ( is_front_page() ) {
-
+if ( 'posts' != get_option( 'show_on_front' ) ) {
 	get_template_part('sections/section', 'header');
 	$intro_section_show = get_theme_mod('pixova_lite_intro_visibility', 1);
-
 	if( isset( $intro_section_show ) && $intro_section_show == 1 ) {
 		get_template_part('sections/section', 'intro');
 	}
-}elseif ( is_search() || is_archive() || is_home() || is_page_template( 'page-templates/blog-template.php' ) ) {
+}elseif ( is_search() || is_archive() || is_home() || is_page_template( 'page-templates/blog-template.php' ) || is_front_page() ) {
 	get_template_part('sections/section','header-archive');
 }elseif ( is_page() || is_author() || is_404() ) {
 	get_template_part('sections/section', 'header-page');
