@@ -2698,7 +2698,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 				)
 			);
 
-			/* Text */
+			/* Button Text */
 			$wp_customize->add_setting( 'pixova_lite_news_section_button_text',
 					array(
 							'sanitize_callback' => 'sanitize_text_field',
@@ -2710,9 +2710,40 @@ function pixova_lite_customize_register( $wp_customize ) {
 			$wp_customize->add_control(
 					'pixova_lite_news_section_button_text',
 					array(
-							'label' 	=> esc_html__( 'Text', 'pixova-lite' ),
+							'label' 	=> esc_html__( 'Button Text', 'pixova-lite' ),
 							'section' 	=> 'pixova_lite_news_general',
 					)
+			);
+
+			/* Number of post per slide */
+			$wp_customize->add_setting( 'pixova_lite_news_section_no_posts_per_slide',
+					array(
+							'sanitize_callback' => 'sanitize_text_field',
+							'default' => esc_html__( '2', 'pixova-lite'),
+							'transport' => 'refresh'
+					)
+			);
+
+			$wp_customize->add_control(
+					'pixova_lite_news_section_no_posts_per_slide',
+					array(
+							'label' 	=> esc_html__( 'Number of post per slide', 'pixova-lite' ),
+							'section' 	=> 'pixova_lite_news_general',
+							'default'	=> esc_html('2'),
+					)
+			);
+			$wp_customize->add_control(
+				'pixova_lite_news_section_no_posts_per_slide',
+				array(
+					'type' => 'select',
+					'choices' => array(
+						'1' => esc_html('1'),
+						'2' => esc_html('2'),
+						'4' => esc_html('4'),
+					),
+					'label' => esc_html__( 'Number of post per slide', 'pixova-lite' ),
+					'section' => 'pixova_lite_news_general',
+				)
 			);
 
 

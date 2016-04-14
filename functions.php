@@ -724,5 +724,5 @@ if( !function_exists( 'pixova_lite_add_default_widgets' ) ) {
       update_option( 'sidebars_widgets', $sidebars_widgets );
 
   }
-    add_action('after_switch_theme', 'pixova_lite_add_default_widgets');
+    //add_action('after_switch_theme', 'pixova_lite_add_default_widgets');
 }

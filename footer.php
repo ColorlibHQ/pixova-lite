@@ -32,7 +32,7 @@ $sidebar_args = array('before_title' => '<h3 class="widget-title"><span>','after
 
                             dynamic_sidebar('footer-sidebar-1');
 
-                        } else {
+                        } elseif( current_user_can( 'edit_theme_options' ) ) {
 
                             the_widget('pixova_lite_widget_about', sprintf( 'title=%s', __('About', 'pixova-lite') ) .'&'. sprintf('show_title=1&about_text=%s.', __('The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour', 'pixova-lite') ), $sidebar_args );
 
@@ -48,7 +48,7 @@ $sidebar_args = array('before_title' => '<h3 class="widget-title"><span>','after
 
                               dynamic_sidebar('footer-sidebar-2');
 
-                          } else { ?>
+                          } elseif( current_user_can( 'edit_theme_options' ) ) { ?>
 
 
 
@@ -88,7 +88,7 @@ $sidebar_args = array('before_title' => '<h3 class="widget-title"><span>','after
 
                            dynamic_sidebar('footer-sidebar-3');
 
-                       } else {
+                       } elseif( current_user_can( 'edit_theme_options' ) )  {
 
                           the_widget('pixova_lite_widget_latest_posts', sprintf('title=%s', __('Latest Posts', 'pixova-lite') ).'&show_title=1&items=1', $sidebar_args );
 
@@ -112,7 +112,7 @@ $sidebar_args = array('before_title' => '<h3 class="widget-title"><span>','after
 
                             dynamic_sidebar('footer-sidebar-4');
 
-                          } else {
+                          } elseif( current_user_can( 'edit_theme_options' ) )  {
 
                             the_widget('pixova_lite_widget_social_media', sprintf( 'title=%s', __('Follow us', 'pixova-lite') ).'&show_title=0&profile_facebook=#&profile_twitter=#&profile_plus=#&profile_pinterest=#&profile_youtube=#&profile_dribbble=#&profile_tumblr=#&profile_instagram=#&profile_github=#&profile_bitbucket=#&profile_codepen=#.');
 

@@ -199,8 +199,9 @@
         }
 
         if( $( '.mt-blogpost-wrapper' ).length ) {
+            var slides = $( '.mt-blogpost-wrapper' ).data('slider-items');
             $( '.mt-blogpost-wrapper' ).owlCarousel({
-                items: 2,
+                items: slides,
                 navigation: true,
                 pagination: false,
                 navigationText: [

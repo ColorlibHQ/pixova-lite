@@ -1,3 +1,8 @@
+### v1.45
+  - Has been fixed logo issue.
+  - Has been fixed full header on single posts.
+  - Has been fixed number of post in Latest News section.
+
 ### v1.41.1
   - Has been removed demo content.
 

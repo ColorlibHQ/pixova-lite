@@ -38,7 +38,7 @@
 
 <?php
 
-if ( 'posts' != get_option( 'show_on_front' ) ) {
+if ( 'posts' != get_option( 'show_on_front' ) && is_front_page() ) {
 	get_template_part('sections/section', 'header');
 	$intro_section_show = get_theme_mod('pixova_lite_intro_visibility', 1);
 	if( isset( $intro_section_show ) && $intro_section_show == 1 ) {
