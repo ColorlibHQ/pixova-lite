@@ -10,7 +10,7 @@ if ( !current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_contact_section_phone = get_theme_mod('pixova_lite_phone' );
 	$pixova_lite_contact_section_email = get_theme_mod('pixova_lite_email' );
 	$pixova_lite_contact_cf7_form = get_theme_mod('pixova_lite_contact_section_cf7' );
-	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type' );
+	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
 
 }else{
 
