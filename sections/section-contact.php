@@ -10,7 +10,7 @@ if ( !current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_contact_section_phone = get_theme_mod('pixova_lite_phone' );
 	$pixova_lite_contact_section_email = get_theme_mod('pixova_lite_email' );
 	$pixova_lite_contact_cf7_form = get_theme_mod('pixova_lite_contact_section_cf7' );
-	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type' );
+	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
 
 }else{
 
@@ -70,36 +70,8 @@ echo '<section class="has-padding" id="contact">';
 			echo do_shortcode($shortcode);
 		} elseif( $pixova_lite_contact_section_type == 'pirate-forms' ) {
 			echo do_shortcode( '[pirate_forms]' );
-		} else { ?>
-
-		<div role="form" class="wpcf7" dir="ltr">
-			<form action="/" method="post" class="wpcf7-form" novalidate="novalidate">
-
-			<div class="col-md-4">
-			    <span class="wpcf7-form-control-wrap your-name">
-						<input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your name">
-					</span>
-			</div>
-		<div class="col-md-4">
-		    <span class="wpcf7-form-control-wrap your-email">
-					<input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your email">
-				</span>
-		</div>
-		<div class="col-md-4">
-		    <span class="wpcf7-form-control-wrap your-subject">
-					<input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Your subject">
-				</span>
-		</div>
-		<div class="col-md-12">
-		    <span class="wpcf7-form-control-wrap your-message">
-					<textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Your message"></textarea>
-				</span>
-		</div>
-		<p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit btn btn-cta-light pull-right"></p>
-		</form>
-		</div>
-
-<?php }
+		} ?>
+<?php 
 
 		echo '</div><!--/.row-->';
 	echo '</div><!--/.col-md-9-->';

@@ -12,6 +12,8 @@ $pixova_lite_section_sub_title = get_theme_mod('pixova_lite_news_section_sub_tit
 
 }
 
+$pixova_lite_news_section_no_posts_per_slide = get_theme_mod('pixova_lite_news_section_no_posts_per_slide', 2 );
+
 // section args
 $pixova_lite_limit = get_option('posts_per_page', 4);
 // Logic used to dynamically create the layout, based on how blog posts have been set in the reading options
@@ -56,7 +58,7 @@ echo '<section class="has-padding" id="news">';
            $i = 1;
            echo '<div class="mt-blog-posts text-center">';
                 echo '<div class="row">';
-                    echo '<div class="mt-blogpost-wrapper '.$pixova_lite_cols.'">';
+                    echo '<div class="mt-blogpost-wrapper '.$pixova_lite_cols.'"  data-slider-items="'.$pixova_lite_news_section_no_posts_per_slide.'">';
                         while($pixova_lite_q->have_posts() ) {
                             $pixova_lite_q->the_post();
                             echo '<div class="'.$pixova_lite_news_size.'" style="width: 100%;">';

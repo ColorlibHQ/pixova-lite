@@ -428,7 +428,7 @@ function pixova_lite_excerpt_more( $more ) {
     return $return_string;
 
 }
-add_filter('excerpt_more', 'pixova_lite_excerpt_more');
+//add_filter('excerpt_more', 'pixova_lite_excerpt_more');
 
 if( !function_exists( 'pixova_lite_nice_debug' ) ) {
     /**

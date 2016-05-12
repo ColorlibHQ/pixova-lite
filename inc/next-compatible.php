@@ -39,7 +39,6 @@ if( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
                 $output .= '<a class="logo" href="'. esc_url( get_site_url() ) .'">'. esc_html( $text_logo ) .'</a>';
             }
         }
-        print_r($text_logo);
         echo $output;
     }
 
