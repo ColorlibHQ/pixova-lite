@@ -389,21 +389,14 @@ if( !function_exists( 'pixova_lite_get_page_id_by_template' ) ) {
             'meta_value' => 'page-templates/blog-template.php'
         );
 
-        $pages = get_posts( $args );
-        $pages_which_use_template = '';
+        $pages = get_posts($args);
+        $static = get_option('page_on_front');
 
-        if( is_array( $pages ) ) {
-            foreach ( $pages as $page ) {
-                $pages_which_use_template[] = $page;
-            }
-        } else if( !is_array( $pages ) ) {
-            $pages_which_use_template = $pages;
-        } else {
-            $pages_which_use_template = '';
+        if(($key = array_search($static, $pages)) !== false) {
+            unset($pages[$key]);
         }
-
-        return $pages_which_use_template;
-
+        
+        return $pages;
     }
 }
 
@@ -501,8 +494,8 @@ function pixova_lite_admin_notice_html() {
     ?>
     <div class="notice error pixova-error-update is-dismissible">
         <p>
-        <?php 
-            _e( 'Some changes were made in the latest version so that the theme would properly work with core WordPress\' front page system.  If you\'d like to continue using the custom front page, visit', 'pixova-lite' ); 
+        <?php
+            _e( 'Some changes were made in the latest version so that the theme would properly work with core WordPress\' front page system.  If you\'d like to continue using the custom front page, visit', 'pixova-lite' );
             echo ' <a href="'.esc_url( admin_url( 'options-reading.php' ) ).'">'.__( 'Settings > Readings', 'pixova-lite' ).'</a> ';
             _e( 'and set your front page to display a page.', 'pixova-lite' );
         ?>

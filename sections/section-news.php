@@ -34,6 +34,7 @@ if($pixova_lite_limit == 1) {
 }
 # Logic used for getting the blog template page ID
 $page_which_uses_blog_template = pixova_lite_get_page_id_by_template();
+
 # Turn off default featured images
 $random_featured_images = get_theme_mod('pixova_lite_enable_default_images', 'images_disabled');
 echo '<section class="has-padding" id="news">';
@@ -89,11 +90,12 @@ echo '<section class="has-padding" id="news">';
                         }
                     echo '</div> <!--/.mt-blogpost-wrapper-->';
                 echo '</div><!--/.row-->';
-            if( !empty( $page_which_uses_blog_template ) && is_array($page_which_uses_blog_template) ) {
-                echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template[0] ) ) ) . '">' . __( 'Visit our blog', 'pixova-lite' ) . '</a>';
-            } else if(!empty($page_which_uses_blog_template) && !is_array($page_which_uses_blog_template)) {
-                echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template ) ) ) . '">' . __( 'Visit our blog', 'pixova-lite' ) . '</a>';
+
+
+            if( !empty( $page_which_uses_blog_template ) ) {
+                echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( $page_which_uses_blog_template[0]  ) ) . '">' . __( 'Visit our blog', 'pixova-lite' ) . '</a>';
             }
+
             echo '</div><!--/.mt-blog-posts-->';
         }
         echo '</div><!--/.row-->';
