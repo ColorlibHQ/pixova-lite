@@ -2056,7 +2056,7 @@ body.logged-in section {
 }
 .widget_categories a,
 .widget_recent_entries a,
-widget_pages a {
+.widget_pages a {
     color: #777;
     display: block;
     font-family: 'Roboto', sans-serif;
@@ -2389,6 +2389,9 @@ input#submit {
 }
 .widget {
     margin: 0 0 45px
+}
+.textwidget{
+    color:#FFF;
 }
 .widget select {
     cursor: pointer;
