@@ -633,6 +633,10 @@ section {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%)
 }
+.intro-services{
+    display: inline-block;
+    padding-bottom: 20px;
+}
 .intro-services .owl-item {
     padding-right: 20px
 }
@@ -2950,7 +2954,15 @@ div.thumbnail .caption {
         padding-left: 30px;
         padding-right: 30px
     }
+    h1.intro-title{
+        font-size:18px;
+    }
+
+    p.intro-tagline{
+        font-size:15px;
+    }
 }
+
 @media screen and (max-width: 767px) {
     #footer .mt-footer-widget {
         padding-right: 30px;
@@ -2969,8 +2981,8 @@ div.thumbnail .caption {
         width: 100%!important
     }
     div.intro-content {
-        padding-bottom: 90px;
-        padding-top: 90px
+        padding-bottom: 60px;
+        padding-top: 60px
     }
     .project-pictures {
         padding-bottom: 60px
@@ -3015,6 +3027,14 @@ div.thumbnail .caption {
         right: 7%!important;
         top: 10px!important
     }
+
+    h1.intro-title{
+        font-size:16px;
+    }
+
+    p.intro-tagline{
+        font-size:14px;
+    }
 }
 @media screen and (max-width: 480px) {
     div.macbook {
@@ -3033,6 +3053,10 @@ div.thumbnail .caption {
         color: #1b1b1b;
         left: auto;
         position: relative
+    }
+
+    body #intro .btn-cta-intro-outline{
+        margin-right:0 !important;
     }
 }
 @media screen and (max-width: 320px) {

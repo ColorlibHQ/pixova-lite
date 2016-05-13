@@ -80,21 +80,21 @@ if( $pixova_lite_what_we_do_enabled == 1 ) {
                                 echo '<h4>'.__('What We Do','pixova-lite').'</h4>';
                             echo '</div><!--/.intro-heading-->';
                             echo '<div id="intro-services-wrap">';
-                                echo '<div class="intro-services col-md-4 col-sm-4 col-xs-4">';
+                                echo '<div class="intro-services col-md-4 col-sm-4 col-xs-12">';
                                     echo '<span style="color: '.pixova_lite_hex2rgba('#FFFFFF').'" class="fa fa-tint"></span>';
                                     echo '<h3 class="intro-service-title intro-service-title-1">'.esc_html( $pixova_lite_what_we_do_1 ).'</h3>';
                                     echo '<p class="intro-service-text intro-service-text-1">'.esc_html( $pixova_lite_what_we_do_1_description ).'</p>';
                                      echo '</div>';
                                 echo '<!-- /intro service -->';
 
-                                    echo '<div class="intro-services col-md-4 col-sm-4 col-xs-4">';
+                                    echo '<div class="intro-services col-md-4 col-sm-4 col-xs-12">';
                                     echo '<span style="color: '.pixova_lite_hex2rgba('#FFFFFF').'" class="fa fa-pagelines"></span>';
                                     echo '<h3 class="intro-service-title intro-service-title-2">'.esc_html( $pixova_lite_what_we_do_2 ).'</h3>';
                                     echo '<p class="intro-service-text intro-service-text-2">'.esc_html( $pixova_lite_what_we_do_2_description ).'</p>';
                                 echo '</div>';
                                 echo '<!-- /intro service -->';
 
-                                echo '<div class="intro-services col-md-4 col-sm-4 col-xs-4">';
+                                echo '<div class="intro-services col-md-4 col-sm-4 col-xs-12">';
                                     echo '<span style="color: '.pixova_lite_hex2rgba('#FFFFFF').'" class="fa fa-envelope-o"></span>';
                                     echo '<h3 class="intro-service-title intro-service-title-3">'.esc_html( $pixova_lite_what_we_do_3 ).'</h3>';
                                     echo '<p class="intro-service-text intro-service-text-3">'.esc_html( $pixova_lite_what_we_do_3_description ).'</p>';
