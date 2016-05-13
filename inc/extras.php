@@ -140,6 +140,31 @@ if( !function_exists( 'pixova_lite_prefix_upsell_notice' ) ) {
 }
 
 
+if( !function_exists( 'pixova_adjust_brightness' ) ) {
+    function pixova_adjust_brightness($hex, $steps)
+    {
+        // Steps should be between -255 and 255. Negative = darker, positive = lighter
+        $steps = max(-255, min(255, $steps));
+
+        // Normalize into a six character long hex string
+        $hex = str_replace('#', '', $hex);
+        if (strlen($hex) == 3) {
+            $hex = str_repeat(substr($hex, 0, 1), 2) . str_repeat(substr($hex, 1, 1), 2) . str_repeat(substr($hex, 2, 1), 2);
+        }
+
+        // Split into three parts: R, G and B
+        $color_parts = str_split($hex, 2);
+        $return = '#';
+
+        foreach ($color_parts as $color) {
+            $color = hexdec($color); // Convert to decimal
+            $color = max(0, min(255, $color + $steps)); // Adjust color
+            $return .= str_pad(dechex($color), 2, '0', STR_PAD_LEFT); // Make two char hex code
+        }
+
+        return $return;
+    }
+}
 // Function to convert hex color codes to rgba
 
 if( !function_exists( 'pixova_lite_hex2rgba' ) ) {
@@ -389,21 +414,14 @@ if( !function_exists( 'pixova_lite_get_page_id_by_template' ) ) {
             'meta_value' => 'page-templates/blog-template.php'
         );
 
-        $pages = get_posts( $args );
-        $pages_which_use_template = '';
+        $pages = get_posts($args);
+        $static = get_option('page_on_front');
 
-        if( is_array( $pages ) ) {
-            foreach ( $pages as $page ) {
-                $pages_which_use_template[] = $page;
-            }
-        } else if( !is_array( $pages ) ) {
-            $pages_which_use_template = $pages;
-        } else {
-            $pages_which_use_template = '';
+        if(($key = array_search($static, $pages)) !== false) {
+            unset($pages[$key]);
         }
 
-        return $pages_which_use_template;
-
+        return $pages;
     }
 }
 
@@ -501,8 +519,8 @@ function pixova_lite_admin_notice_html() {
     ?>
     <div class="notice error pixova-error-update is-dismissible">
         <p>
-        <?php 
-            _e( 'Some changes were made in the latest version so that the theme would properly work with core WordPress\' front page system.  If you\'d like to continue using the custom front page, visit', 'pixova-lite' ); 
+        <?php
+            _e( 'Some changes were made in the latest version so that the theme would properly work with core WordPress\' front page system.  If you\'d like to continue using the custom front page, visit', 'pixova-lite' );
             echo ' <a href="'.esc_url( admin_url( 'options-reading.php' ) ).'">'.__( 'Settings > Readings', 'pixova-lite' ).'</a> ';
             _e( 'and set your front page to display a page.', 'pixova-lite' );
         ?>

@@ -633,6 +633,10 @@ section {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%)
 }
+.intro-services{
+    display: inline-block;
+    padding-bottom: 20px;
+}
 .intro-services .owl-item {
     padding-right: 20px
 }
@@ -1969,15 +1973,33 @@ body.logged-in section {
 .entry-content p+p {
     margin-bottom: 20px
 }
+.form_field_wrap.contact_submit_wrap{
+    width:100%;
+}
+.pirate-forms-submit-button{
+    background: #2ecc71;
+    border: 2px solid #2ecc71;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 14px 44px;
+    text-transform: uppercase;
+}
+.pirate-forms-submit-button:hover{
+    background: #21b65f;
+    border: 2px solid #21b65f;
+    color: #fff !important;
+}
+
 .pirate_forms_thankyou_wrap {
     margin-bottom: 15px;
     text-align: center
 }
 .pirate_forms_wrap .form_field_wrap {
-    width: 100%;
     height: auto;
     margin-bottom: 0;
-    padding: 0
+    padding: 0 15px;
 }
 .pirate_forms_wrap input,
 .pirate_forms_wrap textarea {
@@ -2034,7 +2056,7 @@ body.logged-in section {
 }
 .widget_categories a,
 .widget_recent_entries a,
-widget_pages a {
+.widget_pages a {
     color: #777;
     display: block;
     font-family: 'Roboto', sans-serif;
@@ -2367,6 +2389,9 @@ input#submit {
 }
 .widget {
     margin: 0 0 45px
+}
+.textwidget{
+    color:#FFF;
 }
 .widget select {
     cursor: pointer;
@@ -2950,7 +2975,15 @@ div.thumbnail .caption {
         padding-left: 30px;
         padding-right: 30px
     }
+    h1.intro-title{
+        font-size:18px;
+    }
+
+    p.intro-tagline{
+        font-size:15px;
+    }
 }
+
 @media screen and (max-width: 767px) {
     #footer .mt-footer-widget {
         padding-right: 30px;
@@ -2969,8 +3002,8 @@ div.thumbnail .caption {
         width: 100%!important
     }
     div.intro-content {
-        padding-bottom: 90px;
-        padding-top: 90px
+        padding-bottom: 60px;
+        padding-top: 60px
     }
     .project-pictures {
         padding-bottom: 60px
@@ -3015,6 +3048,14 @@ div.thumbnail .caption {
         right: 7%!important;
         top: 10px!important
     }
+
+    h1.intro-title{
+        font-size:16px;
+    }
+
+    p.intro-tagline{
+        font-size:14px;
+    }
 }
 @media screen and (max-width: 480px) {
     div.macbook {
@@ -3033,6 +3074,10 @@ div.thumbnail .caption {
         color: #1b1b1b;
         left: auto;
         position: relative
+    }
+
+    body #intro .btn-cta-intro-outline{
+        margin-right:0 !important;
     }
 }
 @media screen and (max-width: 320px) {
