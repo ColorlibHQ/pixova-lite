@@ -1973,15 +1973,33 @@ body.logged-in section {
 .entry-content p+p {
     margin-bottom: 20px
 }
+.form_field_wrap.contact_submit_wrap{
+    width:100%;
+}
+.pirate-forms-submit-button{
+    background: #2ecc71;
+    border: 2px solid #2ecc71;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 14px 44px;
+    text-transform: uppercase;
+}
+.pirate-forms-submit-button:hover{
+    background: #21b65f;
+    border: 2px solid #21b65f;
+    color: #fff !important;
+}
+
 .pirate_forms_thankyou_wrap {
     margin-bottom: 15px;
     text-align: center
 }
 .pirate_forms_wrap .form_field_wrap {
-    width: 100%;
     height: auto;
     margin-bottom: 0;
-    padding: 0
+    padding: 0 15px;
 }
 .pirate_forms_wrap input,
 .pirate_forms_wrap textarea {
