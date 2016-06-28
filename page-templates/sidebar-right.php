@@ -5,7 +5,6 @@
 ?>
 
 <?php get_header(); ?>
-<?php get_template_part('sections/section', 'header-page'); ?>
 
     <div id="primary" class="content-area page-content">
         <main id="main" class="site-main" role="main">
