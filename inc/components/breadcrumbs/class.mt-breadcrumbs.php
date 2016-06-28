@@ -474,7 +474,7 @@ class Pixova_Lite_Breadcrumbs {
 	private function get_post_type_archive( $linked = TRUE ) {
 		global $wp_query;
 
-		$post_type = $wp_query->query_vars['post_type'];
+		$post_type = $wp_query->queried_object->post_type;
 		$post_type_object = get_post_type_object( $post_type );
 		$link = '';
 
@@ -520,6 +520,16 @@ class Pixova_Lite_Breadcrumbs {
 		// Check if the breadcrumb should be linked
 		if ( $linked ) {
 			$link = esc_url( get_post_type_archive_link( $post_type ) );
+		}
+		
+		$page_id = get_option( 'page_for_posts' );
+		if ( $post_type == '' && $page_id ) {
+			$archive_title = get_the_title ($page_id );
+			$link = get_permalink ($page_id );
+
+		}elseif ( $post_type == 'post' ) {
+			$archive_title = __( 'Home', 'pixova-lite' );
+			$link = site_url($page_id );
 		}
 
 		return $this->get_single_breadcrumb_markup( $archive_title, $link );
