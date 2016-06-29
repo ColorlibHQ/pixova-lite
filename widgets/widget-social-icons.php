@@ -4,7 +4,7 @@
 
 class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 
-    function Pixova_Lite_Widget_Social_Media() {
+    function __construct() {
         $widget_ops = array(
             'classname' => 'pixova_lite_widget_social_media text-center',
             'description' => __('A widget that displays social media icons designed for blog sidebar', 'pixova-lite') );

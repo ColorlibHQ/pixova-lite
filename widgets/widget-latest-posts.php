@@ -4,7 +4,7 @@
 
 class Pixova_Lite_Widget_Latest_Posts extends WP_Widget {
 
-    function Pixova_Lite_Widget_Latest_Posts() {
+    function __construct() {
         $widget_ops = array(
             'classname' => 'pixova_lite_widget_latest_posts',
             'description' => __('A widget that displays popular posts from blog', 'pixova-lite')
