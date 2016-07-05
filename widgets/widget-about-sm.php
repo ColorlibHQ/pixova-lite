@@ -3,7 +3,7 @@
 
 class Pixova_Lite_Widget_About extends WP_Widget {
 
-    function Pixova_Lite_Widget_About() {
+    function __construct() {
 
         $widget_ops = array(
             'classname' => 'pixova_lite_widget_about',

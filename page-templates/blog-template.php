@@ -1,7 +1,6 @@
 <?php /* Template Name: Blog Template */ ?>
 
 <?php get_header(); ?>
-<?php //get_template_part('sections/section', 'header-archive'); ?>
 
 <div class="container">
     <div class="row">

@@ -152,12 +152,9 @@ $sidebar_args = array('before_title' => '<h3 class="widget-title"><span>','after
 
                                         &middot;
 
-                                        <?php _e('Made with','pixova-lite'); ?> <span class="footer-heart-icon fa fa-heart"></span> <?php _e(' by ', 'pixova-lite'); ?> <?php _e('Macho Themes', 'pixova-lite'); ?>
+                                        <?php _e('Made with','pixova-lite'); ?> <span class="footer-heart-icon fa fa-heart"></span> <?php _e(' by ', 'pixova-lite'); ?> 
+                                        <a href="https://www.machothemes.com" title="Premium Professional Responsive WordPress Themes"><?php _e('Macho Themes', 'pixova-lite'); ?></a>
                                         &middot;
-
-                                        <?php _e('Powered by: ', 'pixova-lite'); ?><a href="<?php echo esc_url( 'http://www.wordpress.org/' ); ?>" target="_blank" rel="nofollow" title="<?php _e('WordPress', 'pixova-lite'); ?>"><?php _e('WordPress', 'pixova-lite'); ?></a>
-
-                                        &nbsp;
 
                                       </span><!--/.pixova-lite-footer-theme-copyright-->
 

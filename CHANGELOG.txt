@@ -1,3 +1,15 @@
+### V1.46.3
+    - Added Kiwi Social Share as recommended plugin
+    - Made it possible to display only 1 CTA button (just remove the text)
+    - Revamped the blog layout and all default widget styling.
+    - Added placeholder images for blog posts
+
+### V1.46.2
+    - Fixed a small bug where the button text for "visit our blog" couldn't be changed
+
+### V1.45.3
+  - Updated footer.php
+
 ### v1.45
   - Has been fixed logo issue.
   - Has been fixed full header on single posts.

@@ -63,8 +63,15 @@ echo '<section id="intro" class="home-intro" >';
                             echo '<h1 class="intro-cta-title">'. $pixova_lite_main_cta_title .'</h1>';
                             echo '<h1 class="intro-title">'. $pixova_lite_main_cta_text .'</h1>';
                             echo '<p class="intro-tagline">'. wp_kses( $pixova_lite_main_cta_sub_text, array( 'u'=>array(), 'br' =>array(), 'strong' => array() ) ) .'</p>';
-                            echo '<a class="btn btn-cta btn-cta-intro-outline" href="'.esc_url( $pixova_lite_main_cta_outline_button_url ).'"><span>'.esc_html( $pixova_lite_main_cta_outline_button_text ).'</span></a>';
-                            echo '<a class="btn btn-cta btn-cta-intro" href="'.esc_url( $pixova_lite_main_cta_button_url ).'"><span>'.esc_html( $pixova_lite_main_cta_button_text ).'</span></a>';
+
+                            if( $pixova_lite_main_cta_outline_button_text) {
+                                echo '<a class="btn btn-cta btn-cta-intro-outline" href="' . esc_url( $pixova_lite_main_cta_outline_button_url ) . '"><span>' . esc_html( $pixova_lite_main_cta_outline_button_text ) . '</span></a>';
+                            }
+
+							if( $pixova_lite_main_cta_button_text ) {
+                                echo '<a class="btn btn-cta btn-cta-intro" href="'.esc_url( $pixova_lite_main_cta_button_url ).'"><span>'.esc_html( $pixova_lite_main_cta_button_text ).'</span></a>';
+							}
+
                         echo '</div><!--/.text-center-->';
                     echo '</div><!--/.col-md-12-->';
                 echo '</div><!--/.row-->';

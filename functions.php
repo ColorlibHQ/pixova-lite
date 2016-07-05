@@ -469,6 +469,18 @@ if( !function_exists('pixova_lite_register_required_plugins') ) {
          * If the source is NOT from the .org repo, then source is also required.
          */
         $plugins = array(
+            
+            array(
+                'name' => 'Simple Social Share Icons', // The plugin name.
+                'slug' => 'kiwi-social-share', // The plugin slug (typically the folder name).
+                'source' => '', // The plugin source.
+                'required' => false, // If false, the plugin is only 'recommended' instead of required.
+                'version' => '1.0.2', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+                'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+                'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+                'external_url' => '', // If set, overrides default API URL and points to an external URL.
+            ),
+
             array(
                 'name'                  => 'Pirate Forms - Contact Form and SMTP Plugin', // The plugin name.
                 'slug'                  => 'pirate-forms', // The plugin slug (typically the folder name).
@@ -478,7 +490,18 @@ if( !function_exists('pixova_lite_register_required_plugins') ) {
                 'force_activation'      => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
                 'force_deactivation'    => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
                 'external_url'          => '' // If set, overrides default API URL and points to an external URL.
-            )
+            ),
+            
+            array(
+            	'name'                  => 'reCaptcha Security', // The plugin name.
+                'slug'                  => 'uber-nocaptcha-recaptcha', // The plugin slug (typically the folder name).
+                'source'                => '', // The plugin source.
+                'required'              => false, // If false, the plugin is only 'recommended' instead of required.
+                'version'               => '1.0.4', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+                'force_activation'      => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+                'force_deactivation'    => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+                'external_url'          => '' // If set, overrides default API URL and points to an external URL.
+        	)
         );
 
         /**
@@ -655,6 +678,7 @@ if ( ! function_exists( 'pixova_lite_fonts_url' ) ) {
 
 
 //Create function to get templates from Pixova Lite Companion
+/*
 function pixova_lite_get_section_template( $template, $force_companion = false ) {
     $pixova_first_path = get_template_directory().'/';
     $pixova_second_path = defined( 'Pixova_Lite_Companion_PATH' ) ? Pixova_Lite_Companion_PATH : '';
@@ -673,8 +697,8 @@ function pixova_lite_get_section_template( $template, $force_companion = false )
     }elseif ( file_exists ( $pixova_second_path.'sections/'.$template_with_suffix ) ) {
         require_once ( $pixova_second_path.'sections/'.$template_with_suffix );
     }
-
 }
+*/
 
 if( !function_exists( 'pixova_lite_add_default_widgets' ) ) {
   /**
@@ -726,3 +750,5 @@ if( !function_exists( 'pixova_lite_add_default_widgets' ) ) {
   }
     //add_action('after_switch_theme', 'pixova_lite_add_default_widgets');
 }
+
+

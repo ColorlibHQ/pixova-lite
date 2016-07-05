@@ -3606,7 +3606,6 @@ if( !function_exists( 'pixova_lite_customizer_css' ) ) {
 
 		$output .= '<style type="text/css">';
 			$output .= $pixova_lite_intro_button_color ? 'body .btn-cta-intro {background-color: '. esc_attr( $pixova_lite_intro_button_color ) .';}' : '';
-			$output .= $pixova_lite_intro_button_color !== '#f2c351' ? 'body .btn-cta-intro:hover{ background-color: '. esc_attr( pixova_adjust_brightness($pixova_lite_intro_button_color, 10) ) .'}' : '';
 			$output .= $pixova_lite_intro_button_text_color ? 'body .btn-cta-intro {color: '. esc_attr( $pixova_lite_intro_button_text_color ) .';}' : '';
 			$output .= $pixova_lite_intro_outline_button_color ? 'body .btn-cta-intro-outline {border-color: '. esc_attr( $pixova_lite_intro_outline_button_color ) .';}' : '';
 			$output .= $pixova_lite_intro_outline_button_text_color ? 'body .btn-cta-intro-outline {color: '. esc_attr( $pixova_lite_intro_outline_button_text_color ) .';}' : '';
