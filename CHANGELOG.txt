@@ -1,3 +1,6 @@
+### 1.46.5
+    - Removed Kiwi as recommended plugin
+
 ### V1.46.3
     - Added Kiwi Social Share as recommended plugin
     - Made it possible to display only 1 CTA button (just remove the text)
