@@ -729,6 +729,10 @@ section {
 	transform: translateY(-50%)
 }
 
+.intro-services{
+	padding-bottom:25px;
+}
+
 .intro-services .owl-item {
 	padding-right: 20px
 }
