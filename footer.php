@@ -114,7 +114,7 @@ $sidebar_args = array('before_title' => '<h3 class="widget-title"><span>','after
 
                           } elseif( current_user_can( 'edit_theme_options' ) )  {
 
-                            the_widget('pixova_lite_widget_social_media', sprintf( 'title=%s', __('Follow us', 'pixova-lite') ).'&show_title=0&profile_facebook=#&profile_twitter=#&profile_plus=#&profile_pinterest=#&profile_youtube=#&profile_dribbble=#&profile_tumblr=#&profile_instagram=#&profile_github=#&profile_bitbucket=#&profile_codepen=#.');
+                            the_widget('pixova_lite_widget_social_media', sprintf( 'title=%s', __('Follow us', 'pixova-lite') ).'&show_title=0&profile_facebook=#&profile_twitter=#&profile_plus=#&profile_pinterest=#&profile_linkedin=#&profile_youtube=#&profile_dribbble=#&profile_tumblr=#&profile_instagram=#&profile_github=#&profile_bitbucket=#&profile_codepen=#.');
 
                           }
 

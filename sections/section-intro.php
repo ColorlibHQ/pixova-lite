@@ -4,7 +4,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 
 $pixova_lite_main_cta_title = get_theme_mod( 'pixova_lite_intro_title_cta', __( 'WELCOME TO PIXOVA LITE', 'pixova-lite' ) );
 $pixova_lite_main_cta_text = get_theme_mod( 'pixova_lite_intro_cta', __( 'Free & Modern One-Page Parallax WordPress Theme', 'pixova-lite' ) );
-$pixova_lite_main_cta_sub_text = get_theme_mod('pixova_lite_intro_sub_cta', __('Your cool business headline here. You can even <u><strong>insert HTML here & images</strong></u>.<br> Lorem ipsum dolor sit amet lorem dolor sit amet.', 'pixova-lite') );
+$pixova_lite_main_cta_sub_text = get_theme_mod('pixova_lite_intro_sub_cta', __('Your cool business headline here. You can even <u><strong>insert HTML here & images</strong></u>.<br>Lorem ipsum dolor sit amet lorem dolor sit amet.', 'pixova-lite') );
 $pixova_lite_main_cta_button_text = get_theme_mod('pixova_lite_intro_button_text', __('CONTACT US', 'pixova-lite') );
 $pixova_lite_main_cta_button_url = get_theme_mod('pixova_lite_intro_button_url', '#about');
 

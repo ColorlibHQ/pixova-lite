@@ -29,6 +29,7 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
         $profile_twitter 	=  esc_url( $instance['profile_twitter'] );
         $profile_plus 		=  esc_url( $instance['profile_plus'] );
         $profile_pinterest	=  esc_url( $instance['profile_pinterest'] );
+        $profile_linkedin	=  esc_url( $instance['profile_linkedin'] );
         $profile_youtube 	=  esc_url( $instance['profile_youtube'] );
         $profile_dribbble 	=  esc_url( $instance['profile_dribbble'] );
         $profile_tumblr 	=  esc_url( $instance['profile_tumblr'] );
@@ -64,6 +65,10 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 
           if ($profile_pinterest){
               echo '<li><a title="'. __('Pinterest', 'pixova-lite').'" class="pinterest-icon social-icon" href="'.esc_url( $profile_pinterest ).'"><i class="fa fa-pinterest"></i></a></li>';
+          }
+		  
+          if ($profile_linkedin){
+              echo '<li><a title="'. __('LinkedIn', 'pixova-lite').'" class="linkedin-icon social-icon" href="'.esc_url( $profile_linkedin ).'"><i class="fa fa-linkedin"></i></a></li>';
           }
 
           if ($profile_youtube){
@@ -112,6 +117,7 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
         $instance['profile_twitter'] 	= esc_url( $new_instance['profile_twitter'] );
         $instance['profile_plus'] 		= esc_url( $new_instance['profile_plus'] );
         $instance['profile_pinterest'] 	= esc_url( $new_instance['profile_pinterest'] );
+        $instance['profile_linkedin'] 	= esc_url( $new_instance['profile_linkedin'] );
         $instance['profile_youtube'] 	= esc_url( $new_instance['profile_youtube'] );
         $instance['profile_dribbble'] 	= esc_url( $new_instance['profile_dribbble'] );
         $instance['profile_tumblr'] 	= esc_url( $new_instance['profile_tumblr'] );
@@ -133,6 +139,7 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
             'profile_twitter' => null,
             'profile_plus' => null,
             'profile_pinterest' => null,
+            'profile_linkedin' => null,
             'profile_youtube' => null,
             'profile_dribbble' => null,
             'profile_tumblr' => null,
@@ -175,6 +182,11 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
             <p>
                 <label for="<?php echo $this->get_field_id( 'profile_pinterest' ); ?>"><?php _e('Pinterest profile URL:', 'pixova-lite'); ?></label>
                 <input id="<?php echo $this->get_field_id( 'profile_pinterest' ); ?>" name="<?php echo $this->get_field_name( 'profile_pinterest' ); ?>" value="<?php echo esc_url( $instance['profile_pinterest'] ); ?>" style="width:100%;" />
+            </p>
+			
+            <p>
+                <label for="<?php echo $this->get_field_id( 'profile_linkedin' ); ?>"><?php _e('LinkedIn profile URL:', 'pixova-lite'); ?></label>
+                <input id="<?php echo $this->get_field_id( 'profile_linkedin' ); ?>" name="<?php echo $this->get_field_name( 'profile_linkedin' ); ?>" value="<?php echo esc_url( $instance['profile_pinterest'] ); ?>" style="width:100%;" />
             </p>
 
             <p>
