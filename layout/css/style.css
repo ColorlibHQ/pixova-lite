@@ -2057,7 +2057,7 @@ body.logged-in section {
 	border-radius: 4px;
 	display: inline-block;
 	height: auto;
-	padding: 0 15px;
+	padding: 0 15px 25px 15px;
 	position: relative;
 	text-align: center
 }
@@ -2092,13 +2092,13 @@ body.logged-in section {
 	-webkit-transition: all .35s ease;
 	background: #363636;
 	left: 30%;
-	margin-top: 15px;
+	margin-top: 0;
 	opacity: 0;
-	padding: 14px 0;
+	padding: 8px 0;
 	position: absolute;
 	transition: all .35s ease;
 	visibility: hidden;
-	width: 40%;
+	width: 50%;
 	border-radius: 5px
 }
 

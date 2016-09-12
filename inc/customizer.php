@@ -3324,7 +3324,7 @@ function pixova_lite_customize_register( $wp_customize ) {
             $wp_customize->add_setting('pixova_lite_team_member_5_name',
                 array(
                     'sanitize_callback' => 'sanitize_text_field',
-                    'default' => '',
+                    'default' => esc_html__('John Doe', 'pixova-lite'),
 										'transport' => 'postMessage'
                 )
             );
@@ -3360,7 +3360,7 @@ function pixova_lite_customize_register( $wp_customize ) {
             $wp_customize->add_setting('pixova_lite_team_member_5_facebook',
                 array(
                     'sanitize_callback' => 'esc_url',
-                    'default' => '',
+                    'default' => 'https://www.facebook.com/machothemes/'
                 )
             );
 
@@ -3377,7 +3377,7 @@ function pixova_lite_customize_register( $wp_customize ) {
             $wp_customize->add_setting('pixova_lite_team_member_5_dribbble',
                 array(
                     'sanitize_callback' => 'esc_url',
-                    'default' => '',
+                    'default' => 'http://www.dribbble.com/madalin.duca/'
                 )
             );
 
@@ -3402,7 +3402,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 				'pixova_lite_team_member_5_email',
 				array(
 					'label'		=> esc_html__( 'Team member #5 E-mail Address', 'pixova-lite'),
-					'section'	=> 'pixova_lite_team_member_3',
+					'section'	=> 'pixova_lite_team_member_5',
 					'priority'	=> 5
 				)
 			);
