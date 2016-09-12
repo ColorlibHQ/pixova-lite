@@ -2737,7 +2737,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 				array(
 					'type' => 'select',
 					'choices' => array(
-						'1' => esc_html('1'),
 						'2' => esc_html('2'),
 						'4' => esc_html('4'),
 					),
