@@ -901,7 +901,6 @@ body .btn-cta-intro a {
 .work > img {
 	display: block;
 	width: 100%;
-	opacity: .5
 }
 
 .logo-background img {
@@ -2034,7 +2033,7 @@ body.logged-in section {
 	overflow: hidden;
 	padding: 25px 0;
 	position: relative;
-	width: 1170px
+	width: 1170px;
 }
 
 .mt-callout-caption {
@@ -2043,18 +2042,18 @@ body.logged-in section {
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 1.5;
-	margin-top: 12px
+	margin-top: 12px;
 }
 
 .mt-callout-button {
 	float: right;
 	margin-bottom: 0;
-	margin-left: 20px
+	margin-left: 20px;
 }
 
 .mt-callout-button .button {
 	border: 1px solid #fff;
-	line-height: 40px
+	line-height: 40px;
 }
 
 .mt-team {
@@ -2063,11 +2062,12 @@ body.logged-in section {
 	height: auto;
 	padding: 0 15px 25px 15px;
 	position: relative;
-	text-align: center
+	text-align: center;
+	vertical-align: top;
 }
 
 .mt-team:hover:after {
-	width: 40px
+	width: 40px;
 }
 
 .mt-team-img {
@@ -2078,7 +2078,7 @@ body.logged-in section {
 	margin-bottom: 15px;
 	transition: all .4s cubic-bezier(.805, .075, .315, 1.41);
 	max-width: 138px;
-	height: auto
+	height: auto;
 }
 
 .mt-team:hover .mt-team-img {
@@ -2094,16 +2094,17 @@ body.logged-in section {
 
 .mt-team-description {
 	-webkit-transition: all .35s ease;
-	background: #363636;
-	left: 30%;
-	margin-top: 0;
-	opacity: 0;
-	padding: 8px 0;
-	position: absolute;
-	transition: all .35s ease;
-	visibility: hidden;
-	width: 50%;
-	border-radius: 5px
+    background: #363636;
+    left: 50%;
+    margin-top: 0;
+    opacity: 0;
+    padding: 8px 0;
+    position: absolute;
+    transition: all .35s ease;
+    visibility: hidden;
+    width: 50%;
+    border-radius: 5px;
+    transform: translateX( -50% );
 }
 
 .mt-team-description:before {

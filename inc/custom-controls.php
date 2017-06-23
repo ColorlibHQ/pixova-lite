@@ -13,6 +13,15 @@ if( !class_exists( 'Pixova_lite_Controls_Slider_Control' ) ) {
 
         public $type = 'slider';
 
+        protected function get_value(){
+            $setting_value = Pixova_Lite_Helper::get_pixova_setting( $this->id );
+            if ( false === $setting_value ) {
+                return $this->value();
+            }else{
+                return $setting_value;
+            }
+        }
+
         public function enqueue() {
 
             wp_enqueue_script( 'jquery-ui' );
@@ -31,7 +40,7 @@ if( !class_exists( 'Pixova_lite_Controls_Slider_Control' ) ) {
                     <?php endif; ?>
                 </span>
 
-                <input type="text" class="rl-slider" id="input_<?php echo $this->id; ?>" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); ?>/>
+                <input type="text" class="rl-slider" id="input_<?php echo $this->id; ?>" value="<?php echo esc_attr( $this->get_value() ); ?>" <?php $this->link(); ?>/>
 
             </label>
 
@@ -131,12 +140,21 @@ if( !class_exists( 'Pixova_Lite_Number_Custom_Control' ) ) {
 
         public $type = 'number';
 
+        protected function get_value(){
+            $setting_value = Pixova_Lite_Helper::get_pixova_setting( $this->id );
+            if ( false === $setting_value ) {
+                return $this->value();
+            }else{
+                return $setting_value;
+            }
+        }
+
         public function render_content()
         {
             ?>
             <label>
                 <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
-                <input type="number" <?php $this->link(); ?> value="<?php echo intval($this->value()); ?>"/>
+                <input type="number" <?php $this->link(); ?> value="<?php echo intval($this->get_value()); ?>"/>
             </label>
             <?php
         }

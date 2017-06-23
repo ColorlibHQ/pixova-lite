@@ -61,6 +61,9 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
         /**
          * Customizer additions.
          */
+        require get_template_directory() . '/inc/class-pixova-lite-helper.php';
+        require get_template_directory() . '/inc/customizer/class-pixova-custom-control.php';
+        require get_template_directory() . '/inc/customizer/class-pixova-custom-upload.php';
         require get_template_directory() . '/inc/customizer.php';
         require get_template_directory() . '/inc/custom-controls.php';
 
@@ -144,6 +147,9 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
          * Add WooCommerce theme support
          */
         add_theme_support( 'woocommerce' );
+        add_theme_support( 'wc-product-gallery-zoom' );
+        add_theme_support( 'wc-product-gallery-lightbox' );
+        add_theme_support( 'wc-product-gallery-slider' );
 
         /*
          * Add image sizes
@@ -379,7 +385,7 @@ if( !function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 
 
         if( function_exists( 'is_woocommerce' ) ) {
-            wp_enqueue_style('pixova-lite-woocommerce-min-css', get_template_directory_uri() . '/layout/css/pixova-woocommerce.min.css' );
+            wp_enqueue_style('pixova-lite-woocommerce-min-css', get_template_directory_uri() . '/layout/css/pixova-woocommerce.css' );
         }
 
     } // function pixova_lite_enqueue_scripts end

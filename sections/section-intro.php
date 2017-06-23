@@ -60,7 +60,9 @@ echo '<section id="intro" class="home-intro" >';
                 echo '<div class="row">';
                     echo '<div class="col-md-12">';
                         echo '<div class="text-center">';
-                            echo '<h1 class="intro-cta-title">'. $pixova_lite_main_cta_title .'</h1>';
+                            if ($pixova_lite_main_cta_title  ) {
+                                echo '<h1 class="intro-cta-title">'. $pixova_lite_main_cta_title .'</h1>';
+                            }
                             echo '<h1 class="intro-title">'. $pixova_lite_main_cta_text .'</h1>';
                             echo '<p class="intro-tagline">'. wp_kses( $pixova_lite_main_cta_sub_text, array( 'u'=>array(), 'br' =>array(), 'strong' => array() ) ) .'</p>';
 
