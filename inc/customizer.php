@@ -47,85 +47,57 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/**********************************************/
 
 	$wp_customize->add_section( 'pixova_lite_order_section' , array(
-					'title'       => esc_html__( 'Section order', 'pixova-lite' ),
-					'priority'    => 26
+		'title'       => esc_html__( 'Section order', 'pixova-lite' ),
+		'priority'    => 26,
 	));
 
-	$wp_customize->add_setting(
-	        'pixova_lite_order_section',
-	        array(
-	        	'sanitize_callback' => 'pixova_lite_sanitize_pro_version'
-	        )
-	);
+	$wp_customize->add_setting( 'pixova_lite_order_section', array(
+    	'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
+    ) );
 
-	$wp_customize->add_control( new Pixova_Lite_Theme_Support( $wp_customize,
-			'pixova_lite_order_section',
-		    array(
-		        'section' => 'pixova_lite_order_section',
-		   )
-		)
-	);
+	$wp_customize->add_control( new Pixova_Lite_Theme_Support( $wp_customize, 'pixova_lite_order_section', array(
+		'section' => 'pixova_lite_order_section',
+	) ) );
 
-    $wp_customize->add_section( 'pixova_lite_pricing_section' , array(
+    $wp_customize->add_section( 'pixova_lite_pricing_section', array(
         'title'       => esc_html__( 'Pricing tables', 'pixova-lite' ),
-        'priority'    => 38
+        'priority'    => 38,
     ));
 
-    $wp_customize->add_setting(
-        'pixova_lite_pricing_section',
-        array(
-            'sanitize_callback' => 'pixova_lite_sanitize_pro_version'
-        )
-    );
+    $wp_customize->add_setting( 'pixova_lite_pricing_section', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
+	) );
 
-    $wp_customize->add_control( new Pixova_Lite_Theme_Support_Pricing( $wp_customize,
-            'pixova_lite_pricing_section',
-            array(
-                'section' => 'pixova_lite_pricing_section',
-            )
-        )
-    );
+    $wp_customize->add_control( new Pixova_Lite_Theme_Support_Pricing( $wp_customize, 'pixova_lite_pricing_section', array(
+		'section' => 'pixova_lite_pricing_section',
+	) ) );
 
-	$wp_customize->add_section( 'pixova_lite_maps_section' , array(
-					'title'       => esc_html__( 'Google Maps', 'pixova-lite' ),
-					'priority'    => 37
+	$wp_customize->add_section( 'pixova_lite_maps_section', array(
+		'title'       => esc_html__( 'Google Maps', 'pixova-lite' ),
+		'priority'    => 37,
 	));
 
-	$wp_customize->add_setting(
-	        'pixova_lite_maps_section',
-	        array(
-	        	'sanitize_callback' => 'pixova_lite_sanitize_pro_version'
-	        )
-	);
+	$wp_customize->add_setting( 'pixova_lite_maps_section', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
+	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Theme_Support_Googlemap( $wp_customize,
-			'pixova_lite_maps_section',
-		    array(
-		        'section' => 'pixova_lite_maps_section',
-		   )
-		)
-	);
+	$wp_customize->add_control( new Pixova_Lite_Theme_Support_Googlemap( $wp_customize, 'pixova_lite_maps_section', array(
+		'section' => 'pixova_lite_maps_section',
+	) ) );
 
 
 	/* Section Visibility */
-	$wp_customize->add_section( 'pixova_lite_visibility_section' ,
-		array(
-			'title'       => esc_html__( 'Section visibility', 'pixova-lite' ),
-			'priority'    => 25
-		)
-	);
-
-
-
+	$wp_customize->add_section( 'pixova_lite_visibility_section', array(
+		'title'       => esc_html__( 'Section visibility', 'pixova-lite' ),
+		'priority'    => 25,
+	) );
 
 	/* About visibility */
-	$wp_customize->add_setting('pixova_lite_about_visibility',
-		array(
-			'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
-			'default' => '1',
-			'transport' => 'postMessage'
-		)
-	);
+	$wp_customize->add_setting('pixova_lite_about_visibility', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
+		'default' => '1',
+		'transport' => 'postMessage',
+	) );
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_about_visibility', array(
     	'type'	=> 'checkbox',
     	'label' => esc_html__('Display the Pie Chart section ?', 'pixova-lite'),
@@ -230,39 +202,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 	);
 
 
-	/* Company text logo */
-	// $wp_customize->add_setting('pixova_lite_text_logo',
-	// 	array(
-	// 			'sanitize_callback' => 'sanitize_text_field',
-	// 			'default' => esc_html__('Pixova', 'pixova-lite'),
-	// 			'transport' => 'postMessage'
-	// 		)
-	// );
-
-	// $wp_customize->add_control(
-	// 	'pixova_lite_text_logo',
-	// 	array(
-	// 		'label' 		=> esc_html__('Enter company name', 'pixova-lite'),
-	// 		'section' 		=> 'pixova_lite_general_section',
-	// 		'description'   => esc_html__('Company name in text format below', 'pixova-lite'),
-	// 	)
-	// );
-
-	/* Company image logo : PRO Feature */
-    $wp_customize->add_setting( 'pixova_lite_image_logo', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_file_url',
-		'default' => esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ),
-		'transport' => 'postMessage'
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'pixova_lite_image_logo',
-		array(
-		'label' 	=> esc_html__( 'Upload company logo', 'pixova-lite' ),
-		'description' => esc_html__('Allowed image size: 250 x 50px', 'pixova-lite'),
-		'section' 	=> 'pixova_lite_general_section',
-	) ) );
-
-
 	/* COPYRIGHT */
 	$wp_customize->add_setting( 'pixova_lite_copyright_enable', array(
 		'label' => esc_html__( 'Enable theme copyright message in the footer?', 'pixova-lite'),
@@ -278,8 +217,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_general_section',
 		'std' => '1',
 	) ) );
-
-
+	
 	$wp_customize->add_setting( 'pixova_lite_copyright', array(
 		'sanitize_callback' => 'sanitize_text_field',
 		'default' => sprintf('&copy; %s', esc_html__('Copyright 20', 'pixova-lite') . sprintf("%s", date('y') ) . esc_html__('. All Rights Reserved', 'pixova-lite') ),
@@ -291,6 +229,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description' => esc_html__('This is your copyright message. Will be displayed in the footer', 'pixova-lite'),
 		'section' => 'pixova_lite_general_section',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_copyright', array(
+	    'selector' => '#footer .footer-copyright .pixova-lite-footer-text-copyright',
+	) );
 
 	/* Remove : What we do section :: PRO Feature */
 	$wp_customize->add_setting('pixova_lite_what_we_do_section', array(
@@ -401,16 +342,12 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'panel' => 'pixova_lite_panel_contact',
 	) );
 
-
-
 	/* email */
-	$wp_customize->add_setting( 'pixova_lite_email',
-		array(
-			'sanitize_callback' => 'esc_attr',
-			'default' => esc_attr( 'contact@site.com' ),
-			'transport' => 'postMessage'
-		)
-	);
+	$wp_customize->add_setting( 'pixova_lite_email', array(
+		'sanitize_callback' => 'esc_attr',
+		'default' => esc_attr( 'contact@site.com' ),
+		'transport' => 'postMessage',
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_email', array(
 		'label'   => esc_html__( 'Email', 'pixova-lite' ),
@@ -418,6 +355,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_general_contact_section',
 		'settings'   => 'pixova_lite_email',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_email', array(
+	    'selector' => '#contact .contact-info-details-email span',
+	) );
 
 
 	/* phone number */
@@ -433,6 +373,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_general_contact_section',
 		'settings'   => 'pixova_lite_phone',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_phone', array(
+	    'selector' => '#contact .contact-info-details-phone span',
+	) );
 
 	/* address */
 	$wp_customize->add_setting( 'pixova_lite_address', array(
@@ -448,7 +391,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_general_contact_section',
 		'settings'   => 'pixova_lite_address',
 	) ) );
-
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_address', array(
+	    'selector' => '#contact .contact-info-details.address span',
+	) );
 
 	/***********************************************/
 	/************** Breadcrumb Settings  ***************/
@@ -835,6 +780,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label'				=> esc_html__( 'Main CTA title', 'pixova-lite' ),
 		'section'			=> 'pixova_lite_intro_text'
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_title_cta', array(
+	    'selector' => '#intro .intro-content .intro-cta-title',
+	) );
 
 	/* Main CTA text */
 	$wp_customize->add_setting( 'pixova_lite_intro_cta', array(
@@ -848,6 +796,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description'		=> esc_html__( 'This is your main attention grabber. Make the best of it.' , 'pixova-lite' ),
 		'section'			=> 'pixova_lite_intro_text'
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_cta', array(
+	    'selector' => '#intro .intro-content .intro-title',
+	) );
 
 	/* Main CTA sub-text */
 	$wp_customize->add_setting('pixova_lite_intro_sub_cta', array(
@@ -862,6 +813,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description' => esc_html__('Most often main call to actions work best with a sub call to action that emphasises the main CTA.', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_text',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_sub_cta', array(
+	    'selector' => '#intro .intro-content .intro-tagline',
+	) );
 
 
 	/* Outline Button Section */
@@ -870,7 +824,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'panel' => 'pixova_lite_panel_intro',
 	) );
 
-		/* Outline Button text */
+	/* Outline Button text */
 	$wp_customize->add_setting('pixova_lite_intro_outline_button_text', array(
 		'sanitize_callback' => 'sanitize_text_field',
 		'default' => esc_html__('LEARN MORE', 'pixova-lite'),
@@ -882,6 +836,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description' => esc_html__('Text to be displayed on the button. Like BUY NOW or other Call To Action Text', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_outline_button',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_outline_button_text', array(
+	    'selector' => '#intro .intro-content .btn-cta-intro-outline',
+	) );
 	
 	/* Outline Button URL */
 	$wp_customize->add_setting('pixova_lite_intro_outline_button_url', array(
@@ -941,6 +898,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description' => esc_html__('Text to be displayed on the button. Like BUY NOW or other Call To Action Text', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_button',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_button_text', array(
+	    'selector' => '#intro .intro-content .btn-cta-intro',
+	) );
 
 	/* Button URL */
 	$wp_customize->add_setting( 'pixova_lite_intro_button_url', array(
@@ -1032,6 +992,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('What we do #1 title ', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_what_we_do_1',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_what_we_do_1_title', array(
+	    'selector' => '.intro-services .intro-services .intro-service-title-1',
+	) );
 
 	/* What we do #1: description */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_1_description', array(
@@ -1045,6 +1008,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('What we do #1 description ', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_what_we_do_1',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_what_we_do_1_description', array(
+	    'selector' => '.intro-services .intro-services .intro-service-text-1',
+	) );
 
 
 	/* What we do Section #2 */
@@ -1077,6 +1043,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('What we do #2 title ', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_what_we_do_2',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_what_we_do_2_title', array(
+	    'selector' => '.intro-services .intro-services .intro-service-title-2',
+	) );
 
 	/* What we do #2: description */
 	$wp_customize->add_setting('pixova_lite_intro_what_we_do_2_description', array(
@@ -1090,7 +1059,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('What we do #2 description ', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_what_we_do_2',
 	) ) );
-
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_what_we_do_2_description', array(
+	    'selector' => '.intro-services .intro-services .intro-service-text-2',
+	) );
 
 	/* What we do Section #3 */
 	$wp_customize->add_section( 'pixova_lite_intro_what_we_do_3', array(
@@ -1122,6 +1093,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('What we do #3 title ', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_what_we_do_3',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_what_we_do_3_title', array(
+	    'selector' => '.intro-services .intro-services .intro-service-title-3',
+	) );
 
 	/* What we do #3: description */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_3_description', array(
@@ -1135,7 +1109,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('What we do #3 description ', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_intro_what_we_do_3',
 	) ) );
-
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_intro_what_we_do_3_description', array(
+	    'selector' => '.intro-services .intro-services .intro-service-text-3',
+	) );
 
 
 	/***********************************************/
@@ -1167,6 +1143,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('Section title', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_about_titles',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_title', array(
+	    'selector' => '#about .light-section-heading',
+	) );
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting( 'pixova_lite_about_section_sub_title', array(
@@ -1179,6 +1158,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'label' 	=> esc_html__('Section sub-title', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_about_titles',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_sub_title', array(
+	    'selector' => '#about .section-sub-heading',
+	) );
 
 	$wp_customize->add_section('pixova_lite_about_section_text', array(
 		'title' => esc_html__('Section text', 'pixova-lite'),
@@ -1199,6 +1181,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description' => esc_html__('This block accepts limited HTML. Accepted tags are: a, img, em, br & strong.', 'pixova-lite'),
 		'section' => 'pixova_lite_about_section_text',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_textarea', array(
+	    'selector' => '#about .about-text',
+	) );
 
 	/* About blockquote */
 	$wp_customize->add_setting( 'pixova_lite_about_section_blockquote', array(
@@ -1213,6 +1198,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description' => esc_html__('This block accepts limited HTML. Accepted tags are: a, img, em, br & strong.', 'pixova-lite'),
 		'section' => 'pixova_lite_about_section_text',
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_blockquote', array(
+	    'selector' => '#about blockquote p',
+	) );
 
 	/* Section Chart # 1 */
 	$wp_customize->add_section('pixova_lite_section_chart_1', array(
@@ -1233,6 +1221,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_section_chart_1',
 		'priority' => 0,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_1_heading', array(
+	    'selector' => '#about .pixova_lite_chart_1 .mt-heading',
+	) );
 
 	/* Chart #1 Settings */
 	$wp_customize->add_setting('pixova_lite_about_section_chart_1_percentage', array(
@@ -1292,6 +1283,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_section_chart_2',
 		'priority' => 0
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_2_heading', array(
+	    'selector' => '#about .pixova_lite_chart_2 .mt-heading',
+	) );
 
 	/* Chart #2 Settings */
 	$wp_customize->add_setting('pixova_lite_about_section_chart_2_percentage', array(
@@ -1349,6 +1343,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_section_chart_3',
 		'priority' => 0,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_3_heading', array(
+	    'selector' => '#about .pixova_lite_chart_3 .mt-heading',
+	) );
 
 	/* Chart #3 Settings */
 	$wp_customize->add_setting('pixova_lite_about_section_chart_3_percentage', array(
@@ -1406,6 +1403,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_section_chart_4',
 		'priority' => 0
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_4_heading', array(
+	    'selector' => '#about .pixova_lite_chart_4 .mt-heading',
+	) );
 
 	/* Chart #4 Settings */
 	$wp_customize->add_setting('pixova_lite_about_section_chart_4_percentage', array(
@@ -1463,89 +1463,73 @@ function pixova_lite_customize_register( $wp_customize ) {
 	));
 
 	/* Section Title */
-	$wp_customize->add_setting('pixova_lite_work_section_title',
-		array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('Recent works', 'pixova-lite'),
-				'transport' => 'postMessage',
-			)
-	);
+	$wp_customize->add_setting('pixova_lite_work_section_title', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'default' => esc_html__('Recent works', 'pixova-lite'),
+		'transport' => 'postMessage',
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_work_section_title', array(
 		'label' 	=> esc_html__('Section title', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_work_titles',
 		'priority' 	=> 1,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_work_section_title', array(
+	    'selector' => '#works .light-section-heading',
+	) );
 
 	/* Section Sub-Title */
-	$wp_customize->add_setting('pixova_lite_work_section_sub_title',
-		array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('It\'s show and tell time.', 'pixova-lite'),
-				'transport' => 'postMessage'
-			)
-	);
+	$wp_customize->add_setting('pixova_lite_work_section_sub_title', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'default' => esc_html__('It\'s show and tell time.', 'pixova-lite'),
+		'transport' => 'postMessage',
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_work_section_sub_title', array(
 		'label' 	=> esc_html__('Section sub-title', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_work_titles',
 		'priority' 	=> 2,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_work_section_sub_title', array(
+	    'selector' => '#works .section-sub-heading',
+	) );
 
 	/* Recent works: project #1 section */
-	$wp_customize->add_section('pixova_lite_works_project_1',
-		array(
-			'title' 	=> esc_html__('Project #1', 'pixova-lite'),
-			'priority' 	=> 1,
-			'panel' 	=> 'pixova_lite_panel_works'
-		)
-	);
+	$wp_customize->add_section('pixova_lite_works_project_1', array(
+		'title' 	=> esc_html__('Project #1', 'pixova-lite'),
+		'priority' 	=> 1,
+		'panel' 	=> 'pixova_lite_panel_works',
+	) );
 
 	/* Recent works: project #1 image */
-	$wp_customize->add_setting('pixova_lite_works_project_1_image',
-		array(
-			'sanitize_callback' => 'pixova_lite_sanitize_file_url',
-			'default' =>  esc_url( get_template_directory_uri() . '/layout/images/recent-works/recent-works-1-270x426.jpg' ),
-		)
-	);
+	$wp_customize->add_setting('pixova_lite_works_project_1_image', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_file_url',
+		'default' =>  esc_url( get_template_directory_uri() . '/layout/images/recent-works/recent-works-1-270x426.jpg' ),
+	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Upload(
-		$wp_customize,
-		'pixova_lite_works_project_1_image',
-			array(
-				'label' 	=> esc_html__('Project big image', 'pixova-lite'),
-				'section' 	=> 'pixova_lite_works_project_1',
-				'priority' 	=> 1,
-			)
-		)
-	);
+	$wp_customize->add_control( new Pixova_Custom_Upload( $wp_customize, 'pixova_lite_works_project_1_image', array(
+		'label' 	=> esc_html__('Project big image', 'pixova-lite'),
+		'section' 	=> 'pixova_lite_works_project_1',
+		'priority' 	=> 1,
+	) ) );
 
 	/* Recent works: project #1 logo */
-	$wp_customize->add_setting('pixova_lite_works_project_1_logo',
-		array(
-			'sanitize_callback' => 'pixova_lite_sanitize_file_url',
-			'default' => get_template_directory_uri() . '/layout/images/recent-works/logo1.png'
-		)
-	);
+	$wp_customize->add_setting('pixova_lite_works_project_1_logo', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_file_url',
+		'default' => get_template_directory_uri() . '/layout/images/recent-works/logo1.png'
+	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Upload(
-		$wp_customize,
-		'pixova_lite_works_project_1_logo',
-			array(
-				'label' 	=> esc_html__('Project logo image', 'pixova-lite'),
-				'section' 	=> 'pixova_lite_works_project_1',
-				'priority' 	=> 2,
-			)
-		)
-	);
+	$wp_customize->add_control( new Pixova_Custom_Upload( $wp_customize, 'pixova_lite_works_project_1_logo', array(
+		'label' 	=> esc_html__('Project logo image', 'pixova-lite'),
+		'section' 	=> 'pixova_lite_works_project_1',
+		'priority' 	=> 2,
+	) ) );
 
 	/* Recent works: project #1 URL */
-	$wp_customize->add_setting('pixova_lite_works_project_1_url',
-		array(
-			'sanitize_callback' => 'esc_url',
-			'default'			=> esc_url('http://www.machothemes.com/themes/pixova-lite/')
-		)
-	);
+	$wp_customize->add_setting('pixova_lite_works_project_1_url', array(
+		'sanitize_callback' => 'esc_url',
+		'default'			=> esc_url('http://www.machothemes.com/themes/pixova-lite/')
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_works_project_1_url', array(
 		'label' 	=> esc_html__('Project URL (enter project link here)', 'pixova-lite'),
@@ -1554,22 +1538,18 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) ) );
 
 	/* Recent works: project #2 section */
-	$wp_customize->add_section('pixova_lite_works_project_2',
-		array(
-			'title' 	=> esc_html__('Project #2', 'pixova-lite'),
-			'priority' 	=> 2,
-			'panel' 	=> 'pixova_lite_panel_works'
-		)
-	);
+	$wp_customize->add_section('pixova_lite_works_project_2', array(
+		'title' 	=> esc_html__('Project #2', 'pixova-lite'),
+		'priority' 	=> 2,
+		'panel' 	=> 'pixova_lite_panel_works'
+	) );
 
 
 	/* Recent works: project #2 image */
-	$wp_customize->add_setting('pixova_lite_works_project_2_image',
-		array(
-			'sanitize_callback' => 'pixova_lite_sanitize_file_url',
-			'default' => get_template_directory_uri() . '/layout/images/recent-works/recent-works-2-270x426.jpg'
-		)
-	);
+	$wp_customize->add_setting('pixova_lite_works_project_2_image', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_file_url',
+		'default' => get_template_directory_uri() . '/layout/images/recent-works/recent-works-2-270x426.jpg'
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Upload(
 		$wp_customize,
@@ -1775,6 +1755,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' 	=> 'pixova_lite_testimonial_titles',
 		'priority' 	=> 1,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_testimonial_section_title', array(
+	    'selector' => '#testimonials .light-section-heading',
+	) );
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting('pixova_lite_testimonial_section_sub_title',
@@ -1790,6 +1773,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' 	=> 'pixova_lite_testimonial_titles',
 		'priority' 	=> 2,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_testimonial_section_sub_title', array(
+	    'selector' => '#testimonials .section-sub-heading',
+	) );
 
 	/* Testimonials: testimonial #1 section */
 	$wp_customize->add_section( 'pixova_lite_testimonial_1' , array(
@@ -1872,13 +1858,11 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) ) );
 
 	/* Testimonials: testimonial #2 text */
-	$wp_customize->add_setting('pixova_lite_testimonial_2_person_description',
-		array(
-				'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
-				'default' => esc_html__('Working with Pixova has been an experience for a lifetime. I strongly  reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.', 'pixova-lite'),
-				'transport' => 'postMessage'
-			)
-	);
+	$wp_customize->add_setting('pixova_lite_testimonial_2_person_description', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
+		'default' => esc_html__('Working with Pixova has been an experience for a lifetime. I strongly  reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.', 'pixova-lite'),
+		'transport' => 'postMessage',
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonial_2_person_description', array(
 		'type'	=> 'textarea',
@@ -2081,38 +2065,35 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/************** Latest News  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_news',
-		array(
-			'priority' => 34,
-			'capability' => 'edit_theme_options',
-			'theme_supports' => '',
-			'title' => esc_html__( 'Latest News Section', 'pixova-lite' )
-		)
-	);
+	$wp_customize->add_panel( 'pixova_lite_panel_news', array(
+		'priority' => 34,
+		'capability' => 'edit_theme_options',
+		'theme_supports' => '',
+		'title' => esc_html__( 'Latest News Section', 'pixova-lite' ),
+	) );
 
-	$wp_customize->add_section( 'pixova_lite_news_general' ,
-		array(
-			'title'       => esc_html__( 'Section Options', 'pixova-lite' ),
-			'priority'    => 1,
-			'panel' 	  => 'pixova_lite_panel_news'
-		)
-	);
+	$wp_customize->add_section( 'pixova_lite_news_general' , array(
+		'title'       => esc_html__( 'Section Options', 'pixova-lite' ),
+		'priority'    => 1,
+		'panel' 	  => 'pixova_lite_panel_news'
+	) );
 
 
 	/* Section Title */
-	$wp_customize->add_setting('pixova_lite_news_section_title',
-		array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('Latest news', 'pixova-lite'),
-				'transport' => 'postMessage'
-			)
-	);
+	$wp_customize->add_setting('pixova_lite_news_section_title', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'default' => esc_html__('Latest news', 'pixova-lite'),
+		'transport' => 'postMessage',
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_news_section_title', array(
 		'label' 	=> esc_html__('Section title', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_news_general',
 		'priority' 	=> 1,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_news_section_title', array(
+	    'selector' => '#news .light-section-heading',
+	) );
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting('pixova_lite_news_section_sub_title',
@@ -2128,6 +2109,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' 	=> 'pixova_lite_news_general',
 		'priority' 	=> 2,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_news_section_sub_title', array(
+	    'selector' => '#news .section-sub-heading',
+	) );
 
 	/* Button Text */
 	$wp_customize->add_setting( 'pixova_lite_news_section_button_text',
@@ -2198,6 +2182,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' 	=> 'pixova_lite_contact_titles',
 		'priority' 	=> 1,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_contact_section_title', array(
+	    'selector' => '#contact .light-section-heading',
+	) );
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting('pixova_lite_contact_section_sub_title',
@@ -2213,6 +2200,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' 	=> 'pixova_lite_contact_titles',
 		'priority' 	=> 2,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_contact_section_sub_title', array(
+	    'selector' => '#contact .section-sub-heading',
+	) );
 
 	$wp_customize->add_section('pixova_lite_contact_cf7', array(
 		'title' => esc_html__('Contact forms', 'pixova-lite'),
@@ -2303,21 +2293,25 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' 	=> 'pixova_lite_team_titles',
 		'priority' 	=> 1,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_section_title', array(
+	    'selector' => '#team .light-section-heading',
+	) );
 
 	/* Section Sub-Title */
-	$wp_customize->add_setting('pixova_lite_team_section_sub_title',
-		array(
-				'sanitize_callback' => 'sanitize_text_field',
-				'default' => esc_html__('Meet the people that made it all happen.', 'pixova-lite'),
-				'transport' => 'postMessage'
-			)
-	);
+	$wp_customize->add_setting('pixova_lite_team_section_sub_title', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'default' => esc_html__('Meet the people that made it all happen.', 'pixova-lite'),
+		'transport' => 'postMessage'
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_section_sub_title', array(
 		'label' 	=> esc_html__('Section sub-title', 'pixova-lite'),
 		'section' 	=> 'pixova_lite_team_titles',
 		'priority' 	=> 2,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_section_sub_title', array(
+	    'selector' => '#team .section-sub-heading',
+	) );
 
 	/* Team: team member #1 section */
 	$wp_customize->add_section('pixova_lite_team_member_1',
@@ -2329,19 +2323,20 @@ function pixova_lite_customize_register( $wp_customize ) {
 	);
 
 	/* Team: team member #1 name */
-	$wp_customize->add_setting('pixova_lite_team_member_1_name',
-		array(
-			'sanitize_callback' => 'sanitize_text_field',
-			'default' => esc_html__('Angelina Doe', 'pixova-lite'),
-			'transport' => 'postMessage'
-		)
-	);
+	$wp_customize->add_setting('pixova_lite_team_member_1_name', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'default' => esc_html__('Angelina Doe', 'pixova-lite'),
+		'transport' => 'postMessage'
+	) );
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_1_name', array(
 		'label' => esc_html__('Team member #1 name', 'pixova-lite'),
 		'section' => 'pixova_lite_team_member_1',
 		'priority' => 1,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_1_name', array(
+	    'selector' => '#team .pixova-lite-team-member-1 .mt-team-member-name',
+	) );
 
 	/* Team: team member #1 picture */
 	$wp_customize->add_setting('pixova_lite_team_member_1_image',
@@ -2429,6 +2424,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_team_member_2',
 		'priority' => 1,
 	) ) );
+	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_2_name', array(
+	    'selector' => '#team .pixova-lite-team-member-2 .mt-team-member-name',
+	) );
 
 	/* Team: team member #2 picture */
 	$wp_customize->add_setting('pixova_lite_team_member_2_image',
@@ -2513,6 +2511,9 @@ function pixova_lite_customize_register( $wp_customize ) {
         'section' => 'pixova_lite_team_member_3',
         'priority' => 1,
     ) ) );
+    $wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_3_name', array(
+	    'selector' => '#team .pixova-lite-team-member-3 .mt-team-member-name',
+	) );
 
     /* Team: team member #3 picture */
     $wp_customize->add_setting('pixova_lite_team_member_3_image',
@@ -2597,6 +2598,9 @@ function pixova_lite_customize_register( $wp_customize ) {
         'section' => 'pixova_lite_team_member_4',
         'priority' => 1,
     ) ) );
+    $wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_4_name', array(
+	    'selector' => '#team .pixova-lite-team-member-4 .mt-team-member-name',
+	) );
 
     /* Team: team member #4 picture */
     $wp_customize->add_setting('pixova_lite_team_member_4_image',
@@ -2681,6 +2685,9 @@ function pixova_lite_customize_register( $wp_customize ) {
         'section' => 'pixova_lite_team_member_5',
         'priority' => 1,
     ) ) );
+    $wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_5_name', array(
+	    'selector' => '#team .pixova-lite-team-member-5 .mt-team-member-name',
+	) );
 
     /* Team: team member #5 picture */
     $wp_customize->add_setting('pixova_lite_team_member_5_image',
