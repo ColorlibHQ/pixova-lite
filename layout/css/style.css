@@ -1163,7 +1163,9 @@ body .btn-cta-intro a {
 	color: #fff;
 	text-decoration: none
 }
-
+#footer .widget .calendar_wrap a {
+	color: #333;
+}
 .footer-descr {
 	color: #fff;
 	font-size: 14px;
