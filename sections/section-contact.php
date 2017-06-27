@@ -26,7 +26,8 @@ if ( ! current_user_can( 'edit_theme_options' ) ) {
 
 }
 
-
+$pixova_lite_contact_first_heading = get_theme_mod( 'pixova_lite_contact_first_heading', __( 'Address', 'pixova-lite' ) );
+$pixova_lite_contact_second_heading = get_theme_mod( 'pixova_lite_contact_second_heading', __( 'Customer Support', 'pixova-lite' ) );
 
 
 echo '<section class="has-padding" id="contact">';
@@ -44,11 +45,11 @@ echo '<section class="has-padding" id="contact">';
 
 		echo '<div class="col-md-3">';
 			echo '<div class="mt-contact-info">';
-				echo '<h3>' . __( 'Address', 'pixova-lite' ) . '</h3>';
+				echo '<h3 class="adress">' . esc_html( $pixova_lite_contact_first_heading ) . '</h3>';
 
 					echo '<p class="contact-info-details address"><span>' . esc_html( $pixova_lite_contact_section_address ) . '</span></p>';
 
-				echo '<h3>' . __( 'Customer Support', 'pixova-lite' ) . '</h3>';
+				echo '<h3 class="support">' . esc_html( $pixova_lite_contact_second_heading ) . '</h3>';
 
 					echo '<p class="contact-info-details-phone">' . __( 'Phone: ', 'pixova-lite' ) . '<span>' . esc_html( $pixova_lite_contact_section_phone ) . '</span>';
 				echo '</p>';
