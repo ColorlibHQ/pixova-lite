@@ -67,24 +67,6 @@
 		} );
 	} );
 
-
-	// Main CTA :: subtitle
-	wp.customize( 'pixova_lite_intro_sub_cta', function( value ) {
-		value.bind( function( newval ) {
-				$( '.intro-tagline' ).html( newval );
-		} );
-	} );
-
-
-	// Main CTA :: Button Text
-	wp.customize( 'pixova_lite_intro_button_text', function( value ) {
-		value.bind( function( newval ) {
-				$( '.btn-cta-intro span' ).text( newval );
-		} );
-	} );
-
-
-
 	// main CTA :: Button URL
 	wp.customize( 'pixova_lite_intro_button_url', function( value ) {
 		value.bind( function( newval ) {
@@ -99,87 +81,9 @@
 		} );
 	} );
 
-	// main CTA :: Button Text colour
-	wp.customize( 'pixova_lite_intro_button_text_color', function( value ) {
-		value.bind( function( newval ) {
-				$( 'body .btn-cta-intro' ).css('color', newval );
-		} );
-	} );
-
-
-	// What we do :: 1 - title
-	wp.customize( 'pixova_lite_intro_what_we_do_1_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '.intro-service-title-1' ).text( newval );
-		} );
-	} );
-
-	// What we do :: 1 - description
-	wp.customize( 'pixova_lite_intro_what_we_do_1_description', function( value ) {
-		value.bind( function( newval ) {
-				$( '.intro-service-text-1' ).text( newval );
-		} );
-	} );
-
-	// What we do :: 2 - title
-	wp.customize( 'pixova_lite_intro_what_we_do_2_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '.intro-service-title-2' ).text( newval );
-		} );
-	} );
-
-	// What we do :: 2 - description
-	wp.customize( 'pixova_lite_intro_what_we_do_2_description', function( value ) {
-		value.bind( function( newval ) {
-				$( '.intro-service-text-2' ).text( newval );
-		} );
-	} );
-
-	// What we do :: 3 - title
-	wp.customize( 'pixova_lite_intro_what_we_do_3_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '.intro-service-title-3' ).text( newval );
-		} );
-	} );
-
-	// What we do :: 3 - description
-	wp.customize( 'pixova_lite_intro_what_we_do_3_description', function( value ) {
-		value.bind( function( newval ) {
-				$( '.intro-service-text-3' ).text( newval );
-		} );
-	} );
-
 	//
 	// Pie Chart Section
 	//
-
-	// Section Titles
-	wp.customize( 'pixova_lite_about_section_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about h2' ).text( newval );
-		} );
-	} );
-
-	// Section Sub Titles
-	wp.customize( 'pixova_lite_about_section_sub_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about .section-sub-heading' ).text( newval );
-		} );
-	} );
-
-	// Block of text
-	wp.customize( 'pixova_lite_about_section_textarea', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about .about-text' ).html( newval );
-		} );
-	} );
-
-	// Blockquote
-	wp.customize( 'pixova_lite_about_section_blockquote', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about blockquote' ).html( newval );
-		} );
-	} );
 
 	// Chart - 1 :: Heading
 	wp.customize( 'pixova_lite_about_section_chart_1_heading', function( value ) {
@@ -238,43 +142,9 @@
 		} );
 	} );
 
-
-	//
-	// Recent Works Section
-	//
-
-	// Section Titles
-	wp.customize( 'pixova_lite_work_section_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#works h2' ).text( newval );
-		} );
-	} );
-
-
-	// Section sub-titles
-	wp.customize( 'pixova_lite_work_section_sub_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#works .section-sub-heading' ).text( newval );
-		} );
-	} );
-
 	//
 	// Testimonials section
 	//
-
-	// Section TItles
-	wp.customize( 'pixova_lite_testimonial_section_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#testimonials h2' ).text( newval );
-		} );
-	} );
-
-	// Section sub-titles
-	wp.customize( 'pixova_lite_testimonial_section_sub_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#testimonials .section-sub-heading' ).text( newval );
-		} );
-	} );
 
 	// Testimonial 1 :: Person Name
 	wp.customize( 'pixova_lite_testimonial_1_person_name', function( value ) {
@@ -351,119 +221,10 @@
 	// Latest News Section
 	//
 
-	// Section Title
-	wp.customize( 'pixova_lite_news_section_title', function( value ) {
-	  value.bind( function( newval ) {
-	      $( '#news h2.light-section-heading' ).text( newval );
-	  } );
-	} );
-
-	// Section Sub Title
-	wp.customize( 'pixova_lite_news_section_sub_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#news .section-sub-heading' ).text( newval );
-		} );
-	} );
-
 	// Section Button
 	wp.customize( 'pixova_lite_news_section_button_text', function( value ) {
 		value.bind( function( newval ) {
 				$( '#news .btn.btn-cta-light' ).text( newval );
-		} );
-	} );
-
-
-	//
-	// Team Section
-	//
-
-	// Section Title
-	wp.customize( 'pixova_lite_team_section_title', function( value ) {
-	  value.bind( function( newval ) {
-	      $( '#team h2.light-section-heading' ).text( newval );
-	  } );
-	} );
-
-	// Section Sub Title
-	wp.customize( 'pixova_lite_team_section_sub_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#team .section-sub-heading' ).text( newval );
-		} );
-	} );
-
-	// Team Member 1 :: Name
-	wp.customize( 'pixova_lite_team_member_1_name', function( value ) {
-		value.bind( function( newval ) {
-				$( '#team .pixova-lite-team-member-1 .mt-team-member-name' ).text( newval );
-		} );
-	} );
-
-	// Team Member 2 :: Name
-	wp.customize( 'pixova_lite_team_member_2_name', function( value ) {
-		value.bind( function( newval ) {
-				$( '#team .pixova-lite-team-member-2 .mt-team-member-name' ).text( newval );
-		} );
-	} );
-
-	// Team Member 3 :: Name
-	wp.customize( 'pixova_lite_team_member_3_name', function( value ) {
-	  value.bind( function( newval ) {
-	      $( '#team .pixova-lite-team-member-3 .mt-team-member-name' ).text( newval );
-	  } );
-	} );
-
-	// Team Member 4 :: Name
-	wp.customize( 'pixova_lite_team_member_4_name', function( value ) {
-	  value.bind( function( newval ) {
-	      $( '#team .pixova-lite-team-member-4 .mt-team-member-name' ).text( newval );
-	  } );
-	} );
-
-	// Team Member 5 :: Name
-	wp.customize( 'pixova_lite_team_member_5_name', function( value ) {
-	  value.bind( function( newval ) {
-	      $( '#team .pixova-lite-team-member-5 .mt-team-member-name' ).text( newval );
-	  } );
-	} );
-
-
-	//
-	// Contact details
-	//
-
-	// Section Title
-	wp.customize( 'pixova_lite_contact_section_title', function( value ) {
-	  value.bind( function( newval ) {
-	      $( '#contact h2.light-section-heading' ).text( newval );
-	  } );
-	} );
-
-	// Section Sub Title
-	wp.customize( 'pixova_lite_contact_section_sub_title', function( value ) {
-		value.bind( function( newval ) {
-				$( '#contact .section-sub-heading' ).text( newval );
-		} );
-	} );
-
-	/* Phone Number */
-	wp.customize( 'pixova_lite_phone', function( value ) {
-		value.bind( function( newval ) {
-			$( '.contact-info-details-phone span' ).text( newval );
-		} );
-	} );
-
-
-	/* Email */
-	wp.customize( 'pixova_lite_email', function( value ) {
-		value.bind( function( newval ) {
-			$( '.contact-info-details-email span' ).text( newval );
-		} );
-	} );
-
-	/* Address */
-	wp.customize( 'pixova_lite_address', function( value ) {
-		value.bind( function( newval ) {
-			$( '.contact-info-details.address span' ).text( newval );
 		} );
 	} );
 
@@ -544,8 +305,5 @@
 			}
 		} );
 	} );
-
-
-
 
 } )( jQuery );
