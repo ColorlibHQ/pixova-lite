@@ -358,6 +358,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		 */
 
 		// General theme Stylesheet
+		wp_enqueue_style( 'pixova-lite-min-css', get_template_directory_uri() . '/layout/css/style.min.css' );
 		wp_enqueue_style( 'pixova-lite-min-style', get_stylesheet_uri() );
 
 		// Animate CSS
