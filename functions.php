@@ -379,7 +379,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		wp_enqueue_style( 'owlCarousel-theme-css', get_template_directory_uri() . '/layout/css/owl.theme.css' );
 
 		if ( function_exists( 'is_woocommerce' ) ) {
-			wp_enqueue_style( 'pixova-lite-woocommerce-min-css', get_template_directory_uri() . '/layout/css/pixova-woocommerce.css' );
+			wp_enqueue_style( 'pixova-lite-woocommerce-min-css', get_template_directory_uri() . '/layout/css/pixova-woocommerce.min.css' );
 		}
 
 	} // function pixova_lite_enqueue_scripts end
