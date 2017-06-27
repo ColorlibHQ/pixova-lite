@@ -3,11 +3,11 @@
 if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Pixova_Custom_Upload' ) ) {
 	class Pixova_Custom_Upload extends WP_Customize_Upload_Control {
 
-		protected function get_value(){
+		protected function get_value() {
 			$setting_value = Pixova_Lite_Helper::get_pixova_setting( $this->id );
 			if ( false === $setting_value ) {
 				return $this->value();
-			}else{
+			} else {
 				return $setting_value;
 			}
 		}

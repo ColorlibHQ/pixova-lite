@@ -347,14 +347,7 @@
         teamsettings();
         woocommerceTabs();
     });
-    /*
-    if( viewportSize.getHeight() > 800 && !isMobile() && pixova_lite_localization.parallax_enabled == 'header_effect_enabled' ) {
 
-        jQuery(window).scroll(function($){
-            fadeOutTextOnScroll();
-        });
-    }
-    */
     jQuery(window).scroll(function($) {
 
         initNavbar();

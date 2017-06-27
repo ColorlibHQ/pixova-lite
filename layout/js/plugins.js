@@ -17,6 +17,7 @@
             if(typeof $.fn.easyPieChart !== 'undefined' ) {
 
 
+                //noinspection CssInvalidPseudoSelector
                 $('.mt-chart:in-viewport').each(function () {
 
                     var $t = $(this),

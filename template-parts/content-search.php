@@ -22,27 +22,22 @@
 							<div class="entry-meta">
 								<?php printf(
 
-								// Translators: 1 is the post author, 2 is the category list.
+									// Translators: 1 is the post author, 2 is the category list.
 									__( '<span class="post-meta-separator"><i class="fa fa-user"></i>%1$s</span><span class="post-meta-separator"><i class="fa fa-calendar"></i>%2$s</span><span class="post-meta-separator"><i class="fa fa-comment"></i>%3$s</span><span class="post-meta-separator"><i class="fa fa-folder"></i>%4$s</span>', 'pixova-lite' ),
-
 									get_the_author(),
-
 									// Translators: Post time
 									get_the_date( get_option( 'date_format' ), $post->ID ),
-
 									// Translators: Number of com,ments
 									pixova_lite_get_number_of_comments( $post->ID ),
-
 									// Translators: tag list
 									get_the_tag_list( 'Tags: ', ', ', '' )
-
 								);
 								?>
 							</div><!--/.entry-meta-->
 							<div class="entry-content">
 								<?php
 
-									echo apply_filters('the_content', substr(get_the_content(), 0, 200) );
+									echo apply_filters( 'the_content', substr( get_the_content(), 0, 200 ) );
 
 									wp_link_pages( array(
 										'before' => '<nav class="page-links">' . __( 'Pages:', 'pixova-lite' ),
@@ -59,11 +54,11 @@
 		<aside class="col-lg-3 col-md-3 col-sm-3 hidden-xs pull-right">
 			<div class="mt-blog-sidebar">
 				<?php
-				if(is_active_sidebar('blog-sidebar')) {
-					dynamic_sidebar('blog-sidebar');
+				if ( is_active_sidebar( 'blog-sidebar' ) ) {
+					dynamic_sidebar( 'blog-sidebar' );
 				} else {
-					the_widget( 'WP_Widget_Search', sprintf('title=%s', __('Search', 'pixova-lite') ) );
-					the_widget( 'WP_Widget_Calendar', sprintf('title=%s', __('Calendar', 'pixova-lite') ) );
+					the_widget( 'WP_Widget_Search', sprintf( 'title=%s', __( 'Search', 'pixova-lite' ) ) );
+					the_widget( 'WP_Widget_Calendar', sprintf( 'title=%s', __( 'Calendar', 'pixova-lite' ) ) );
 				}
 				?>
 			</div> <!--/.mt-blog-sidebar-->
@@ -73,6 +68,6 @@
 			<?php the_posts_pagination(); ?>
 		</nav> <!--/.mt-custom-pagination-->
 
-        </section><!--/section-->
+		</section><!--/section-->
 	</div><!--/.row-->
 </div><!--/.container-->

@@ -1,8 +1,6 @@
 (function($) {
 
-
     'use strict';
-
 
     /* ==========================================================================
      Page Preloader
@@ -17,7 +15,6 @@
         })
 
     }
-
 
     jQuery(window).load(function($){
         PagePreloader();
