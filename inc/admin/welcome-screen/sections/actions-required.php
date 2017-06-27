@@ -20,9 +20,9 @@
 		$pixova_show_required_actions = get_option( 'pixova_show_required_actions' );
 
 		foreach ( $pixova_lite_required_actions as $pixova_required_action_key => $pixova_required_action_value ) :
-			if ( false === @$pixova_show_required_actions[ $pixova_required_action_value['id'] ] ) { continue;
+			if ( isset( $pixova_show_required_actions[ $pixova_required_action_value['id'] ] ) && false === $pixova_show_required_actions[ $pixova_required_action_value['id'] ] ) { continue;
 			}
-			if ( @$pixova_required_action_value['check'] ) { continue;
+			if ( isset( $pixova_required_action_value['check'] ) && $pixova_required_action_value['check'] ) { continue;
 			}
 			?>
 			<div class="pixova-action-required-box">
