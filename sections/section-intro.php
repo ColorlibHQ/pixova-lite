@@ -84,7 +84,7 @@ if ( $pixova_lite_main_cta_title ) {
 							echo '</div><!--/.intro-content.parallax-text-fade-->';
 							echo '</div><!--/.container-->';
 
-							if ( $pixova_lite_what_we_do_enabled == 1 ) {
+							if ( 1 == $pixova_lite_what_we_do_enabled ) {
 									echo '<div class="container">';
 											echo '<div class="intro-services parallax-text-fade">';
 												echo '<div class="row">';
