@@ -54,8 +54,8 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		 * Custom functions that act independently of the theme templates.
 		 */
 		require get_template_directory() . '/inc/extras.php';
-		require get_template_directory() . '/inc/components/breadcrumbs/class.mt-breadcrumbs.php';
-		require get_template_directory() . '/inc/components/related-posts/class.mt-related-posts.php';
+		require get_template_directory() . '/inc/components/breadcrumbs/class-pixova-lite-breadcrumbs.php';
+		require get_template_directory() . '/inc/components/related-posts/class-mt-related-posts.php';
 
 		/**
 		 * Customizer additions.
@@ -64,7 +64,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-control.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-upload.php';
 		require get_template_directory() . '/inc/customizer.php';
-		require get_template_directory() . '/inc/custom-controls.php';
+		require get_template_directory() . '/inc/class-pixova-lite-controls-slider-control.php';
 
 		/**
 		 * Sidebars
@@ -76,9 +76,9 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		 * Widgets
 		 */
 
-		require get_template_directory() . '/widgets/widget-about-sm.php';
-		require get_template_directory() . '/widgets/widget-social-icons.php';
-		require get_template_directory() . '/widgets/widget-latest-posts.php';
+		require get_template_directory() . '/widgets/class-pixova-lite-widget-about.php';
+		require get_template_directory() . '/widgets/class-pixova-lite-widget-latest-posts.php';
+		require get_template_directory() . '/widgets/class-pixova-lite-widget-social-media.php';
 
 		/**
 		 * PLugins
@@ -88,7 +88,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		/**
 		 * HTML Custom control
 		 */
-		require get_template_directory() . '/inc/customizer/pixova_lite_custom_control.php';
+		require get_template_directory() . '/inc/customizer/class-pixova-lite-html-custom-control.php';
 
 		/*
          * Make theme available for translation.
@@ -212,7 +212,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 				),
 			);
 
-			require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
+			require get_template_directory() . '/inc/admin/welcome-screen/class-pixova-lite-welcome.php';
 		}// End if().
 
 	} // function pixova_lite_theme_setup
@@ -296,7 +296,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		# Preloader Enabled ?
 		$preloader_enabled = get_theme_mod( 'pixova_lite_preloader_enabled', 'preloader_enabled' );
 
-		if ( ! isset( $wp_customize ) && $preloader_enabled == 'preloader_enabled' ) {
+		if ( ! isset( $wp_customize ) && 'preloader_enabled' == $preloader_enabled ) {
 			wp_enqueue_script( 'pathloader-js' );
 			wp_enqueue_script( 'pace-loader-min-js' );
 			wp_enqueue_script( 'pixova-lite-preloader' );
@@ -315,7 +315,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		# Animations Enabled ?
 		$animations_enabled = get_theme_mod( 'pixova_lite_animations_enabled', 'animations_enabled' );
 
-		if ( $animations_enabled == 'animations_enabled' ) {
+		if ( 'animations_enabled' == $animations_enabled ) {
 			wp_enqueue_script( 'wow-min-js' );
 		}
 
@@ -361,7 +361,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		wp_enqueue_style( 'pixova-lite-min-style', get_stylesheet_uri() );
 
 		// Animate CSS
-		if ( $animations_enabled == 'animations_enabled' ) {
+		if ( 'animations_enabled' == $animations_enabled ) {
 			wp_enqueue_style( 'animate-min-css', get_template_directory_uri() . '/layout/css/animate.min.css' );
 		}
 

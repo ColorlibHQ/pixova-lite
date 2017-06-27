@@ -21,16 +21,16 @@ $pixova_lite_limit = get_option( 'posts_per_page', 4 );
 // Logic used to dynamically create the layout, based on how blog posts have been set in the reading options
 $pixova_lite_cols      = '';
 $pixova_lite_news_size = '';
-if ( $pixova_lite_limit == 1 ) {
+if ( 1 == $pixova_lite_limit ) {
 	$pixova_lite_cols      = 'col-md-offset-4 col-sm-offset-3';
 	$pixova_lite_news_size = 'col-md-4 col-sm-6 col-xs-12';
-} else if ( $pixova_lite_limit == 2 ) {
+} elseif ( 2 == $pixova_lite_limit ) {
 	$pixova_lite_cols      = 'col-md-offset-2 col-sm-offset-1';
 	$pixova_lite_news_size = 'col-md-4 col-sm-5 col-xs-12';
-} else if ( $pixova_lite_limit == 3 ) {
+} elseif ( 3 == $pixova_lite_limit ) {
 	$pixova_lite_cols      = 'col-md-offset-1 col-xs-12';
 	$pixova_lite_news_size = 'col-md-3 col-sm-4 col-xs-12';
-} else if ( $pixova_lite_limit >= 4 ) {
+} elseif ( $pixova_lite_limit >= 4 ) {
 	$pixova_lite_cols      = 'col-xs-12';
 	$pixova_lite_news_size = 'col-md-3 col-sm-6 col-xs-12';
 }
@@ -69,7 +69,7 @@ if ( $pixova_lite_q->have_posts() ) {
 			echo '<a href="' . get_the_permalink() . '">';
 			echo get_the_post_thumbnail( $pixova_lite_q->post->ID, 'pixova-lite-homepage-blog-posts' );
 			echo '</a>';
-		} else if ( ! has_post_thumbnail() ) {
+		} elseif ( ! has_post_thumbnail() ) {
 			echo '<div class="entry-featured-image">';
 			echo '<a href="' . get_the_permalink() . '">';
 			echo '<img src="' . esc_url( get_template_directory_uri() . '/layout/images/blog-defaults/rand-' . $i ) . '.jpg" width="250" height="250" alt="' . esc_attr( get_the_title() ) . '">';
@@ -84,7 +84,7 @@ if ( $pixova_lite_q->have_posts() ) {
 		echo '</div><!--/.thumbnail-->';
 		echo '</div> <!--/.col-sm-6.col-md-4-->';
 		$i++;
-		if ( $i == 5 ) {
+		if ( 5 == $i ) {
 			echo '<div class="clearfix"></div>';
 			$i = 1;
 		}
@@ -93,11 +93,11 @@ if ( $pixova_lite_q->have_posts() ) {
 	echo '</div><!--/.row-->';
 	if ( ! empty( $page_which_uses_blog_template ) && is_array( $page_which_uses_blog_template ) ) {
 		echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template[0] ) ) ) . '">' . esc_html( $pixova_lite_news_button_text ) . '</a>';
-	} else if ( ! empty( $page_which_uses_blog_template ) && ! is_array( $page_which_uses_blog_template ) ) {
+	} elseif ( ! empty( $page_which_uses_blog_template ) && ! is_array( $page_which_uses_blog_template ) ) {
 		echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template ) ) ) . '">' . esc_html( $pixova_lite_news_button_text ) . '</a>';
 	}
 	echo '</div><!--/.mt-blog-posts-->';
-}
+}// End if().
 echo '</div><!--/.row-->';
 echo '</div><!--/.container-->';
 echo '</section>';

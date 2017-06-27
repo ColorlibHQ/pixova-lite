@@ -66,8 +66,8 @@ if ( ! function_exists( 'pixova_lite_wp_title' ) ) {
 		}
 
 		add_filter( 'wp_title', 'pixova_lite_wp_title', 10, 2 );
-	}
-}
+	}// End if().
+}// End if().
 
 if ( ! function_exists( 'pixova_lite_setup_author' ) ) {
 	/**
@@ -110,18 +110,18 @@ if ( ! function_exists( 'pixova_lite_prefix_upsell_notice' ) ) {
 		wp_localize_script( 'pixova-lite-customizer-upsell', 'prefixL10n', array(
 
 				# Upsell URL
-				'prefixUpsellURL'    => esc_url( __( 'http://www.machothemes.com/themes/pixova/', 'pixova-lite' ) ),
-				'prefixUpsellLabel'  => esc_html__( 'View PRO version', 'pixova-lite' ),
+			'prefixUpsellURL'    => esc_url( __( 'http://www.machothemes.com/themes/pixova/', 'pixova-lite' ) ),
+			'prefixUpsellLabel'  => esc_html__( 'View PRO version', 'pixova-lite' ),
 
 				# Theme Support
-				'prefixSupportURL'   => esc_url( __( 'http://www.machothemes.com/contact/', 'pixova-lite' ) ),
-				'prefixSupportLabel' => esc_html__( 'Get theme support', 'pixova-lite' ),
+			'prefixSupportURL'   => esc_url( __( 'http://www.machothemes.com/contact/', 'pixova-lite' ) ),
+			'prefixSupportLabel' => esc_html__( 'Get theme support', 'pixova-lite' ),
 
 				# Documentation URLs
-				'prefixDocURL'       => esc_url( __( 'http://docs.machothemes.com/category/106-pixova-lite', 'pixova-lite' ) ),
-				'prefixDocLabel'     => __( 'Theme Documentation', 'pixova-lite' ),
+			'prefixDocURL'       => esc_url( __( 'http://docs.machothemes.com/category/106-pixova-lite', 'pixova-lite' ) ),
+			'prefixDocLabel'     => __( 'Theme Documentation', 'pixova-lite' ),
 
-			) );
+		) );
 
 	}
 
@@ -142,7 +142,7 @@ if ( ! function_exists( 'pixova_lite_hex2rgba' ) ) {
 		}
 
 		//Sanitize $color if "#" is provided
-		if ( $color[0] == '#' ) {
+		if ( '#' == $color[0] ) {
 			$color = substr( $color, 1 );
 		}
 
@@ -163,15 +163,15 @@ if ( ! function_exists( 'pixova_lite_hex2rgba' ) ) {
 			if ( abs( $opacity ) > 1 ) {
 				$opacity = 1.0;
 			}
-			$output = 'rgba(' . implode( ",", $rgb ) . ',' . $opacity . ')';
+			$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
 		} else {
-			$output = 'rgb(' . implode( ",", $rgb ) . ')';
+			$output = 'rgb(' . implode( ',', $rgb ) . ')';
 		}
 
 		//Return rgb(a) color string
 		return $output;
 	}
-}
+}// End if().
 
 if ( ! function_exists( 'pixova_lite_post_nav' ) ) {
 
@@ -257,7 +257,7 @@ if ( ! function_exists( 'pixova_lite_content_nav' ) ) {
 		</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 		<?php
 	}
-}
+}// End if().
 
 if ( ! function_exists( 'pixova_lite_breadcrumbs' ) ) {
 	/**
@@ -292,7 +292,7 @@ if ( ! function_exists( 'pixova_lite_get_number_of_comments' ) ) {
 		$num_comments = get_comments_number( $post_id ); // get_comments_number returns only a numeric value
 
 		if ( comments_open() ) {
-			if ( $num_comments == 0 ) {
+			if ( 0 == $num_comments ) {
 				$comments = __( 'No Comments', 'pixova-lite' );
 			} elseif ( $num_comments > 1 ) {
 				$comments = $num_comments . __( ' Comments', 'pixova-lite' );
@@ -323,8 +323,9 @@ if ( ! function_exists( 'pixova_lite_pagination' ) ) {
 		global $wp_query;
 		$total = $wp_query->max_num_pages;
 		$big   = 999999999; // need an unlikely integer
+		$current_page = get_query_var( 'paged' );
 		if ( $total > 1 ) {
-			if ( ! $current_page = get_query_var( 'paged' ) ) {
+			if ( ! $current_page ) {
 				$current_page = 1;
 			}
 			if ( get_option( 'permalink_structure' ) ) {
@@ -344,7 +345,7 @@ if ( ! function_exists( 'pixova_lite_pagination' ) ) {
 			) );
 		}
 	}
-}
+}// End if().
 
 
 # Check if it's an IIS powered server
@@ -353,8 +354,8 @@ if ( ! function_exists( 'pixova_lite_on_iis' ) ) {
 	 * @return bool
 	 */
 	function pixova_lite_on_iis() {
-		$sSoftware = strtolower( $_SERVER["SERVER_SOFTWARE"] );
-		if ( strpos( $sSoftware, "microsoft-iis" ) !== false ) {
+		$s_software = strtolower( $_SERVER['SERVER_SOFTWARE'] );
+		if ( strpos( $s_software, 'microsoft-iis' ) !== false ) {
 			return true;
 		} else {
 			return false;
@@ -387,7 +388,7 @@ if ( ! function_exists( 'pixova_lite_get_page_id_by_template' ) ) {
 			foreach ( $pages as $page ) {
 				$pages_which_use_template[] = $page;
 			}
-		} else if ( ! is_array( $pages ) ) {
+		} elseif ( ! is_array( $pages ) ) {
 			$pages_which_use_template = $pages;
 		} else {
 			$pages_which_use_template = '';
@@ -428,16 +429,16 @@ if ( ! function_exists( 'pixova_lite_nice_debug' ) ) {
 		switch ( $type ) {
 			case 'print_r':
 
-				echo "<pre>";
+				echo '<pre>';
 				print_r( $var );
-				echo "<pre>";
+				echo '<pre>';
 
 				break;
 			case 'var_dump':
 
-				echo "<pre>";
+				echo '<pre>';
 				var_dump( $var );
-				echo "<pre>";
+				echo '<pre>';
 
 				break;
 		}

@@ -10,9 +10,9 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 	<div class="pixova-tab-pane-center">
 
-		<h1 class="pixova-lite-welcome-title">Welcome to Pixova Lite! <?php if( !empty($pixova_lite['Version']) ): ?> <sup id="pixova-lite-theme-version"><?php echo esc_attr( $pixova_lite['Version'] ); ?> </sup><?php endif; ?></h1>
+		<h1 class="pixova-lite-welcome-title">Welcome to Pixova Lite! <?php if ( ! empty( $pixova_lite['Version'] ) ) : ?> <sup id="pixova-lite-theme-version"><?php echo esc_attr( $pixova_lite['Version'] ); ?> </sup><?php endif; ?></h1>
 
-		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Pixova Lite!','pixova-lite'); ?></p>
+		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Pixova Lite!','pixova-lite' ); ?></p>
 		<p><?php esc_html_e( 'We want to make sure you have the best experience using Pixova Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Pixova Lite, as much as we enjoy creating great products.', 'pixova-lite' ); ?>
 
 	</div>
@@ -58,7 +58,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 
 
-    <?php /* ?>
+	<?php /* ?>
 		<h4><?php esc_html_e( 'Change dimensions for footer social icons', 'pixova-lite' ); ?></h4>
 		<p><?php esc_html_e( 'In the below documentation you will find an easy way to change the default dimensions for you social icons.', 'pixova-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/249-how-to-increase-the-size-of-social-icons-in-pixova' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'pixova-lite' ); ?></a></p>
