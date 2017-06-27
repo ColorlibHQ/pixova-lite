@@ -17,6 +17,11 @@
   "globals": {
     "jQuery": false,
     "wp": false,
-    "ajaxurl": false
+    "ajaxurl": false,
+    "PathLoader": false,
+    "WOW" : false,
+    "pixova_lite_localization" : false,
+    "viewportSize" : false,
+    "classie" : false
   }
 }
