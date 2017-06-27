@@ -10,7 +10,6 @@ matrix:
   - php: '5.6'
   - php: '7.0'
   - php: '7.1'
-    env: DEPLOY=1
 before_script:
 - export PHPCS_DIR=/tmp/phpcs
 - export SNIFFS_DIR=/tmp/sniffs
@@ -70,5 +69,5 @@ deploy:
   file: pixova-lite.zip
   on:
     repo: MachoThemes/pixova-lite
-    branch: '1.48'
+    branch: 'production'
     condition: "$DEPLOY = 1"

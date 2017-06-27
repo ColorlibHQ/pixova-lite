@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-BRANCH="master"
+BRANCH="production"
 
 # Are we on the right branch?
 if [ "$TRAVIS_BRANCH" = "$BRANCH" ]; then
