@@ -141,22 +141,10 @@ class Pixova_Lite_Helper {
 
 	public static function parse_pixova_settings() {
 
-		$tagnames = array(
-			'pixova-settings',
-		);
+		$pixova_settings = get_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', true );
 
-		$pixova_page = get_post( Pixova_Lite_Helper::get_setting_page_id() );
-
-		$content = $pixova_page->post_content;
-
-		if ( '' != $content ) {
-			$pattern = get_shortcode_regex( $tagnames );
-			preg_match( '/' . $pattern . '/', $content, $m );
-
-			// Parse attributes
-			// allow [[foo]] syntax for escaping a tag
-			$attr = shortcode_parse_atts( $m[3] );
-			return $attr;
+		if ( is_array( $pixova_settings ) ) {
+			return $pixova_settings;
 		}
 		return array();
 
@@ -213,13 +201,11 @@ class Pixova_Lite_Helper {
 
 		if ( $new_fields ) {
 			foreach ( $existing_settings as $key => $value ) {
-				$content .= $key . '="' . $value . '" ';
+				$content .= $key . '="' . $value . '";';
 			}
 		}
 
 		if ( '' != $content ) {
-
-			$content = '[pixova-settings ' . $content . '][/pixova-settings]';
 
 			// Update Pixova Settings' Page
 			$pixova_settings_page_args = array(
@@ -228,6 +214,7 @@ class Pixova_Lite_Helper {
 			);
 
 			wp_update_post( $pixova_settings_page_args );
+			update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
 
 		}
 
@@ -276,7 +263,7 @@ function pixova_remove_editor_for_pixova_settings( $post ) {
 
 	if ( get_option( 'pixova-settings-id' ) == $post->ID ) {
 		add_action( 'edit_form_after_title', '_pixova_setting_page_notice' );
-		// remove_post_type_support( $post_type, 'editor' );
+		remove_post_type_support( $post_type, 'editor' );
 	}
 
 }
