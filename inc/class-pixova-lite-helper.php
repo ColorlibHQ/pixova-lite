@@ -255,13 +255,17 @@ foreach ( Pixova_Lite_Helper::$pixova_fields as $pixova_setting ) {
 
 add_action( 'customize_save_after', array( 'Pixova_Lite_Helper', 'delete_theme_mods_save_page_content' ) );
 
-add_action( 'dbx_post_advanced', 'pixova_remove_editor_for_pixova_settings' );
+add_action( 'add_meta_boxes', 'pixova_remove_editor_for_pixova_settings', 20, 2 );
 
-function pixova_remove_editor_for_pixova_settings( $post ) {
+function pixova_remove_editor_for_pixova_settings( $post_type, $post ) {
 
-	global $post_type;
+	if ( 'page' != $post_type ) {
+		return;
+	}
 
-	if ( get_option( 'pixova-settings-id' ) == $post->ID ) {
+	$pixova_page_id = get_option( 'pixova-settings-id' );
+
+	if ( $pixova_page_id && $pixova_page_id == $post->ID ) {
 		add_action( 'edit_form_after_title', '_pixova_setting_page_notice' );
 		remove_post_type_support( $post_type, 'editor' );
 	}
@@ -284,5 +288,3 @@ function add_states_for_pixova_settings_page( $post_states, $post ) {
 	return $post_states;
 
 }
-
-// print_r( get_theme_mods() );
