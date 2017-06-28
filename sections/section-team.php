@@ -31,7 +31,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_team_member_2_image = $pixova_lite_team_member_2_image_customizer;
 	}
 
-
 	$pixova_lite_team_member_2_fburl = get_theme_mod( 'pixova_lite_team_member_2_facebook', 'https://www.facebook.com/machothemes/' );
 	$pixova_lite_team_member_2_dribbble_url = get_theme_mod( 'pixova_lite_team_member_2_dribbble', 'http://www.dribbble.com/' );
 	$pixova_lite_team_member_2_email = get_theme_mod( 'pixova_lite_team_member_2_email', sanitize_email( 'contact@site.com' ) );
@@ -46,7 +45,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	if ( ! $pixova_lite_team_member_3_image ) {
 		$pixova_lite_team_member_3_image = $pixova_lite_team_member_3_image_customizer;
 	}
-
 
 	$pixova_lite_team_member_3_fburl = get_theme_mod( 'pixova_lite_team_member_3_facebook', 'https://www.facebook.com/machothemes/' );
 	$pixova_lite_team_member_3_dribbble_url = get_theme_mod( 'pixova_lite_team_member_3_dribbble', 'http://www.dribbble.com/' );
@@ -78,7 +76,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_team_member_5_image = $pixova_lite_team_member_5_image_customizer;
 	}
 
-
 	$pixova_lite_team_member_5_fburl = get_theme_mod( 'pixova_lite_team_member_5_facebook' );
 	$pixova_lite_team_member_5_dribbble_url = get_theme_mod( 'pixova_lite_team_member_5_dribbble' );
 	$pixova_lite_team_member_5_email = get_theme_mod( 'pixova_lite_team_member_5_email' );
@@ -95,7 +92,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_team_member_1_image_customizer = get_theme_mod( 'pixova_lite_team_member_1_image' );
 	$pixova_lite_team_member_1_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_1_image_customizer, 'thumbnail' );
 
-
 	if ( ! $pixova_lite_team_member_1_image ) {
 		$pixova_lite_team_member_1_image = $pixova_lite_team_member_1_image_customizer;
 	}
@@ -111,12 +107,9 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_team_member_2_image_customizer = get_theme_mod( 'pixova_lite_team_member_2_image' );
 	$pixova_lite_team_member_2_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_2_image_customizer, 'thumbnail' );
 
-
-
 	if ( ! $pixova_lite_team_member_2_image ) {
 		$pixova_lite_team_member_2_image = $pixova_lite_team_member_2_image_customizer;
 	}
-
 
 	$pixova_lite_team_member_2_fburl = get_theme_mod( 'pixova_lite_team_member_2_facebook' );
 	$pixova_lite_team_member_2_dribbble_url = get_theme_mod( 'pixova_lite_team_member_2_dribbble' );
@@ -129,12 +122,9 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_team_member_3_image_customizer = get_theme_mod( 'pixova_lite_team_member_3_image' );
 	$pixova_lite_team_member_3_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_team_member_3_image_customizer, 'thumbnail' );
 
-
-
 	if ( ! $pixova_lite_team_member_3_image ) {
 		$pixova_lite_team_member_3_image = $pixova_lite_team_member_3_image_customizer;
 	}
-
 
 	$pixova_lite_team_member_3_fburl = get_theme_mod( 'pixova_lite_team_member_3_facebook' );
 	$pixova_lite_team_member_3_dribbble_url = get_theme_mod( 'pixova_lite_team_member_3_dribbble' );
@@ -165,7 +155,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	if ( ! $pixova_lite_team_member_5_image ) {
 		$pixova_lite_team_member_5_image = $pixova_lite_team_member_5_image_customizer;
 	}
-
 
 	$pixova_lite_team_member_5_fburl = get_theme_mod( 'pixova_lite_team_member_5_facebook' );
 	$pixova_lite_team_member_5_dribbble_url = get_theme_mod( 'pixova_lite_team_member_5_dribbble' );
@@ -200,9 +189,6 @@ if ( isset( $pixova_lite_team_member_1_image ) && ! empty( $pixova_lite_team_mem
 	echo '</div><!--/.mt-team-member-name-->';
 	if ( $pixova_lite_team_member_1_fburl || $pixova_lite_team_member_1_dribbble_url || $pixova_lite_team_member_1_email ) {
 		echo '<div class="mt-team-description">';
-
-
-
 		echo '<div class="mt-team-member-icons">';
 
 		if ( $pixova_lite_team_member_1_fburl ) {
@@ -222,7 +208,6 @@ if ( isset( $pixova_lite_team_member_1_image ) && ! empty( $pixova_lite_team_mem
 			  echo '<a rel="nofollow" href="mailto:' . esc_attr( $pixova_lite_team_member_1_email ) . '"><i class="fa fa-envelope"></i></a>';
 			echo '</div><!--/.mt-team-member-icon-->';
 		}
-
 
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
@@ -263,7 +248,6 @@ if ( isset( $pixova_lite_team_member_2_image ) && ! empty( $pixova_lite_team_mem
 			echo '</div><!--/.mt-team-member-icon-->';
 		}
 
-
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
 	}
@@ -279,7 +263,6 @@ if ( isset( $pixova_lite_team_member_3_image ) && ! empty( $pixova_lite_team_mem
 	echo '<div class="mt-team-member-name">';
 	echo esc_html( $pixova_lite_team_member_3_name );
 	echo '</div><!--/.mt-team-member-name-->';
-
 
 	if ( $pixova_lite_team_member_3_fburl || $pixova_lite_team_member_3_dribbble_url || $pixova_lite_team_member_3_email ) {
 
@@ -303,7 +286,6 @@ if ( isset( $pixova_lite_team_member_3_image ) && ! empty( $pixova_lite_team_mem
 			  echo '<a rel="nofollow" href="mailto:' . esc_attr( $pixova_lite_team_member_3_email ) . '"><i class="fa fa-envelope"></i></a>';
 			echo '</div><!--/.mt-team-member-icon-->';
 		}
-
 
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
@@ -344,7 +326,6 @@ if ( isset( $pixova_lite_team_member_4_image ) && ! empty( $pixova_lite_team_mem
 			echo '</div><!--/.mt-team-member-icon-->';
 		}
 
-
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
 
@@ -360,8 +341,6 @@ if ( isset( $pixova_lite_team_member_5_image ) && ! empty( $pixova_lite_team_mem
 	echo '<div class="mt-team-member-name">';
 	echo esc_html( $pixova_lite_team_member_5_name );
 	echo '</div><!--/.mt-team-member-name-->';
-
-
 
 	if ( $pixova_lite_team_member_5_fburl || $pixova_lite_team_member_5_dribbble_url || $pixova_lite_team_member_5_email ) {
 
@@ -385,7 +364,6 @@ if ( isset( $pixova_lite_team_member_5_image ) && ! empty( $pixova_lite_team_mem
 			  echo '<a rel="nofollow" href="mailto:' . esc_attr( $pixova_lite_team_member_5_email ) . '"><i class="fa fa-envelope"></i></a>';
 			echo '</div><!--/.mt-team-member-icon-->';
 		}
-
 
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';

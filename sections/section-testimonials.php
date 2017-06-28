@@ -42,7 +42,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_testimonial_3_person_image = $pixova_lite_testimonial_3_person_image_customizer;
 	}
 
-
 	// Testimonial #4
 	$pixova_lite_testimonial_4_person_name = get_theme_mod( 'pixova_lite_testimonial_4_person_name', __( 'Katie Parry - Aviato', 'pixova-lite' ) );
 	$pixova_lite_testimonial_4_person_description = get_theme_mod( 'pixova_lite_testimonial_4_person_description', __( 'Working with Pixova has been the experience of a lifetime. I strongly recommend these guys for their amazing support. Lorem ipsum dolor sit amet lorem ipsum.', 'pixova-lite' ) );
@@ -54,7 +53,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	if ( ! $pixova_lite_testimonial_4_person_image ) {
 		$pixova_lite_testimonial_4_person_image = $pixova_lite_testimonial_4_person_image_customizer;
 	}
-
 
 	// Testimonial #5
 	$pixova_lite_testimonial_5_person_name = get_theme_mod( 'pixova_lite_testimonial_5_person_name', __( 'Katie Parry - Aviato', 'pixova-lite' ) );
@@ -109,7 +107,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_testimonial_3_person_image = $pixova_lite_testimonial_3_person_image_customizer;
 	}
 
-
 	// Testimonial #4
 	$pixova_lite_testimonial_4_person_name = get_theme_mod( 'pixova_lite_testimonial_4_person_name' );
 	$pixova_lite_testimonial_4_person_description = get_theme_mod( 'pixova_lite_testimonial_4_person_description' );
@@ -121,7 +118,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	if ( ! $pixova_lite_testimonial_4_person_image ) {
 		$pixova_lite_testimonial_4_person_image = $pixova_lite_testimonial_4_person_image_customizer;
 	}
-
 
 	// Testimonial #5
 	$pixova_lite_testimonial_5_person_name = get_theme_mod( 'pixova_lite_testimonial_5_person_name' );
@@ -218,10 +214,7 @@ if ( isset( $pixova_lite_testimonial_1_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-heading-->';
-
 	echo '</div><!--/.media-body-->';
-
-
 	echo '</div><!--/.media-->';
 	echo '</div>';
 }// End if().
@@ -237,9 +230,7 @@ if ( isset( $pixova_lite_testimonial_2_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-left.media-middle-->';
-
 	echo '<div class="media-body">';
-
 	echo '<p class="align-center">';
 	if ( isset( $pixova_lite_testimonial_2_person_description ) && ! empty( $pixova_lite_testimonial_2_person_description ) ) {
 
@@ -276,10 +267,7 @@ if ( isset( $pixova_lite_testimonial_2_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-heading-->';
-
 	echo '</div><!--/.media-body-->';
-
-
 	echo '</div><!--/.media-->';
 	echo '</div>';
 }// End if().
@@ -295,9 +283,7 @@ if ( isset( $pixova_lite_testimonial_3_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-left.media-middle-->';
-
 	echo '<div class="media-body">';
-
 	echo '<p class="align-center">';
 	if ( isset( $pixova_lite_testimonial_3_person_description ) && ! empty( $pixova_lite_testimonial_3_person_description ) ) {
 
@@ -334,17 +320,13 @@ if ( isset( $pixova_lite_testimonial_3_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-heading-->';
-
 	echo '</div><!--/.media-body-->';
-
-
 	echo '</div><!--/.media-->';
 	echo '</div>';
 }// End if().
 
 if ( isset( $pixova_lite_testimonial_4_person_image ) && ! empty( $pixova_lite_testimonial_4_person_image ) ) {
 	echo '<div  class="pixova-lite-testimonial-4">';
-
 	echo '<div class="media">';
 	echo '<div class="media-top align-center">';
 
@@ -353,9 +335,7 @@ if ( isset( $pixova_lite_testimonial_4_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-left.media-middle-->';
-
 	echo '<div class="media-body">';
-
 	echo '<p class="align-center">';
 	if ( isset( $pixova_lite_testimonial_4_person_description ) && ! empty( $pixova_lite_testimonial_4_person_description ) ) {
 
@@ -394,8 +374,6 @@ if ( isset( $pixova_lite_testimonial_4_person_image ) && ! empty( $pixova_lite_t
 	echo '</div><!--/.media-heading-->';
 
 	echo '</div><!--/.media-body-->';
-
-
 	echo '</div><!--/.media-->';
 	echo '</div>';
 }// End if().
@@ -411,9 +389,7 @@ if ( isset( $pixova_lite_testimonial_5_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-left.media-middle-->';
-
 	echo '<div class="media-body">';
-
 	echo '<p class="align-center">';
 	if ( isset( $pixova_lite_testimonial_5_person_description ) && ! empty( $pixova_lite_testimonial_5_person_description ) ) {
 
@@ -450,17 +426,11 @@ if ( isset( $pixova_lite_testimonial_5_person_image ) && ! empty( $pixova_lite_t
 	}
 
 	echo '</div><!--/.media-heading-->';
-
 	echo '</div><!--/.media-body-->';
-
-
 	echo '</div><!--/.media-->';
 	echo '</div>';
 }// End if().
-
 			 echo '</div><!--/owl-carousel-->';
-
-
 		 echo '</div><!--/.row-->';
 	 echo '</div><!--/.container-->';
 echo '</section><!--/ SECTION -->';

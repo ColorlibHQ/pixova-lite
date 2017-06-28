@@ -180,23 +180,14 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 				}
 
 				if ( $show_title ) {
-						  echo '<div class="mt-related-posts-title">';
-
-					# Post Title
-					echo '<a href="' . esc_url( get_the_permalink() ) . '">' . get_the_title() . '</a>';
-
-						  echo '</div>';
-
+					echo '<div class="mt-related-posts-title">';
+						echo '<a href="' . esc_url( get_the_permalink() ) . '">' . get_the_title() . '</a>';
+					echo '</div>';
 				}
-
 				if ( $show_date ) {
-
-						  echo '<div class="mt-related-posts-date">';
-
-						  #Post Date
-						  echo get_the_date();
-
-						  echo '</div>';
+					echo '<div class="mt-related-posts-date">';
+						echo get_the_date();
+					echo '</div>';
 				}
 
 				echo '</div> <!--/.col-sm-6.col-md-4-->';

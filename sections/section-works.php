@@ -15,7 +15,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_project_1_image = $pixova_lite_project_1_image_customizer;
 	}
 
-
 	$pixova_lite_project_1_logo = get_theme_mod( 'pixova_lite_works_project_1_logo', get_template_directory_uri() . '/layout/images/recent-works/logo1.png' );
 	$pixova_lite_project_1_url = get_theme_mod( 'pixova_lite_works_project_1_url', 'http://www.machothemes.com/themes/pixova-lite/' );
 
@@ -26,8 +25,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	if ( ! $pixova_lite_project_2_image ) {
 		$pixova_lite_project_2_image = $pixova_lite_project_2_image_customizer;
 	}
-
-
 
 	$pixova_lite_project_2_logo = get_theme_mod( 'pixova_lite_works_project_2_logo', get_template_directory_uri() . '/layout/images/recent-works/logo2.png' );
 	$pixova_lite_project_2_url = get_theme_mod( 'pixova_lite_works_project_2_url', 'http://www.machothemes.com/themes/pixova-lite/' );
@@ -69,7 +66,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_project_1_image = $pixova_lite_project_1_image_customizer;
 	}
 
-
 	$pixova_lite_project_1_logo = get_theme_mod( 'pixova_lite_works_project_1_logo' );
 	$pixova_lite_project_1_url = get_theme_mod( 'pixova_lite_works_project_1_url' );
 
@@ -80,8 +76,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	if ( ! $pixova_lite_project_2_image ) {
 		$pixova_lite_project_2_image = $pixova_lite_project_2_image_customizer;
 	}
-
-
 
 	$pixova_lite_project_2_logo = get_theme_mod( 'pixova_lite_works_project_2_logo' );
 	$pixova_lite_project_2_url = get_theme_mod( 'pixova_lite_works_project_2_url' );
@@ -220,7 +214,6 @@ if ( isset( $pixova_lite_project_3_image ) && ! empty( $pixova_lite_project_3_im
 	// start building the return string
 	echo '<div class="work pixova_lite_project_3 ' . $pixova_lite_project_size . '">';
 
-
 	$pixova_lite_main_image = esc_url( $pixova_lite_project_3_image );
 	$pixova_lite_logo_image = esc_url( $pixova_lite_project_3_logo );
 
@@ -243,7 +236,6 @@ if ( isset( $pixova_lite_project_3_image ) && ! empty( $pixova_lite_project_3_im
 if ( isset( $pixova_lite_project_4_image ) && ! empty( $pixova_lite_project_4_image ) ) {
 	// start building the return string
 	echo '<div class="work pixova_lite_project_4 ' . $pixova_lite_project_size . '">';
-
 
 	$pixova_lite_main_image = esc_url( $pixova_lite_project_4_image );
 	$pixova_lite_logo_image = esc_url( $pixova_lite_project_4_logo );

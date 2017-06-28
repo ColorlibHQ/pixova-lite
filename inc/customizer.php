@@ -2030,7 +2030,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'selector' => '#contact .section-sub-heading',
 	) );
 
-	/* Adress Heading */
+	/* Address Heading */
 	$wp_customize->add_setting( 'pixova_lite_contact_first_heading', array(
 		'sanitize_callback' => 'sanitize_text_field',
 		'default' => esc_html__( 'Address', 'pixova-lite' ),
@@ -2038,12 +2038,12 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_contact_first_heading', array(
 		'label'     => esc_html__( 'Left Heading 1', 'pixova-lite' ),
-		'description' => esc_html__( 'This is the heading before the adress on the Contact section. Default is Adress', 'pixova-lite' ),
+		'description' => esc_html__( 'This is the heading before the address on the Contact section. Default is Address', 'pixova-lite' ),
 		'section'   => 'pixova_lite_contact_titles',
 		'priority'  => 2,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_contact_first_heading', array(
-		'selector' => '#contact .mt-contact-info h3.adress',
+		'selector' => '#contact .mt-contact-info h3.address',
 	) );
 
 	/* Customer Support Heading */

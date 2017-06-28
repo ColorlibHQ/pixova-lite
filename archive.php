@@ -32,8 +32,6 @@
 
 				</div><!--/.has-padding-->
 
-
-
 		</div> <!-- /.row-->
 
 		<div class="row">

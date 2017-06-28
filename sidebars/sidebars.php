@@ -1,6 +1,5 @@
 <?php
 
-
 if ( function_exists( 'register_sidebar' ) ) {
 	if ( ! function_exists( 'pixova_lite_register_sidebars' ) ) {
 		function pixova_lite_register_sidebars() {

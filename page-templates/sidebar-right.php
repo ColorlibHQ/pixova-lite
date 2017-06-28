@@ -8,24 +8,19 @@
 
 	<div id="primary" class="content-area page-content">
 		<main id="main" class="site-main" role="main">
-
 				<div class="container">
 					<div class="row">
 						<section class="has-padding">
 						 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 								<?php while ( have_posts() ) : the_post(); ?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 								<div class="entry-content">
 									<?php
-
 										the_content();
-
 										wp_link_pages( array(
 											'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
 											'after'  => '</div>',
 										) );
-
 									?>
 								</div><!-- .entry-content -->
 							</article><!-- #post-## -->
@@ -43,14 +38,10 @@
 								?>
 							</div> <!--/.mt-blog-sidebar-->
 						</div><!--/.col-lg-3-->
-
 						</section><!--/section-->
 					</div><!--/.row-->
 				</div><!--/.container-->
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-
 
 <?php get_footer(); ?>

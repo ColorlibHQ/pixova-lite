@@ -25,8 +25,6 @@ if ( $image_logo ) {
 } else {
 	$main_navigation_class = 'main-navigation';
 }
-
-
 				   echo '<nav class="' . $main_navigation_class . '">';
 					echo wp_nav_menu( array(
 						'theme_location' => 'primary',
@@ -55,7 +53,6 @@ if ( $image_logo ) {
 
 					echo '<section id="intro" class="blog-intro">';
 					echo '<div class="parallax-bg-container">';
-
 
 					if ( get_header_image() !== '' ) {
 						echo '<div class="parallax-bg-image" data-image-source="' . get_header_image() . '"></div>';
@@ -94,5 +91,4 @@ if ( $image_logo ) {
 					echo '</div><!--/.row-->';
 					echo '</div><!--/.intro-content.parallax-text-fade-->';
 					echo '</div><!--/.container-->';
-
 					echo '</section><!--/ SECTION -->';

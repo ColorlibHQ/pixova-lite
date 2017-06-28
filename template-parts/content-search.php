@@ -18,7 +18,6 @@
 								</aside><!--/.entry-featured-image-->
 							<?php } ?>
 
-
 							<div class="entry-meta">
 								<?php printf(
 

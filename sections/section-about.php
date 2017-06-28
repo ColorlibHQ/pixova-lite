@@ -9,7 +9,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_section_text_block = get_theme_mod( 'pixova_lite_about_section_textarea', __( 'Creative ut tincidunt nibh, varius cursus nunc. Curabitur molestie, metus vel luctus euismod, mi libero laoreet odio, eu dapibus leo tortor sit amet purus. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', 'pixova-lite' ) );
 	$pixova_lite_section_text_blockquote = get_theme_mod( 'pixova_lite_about_section_blockquote', __( 'Working with Pixova has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Erlich Bachman, Aviato', 'pixova-lite' ) );
 
-
 	// Section #1 Chart
 	$pixova_lite_section_1_chart_heading = get_theme_mod( 'pixova_lite_about_section_chart_1_heading', __( 'Web development', 'pixova-lite' ) );
 	$pixova_lite_section_1_chart_percentage = get_theme_mod( 'pixova_lite_about_section_chart_1_percentage', '70' );
@@ -70,8 +69,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 
 }// End if().
 
-
-
 // Logic used to dynamically create the layout, based on how many charts are active
 $pixova_lite_no_of_charts = 0;
 $pixova_lite_cols = '';
@@ -93,7 +90,6 @@ if ( isset( $pixova_lite_section_4_chart_percentage ) && is_numeric( $pixova_lit
 	$pixova_lite_no_of_charts++;
 }
 
-
 if ( 1 == $pixova_lite_no_of_charts ) {
 	$pixova_lite_cols = 'col-md-offset-4 col-sm-offset-3 col-xs-offset-1 text-center';
 	$pixova_lite_chart_size = 'col-md-4 col-sm-6 col-xs-10';
@@ -107,7 +103,6 @@ if ( 1 == $pixova_lite_no_of_charts ) {
 	$pixova_lite_cols = 'col-xs-12';
 	$pixova_lite_chart_size = 'col-md-3 col-sm-6 col-xs-12';
 }
-
 
 echo '<section class="has-padding text-center" id="about">';
 	echo '<div class="container">';
@@ -171,7 +166,6 @@ if ( isset( $pixova_lite_section_text_blockquote ) && ! empty( $pixova_lite_sect
 	echo '</p>';
 	echo '</blockquote>';
 }
-
 
 echo '<div class="pixova_lite_pie_chart_wrapper ' . $pixova_lite_cols . '">';
 

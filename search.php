@@ -3,7 +3,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="has-padding">
-
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 					<?php
 					if ( have_posts() ) {
@@ -14,8 +13,6 @@
 					}
 					?>
 				</div><!--/.col-lg-8-->
-
-
 				<aside class="col-lg-3 col-md-3 col-sm-3 hidden-xs pull-right">
 					<div class="mt-blog-sidebar">
 						<?php
@@ -28,12 +25,9 @@
 						?>
 					</div> <!--/.mt-blog-sidebar-->
 				</aside><!--/.col-lg-3-->
-
 				<nav class="mt-custom-pagination col-lg-12">
 					<?php the_posts_pagination(); ?>
 				</nav><!--/.mt-custom-pagination-->
-
-
 			</div><!--/section-->
 		</div><!--/.row-->
 	</div><!--/.container-->

@@ -8,7 +8,6 @@
 
 	<div id="primary" class="content-area page-content">
 		<main id="main" class="site-main" role="main">
-
 			<div class="container">
 				<div class="row">
 					<section class="has-padding">
@@ -25,8 +24,6 @@
 								?>
 							</div> <!--/.mt-blog-sidebar-->
 						</div><!--/.col-lg-3-->
-
-
 						<?php while ( have_posts() ) : the_post(); ?>
 							<div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-12">
 								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -49,10 +46,7 @@
 					</section><!--/section-->
 				</div><!--/.row-->
 			</div><!--/.container-->
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-
 
 <?php get_footer(); ?>

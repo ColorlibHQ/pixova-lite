@@ -56,5 +56,4 @@ if ( 'posts' != get_option( 'show_on_front' ) && is_front_page() ) {
 	get_template_part( 'sections/section', 'header' );
 }
 
-
 ?>

@@ -80,7 +80,6 @@ if ( ! class_exists( 'Pixova_lite_Controls_Slider_Control' ) ) {
 if ( ! class_exists( 'Pixova_Lite_Disabled_Custom_Control' ) ) {
 	class Pixova_Lite_Disabled_Custom_Control extends WP_Customize_Control {
 
-
 		public function render_content() {
 
 			switch ( $this->type ) {
@@ -102,11 +101,10 @@ if ( ! class_exists( 'Pixova_Lite_Disabled_Custom_Control' ) ) {
 					echo '<div class="' . $this->type . '-pro-feature">';
 					echo '<span class="pro-badge">PRO</span>';
 				?>
-				 <label>
-						<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-						  <input type="text" value="<?php echo esc_html( $this->value() ); ?>" class="large-text" <?php $this->link(); ?> disabled >
-					</label>
-
+				<label>
+					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+					<input type="text" value="<?php echo esc_html( $this->value() ); ?>" class="large-text" <?php $this->link(); ?> disabled >
+				</label>
 
 				<?php echo '</div><!--/pro-feature-->';
 				break;
@@ -136,7 +134,6 @@ if ( ! class_exists( 'Pixova_Lite_Disabled_Custom_Control' ) ) {
  */
 if ( ! class_exists( 'Pixova_Lite_Number_Custom_Control' ) ) {
 	class Pixova_Lite_Number_Custom_Control extends WP_Customize_Control {
-
 
 		public $type = 'number';
 

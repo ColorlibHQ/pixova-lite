@@ -1,6 +1,5 @@
 <?php
 
-
 if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -69,13 +68,11 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		/**
 		 * Sidebars
 		 */
-
 		require get_template_directory() . '/sidebars/sidebars.php';
 
 		/**
 		 * Widgets
 		 */
-
 		require get_template_directory() . '/widgets/class-pixova-lite-widget-about.php';
 		require get_template_directory() . '/widgets/class-pixova-lite-widget-latest-posts.php';
 		require get_template_directory() . '/widgets/class-pixova-lite-widget-social-media.php';
@@ -278,10 +275,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		// Plugins JS
 		wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array( 'jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js' ), '1.41.1', true );
 
-		/*
-         * Enqueue scripts
-         */
-
+		/* Enqueue scripts */
 		function pixova_lite_output_css_to_head() {
 
 			echo '<!-- Customizer CSS Fixes-->' . "\n";
@@ -343,19 +337,6 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 
 		wp_localize_script( 'pixova-lite-scripts-js', 'pixova_lite_localization', $pixova_lite_scripts_options );
 		wp_enqueue_script( 'pixova-lite-scripts-js' );
-
-		#
-		#
-		# END
-		# Scripts Localization
-		#
-		#
-
-		/**
-		 *
-		 * Stylesheets below
-		 *
-		 */
 
 		// General theme Stylesheet
 		wp_enqueue_style( 'pixova-lite-min-css', get_template_directory_uri() . '/layout/css/style.min.css' );
@@ -534,8 +515,6 @@ if ( ! function_exists( 'pixova_lite_register_required_plugins' ) ) {
 	add_action( 'tgmpa_register', 'pixova_lite_register_required_plugins' );
 }// End if().
 
-
-
 // Fallback nav menu
 if ( ! function_exists( 'pixova_lite_fallback_cb' ) ) {
 	/**
@@ -544,7 +523,6 @@ if ( ! function_exists( 'pixova_lite_fallback_cb' ) ) {
 	 * @since Pixova Lite 1.11
 	 *
 	 */
-
 	function pixova_lite_fallback_cb() {
 
 		$html = '<ul id="menu-pixova-lite-main-menu-container" class="mt-default-menu">';
@@ -591,9 +569,7 @@ if ( ! function_exists( 'pixova_lite_fallback_cb' ) ) {
 				$html .= '</a>';
 			$html .= '</li>';
 		}
-
 		$html .= '</ul>';
-
 		echo $html;
 	}
 }// End if().
@@ -658,30 +634,6 @@ if ( ! function_exists( 'pixova_lite_fonts_url' ) ) {
 	}
 }// End if().
 
-
-//Create function to get templates from Pixova Lite Companion
-/*
-function pixova_lite_get_section_template( $template, $force_companion = false ) {
-    $pixova_first_path = get_template_directory().'/';
-    $pixova_second_path = defined( 'Pixova_Lite_Companion_PATH' ) ? Pixova_Lite_Companion_PATH : '';
-    $template_with_suffix = $template.'.php';
-
-    if ( $force_companion && $pixova_second_path != '' ) {
-        $aux_path = $pixova_first_path;
-        $pixova_first_path = $pixova_second_path;
-        $pixova_second_path = $aux_path;
-    }
-
-    if ( locate_template($template_with_suffix) && !$force_companion ) {
-        get_template_part($template);
-    }elseif ( file_exists ( $pixova_first_path.'sections/'.$template_with_suffix ) ) {
-        require_once ( $pixova_first_path.'sections/'.$template_with_suffix );
-    }elseif ( file_exists ( $pixova_second_path.'sections/'.$template_with_suffix ) ) {
-        require_once ( $pixova_second_path.'sections/'.$template_with_suffix );
-    }
-}
-*/
-
 if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 	/**
   * Function to import widgets based on a JSON config file
@@ -692,7 +644,6 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 
 		$json = '{"orphaned_widgets_1":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"shop-sidebar":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"blog-sidebar":{"search-2":{"title":""},"recent-posts-2":{"title":"","number":5},"recent-comments-2":{"title":"","number":5},"archives-2":{"title":"","count":0,"dropdown":0},"categories-2":{"title":"","count":0,"hierarchical":0,"dropdown":0},"meta-2":{"title":""}},"footer-sidebar-1":{"pixova_lite_widget_about-2":{"title":"About","about_text":"The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour.\r\n\r\n","show_title":"1"}},"footer-sidebar-2":{"text-2":{"title":"Quick nav","text":"  <ul id=\"menu-pixova-footer-menu\" class=\"menu\">\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#about\">About<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#works\">Recent Works<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#testimonials\">Testimonials<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#news\">News<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#team\">Team<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#contact\">Contact<\/a><\/li>\r\n                                    <\/ul>","filter":false}},"footer-sidebar-3":{"pixova_lite_widget_latest_posts-2":{"title":"Latest post","items":"1","show_title":"1"}},"footer-sidebar-4":{"pixova_lite_widget_social_media-3":{"title":"Follow us","profile_facebook":" ","profile_twitter":" ","profile_plus":" ","profile_pinterest":" ","profile_youtube":" ","profile_dribbble":" ","profile_tumblr":" ","profile_instagram":" ","profile_github":" ","profile_bitbucket":" ","profile_codepen":"","show_title":""}}}';
 		$config = json_decode( $json );
-
 		$sidebars_widgets = get_option( 'sidebars_widgets' );
 
 		# Parse config
@@ -726,9 +677,7 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 				$sidebars_widgets[ $sidebar ] = $this_sidebar_active_widgets;
 			}
 		}
-
 		update_option( 'sidebars_widgets', $sidebars_widgets );
-
 	}
 }// End if().
 

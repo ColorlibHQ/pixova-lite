@@ -50,7 +50,6 @@ if ( $image_logo ) {
 						echo '<section id="intro" class="blog-intro">';
 						echo '<div class="parallax-bg-container">';
 
-
 						if ( get_header_image() !== '' ) {
 							echo '<div class="parallax-bg-image" data-image-source="' . get_header_image() . '"></div>';
 						} else {
@@ -58,8 +57,6 @@ if ( $image_logo ) {
 						}
 
 						echo '</div><!--/.parallax-bg-container-->';
-
-
 						echo '<div class="container" id="intro-holder">';
 						echo '<div class="intro-content parallax-text-fade">';
 						echo '<div class="row">';

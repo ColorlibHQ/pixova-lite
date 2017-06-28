@@ -16,7 +16,6 @@
 	</div>
 </div>
 
-
  <div class="container">
 		<div class="row">
 			<div class="has-padding single-content">
@@ -49,8 +48,6 @@
 						?>
 					</div><!--/.entry-meta-->
 
-
-
 					<div class="entry-content">
 						<?php
 						the_content();
@@ -60,11 +57,9 @@
 							'after'  => '</nav>',
 						) );
 						?>
-
 					</div><!-- .entry-content -->
 					<div class="clearfix"></div><!--/.clearfix-->
 				</div>
-
 		</div><!--.col-lg-8.col-xs-12.col-sm-12-->
 
 			<aside class="col-lg-3 col-md-3 col-sm-3 hidden-xs pull-right">

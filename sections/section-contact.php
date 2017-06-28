@@ -23,12 +23,10 @@ if ( ! current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_contact_section_email = get_theme_mod( 'pixova_lite_email', 'office@machothemes.com' );
 	$pixova_lite_contact_cf7_form = get_theme_mod( 'pixova_lite_contact_section_cf7', '' );
 	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
-
 }
 
 $pixova_lite_contact_first_heading = get_theme_mod( 'pixova_lite_contact_first_heading', __( 'Address', 'pixova-lite' ) );
 $pixova_lite_contact_second_heading = get_theme_mod( 'pixova_lite_contact_second_heading', __( 'Customer Support', 'pixova-lite' ) );
-
 
 echo '<section class="has-padding" id="contact">';
 	echo '<div class="container">';
@@ -45,7 +43,7 @@ echo '<section class="has-padding" id="contact">';
 
 		echo '<div class="col-md-3">';
 			echo '<div class="mt-contact-info">';
-				echo '<h3 class="adress">' . esc_html( $pixova_lite_contact_first_heading ) . '</h3>';
+				echo '<h3 class="address">' . esc_html( $pixova_lite_contact_first_heading ) . '</h3>';
 
 					echo '<p class="contact-info-details address"><span>' . esc_html( $pixova_lite_contact_section_address ) . '</span></p>';
 
@@ -60,8 +58,6 @@ echo '<section class="has-padding" id="contact">';
 				echo '</div><!--/.contact-info-details-->';
 			echo '</div><!--/.mt-contact-info-->';
 		//echo '</div><!--/.col-md-3-->';
-
-
 		echo '<div class="col-md-9">';
 
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';

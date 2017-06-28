@@ -44,8 +44,6 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 
 }// End if().
 
-
-
 echo '<section id="intro" class="home-intro" >';
 		echo '<div class="parallax-bg-container">';
 if ( get_header_image() && '' !== get_header_image() ) {

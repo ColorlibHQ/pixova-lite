@@ -17,8 +17,6 @@ echo '<header id="header-wrap">';
 				echo '<!-- /menu icon -->';
 				echo '<!-- main navigation -->';
 
-
-
 if ( $image_logo ) {
 	$main_navigation_class = 'main-navigation logo-image';
 } else {
@@ -63,9 +61,6 @@ if ( $image_logo ) {
 					}
 
 					echo '</div><!--/.parallax-bg-container-->';
-
-
-
 					echo '<div class="container" id="intro-holder">';
 					echo '<div class="intro-content parallax-text-fade">';
 					echo '<div class="row">';
@@ -77,11 +72,9 @@ if ( $image_logo ) {
 					}
 
 					echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';
-
 					echo '</div><!--/.text-center-->';
 					echo '</div><!--/.col-md-12-->';
 					echo '</div><!--/.row-->';
 					echo '</div><!--/.intro-content.parallax-text-fade-->';
 					echo '</div><!--/.container-->';
-
 					echo '</section><!-- SECTION -->';

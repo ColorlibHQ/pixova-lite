@@ -1,14 +1,4 @@
 <?php
-
-/**
- * Jetpack Compatibility File
- * See: http://jetpack.me/
- *
- * @package pixova-lite
- */
-
-
-
 /**
  * Add theme support for Infinite Scroll.
  * See: http://jetpack.me/support/infinite-scroll/
