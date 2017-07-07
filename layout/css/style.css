@@ -897,16 +897,17 @@ body .btn-cta-intro a {
 	height: 100%;
 	vertical-align: middle
 }
-
 .work > img {
 	display: block;
-	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
 }
 
 .logo-background img {
 	height: auto;
 	max-width: 187px;
-	vertical-align: middle
+	vertical-align: middle;
+	max-height: 100%;
 }
 
 .work-description {
