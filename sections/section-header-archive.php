@@ -1,8 +1,8 @@
 <?php
 $image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 
-$blog_title = get_theme_mod( 'pixova_lite_blog_text_title', esc_html__( 'Blog', 'pixova-lite' ) );
-$blog_description = get_theme_mod( 'pixova_lite_blog_text_description', esc_html__( 'Maecenas eget nisl vitae nunc molestie elementum non id urna.', 'pixova-lite' ) );
+$blog_title = get_theme_mod( 'pixova_lite_blog_text_title' );
+$blog_description = get_theme_mod( 'pixova_lite_blog_text_description' );
 
 echo '<!-- Header -->';
 echo '<header id="header-wrap">';
@@ -68,8 +68,17 @@ if ( $image_logo ) {
 					echo '<div class="col-md-12">';
 					echo '<div class="text-center">';
 					if ( is_page_template( 'page-templates/blog-template.php' ) ) {
-						echo '<h1 class="intro-title">' . esc_html( $blog_title ) . '</h1>';
-						echo '<p class="intro-tagline">' . esc_html( $blog_description ) . '</p>';
+						if ( '' != $blog_title ) {
+							echo '<h1 class="intro-title">' . esc_html( $blog_title ) . '</h1>';
+						}else{
+							echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';
+						}
+						if ( '' != $blog_description ) {
+							echo '<p class="intro-tagline">' . esc_html( $blog_description ) . '</p>';
+						}else{
+							echo '<p class="intro-tagline">' . esc_html( get_option( 'blogdescription' ) ) . '</p>';
+						}
+						
 					} elseif ( is_category() ) {
 						echo the_archive_title( '<h1 class="intro-title">', '</h1>' );
 						echo the_archive_description( '<p class="intro-tagline">', '</p>' );
@@ -82,6 +91,23 @@ if ( $image_logo ) {
 						echo '<h1 class="intro-title">';
 						printf( __( 'Search Results for: %s', 'pixova-lite' ), '<span><u>' . esc_html( get_search_query() ) . '</u></span>' );
 						echo '</h1>';
+					} elseif ( is_home() ) {
+
+						$page_for_posts = get_option('page_for_posts', true);
+						if ( '' != $blog_title ) {
+							echo '<h1 class="intro-title">' . esc_html( $blog_title ) . '</h1>';
+						} elseif ( 0 != $page_for_posts ) {
+							echo '<h1 class="intro-title">' . esc_html( get_the_title( $page_for_posts ) ) . '</h1>';
+						} else {
+							echo '<h1 class="intro-title">' . esc_html( get_option( 'blogname' ) ) . '</h1>';
+						}
+
+						if ( '' != $blog_description ) {
+							echo '<p class="intro-tagline">' . esc_html( $blog_description ) . '</p>';
+						}else{
+							echo '<p class="intro-tagline">' . esc_html( get_option( 'blogdescription' ) ) . '</p>';
+						}
+
 					} else {
 						echo '<h1 class="intro-title">' . esc_html( get_option( 'blogname' ) ) . '</h1>';
 						echo '<p class="intro-tagline">' . esc_html( get_option( 'blogdescription' ) ) . '</p>';

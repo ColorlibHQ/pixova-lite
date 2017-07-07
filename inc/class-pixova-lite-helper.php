@@ -109,6 +109,8 @@ class Pixova_Lite_Helper {
 		'pixova_lite_news_section_no_posts_per_slide',
 		'pixova_lite_contact_section_title',
 		'pixova_lite_contact_section_sub_title',
+		'pixova_lite_contact_first_heading',
+		'pixova_lite_contact_second_heading',
 		'pixova_lite_team_section_title',
 		'pixova_lite_team_section_sub_title',
 		'pixova_lite_team_member_1_name',
@@ -289,6 +291,9 @@ class Pixova_Lite_Helper {
 					'pixova_lite_testimonial_4_person_name' => __( 'Testimonial #4 Person Name', 'pixova-lite' ),
 					'pixova_lite_testimonial_4_person_description' => __( 'Testimonial #4 Content', 'pixova-lite' ),
 					'pixova_lite_testimonial_4_person_image' => __( 'Testimonial #4 Person Image', 'pixova-lite' ),
+					'pixova_lite_testimonial_5_person_name' => __( 'Testimonial #5 Person Name', 'pixova-lite' ),
+					'pixova_lite_testimonial_5_person_description' => __( 'Testimonial #5 Content', 'pixova-lite' ),
+					'pixova_lite_testimonial_5_person_image' => __( 'Testimonial #5 Person Image', 'pixova-lite' ),
 				),
 			),
 			array(
