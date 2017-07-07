@@ -2762,7 +2762,8 @@ input#submit {
 	display: none
 }
 
-.widget_search input[type=search] {
+.widget_search input[type=search],
+.search-form input[type=search] {
 	border: 1px solid #ccc;
 	font-style: italic;
 	padding: 10px 0 10px 5px
@@ -3784,8 +3785,7 @@ ul.page-numbers li,
 	text-align: center
 }
 
-.error-404,
-.search-no-results .no-results {
+.error-404 {
 	padding: 200px 0
 }
 
@@ -3800,11 +3800,13 @@ ul.page-numbers li,
 	color: #f2c351
 }
 
-.error-404 .page-content p {
+.error-404 .page-content p,
+.no-results .page-content p {
 	margin-bottom: 25px
 }
 
-.error404 input[type=search] {
+.error404 input[type=search],
+.no-results input[type=search] {
 	border: 1px solid #ccc;
 	padding: 13px;
 	font-style: italic;
@@ -3812,7 +3814,8 @@ ul.page-numbers li,
 	font-weight: 400
 }
 
-.error404 input[type=submit] {
+.error404 input[type=submit],
+.no-results input[type=submit] {
 	backface-visibility: hidden;
 	background-color: #2ecc71;
 	border: 2px solid #2ecc71;
