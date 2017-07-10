@@ -97,40 +97,8 @@ if ( ! function_exists( 'pixova_lite_setup_author' ) ) {
 	add_action( 'wp', 'pixova_lite_setup_author' );
 }
 
-if ( ! function_exists( 'pixova_lite_prefix_upsell_notice' ) ) {
-	/**
-	 * Display upgrade notice on customizer page
-	 */
-	function pixova_lite_prefix_upsell_notice() {
-
-		// Enqueue the script
-		wp_enqueue_script( 'pixova-lite-customizer-upsell', get_template_directory_uri() . '/layout/js/upsell/upsell.js', array(), '1.0.1', true );
-
-		// Localize the script
-		wp_localize_script( 'pixova-lite-customizer-upsell', 'prefixL10n', array(
-
-				# Upsell URL
-			'prefixUpsellURL'    => esc_url( __( 'http://www.machothemes.com/themes/pixova/', 'pixova-lite' ) ),
-			'prefixUpsellLabel'  => esc_html__( 'View PRO version', 'pixova-lite' ),
-
-				# Theme Support
-			'prefixSupportURL'   => esc_url( __( 'http://www.machothemes.com/contact/', 'pixova-lite' ) ),
-			'prefixSupportLabel' => esc_html__( 'Get theme support', 'pixova-lite' ),
-
-				# Documentation URLs
-			'prefixDocURL'       => esc_url( __( 'http://docs.machothemes.com/category/106-pixova-lite', 'pixova-lite' ) ),
-			'prefixDocLabel'     => __( 'Theme Documentation', 'pixova-lite' ),
-
-		) );
-
-	}
-
-	add_action( 'customize_controls_enqueue_scripts', 'pixova_lite_prefix_upsell_notice' );
-}
-
 
 // Function to convert hex color codes to rgba
-
 if ( ! function_exists( 'pixova_lite_hex2rgba' ) ) {
 	function pixova_lite_hex2rgba( $color, $opacity = false ) {
 

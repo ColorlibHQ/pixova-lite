@@ -49,10 +49,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Theme_Support( $wp_customize, 'pixova_lite_order_section', array(
-		'section' => 'pixova_lite_order_section',
-	) ) );
-
 	$wp_customize->add_section( 'pixova_lite_pricing_section', array(
 		'title'       => esc_html__( 'Pricing tables', 'pixova-lite' ),
 		'priority'    => 38,
@@ -61,10 +57,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'pixova_lite_pricing_section', array(
 		'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
 	) );
-
-	$wp_customize->add_control( new Pixova_Lite_Theme_Support_Pricing( $wp_customize, 'pixova_lite_pricing_section', array(
-		'section' => 'pixova_lite_pricing_section',
-	) ) );
 
 	/* Section Visibility */
 	$wp_customize->add_section( 'pixova_lite_visibility_section', array(
@@ -197,19 +189,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_copyright', array(
 		'selector' => '#footer .footer-copyright .pixova-lite-footer-text-copyright',
 	) );
-
-	/* Remove : What we do section :: PRO Feature */
-	$wp_customize->add_setting( 'pixova_lite_what_we_do_section', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
-		'default' => esc_html__( 'Remove this section.', 'pixova-lite' ),
-	) );
-
-	$wp_customize->add_control( new Pixova_Lite_Disabled_Custom_Control( $wp_customize, 'pixova_lite_what_we_do_section', array(
-		'type'          => 'checkbox',
-		'label'         => esc_html__( 'Remove what we do section?', 'pixova-lite' ),
-		'section'       => 'pixova_lite_general_section',
-		'std'           => '1',
-	) ) );
 
 	/* Enable Preloader */
 	$wp_customize->add_setting( 'pixova_lite_preloader_enabled', array(
@@ -414,18 +393,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'description' => esc_html__( 'Control various post settings from here. For a demo-like experience, we recommend you don\'t change these settings.', 'pixova-lite' ),
 		'panel'       => 'pixova_lite_panel_general',
 	) );
-
-	/*  Header Image */
-	$wp_customize->add_setting( 'pixova_lite_enable_blog_header_image', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
-		'default' => 1,
-	) );
-
-	$wp_customize->add_control( new Pixova_Lite_Disabled_Custom_Control( $wp_customize, 'pixova_lite_enable_blog_header_image', array(
-		'type'  => 'checkbox',
-		'label' => esc_html__( 'Header image on blog?', 'pixova-lite' ),
-		'section' => 'pixova_lite_blog_related_section',
-	) ) );
 
 	/* Blog Page Title */
 	$wp_customize->add_setting( 'pixova_lite_blog_text_title', array(
@@ -662,62 +629,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'title' => esc_html__( 'CTA Section (big bg. image)', 'pixova-lite' ),
 	) );
 
-	# Intro Video
-	$wp_customize->add_section( 'pixova_lite_intro_video', array(
-		'title'             => esc_html__( 'Header Video', 'pixova-lite' ),
-		'panel'             => 'pixova_lite_panel_intro',
-	) );
-
-	$wp_customize->add_setting( 'pixova_lite_intro_video_container', array(
-		'sanitize_callback' => 'esc_url',
-		'default' => esc_url( 'https://www.youtube.com/watch?v=FijBkSvN6N8' ),
-	) );
-
-	$wp_customize->add_control( new Pixova_Lite_Disabled_Custom_Control( $wp_customize, 'pixova_lite_intro_video_container', array(
-		'type'      => 'textarea',
-		'label'     => esc_html__( 'Enter YouTube video URL ', 'pixova-lite' ),
-		'section'   => 'pixova_lite_intro_video',
-	) ) );
-
-	# Upgrade NOW: Video Section
-	$wp_customize->add_setting( 'pixova_lite_video_upgrade_pro', array(
-		'default' => '',
-		'capability'     => 'edit_theme_options',
-		'sanitize_callback' => 'sanitize_text_field',
-	) );
-	$wp_customize->add_control( new Pixova_Lite_WP_Pro_Customize_Control( $wp_customize, 'pixova_lite_video_upgrade_pro', array(
-		'label' => esc_html__( 'Discover Pixova PRO','pixova-lite' ),
-		'section' => 'pixova_lite_intro_video',
-	) ) );
-
-	# Intro Slider
-	$wp_customize->add_section( 'pixova_lite_intro_slider', array(
-		'title' => esc_html__( 'Header Slider', 'pixova-lite' ),
-		'panel' => 'pixova_lite_panel_intro',
-	) );
-
-	$wp_customize->add_setting( 'pixova_lite_intro_slider_container', array(
-		'sanitize_callback' => 'esc_url',
-		'default' => esc_url( 'https://www.your-image-url-here.com' ),
-	) );
-
-	$wp_customize->add_control( new Pixova_Lite_Disabled_Custom_Control( $wp_customize, 'pixova_lite_intro_slider_container', array(
-		'type'      => 'textarea',
-		'label'     => esc_html__( 'Enter Slide #1 Image URL ', 'pixova-lite' ),
-		'section'   => 'pixova_lite_intro_slider',
-	) ) );
-
-	# Upgrade NOW: Slider Section
-	$wp_customize->add_setting( 'pixova_lite_slider_upgrade_pro', array(
-		'default' => '',
-		'capability'     => 'edit_theme_options',
-		'sanitize_callback' => 'sanitize_text_field',
-	) );
-	$wp_customize->add_control( new Pixova_Lite_WP_Pro_Customize_Control( $wp_customize, 'pixova_lite_slider_upgrade_pro', array(
-		'label' => esc_html__( 'Discover Pixova PRO','pixova-lite' ),
-		'section' => 'pixova_lite_intro_slider',
-	) ) );
-
 	/* Text Section */
 	$wp_customize->add_section( 'pixova_lite_intro_text', array(
 		'title' => esc_html__( 'CTA Text', 'pixova-lite' ),
@@ -926,7 +837,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => esc_html__( 'fa fa-droplet', 'pixova-lite' ),
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Disabled_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_1_icon', array(
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_1_icon', array(
 		'type' => 'text',
 		'label' => esc_html__( 'Specify icon name', 'pixova-lite' ),
 		'section' => 'pixova_lite_intro_what_we_do_1',
@@ -976,7 +887,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => esc_html__( 'fa fa-development', 'pixova-lite' ),
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Disabled_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_2_icon', array(
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_2_icon', array(
 		'type' => 'text',
 		'label' => esc_html__( 'Specify icon name', 'pixova-lite' ),
 		'section' => 'pixova_lite_intro_what_we_do_2',
@@ -1026,7 +937,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => esc_html__( 'fa fa-envelope', 'pixova-lite' ),
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Disabled_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_3_icon', array(
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_3_icon', array(
 		'type'                  => 'text',
 		'label'         => esc_html__( 'Specify icon name', 'pixova-lite' ),
 		'section'       => 'pixova_lite_intro_what_we_do_3',
