@@ -682,3 +682,12 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 }// End if().
 
 
+// Include epsilon framework
+require_once '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';
+$args = array(
+	'controls' => array( 'toggle' ), // array of controls to load
+	'sections' => array( 'recommended-actions' ), // array of sections to load
+	'path'     => '/inc/libraries' // path to your epsilon framework in your theme, e.g. theme-name*/inc/libraries*/epsilon-framework
+);
+
+new Epsilon_Framework( $args );

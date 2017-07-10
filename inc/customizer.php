@@ -66,19 +66,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'section' => 'pixova_lite_pricing_section',
 	) ) );
 
-	$wp_customize->add_section( 'pixova_lite_maps_section', array(
-		'title'       => esc_html__( 'Google Maps', 'pixova-lite' ),
-		'priority'    => 37,
-	));
-
-	$wp_customize->add_setting( 'pixova_lite_maps_section', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
-	) );
-
-	$wp_customize->add_control( new Pixova_Lite_Theme_Support_Googlemap( $wp_customize, 'pixova_lite_maps_section', array(
-		'section' => 'pixova_lite_maps_section',
-	) ) );
-
 	/* Section Visibility */
 	$wp_customize->add_section( 'pixova_lite_visibility_section', array(
 		'title'       => esc_html__( 'Section visibility', 'pixova-lite' ),
@@ -91,8 +78,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => '1',
 		'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_about_visibility', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_about_visibility', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Display the Pie Chart section ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_visibility_section',
 	) ) );
@@ -103,8 +90,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => '1',
 		'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_works_visibility', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_works_visibility', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Display the works section ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_visibility_section',
 	) ) );
@@ -115,8 +102,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => '1',
 		'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonials_visibility', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_testimonials_visibility', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Display the testimonials section ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_visibility_section',
 	) ) );
@@ -127,8 +114,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => '1',
 		'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_visibility', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_team_visibility', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Display the team section ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_visibility_section',
 	) ) );
@@ -139,8 +126,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => '1',
 		'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_news_visibility', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_news_visibility', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Display the news section ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_visibility_section',
 	) ) );
@@ -151,8 +138,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => '1',
 		'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_contact_visibility', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_contact_visibility', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Display the contact section ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_visibility_section',
 	) ) );
@@ -188,8 +175,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_copyright_enable', array(
-		'type' => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_copyright_enable', array(
+		'type' => 'epsilon-toggle',
 		'label' => esc_html__( 'Display theme copyright in the footer?', 'pixova-lite' ),
 		'description' => esc_html__( 'By disabling this field, the theme copyright text & links will be removed from the footer', 'pixova-lite' ),
 		'section' => 'pixova_lite_general_section',
@@ -412,8 +399,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
 		'default' => 1,
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_blog_breadcrumb_menu_post_category', array(
-		'type' => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_blog_breadcrumb_menu_post_category', array(
+		'type' => 'epsilon-toggle',
 		'label' => esc_html__( 'Show post category ?', 'pixova-lite' ),
 		'description' => esc_html__( 'Show the post category in the breadcrumb ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_blog_breadcrumb_section',
@@ -487,8 +474,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => 1,
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_enable_content_navigation', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_enable_content_navigation', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Show prev/next links below posts?', 'pixova-lite' ),
 		'section' => 'pixova_lite_blog_related_section',
 	) ) );
@@ -499,8 +486,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => 1,
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_enable_author_box', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_enable_author_box', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Show author box below posts?', 'pixova-lite' ),
 		'section' => 'pixova_lite_blog_related_section',
 	) ) );
@@ -510,8 +497,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
 		'default' => 0,
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_enable_related_title_blog_posts', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_enable_related_title_blog_posts', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Posts title in the carousel ?', 'pixova-lite' ),
 		'section' => 'pixova_lite_blog_related_section',
 	) ) );
@@ -521,8 +508,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
 		'default' => 0,
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_enable_related_date_blog_posts', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_enable_related_date_blog_posts', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Carousel related posts date?', 'pixova-lite' ),
 		'section' => 'pixova_lite_blog_related_section',
 	) ) );
@@ -532,8 +519,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
 		'default' => 1,
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_autoplay_blog_posts', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_autoplay_blog_posts', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Autoplay related carousel?', 'pixova-lite' ),
 		'section' => 'pixova_lite_blog_related_section',
 	) ) );
@@ -560,8 +547,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
 		'default' => 1,
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_pagination_blog_posts', array(
-		'type'  => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_pagination_blog_posts', array(
+		'type'  => 'epsilon-toggle',
 		'label' => esc_html__( 'Carousel pagination controls?', 'pixova-lite' ),
 		'description' => esc_html__( 'Will be displayed as navigation bullets', 'pixova-lite' ),
 		'section' => 'pixova_lite_blog_related_section',
@@ -919,8 +906,8 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => 0,
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_enabled', array(
-		'type' => 'checkbox',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( $wp_customize, 'pixova_lite_intro_what_we_do_enabled', array(
+		'type' => 'epsilon-toggle',
 		'label' => esc_html__( 'Enable what we do section?', 'pixova-lite' ),
 		'section' => 'pixova_lite_show_what_we_do',
 		'default' => 0,
