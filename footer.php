@@ -81,10 +81,10 @@ $sidebar_args = array(
 									if ( $check_footer_theme_copyright_enable ) { ?>
 
 										<span class="pixova-lite-footer-theme-copyright">
-										<?php _e( 'Theme:', 'pixova-lite' ); ?> <a href="<?php echo esc_url( 'http://www.machothemes.com/themes/pixova-lite/' ); ?>" target="_blank" title="<?php _e( 'Free One Page Parallax WordPress Theme', 'pixova-lite' ); ?>"><?php _e( 'Pixova Lite', 'pixova-lite' ); ?></a>
+										<?php _e( 'Theme:', 'pixova-lite' ); ?> <a href="<?php echo esc_url( 'https://colorlib.com/wp/themes/pixova/' ); ?>" target="_blank" title="<?php _e( 'Free One Page Parallax WordPress Theme', 'pixova-lite' ); ?>"><?php _e( 'Pixova Lite', 'pixova-lite' ); ?></a>
 										&middot;
 										<?php _e( 'Made with','pixova-lite' ); ?> <span class="footer-heart-icon fa fa-heart"></span> <?php _e( ' by ', 'pixova-lite' ); ?> 
-										<a href="https://www.machothemes.com" title="Premium Professional Responsive WordPress Themes"><?php _e( 'Macho Themes', 'pixova-lite' ); ?></a>
+										<a href="https://colorlib.com/" title="Premium Professional Responsive WordPress Themes"><?php _e( 'Colorlib', 'pixova-lite' ); ?></a>
 										&middot;
 									  </span><!--/.pixova-lite-footer-theme-copyright-->
 										<?php } ?>
