@@ -4,10 +4,10 @@
  *
  * This file does the breadcrumbs handling for the Muscle Core Lite framework
  *
- * @author      Cristian Raiber
- * @copyright   (c) Copyright by Macho Themes
- * @link        http://www.machothemes.com
- * @package     Muscle Core
+ * @author      Colorlib
+ * @copyright   (c) Copyright by Colorlib
+ * @link        https://colorlib.com/
+ * @package     Colorlib
  * @since       Version 1.4
  */
 

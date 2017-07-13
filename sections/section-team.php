@@ -16,7 +16,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_team_member_1_image = $pixova_lite_team_member_1_image_customizer;
 	}
 
-	$pixova_lite_team_member_1_fburl = get_theme_mod( 'pixova_lite_team_member_1_facebook', 'https://www.facebook.com/machothemes/' );
+	$pixova_lite_team_member_1_fburl = get_theme_mod( 'pixova_lite_team_member_1_facebook', 'https://www.facebook.com/colorlib/' );
 	$pixova_lite_team_member_1_dribbble_url = get_theme_mod( 'pixova_lite_team_member_1_dribbble', 'http://www.dribbble.com/' );
 	$pixova_lite_team_member_1_email = get_theme_mod( 'pixova_lite_team_member_1_email', sanitize_email( 'contact@site.com' ) );
 
@@ -31,7 +31,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_team_member_2_image = $pixova_lite_team_member_2_image_customizer;
 	}
 
-	$pixova_lite_team_member_2_fburl = get_theme_mod( 'pixova_lite_team_member_2_facebook', 'https://www.facebook.com/machothemes/' );
+	$pixova_lite_team_member_2_fburl = get_theme_mod( 'pixova_lite_team_member_2_facebook', 'https://www.facebook.com/colorlib/' );
 	$pixova_lite_team_member_2_dribbble_url = get_theme_mod( 'pixova_lite_team_member_2_dribbble', 'http://www.dribbble.com/' );
 	$pixova_lite_team_member_2_email = get_theme_mod( 'pixova_lite_team_member_2_email', sanitize_email( 'contact@site.com' ) );
 
@@ -46,7 +46,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_team_member_3_image = $pixova_lite_team_member_3_image_customizer;
 	}
 
-	$pixova_lite_team_member_3_fburl = get_theme_mod( 'pixova_lite_team_member_3_facebook', 'https://www.facebook.com/machothemes/' );
+	$pixova_lite_team_member_3_fburl = get_theme_mod( 'pixova_lite_team_member_3_facebook', 'https://www.facebook.com/colorlib/' );
 	$pixova_lite_team_member_3_dribbble_url = get_theme_mod( 'pixova_lite_team_member_3_dribbble', 'http://www.dribbble.com/' );
 	$pixova_lite_team_member_3_email = get_theme_mod( 'pixova_lite_team_member_3_email', sanitize_email( 'contact@site.com' ) );
 
@@ -61,7 +61,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 		$pixova_lite_team_member_4_image = $pixova_lite_team_member_4_image_customizer;
 	}
 
-	$pixova_lite_team_member_4_fburl = get_theme_mod( 'pixova_lite_team_member_4_facebook', 'https://www.facebook.com/machothemes/' );
+	$pixova_lite_team_member_4_fburl = get_theme_mod( 'pixova_lite_team_member_4_facebook', 'https://www.facebook.com/colorlib/' );
 	$pixova_lite_team_member_4_dribbble_url = get_theme_mod( 'pixova_lite_team_member_4_dribbble', 'http://www.dribbble.com/' );
 	$pixova_lite_team_member_4_email = get_theme_mod( 'pixova_lite_team_member_4_email', sanitize_email( 'contact@site.com' ) );
 

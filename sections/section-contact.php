@@ -20,7 +20,7 @@ if ( ! current_user_can( 'edit_theme_options' ) ) {
 	// section args
 	$pixova_lite_contact_section_address = get_theme_mod( 'pixova_lite_address', __( 'Street 221B Baker Street, London, UK', 'pixova-lite' ) );
 	$pixova_lite_contact_section_phone = get_theme_mod( 'pixova_lite_phone', '+444 974 525' );
-	$pixova_lite_contact_section_email = get_theme_mod( 'pixova_lite_email', 'office@machothemes.com' );
+	$pixova_lite_contact_section_email = get_theme_mod( 'pixova_lite_email', 'office@colorlib.com' );
 	$pixova_lite_contact_cf7_form = get_theme_mod( 'pixova_lite_contact_section_cf7', '' );
 	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
 }

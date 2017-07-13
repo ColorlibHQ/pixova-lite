@@ -5,10 +5,10 @@
  *
  * This file does the social sharing handling for the Muscle Core Lite Framework
  *
- * @author      Cristian Raiber
- * @copyright   (c) Copyright by Macho Themes
- * @link        http://www.machothemes.com
- * @package     Muscle Core Lite
+ * @author      Colorlib
+ * @copyright   (c) Copyright by Colorlib
+ * @link        https://colorlib.com/
+ * @package     Colorlib
  * @since       Version 1.0.0
  */
 

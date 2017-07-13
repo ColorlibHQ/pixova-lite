@@ -16,7 +16,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	}
 
 	$pixova_lite_project_1_logo = get_theme_mod( 'pixova_lite_works_project_1_logo', get_template_directory_uri() . '/layout/images/recent-works/logo1.png' );
-	$pixova_lite_project_1_url = get_theme_mod( 'pixova_lite_works_project_1_url', 'http://www.machothemes.com/themes/pixova-lite/' );
+	$pixova_lite_project_1_url = get_theme_mod( 'pixova_lite_works_project_1_url', 'https://colorlib.com/wp/themes/pixova/' );
 
 	// Project #2
 	$pixova_lite_project_2_image_customizer = get_theme_mod( 'pixova_lite_works_project_2_image', get_template_directory_uri() . '/layout/images/recent-works/recent-works-2-270x426.jpg' );
@@ -27,7 +27,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	}
 
 	$pixova_lite_project_2_logo = get_theme_mod( 'pixova_lite_works_project_2_logo', get_template_directory_uri() . '/layout/images/recent-works/logo2.png' );
-	$pixova_lite_project_2_url = get_theme_mod( 'pixova_lite_works_project_2_url', 'http://www.machothemes.com/themes/pixova-lite/' );
+	$pixova_lite_project_2_url = get_theme_mod( 'pixova_lite_works_project_2_url', 'https://colorlib.com/wp/themes/pixova/' );
 
 	// Project #3
 	$pixova_lite_project_3_image_customizer = get_theme_mod( 'pixova_lite_works_project_3_image', get_template_directory_uri() . '/layout/images/recent-works/recent-works-3-270x426.jpg' );
@@ -38,7 +38,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	}
 
 	$pixova_lite_project_3_logo = get_theme_mod( 'pixova_lite_works_project_3_logo', get_template_directory_uri() . '/layout/images/recent-works/logo3.png' );
-	$pixova_lite_project_3_url = get_theme_mod( 'pixova_lite_works_project_3_url', 'http://www.machothemes.com/themes/pixova-lite/' );
+	$pixova_lite_project_3_url = get_theme_mod( 'pixova_lite_works_project_3_url', 'https://colorlib.com/wp/themes/pixova/' );
 
 	// Project #4
 	$pixova_lite_project_4_image_customizer = get_theme_mod( 'pixova_lite_works_project_4_image', get_template_directory_uri() . '/layout/images/recent-works/recent-works-4-270x426.jpg' );
@@ -49,7 +49,7 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	}
 
 	$pixova_lite_project_4_logo = get_theme_mod( 'pixova_lite_works_project_4_logo', get_template_directory_uri() . '/layout/images/recent-works/logo4.png' );
-	$pixova_lite_project_4_url = get_theme_mod( 'pixova_lite_works_project_4_url', 'http://www.machothemes.com/themes/pixova-lite/' );
+	$pixova_lite_project_4_url = get_theme_mod( 'pixova_lite_works_project_4_url', 'https://colorlib.com/wp/themes/pixova/' );
 
 } else {
 
