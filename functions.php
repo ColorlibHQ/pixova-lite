@@ -161,7 +161,13 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 
 		if ( is_admin() ) {
 
-			global $pixova_lite_required_actions;
+			global $pixova_required_actions, $pixova_recommended_plugins;
+			require get_template_directory() . '/inc/libraries/class-pixova-notify-system.php';
+
+			$pixova_recommended_plugins = array(
+				'kiwi-social-share'        => array( 'recommended' => false ),
+				'modula-best-grid-gallery' => array( 'recommended' => false ),
+			);
 
 			/*
              * id - unique id; required
@@ -171,33 +177,28 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
              * plugin_slug - the plugin's slug (used for installing the plugin)
              *
              */
-			$pixova_lite_required_actions = array(
+			$pixova_required_actions  = array(
 				array(
 					'id' => 'pixova-lite-req-ac-frontpage-latest-news',
 					'title' => esc_html__( 'Get the one page template' ,'pixova-lite' ),
 					'description' => esc_html__( 'If you just installed Pixova Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Static Page".','pixova-lite' ),
-					'check' => pixova_lite_is_not_static_page(),
+					'check' => Pixova_Notify_System::is_not_static_page(),
 				),
                 array(
                     "id" => 'pixova-lite-req-ac-install-contact-forms',
                     "title" => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
                     "description"=> esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
+                    "check"       => Pixova_Notify_System::has_import_plugin( 'contact-form-7' ),
                     "plugin_slug" => 'contact-form-7'
                 ),
 			);
 
-			require get_template_directory() . '/inc/admin/welcome-screen/class-pixova-lite-welcome.php';
+			require get_template_directory() . '/inc/libraries/welcome-screen/class-pixova-welcome-screen.php';
 		}// End if().
 
 	} // function pixova_lite_theme_setup
 	add_action( 'after_setup_theme', 'pixova_lite_theme_setup', 9 );
 } // End if().
-
-if ( ! function_exists( 'pixova_lite_is_not_latest_posts' ) ) {
-	function pixova_lite_is_not_static_page() {
-		return ('page' == get_option( 'show_on_front' ) ? true : false);
-	}
-}
 
 if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 	/**

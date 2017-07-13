@@ -2,6 +2,49 @@
 
 function pixova_lite_customize_register( $wp_customize ) {
 
+	// Recomended actions
+	global $pixova_required_actions, $pixova_recommended_plugins;
+	$customizer_recommended_plugins = array();
+	if ( is_array( $pixova_recommended_plugins ) ) {
+		foreach ( $pixova_recommended_plugins as $k => $s ) {
+			if ( $s['recommended'] ) {
+				$customizer_recommended_plugins[ $k ] = $s;
+			}
+		}
+	}
+	$customizer_pixova_required_actions = array();
+	if ( ! empty( $pixova_required_actions ) ) {
+		foreach ( $pixova_required_actions as $required_action ) {
+			if ( 'pixova-req-import-content' == $required_action['id'] ) {
+				$required_action['description'] = sprintf(
+					esc_html__( 'In oder to import the demo content go %s', 'pixova-lite' ),
+					'<a href="' . admin_url( 'themes.php?page=pixova-welcome&tab=recommended_actions' ) . '">' . esc_html__( 'here', 'pixova-lite' ) . '</a>'
+				);
+			}
+			$customizer_pixova_required_actions[] = $required_action;
+		}
+	}
+	$theme_slug = 'pixova';
+	$wp_customize->add_section( new Epsilon_Section_Recommended_Actions( $wp_customize, 'epsilon_recomended_section', array(
+		'title'                        => esc_html__( 'Recomended Actions', 'pixova-lite' ),
+		'social_text'                  => esc_html__( 'We are social', 'pixova-lite' ),
+		'plugin_text'                  => esc_html__( 'Recomended Plugins', 'pixova-lite' ),
+		'actions'                      => $customizer_pixova_required_actions,
+		'plugins'                      => $customizer_recommended_plugins,
+		'theme_specific_option'        => $theme_slug . '_show_required_actions',
+		'theme_specific_plugin_option' => $theme_slug . '_show_recommended_plugins',
+		'facebook'                     => 'https://www.facebook.com/colorlib',
+		'twitter'                      => 'https://twitter.com/colorlib',
+		'wp_review'                    => true,
+		'priority'                     => 0,
+	) ) );
+	$wp_customize->add_section( new Epsilon_Section_Pro( $wp_customize, 'epsilon-section-pro', array(
+		'title'       => esc_html__( 'Theme documentation', 'pixova-lite' ),
+		'button_text' => esc_html__( 'Learn more', 'pixova-lite' ),
+		'button_url'  => 'https://colorlib.com/wp/support/pixova/',
+		'priority'    => 0,
+	) ) );
+
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
