@@ -21,6 +21,10 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_what_we_do_3 = get_theme_mod( 'pixova_lite_intro_what_we_do_3_title', __( 'Print design', 'pixova-lite' ) );
 	$pixova_lite_what_we_do_3_description = get_theme_mod( 'pixova_lite_intro_what_we_do_3_description', __( 'Lorem ipsum dolor sit amet. Lorem ipsum.', 'pixova-lite' ) );
 
+	$pixova_lite_what_we_do_1_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_1_icon', 'fa fa-bold' );
+	$pixova_lite_what_we_do_2_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_2_icon', 'fa fa-code' );
+	$pixova_lite_what_we_do_3_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_3_icon', 'fa fa-envelope' );
+
 } else {
 
 	$pixova_lite_main_cta_title = get_theme_mod( 'pixova_lite_intro_title_cta' );
@@ -41,6 +45,10 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 	$pixova_lite_what_we_do_2_description = get_theme_mod( 'pixova_lite_intro_what_we_do_2_description' );
 	$pixova_lite_what_we_do_3 = get_theme_mod( 'pixova_lite_intro_what_we_do_3_title' );
 	$pixova_lite_what_we_do_3_description = get_theme_mod( 'pixova_lite_intro_what_we_do_3_description' );
+
+	$pixova_lite_what_we_do_1_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_1_icon' );
+	$pixova_lite_what_we_do_2_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_2_icon' );
+	$pixova_lite_what_we_do_3_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_3_icon' );
 
 }// End if().
 
@@ -92,21 +100,21 @@ if ( $pixova_lite_main_cta_title ) {
 														echo '</div><!--/.intro-heading-->';
 														echo '<div id="intro-services-wrap">';
 								echo '<div class="intro-services col-md-4 col-sm-4 col-xs-12">';
-									echo '<span style="color: ' . pixova_lite_hex2rgba( '#FFFFFF' ) . '" class="fa fa-tint"></span>';
+									echo '<span style="color: ' . pixova_lite_hex2rgba( '#FFFFFF' ) . '" class="' . esc_attr( $pixova_lite_what_we_do_1_icon ) . '"></span>';
 									echo '<h3 class="intro-service-title intro-service-title-1">' . esc_html( $pixova_lite_what_we_do_1 ) . '</h3>';
 									echo '<p class="intro-service-text intro-service-text-1">' . esc_html( $pixova_lite_what_we_do_1_description ) . '</p>';
 									 echo '</div>';
 								echo '<!-- /intro service -->';
 
 									echo '<div class="intro-services col-md-4 col-sm-4 col-xs-12">';
-									echo '<span style="color: ' . pixova_lite_hex2rgba( '#FFFFFF' ) . '" class="fa fa-pagelines"></span>';
+									echo '<span style="color: ' . pixova_lite_hex2rgba( '#FFFFFF' ) . '" class="' . esc_attr( $pixova_lite_what_we_do_2_icon ) . '"></span>';
 									echo '<h3 class="intro-service-title intro-service-title-2">' . esc_html( $pixova_lite_what_we_do_2 ) . '</h3>';
 									echo '<p class="intro-service-text intro-service-text-2">' . esc_html( $pixova_lite_what_we_do_2_description ) . '</p>';
 								echo '</div>';
 								echo '<!-- /intro service -->';
 
 								echo '<div class="intro-services col-md-4 col-sm-4 col-xs-12">';
-									echo '<span style="color: ' . pixova_lite_hex2rgba( '#FFFFFF' ) . '" class="fa fa-envelope-o"></span>';
+									echo '<span style="color: ' . pixova_lite_hex2rgba( '#FFFFFF' ) . '" class="' . esc_attr( $pixova_lite_what_we_do_3_icon ) . '"></span>';
 									echo '<h3 class="intro-service-title intro-service-title-3">' . esc_html( $pixova_lite_what_we_do_3 ) . '</h3>';
 									echo '<p class="intro-service-text intro-service-text-3">' . esc_html( $pixova_lite_what_we_do_3_description ) . '</p>';
 								echo '</div>';
