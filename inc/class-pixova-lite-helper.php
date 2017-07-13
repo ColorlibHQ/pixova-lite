@@ -36,7 +36,7 @@ class Pixova_Lite_Helper {
 		'pixova_lite_intro_button_url',
 		'pixova_lite_intro_button_color',
 		'pixova_lite_intro_button_text_color',
-		// 'pixova_lite_intro_what_we_do_1_icon',
+		'pixova_lite_intro_what_we_do_1_icon',
 		'pixova_lite_intro_what_we_do_1_title',
 		'pixova_lite_intro_what_we_do_1_description',
 		'pixova_lite_intro_what_we_do_2_icon',
@@ -171,11 +171,10 @@ class Pixova_Lite_Helper {
 
 		$pixova_settings = get_theme_mods();
 		$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
-		$content = '';
 		$new_fields = false;
 		foreach ( $pixova_settings as $key => $value ) {
 			if ( in_array( $key, Pixova_Lite_Helper::$pixova_fields ) ) {
-				if ( isset( $existing_settings[ $key ] ) && $existing_settings[ $key ] != $value ) {
+				if ( isset( $existing_settings[ $key ] ) && $existing_settings[ $key ] !== $value ) {
 					$new_fields = true;
 					$existing_settings[ $key ] = $value;
 				} elseif ( ! isset( $existing_settings[ $key ] ) ) {
@@ -395,8 +394,6 @@ class Pixova_Lite_Helper {
 	}
 
 }
-
-$pixova_settings = array( 'pixova_lite_intro_cta' );
 
 foreach ( Pixova_Lite_Helper::$pixova_fields as $pixova_setting ) {
 	add_filter( "customize_sanitize_js_{$pixova_setting}", array( 'Pixova_Lite_Helper', "_get_{$pixova_setting}" ) );
