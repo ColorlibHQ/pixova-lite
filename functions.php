@@ -60,6 +60,8 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		 * Customizer additions.
 		 */
 		require get_template_directory() . '/inc/class-pixova-lite-helper.php';
+		require get_template_directory() . '/inc/customizer/class-epsilon-control-wysiwyg.php';
+		require get_template_directory() . '/inc/customizer/class-epsilon-control-icon-picker.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-control.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-upload.php';
 		require get_template_directory() . '/inc/customizer.php';
@@ -585,7 +587,7 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 // Include epsilon framework
 require_once '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';
 $args = array(
-	'controls' => array( 'toggle' ), // array of controls to load
+	'controls' => array( 'toggle', 'slider' ), // array of controls to load
 	'sections' => array( 'recommended-actions' ), // array of sections to load
 	'path'     => '/inc/libraries' // path to your epsilon framework in your theme, e.g. theme-name*/inc/libraries*/epsilon-framework
 );

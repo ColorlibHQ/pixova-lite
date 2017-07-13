@@ -36,28 +36,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$site_title5->priority = 17;
 	}
 
-	/**********************************************/
-	/*************** ORDER ************************/
-	/**********************************************/
-
-	$wp_customize->add_section( 'pixova_lite_order_section' , array(
-		'title'       => esc_html__( 'Section order', 'pixova-lite' ),
-		'priority'    => 26,
-	));
-
-	$wp_customize->add_setting( 'pixova_lite_order_section', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
-	) );
-
-	$wp_customize->add_section( 'pixova_lite_pricing_section', array(
-		'title'       => esc_html__( 'Pricing tables', 'pixova-lite' ),
-		'priority'    => 38,
-	));
-
-	$wp_customize->add_setting( 'pixova_lite_pricing_section', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_pro_version',
-	) );
-
 	/* Section Visibility */
 	$wp_customize->add_section( 'pixova_lite_visibility_section', array(
 		'title'       => esc_html__( 'Section visibility', 'pixova-lite' ),
@@ -176,12 +154,12 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) ) );
 
 	$wp_customize->add_setting( 'pixova_lite_copyright', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => sprintf( '&copy; %s', esc_html__( 'Copyright 20', 'pixova-lite' ) . sprintf( '%s', date( 'y' ) ) . esc_html__( '. All Rights Reserved', 'pixova-lite' ) ),
 		'transport' => 'postMessage',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_copyright' , array(
-		'type' => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_copyright' , array(
+		'type' => 'epsilon-wysiwyg',
 		'label' => esc_html__( 'Copyright', 'pixova-lite' ),
 		'description' => esc_html__( 'This is your copyright message. Will be displayed in the footer', 'pixova-lite' ),
 		'section' => 'pixova_lite_general_section',
@@ -318,13 +296,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* address */
 	$wp_customize->add_setting( 'pixova_lite_address', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Street 221B Baker Street','pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_address', array(
-		'type'      => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_address', array(
+		'type'      => 'epsilon-wysiwyg',
 		'label'   => esc_html__( 'Address', 'pixova-lite' ),
 		'description' => esc_html__( 'Street Address will be displayed on the left of the contact form. Updates in real time.', 'pixova-lite' ),
 		'section' => 'pixova_lite_general_contact_section',
@@ -346,7 +324,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* BreadCrumb Menu:  Prefix */
 	$wp_customize->add_setting( 'pixova_lite_blog_breadcrumb_menu_prefix', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'You are here', 'pixova-lite' ),
 	) );
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_blog_breadcrumb_menu_prefix', array(
@@ -396,7 +374,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Blog Page Title */
 	$wp_customize->add_setting( 'pixova_lite_blog_text_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Blog', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -408,7 +386,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Blog Page Description */
 	$wp_customize->add_setting( 'pixova_lite_blog_text_description', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Maecenas eget nisl vitae nunc molestie elementum non id urna.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -497,7 +475,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'absint',
 		'default' => 3,
 	) );
-	$wp_customize->add_control( new Pixova_Lite_Controls_Slider_Control( $wp_customize, 'pixova_lite_howmany_blog_posts', array(
+	$wp_customize->add_control( new Epsilon_Control_Slider( $wp_customize, 'pixova_lite_howmany_blog_posts', array(
 		'label' => esc_html__( 'How many blog posts to display in the carousel at once?', 'pixova-lite' ),
 		'description' => esc_html__( 'No more than 4 posts at once;', 'pixova-lite' ),
 		'choices' => array(
@@ -561,7 +539,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		// Title
 		$wp_customize->add_setting( 'pixova_lite_woocommerce_title', array(
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => 'wp_kses_post',
 			'default'           => __( 'WooCommerce', 'pixova-lite' ),
 		) );
 		$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_woocommerce_title', array(
@@ -573,15 +551,15 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 		// Description
 		$wp_customize->add_setting( 'pixova_lite_woocommerce_description', array(
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => 'wp_kses_post',
 			'default'           => esc_html__( 'We have the best products.', 'pixova-lite' ),
 		) );
-		$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_woocommerce_description', array(
+		$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_woocommerce_description', array(
 			'label'             => __( 'Description', 'pixova-lite' ),
 			'description'       => __( 'Add the custom description for WooCommerce pages.', 'pixova-lite' ),
 			'section'           => 'pixova_lite_woocommerce',
 			'active_callback'   => 'is_woocommerce_show_header_image',
-			'type'              => 'textarea',
+			'type'              => 'epsilon-wysiwyg',
 		) ) );
 
 		// Show Sidebar on Shop Page?
@@ -637,12 +615,12 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Main CTA title */
 	$wp_customize->add_setting( 'pixova_lite_intro_title_cta', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_textarea_nl2br',
+		'sanitize_callback' => 'wp_kses_post',
 		'default'           => __( 'WELCOME TO PIXOVA LITE', 'pixova-lite' ),
 		'transport'         => 'refresh',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_title_cta', array(
-		'type'              => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_intro_title_cta', array(
+		'type'              => 'epsilon-wysiwyg',
 		'label'             => esc_html__( 'Main CTA title', 'pixova-lite' ),
 		'section'           => 'pixova_lite_intro_text',
 	) ) );
@@ -652,12 +630,12 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Main CTA text */
 	$wp_customize->add_setting( 'pixova_lite_intro_cta', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_textarea_nl2br',
+		'sanitize_callback' => 'wp_kses_post',
 		'default'           => esc_html__( 'Free & Modern One-Page Parallax WordPress Theme', 'pixova-lite' ),
 		'transport'         => 'refresh',
 	) );
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_cta', array(
-		'type'              => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_intro_cta', array(
+		'type'              => 'epsilon-wysiwyg',
 		'label'             => esc_html__( 'Main CTA text', 'pixova-lite' ),
 		'description'       => esc_html__( 'This is your main attention grabber. Make the best of it.' , 'pixova-lite' ),
 		'section'           => 'pixova_lite_intro_text',
@@ -668,13 +646,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Main CTA sub-text */
 	$wp_customize->add_setting('pixova_lite_intro_sub_cta', array(
-		'sanitize_callback' => 'pixova_lite_saniteze_intro',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => wp_kses_post( __( 'Your cool business headline here. You can even <u><strong>insert HTML here & images</strong></u>.<br> Lorem ipsum dolor sit amet lorem dolor sit amet.', 'pixova-lite' ) ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_sub_cta', array(
-		'type'      => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_intro_sub_cta', array(
+		'type'      => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Main CTA sub-title ', 'pixova-lite' ),
 		'description' => esc_html__( 'Most often main call to actions work best with a sub call to action that emphasises the main CTA.', 'pixova-lite' ),
 		'section'   => 'pixova_lite_intro_text',
@@ -833,19 +811,20 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* What we do #1: change icon */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_1_icon', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
-		'default' => esc_html__( 'fa fa-droplet', 'pixova-lite' ),
+		'sanitize_callback' => 'esc_html',
+		'default' => esc_html__( 'fa fa-bold', 'pixova-lite' ),
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_1_icon', array(
-		'type' => 'text',
+	$wp_customize->add_control( new Epsilon_Control_Icon_Picker( $wp_customize, 'pixova_lite_intro_what_we_do_1_icon', array(
+		'type' => 'epsilon-iconpicker',
 		'label' => esc_html__( 'Specify icon name', 'pixova-lite' ),
 		'section' => 'pixova_lite_intro_what_we_do_1',
+		'icons' => '/layout/js/icons.json',
 	) ) );
 
 	/* What we do #1: title */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_1_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Web design', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -860,13 +839,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* What we do #1: description */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_1_description', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Lorem ipsum dolor sit amet. Lorem ipsum.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_1_description', array(
-		'type'      => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_intro_what_we_do_1_description', array(
+		'type'      => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'What we do #1 description ', 'pixova-lite' ),
 		'section'   => 'pixova_lite_intro_what_we_do_1',
 	) ) );
@@ -884,18 +863,19 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/* What we do #2: change icon */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_2_icon', array(
 		'sanitize_callback' => 'pixova_lite_sanitize_checkbox',
-		'default' => esc_html__( 'fa fa-development', 'pixova-lite' ),
+		'default' => esc_html__( 'fa fa-code', 'pixova-lite' ),
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_2_icon', array(
-		'type' => 'text',
+	$wp_customize->add_control( new Epsilon_Control_Icon_Picker( $wp_customize, 'pixova_lite_intro_what_we_do_2_icon', array(
+		'type' => 'epsilon-iconpicker',
 		'label' => esc_html__( 'Specify icon name', 'pixova-lite' ),
 		'section' => 'pixova_lite_intro_what_we_do_2',
+		'icons' => '/layout/js/icons.json',
 	) ) );
 
 	/* What we do #2: title */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_2_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Development', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -910,13 +890,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* What we do #2: description */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_2_description', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Lorem ipsum dolor sit amet. Lorem ipsum.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_2_description', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_intro_what_we_do_2_description', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'What we do #2 description ', 'pixova-lite' ),
 		'section'   => 'pixova_lite_intro_what_we_do_2',
 	) ) );
@@ -937,15 +917,16 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'default' => esc_html__( 'fa fa-envelope', 'pixova-lite' ),
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_3_icon', array(
-		'type'                  => 'text',
-		'label'         => esc_html__( 'Specify icon name', 'pixova-lite' ),
-		'section'       => 'pixova_lite_intro_what_we_do_3',
+	$wp_customize->add_control( new Epsilon_Control_Icon_Picker( $wp_customize, 'pixova_lite_intro_what_we_do_3_icon', array(
+		'type' => 'epsilon-iconpicker',
+		'label' => esc_html__( 'Specify icon name', 'pixova-lite' ),
+		'section' => 'pixova_lite_intro_what_we_do_3',
+		'icons' => '/layout/js/icons.json',
 	) ) );
 
 	/* What we do #3: title */
 	$wp_customize->add_setting('pixova_lite_intro_what_we_do_3_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Print design', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -960,13 +941,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* What we do #3: description */
 	$wp_customize->add_setting( 'pixova_lite_intro_what_we_do_3_description', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Lorem ipsum dolor sit amet. Lorem ipsum.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_intro_what_we_do_3_description', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_intro_what_we_do_3_description', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'What we do #3 description ', 'pixova-lite' ),
 		'section'   => 'pixova_lite_intro_what_we_do_3',
 	) ) );
@@ -993,7 +974,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Title */
 	$wp_customize->add_setting( 'pixova_lite_about_section_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'We build solutions for your everyday problems.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1008,12 +989,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting( 'pixova_lite_about_section_sub_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default'   => esc_html__( 'This is what we do in a nutshell', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_about_section_sub_title', array(
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_about_section_sub_title', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Section sub-title', 'pixova-lite' ),
 		'section'   => 'pixova_lite_about_titles',
 	) ) );
@@ -1029,13 +1011,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* About textarea */
 	$wp_customize->add_setting( 'pixova_lite_about_section_textarea', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Creative ut tincidunt nibh, varius cursus nunc. Curabitur molestie, metus vel luctus euismod, mi libero laoreet odio, eu dapibus leo tortor sit amet purus. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_about_section_textarea', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_about_section_textarea', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label' => esc_html__( 'Block of text', 'pixova-lite' ),
 		'description' => esc_html__( 'This block accepts limited HTML. Accepted tags are: a, img, em, br & strong.', 'pixova-lite' ),
 		'section' => 'pixova_lite_about_section_text',
@@ -1046,13 +1028,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* About blockquote */
 	$wp_customize->add_setting( 'pixova_lite_about_section_blockquote', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Working with Pixova has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Erlich Bachman, Aviato', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_about_section_blockquote', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_about_section_blockquote', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label' => esc_html__( 'Blockquote', 'pixova-lite' ),
 		'description' => esc_html__( 'This block accepts limited HTML. Accepted tags are: a, img, em, br & strong.', 'pixova-lite' ),
 		'section' => 'pixova_lite_about_section_text',
@@ -1070,7 +1052,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Chart #1 Heading */
 	$wp_customize->add_setting( 'pixova_lite_about_section_chart_1_heading', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Web design', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1130,7 +1112,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Chart #2 Heading */
 	$wp_customize->add_setting( 'pixova_lite_about_section_chart_2_heading', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Web development', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1190,7 +1172,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Chart #3 Heading */
 	$wp_customize->add_setting( 'pixova_lite_about_section_chart_3_heading', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Print design', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1250,7 +1232,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Chart #4 Heading */
 	$wp_customize->add_setting( 'pixova_lite_about_section_chart_4_heading', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Graphic identity', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1321,7 +1303,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Title */
 	$wp_customize->add_setting( 'pixova_lite_work_section_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Recent works', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1337,12 +1319,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting( 'pixova_lite_work_section_sub_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'It\'s show and tell time.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_work_section_sub_title', array(
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_work_section_sub_title', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Section sub-title', 'pixova-lite' ),
 		'section'   => 'pixova_lite_work_titles',
 		'priority'  => 2,
@@ -1542,7 +1525,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Title */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_section_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Some words from our clients', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1558,12 +1541,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_section_sub_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'We don\'t like to brag, others do it for us.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonial_section_sub_title', array(
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_testimonial_section_sub_title', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Section sub-title', 'pixova-lite' ),
 		'section'   => 'pixova_lite_testimonial_titles',
 		'priority'  => 2,
@@ -1581,7 +1565,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #1 person name */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_1_person_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Katie Parry - Hooli', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1594,13 +1578,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #1 text */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_1_person_description', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Working with Pixova has been an experience for a lifetime. I strongly  reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonial_1_person_description', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_testimonial_1_person_description', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Testimonial person description', 'pixova-lite' ),
 		'section'   => 'pixova_lite_testimonial_1',
 		'priority'  => 2,
@@ -1627,7 +1611,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #2 person name */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_2_person_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'John Doe', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1640,13 +1624,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #2 text */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_2_person_description', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Working with Pixova has been an experience for a lifetime. I strongly  reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonial_2_person_description', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_testimonial_2_person_description', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Testimonial person name', 'pixova-lite' ),
 		'section'   => 'pixova_lite_testimonial_2',
 		'priority'  => 2,
@@ -1686,13 +1670,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #3 text */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_3_person_description', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Working with Pixova has been an experience for a lifetime. I strongly  reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonial_3_person_description', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_testimonial_3_person_description', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Testimonial person description', 'pixova-lite' ),
 		'section'   => 'pixova_lite_testimonial_3',
 		'priority'  => 2,
@@ -1719,7 +1703,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #4 person name */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_4_person_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Katie Parry - Hooli', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1732,13 +1716,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #4 text */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_4_person_description', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Working with Pixova has been an experience for a lifetime. I strongly  reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonial_4_person_description', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_testimonial_4_person_description', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Testimonial person description', 'pixova-lite' ),
 		'section'   => 'pixova_lite_testimonial_4',
 		'priority'  => 2,
@@ -1765,7 +1749,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #5 person name */
 	$wp_customize->add_setting( 'pixova_lite_testimonial_5_person_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Katie Parry - Hooli', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1778,13 +1762,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Testimonials: testimonial #5 text */
 	$wp_customize->add_setting('pixova_lite_testimonial_5_person_description', array(
-		'sanitize_callback' => 'pixova_lite_sanitize_allowed_html',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Working with Pixva has been an experience for a lifetime. I strongly  reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_testimonial_5_person_description', array(
-		'type'  => 'textarea',
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_testimonial_5_person_description', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Testimonial person description', 'pixova-lite' ),
 		'section'   => 'pixova_lite_testimonial_5',
 		'priority'  => 2,
@@ -1821,7 +1805,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Title */
 	$wp_customize->add_setting( 'pixova_lite_news_section_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Latest news', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1837,12 +1821,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting( 'pixova_lite_news_section_sub_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Straight from our blog', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_news_section_sub_title', array(
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_news_section_sub_title', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Section sub-title', 'pixova-lite' ),
 		'section'   => 'pixova_lite_news_general',
 		'priority'  => 2,
@@ -1898,7 +1883,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Title */
 	$wp_customize->add_setting( 'pixova_lite_contact_section_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Contact us', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1914,12 +1899,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting( 'pixova_lite_contact_section_sub_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'And we\'ll reply in no time', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_contact_section_sub_title', array(
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_contact_section_sub_title', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Section sub-title', 'pixova-lite' ),
 		'section'   => 'pixova_lite_contact_titles',
 		'priority'  => 2,
@@ -1930,7 +1916,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Address Heading */
 	$wp_customize->add_setting( 'pixova_lite_contact_first_heading', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Address', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -1946,7 +1932,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Customer Support Heading */
 	$wp_customize->add_setting( 'pixova_lite_contact_second_heading', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Customer Support', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -2031,7 +2017,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Title */
 	$wp_customize->add_setting('pixova_lite_team_section_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'The team', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -2047,12 +2033,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Section Sub-Title */
 	$wp_customize->add_setting( 'pixova_lite_team_section_sub_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Meet the people that made it all happen.', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_section_sub_title', array(
+	$wp_customize->add_control( new Epsilon_Control_WYSIWYG( $wp_customize, 'pixova_lite_team_section_sub_title', array(
+		'type'  => 'epsilon-wysiwyg',
 		'label'     => esc_html__( 'Section sub-title', 'pixova-lite' ),
 		'section'   => 'pixova_lite_team_titles',
 		'priority'  => 2,
@@ -2070,7 +2057,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Team: team member #1 name */
 	$wp_customize->add_setting( 'pixova_lite_team_member_1_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Angelina Doe', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -2140,7 +2127,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Team: team member #2 name */
 	$wp_customize->add_setting( 'pixova_lite_team_member_2_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'John Doe', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -2210,7 +2197,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Team: team member #3 name */
 	$wp_customize->add_setting( 'pixova_lite_team_member_3_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Angelina Doe', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -2280,7 +2267,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Team: team member #4 name */
 	$wp_customize->add_setting( 'pixova_lite_team_member_4_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'Angelina Doe', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -2350,7 +2337,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	/* Team: team member #5 name */
 	$wp_customize->add_setting( 'pixova_lite_team_member_5_name', array(
-		'sanitize_callback' => 'sanitize_text_field',
+		'sanitize_callback' => 'wp_kses_post',
 		'default' => esc_html__( 'John Doe', 'pixova-lite' ),
 		'transport' => 'postMessage',
 	) );
@@ -2484,12 +2471,6 @@ if ( ! function_exists( 'pixova_lite_customize_preview_js' ) ) {
 	add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
 }
 
-if ( ! function_exists( 'pixova_lite_sanitize_textarea_nl2br' ) ) {
-	function pixova_lite_sanitize_textarea_nl2br( $input ) {
-		return nl2br( $input );
-	}
-}
-
 
 if ( ! function_exists( 'pixova_lite_sanitize_radio_buttons' ) ) {
 	/**
@@ -2574,23 +2555,16 @@ function pixova_lite_sanitize_allowed_html( $value ) {
 
 }
 
-function pixova_lite_saniteze_intro( $str ) {
-	$allowed_html = array(
-		'u' => array(),
-		'br' => array(),
-		'strong' => array(),
-	);
-	return wp_kses( $str, $allowed_html );
-}
-
 function pixova_lite_customizer_js_load() {
-	wp_register_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'jquery' ), '1.0', true );
+	wp_register_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer/customizer-controls.js', array( 'jquery', 'customize-controls' ), '1.0', true );
 	wp_enqueue_script( 'pixova_lite_customizer_script' );
 }
-add_action( 'customize_controls_enqueue_scripts', 'pixova_lite_customizer_js_load' );
+add_action( 'customize_controls_enqueue_scripts', 'pixova_lite_customizer_js_load', 25 );
 
 function pixova_lite_customizer_css_load() {
-	wp_enqueue_style( 'mt-customizer-css', get_template_directory_uri() . '/layout/css/pixova-pro.css' );
+	wp_enqueue_style( 'mt-customizer-pro-css', get_template_directory_uri() . '/layout/css/pixova-pro.css' );
+	wp_enqueue_style( 'mt-customizer-font-awesome-css', get_template_directory_uri() . '/layout/css/font-awesome.css' );
+	wp_enqueue_style( 'mt-customizer-css', get_template_directory_uri() . '/layout/css/customizer.css' );
 }
 add_action( 'customize_controls_print_styles','pixova_lite_customizer_css_load' );
 

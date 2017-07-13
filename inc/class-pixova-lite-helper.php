@@ -36,7 +36,7 @@ class Pixova_Lite_Helper {
 		'pixova_lite_intro_button_url',
 		'pixova_lite_intro_button_color',
 		'pixova_lite_intro_button_text_color',
-		'pixova_lite_intro_what_we_do_1_icon',
+		// 'pixova_lite_intro_what_we_do_1_icon',
 		'pixova_lite_intro_what_we_do_1_title',
 		'pixova_lite_intro_what_we_do_1_description',
 		'pixova_lite_intro_what_we_do_2_icon',
