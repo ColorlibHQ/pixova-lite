@@ -17,6 +17,11 @@ if ( ! function_exists( 'pixova_lite_body_classes' ) ) {
 			$classes[] = 'group-blog';
 		}
 
+		// Add a class if there is a custom header.
+		if ( has_header_image() ) {
+			$classes[] = 'has-header-image';
+		}
+
 		return $classes;
 
 	}

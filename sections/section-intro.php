@@ -54,12 +54,9 @@ if ( current_user_can( 'edit_theme_options' ) ) {
 
 echo '<section id="intro" class="home-intro" >';
 		echo '<div class="parallax-bg-container">';
-if ( get_header_image() && '' !== get_header_image() ) {
-	echo '<div class="parallax-bg-image" data-image-source="' . get_header_image() . '"></div>';
-} else {
-	echo '<div class="parallax-bg-image" data-image-source=' . get_template_directory_uri() . '/layout/images/header-bg.jpg></div>';
-}
+		
 		echo '</div><!--/.parallax-bg-container-->';
+		the_custom_header_markup();
 
 		echo '<div class="container" id="intro-holder">';
 			echo '<div class="intro-content parallax-text-fade">';

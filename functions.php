@@ -40,6 +40,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 			'width'                  => 1920,
 			'height'                 => 1080,
 			'flex-height'            => true,
+			'video'					 => true,
 		);
 
 		add_theme_support( 'custom-header', $args );

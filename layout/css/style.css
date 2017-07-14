@@ -4428,3 +4428,45 @@ span.post-meta-separator .fa {
 .entry-content dd {
   margin-bottom: 20px
 }
+
+/* Video & Image Header */
+.has-header-image #wp-custom-header img,
+.has-header-image #wp-custom-header video,
+.has-header-image #wp-custom-header iframe {
+    position: fixed;
+    height: auto;
+    left: 50%;
+    max-width: 1000%;
+    min-height: 100%;
+    min-width: 100%;
+    min-width: 100vw;
+    width: auto;
+    top: 50%;
+    padding-bottom: 1px;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+div#wp-custom-header:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#about,
+#works,
+#testimonials,
+#news,
+#team,
+#contact,
+#footer {
+	z-index: 2;
+	position: relative;
+}
+#testimonials,
+#news,
+#team {
+	background-color: #fff;
+}
