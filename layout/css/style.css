@@ -651,13 +651,11 @@ section {
 	-ms-transition: all .25s ease 0s;
 	-o-transition: all .25s ease 0s;
 	-webkit-transition: all .25s ease 0s;
+	transition: all .25s ease 0s;
 	background-color: #fff;
 	border-bottom: 1px solid rgba(82, 87, 135, .2);
-	position: fixed;
-	top: 0;
-	transition: all .25s ease 0s;
-	width: 100%;
-	z-index: 100
+	position: relative;
+    z-index: 9;
 }
 
 #header-wrap.smaller {
@@ -722,15 +720,10 @@ section {
 }
 
 #intro-holder {
-	height: 100vh
-}
-
-.intro-content {
-	position: relative;
-	top: 50%;
-	-ms-transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%)
+	min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .intro-services{
@@ -2944,11 +2937,6 @@ object {
 	padding-top: 65px
 }
 
-.logged-in.admin-bar #header-wrap,
-.logged-in.admin-bar #header-wrap.smaller {
-	top: 32px
-}
-
 #mt-twitter-carousel {
 	color: #fff
 }
@@ -4156,7 +4144,7 @@ body a:focus {
 }
 
 .blog-intro #intro-holder {
-	height: 50vh;
+	min-height: 50vh;
 }
 
 .screen-reader-text {

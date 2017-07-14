@@ -3,7 +3,7 @@
 	'use strict';
 
 	$( document ).ready(function() {
-	    var owl, slides;
+	    var owl, slides, headerTopSpacing = 0;
 
 		/* Build & Animate the Pie Charts */
 		function animatePieCharts() {
@@ -236,6 +236,16 @@
 		$( window ).scroll(function() {
 			animatePieCharts();
 		});
+
+		// Sticky Header
+		if ( jQuery('#wpadminbar').length > 0 ) {
+			headerTopSpacing = 32;
+		}
+		jQuery("#header-wrap").sticky({
+			topSpacing: headerTopSpacing,
+			zIndex : 9
+		});
+
 	});
 
 })( window.jQuery );

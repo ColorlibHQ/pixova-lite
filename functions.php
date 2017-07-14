@@ -219,6 +219,9 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		# Pace Loader
 		wp_register_script( 'pace-loader-min-js', get_template_directory_uri() . '/layout/js/pace/pace.min.js', array( 'jquery' ), '2.0', true );
 
+		# Sticky JS
+		wp_register_script( 'pixova-sticky-js', get_template_directory_uri() . '/layout/js/sticky/jquery.sticky.js', array( 'jquery' ), '2.0', true );
+
 		# Preloader JS
 		wp_register_script( 'pixova-lite-preloader', get_template_directory_uri() . '/layout/js/preloader.min.js', array( 'pace-loader-min-js' ), '1.0', true );
 
@@ -279,6 +282,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		}
 
 		wp_enqueue_script( 'bootstrap-min-js' );
+		wp_enqueue_script( 'pixova-sticky-js' );
 		wp_enqueue_script( 'owlCarousel-js' );
 		wp_enqueue_script( 'classie-js' );
 		wp_enqueue_script( 'simple-placeholder-js' );
