@@ -2069,7 +2069,7 @@ body.logged-in section {
 	border-radius: 4px;
 	display: inline-block;
 	height: auto;
-	padding: 0 15px 25px 15px;
+	padding: 0 15px 40px 15px;
 	position: relative;
 	text-align: center;
 	vertical-align: top;
@@ -2114,6 +2114,7 @@ body.logged-in section {
     width: 50%;
     border-radius: 5px;
     transform: translateX( -50% );
+    z-index: 9;
 }
 
 .mt-team-description:before {
@@ -2151,17 +2152,14 @@ body.logged-in section {
 	font-size: 14px;
 	line-height: 1.5
 }
-.mt-team-member-icon:first-child {
-    margin-left: 12px;
+.mt-team-description {
+    padding-left: 10px;
 }
 .mt-team-member-icon {
-	display: inline-block;
-	margin-right: 12px;
-	text-align: center
-}
-
-.mt-team-member-icon:last-of-type {
-	margin-right: 0
+    display: inline-block;
+    padding-right: 12px;
+    text-align: center;
+    width: 25%;
 }
 
 .mt-team-member-icon a {
@@ -3320,7 +3318,7 @@ div.thumbnail .caption {
 	}
 
 	.mt-team {
-		margin-bottom: 60px
+		margin-bottom: 80px
 	}
 
 	#footer {
@@ -3658,7 +3656,11 @@ div.thumbnail .caption {
 	}
 
 	body .mt-team-description {
-		padding: 14px 0 !important
+		padding: 10px 0 0 10px !important
+	}
+	.mt-team-member-icon {
+		width: 50%;
+		margin-bottom: 10px;
 	}
 
 	.mt-team-member-description,
