@@ -44,14 +44,14 @@ if ( 'posts' != get_option( 'show_on_front' ) && is_front_page() ) {
 	if ( isset( $intro_section_show ) && 1 == $intro_section_show ) {
 		get_template_part( 'sections/section', 'intro' );
 	}
+} elseif ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
+	get_template_part( 'sections/section', 'header-woocommerce' );
 } elseif ( is_search() || is_archive() || is_home() || is_page_template( 'page-templates/blog-template.php' ) || is_front_page() ) {
 	get_template_part( 'sections/section','header-archive' );
 } elseif ( is_page() || is_author() || is_404() ) {
 	get_template_part( 'sections/section', 'header-page' );
 } elseif ( is_single() ) {
 	get_template_part( 'sections/section','header-single' );
-} elseif ( function_exists( is_woocommerce() ) && is_woocommerce() ) {
-	get_template_part( 'sections/section', 'header-woocommerce' );
 } else {
 	get_template_part( 'sections/section', 'header' );
 }

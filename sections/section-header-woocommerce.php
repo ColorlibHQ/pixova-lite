@@ -6,7 +6,7 @@ $pixova_lite_woocommerce_title = get_theme_mod( 'pixova_lite_woocommerce_title',
 $pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_description', esc_html__( 'We have the best products.', 'pixova-lite' ) );
 ?>
 <header id="header-wrap">
-	<div class="container header clearfix">
+	<div class="container header clearfix woo">
 		<div class="row">
 			<div class="col-md-12">
 				<?php do_action( 'pixova_lite_logo' ); ?>
@@ -57,16 +57,16 @@ $pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_d
 				<div class="parallax-bg-image" data-image-source="<?php echo get_template_directory_uri(); ?>/layout/images/header-bg.jpg"></div>
 			<?php } ?>
 		</div><!--/.parallax-bg-container-->
-		<div class="container">
+		<div id="intro-holder" class="container" >
 			<div class="intro-content parallax-text-fade">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="text-center">
 							<?php if ( $pixova_lite_woocommerce_title ) { ?>
-								<h1 class="intro-title"><?php echo esc_html( $pixova_lite_woocommerce_title ); ?></h1>
+								<h1 class="intro-title"><?php echo wp_kses_post( $pixova_lite_woocommerce_title ); ?></h1>
 							<?php } ?>
 							<?php if ( $pixova_lite_woocommerce_description ) { ?>
-								<p class="intro-tagline"><?php echo esc_html( $pixova_lite_woocommerce_description ); ?></p>
+								<p class="intro-tagline"><?php echo wp_kses_post( $pixova_lite_woocommerce_description ); ?></p>
 							<?php } ?>
 						</div><!--/.text-center-->
 					</div><!--/.col-md-12-->

@@ -69,12 +69,12 @@ if ( $image_logo ) {
 					echo '<div class="text-center">';
 					if ( is_page_template( 'page-templates/blog-template.php' ) ) {
 						if ( '' != $blog_title ) {
-							echo '<h1 class="intro-title">' . esc_html( $blog_title ) . '</h1>';
+							echo '<h1 class="intro-title">' . wp_kses_post( $blog_title ) . '</h1>';
 						}else{
 							echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';
 						}
 						if ( '' != $blog_description ) {
-							echo '<p class="intro-tagline">' . esc_html( $blog_description ) . '</p>';
+							echo '<p class="intro-tagline">' . wp_kses_post( $blog_description ) . '</p>';
 						}else{
 							echo '<p class="intro-tagline">' . esc_html( get_option( 'blogdescription' ) ) . '</p>';
 						}

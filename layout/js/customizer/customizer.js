@@ -85,25 +85,10 @@
 	// Pie Chart Section
 	//
 
-	// Chart - 1 :: Heading
-	wp.customize( 'pixova_lite_about_section_chart_1_heading', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_1 h4' ).text( newval );
-		} );
-	} );
-
 	// Chart - 1 :: Percentage
 	wp.customize( 'pixova_lite_about_section_chart_1_percentage', function( value ) {
 		value.bind( function( newval ) {
 				$( '#about .pixova_lite_chart_1 .mt-pie-chart-custom-text' ).text( newval + '%' );
-		} );
-	} );
-
-
-	// Chart - 2 :: Heading
-	wp.customize( 'pixova_lite_about_section_chart_2_heading', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_2 h4' ).text( newval );
 		} );
 	} );
 
@@ -114,24 +99,10 @@
 		} );
 	} );
 
-	// Chart - 3 :: Heading
-	wp.customize( 'pixova_lite_about_section_chart_3_heading', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_3 h4' ).text( newval );
-		} );
-	} );
-
 	// Chart - 3 :: Percentage
 	wp.customize( 'pixova_lite_about_section_chart_3_percentage', function( value ) {
 		value.bind( function( newval ) {
 				$( '#about .pixova_lite_chart_3 .mt-pie-chart-custom-text' ).text( newval + '%' );
-		} );
-	} );
-
-	// Chart - 4 :: Heading
-	wp.customize( 'pixova_lite_about_section_chart_4_heading', function( value ) {
-		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_4 h4' ).text( newval );
 		} );
 	} );
 
@@ -149,70 +120,70 @@
 	// Testimonial 1 :: Person Name
 	wp.customize( 'pixova_lite_testimonial_1_person_name', function( value ) {
 		value.bind( function( newval ) {
-				$( '#testimonials .pixova-lite-testimonial-1 .media-heading span' ).text( newval );
+				$( '#testimonials .pixova-lite-testimonial-1 .media-heading span' ).html( newval );
 		} );
 	} );
 
 	// Testimonial 1 :: Person Description
 	wp.customize( 'pixova_lite_testimonial_1_person_description', function( value ) {
 		value.bind( function( newval ) {
-				$( '#testimonials .pixova-lite-testimonial-1 .media-body p' ).text( newval );
+				$( '#testimonials .pixova-lite-testimonial-1 .media-body p' ).html( newval );
 		} );
 	} );
 
 	// Testimonial 2 :: Person Name
 	wp.customize( 'pixova_lite_testimonial_2_person_name', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-2 .media-heading span' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-2 .media-heading span' ).html( newval );
 	  } );
 	} );
 
 	// Testimonial 2 :: Person Description
 	wp.customize( 'pixova_lite_testimonial_2_person_description', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-2 .media-body p' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-2 .media-body p' ).html( newval );
 	  } );
 	} );
 
 	// Testimonial 3 :: Person Name
 	wp.customize( 'pixova_lite_testimonial_3_person_name', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-3 .media-heading span' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-3 .media-heading span' ).html( newval );
 	  } );
 	} );
 
 	// Testimonial 3 :: Person Description
 	wp.customize( 'pixova_lite_testimonial_3_person_description', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-3 .media-body p' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-3 .media-body p' ).html( newval );
 	  } );
 	} );
 
 	// Testimonial 4 :: Person Name
 	wp.customize( 'pixova_lite_testimonial_4_person_name', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-4 .media-heading span' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-4 .media-heading span' ).html( newval );
 	  } );
 	} );
 
 	// Testimonial 4 :: Person Description
 	wp.customize( 'pixova_lite_testimonial_4_person_description', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-4 .media-body p' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-4 .media-body p' ).html( newval );
 	  } );
 	} );
 
 	// Testimonial 5 :: Person Name
 	wp.customize( 'pixova_lite_testimonial_5_person_name', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-5 .media-heading span' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-5 .media-heading span' ).html( newval );
 	  } );
 	} );
 
 	// Testimonial 5 :: Person Description
 	wp.customize( 'pixova_lite_testimonial_5_person_description', function( value ) {
 	  value.bind( function( newval ) {
-	      $( '#testimonials .pixova-lite-testimonial-5 .media-body p' ).text( newval );
+	      $( '#testimonials .pixova-lite-testimonial-5 .media-body p' ).html( newval );
 	  } );
 	} );
 
