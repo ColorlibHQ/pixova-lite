@@ -639,16 +639,23 @@ function pixova_lite_customize_register( $wp_customize ) {
 		) ) );
 	}// End if().
 
+	// Front Page Sections
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_frontpage_sections', array(
+		'title'    => esc_html__( 'Frontpage sections', 'pixova-lite' ),
+		'priority' => 29,
+	) ) );
+
 	/***********************************************/
 	/************** Intro  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_intro', array(
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_panel_intro', array(
 		'priority' => 30,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => esc_html__( 'CTA Section (big bg. image)', 'pixova-lite' ),
-	) );
+		'panel' => 'pixova_lite_frontpage_sections',
+	) ) );
 
 	/* Text Section */
 	$wp_customize->add_section( 'pixova_lite_intro_text', array(
@@ -1002,12 +1009,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/************** About Options  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_about', array(
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_panel_about', array(
 		'priority' => 31,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => esc_html__( 'Pie Chart Section', 'pixova-lite' ),
-	) );
+		'panel' => 'pixova_lite_frontpage_sections',
+	) ) );
 
 	$wp_customize->add_section( 'pixova_lite_about_titles' , array(
 		'title'       => esc_html__( 'Section Titles', 'pixova-lite' ),
@@ -1331,12 +1339,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/************** Recent Works  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_works', array(
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_panel_works', array(
 		'priority' => 32,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => esc_html__( 'Recent Works Section', 'pixova-lite' ),
-	) );
+		'panel' => 'pixova_lite_frontpage_sections',
+	) ) );
 
 	$wp_customize->add_section( 'pixova_lite_work_titles' , array(
 		'title'       => esc_html__( 'Section Titles', 'pixova-lite' ),
@@ -1553,12 +1562,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/************** Testimonials  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_testimonials', array(
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_panel_testimonials', array(
 		'priority' => 33,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => esc_html__( 'Testimonials Section', 'pixova-lite' ),
-	) );
+		'panel' => 'pixova_lite_frontpage_sections',
+	) ) );
 
 	$wp_customize->add_section( 'pixova_lite_testimonial_titles' , array(
 		'title'       => esc_html__( 'Section Titles', 'pixova-lite' ),
@@ -1833,12 +1843,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/************** Latest News  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_news', array(
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_panel_news', array(
 		'priority' => 34,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => esc_html__( 'Latest News Section', 'pixova-lite' ),
-	) );
+		'panel' => 'pixova_lite_frontpage_sections',
+	) ) );
 
 	$wp_customize->add_section( 'pixova_lite_news_general' , array(
 		'title'       => esc_html__( 'Section Options', 'pixova-lite' ),
@@ -1911,12 +1922,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/************** Contact  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_contact', array(
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_panel_contact', array(
 		'priority' => 36,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => esc_html__( 'Contact Section', 'pixova-lite' ),
-	) );
+		'panel' => 'pixova_lite_frontpage_sections',
+	) ) );
 
 	$wp_customize->add_section( 'pixova_lite_contact_titles', array(
 		'title' => esc_html__( 'Section titles', 'pixova-lite' ),
@@ -2045,12 +2057,13 @@ function pixova_lite_customize_register( $wp_customize ) {
 	/************** Team  ***************/
 	/***********************************************/
 
-	$wp_customize->add_panel( 'pixova_lite_panel_team', array(
+	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_panel_team', array(
 		'priority' => 35,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => esc_html__( 'Team Section', 'pixova-lite' ),
-	) );
+		'panel' => 'pixova_lite_frontpage_sections',
+	) ) );
 
 	$wp_customize->add_section( 'pixova_lite_team_titles' , array(
 		'title'       => esc_html__( 'Section Titles', 'pixova-lite' ),
@@ -2796,6 +2809,11 @@ if ( ! function_exists( 'pixova_lite_customize_preview_js' ) ) {
 	}
 	add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
 }
+
+function pixova_lite_customizer_js_load() {
+    wp_enqueue_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer.min.js', array('jquery'), '1.0', true  );
+}
+add_action( 'customize_controls_enqueue_scripts', 'pixova_lite_customizer_js_load' );
 
 
 if ( ! function_exists( 'pixova_lite_sanitize_radio_buttons' ) ) {
