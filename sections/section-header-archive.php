@@ -70,15 +70,14 @@ if ( $image_logo ) {
 					if ( is_page_template( 'page-templates/blog-template.php' ) ) {
 						if ( '' != $blog_title ) {
 							echo '<h1 class="intro-title">' . wp_kses_post( $blog_title ) . '</h1>';
-						}else{
+						} else {
 							echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';
 						}
 						if ( '' != $blog_description ) {
 							echo '<p class="intro-tagline">' . wp_kses_post( $blog_description ) . '</p>';
-						}else{
+						} else {
 							echo '<p class="intro-tagline">' . esc_html( get_option( 'blogdescription' ) ) . '</p>';
 						}
-						
 					} elseif ( is_category() ) {
 						echo the_archive_title( '<h1 class="intro-title">', '</h1>' );
 						echo the_archive_description( '<p class="intro-tagline">', '</p>' );
@@ -93,7 +92,7 @@ if ( $image_logo ) {
 						echo '</h1>';
 					} elseif ( is_home() ) {
 
-						$page_for_posts = get_option('page_for_posts', true);
+						$page_for_posts = get_option( 'page_for_posts', true );
 						if ( '' != $blog_title ) {
 							echo '<h1 class="intro-title">' . esc_html( $blog_title ) . '</h1>';
 						} elseif ( 0 != $page_for_posts ) {
@@ -104,14 +103,13 @@ if ( $image_logo ) {
 
 						if ( '' != $blog_description ) {
 							echo '<p class="intro-tagline">' . esc_html( $blog_description ) . '</p>';
-						}else{
+						} else {
 							echo '<p class="intro-tagline">' . esc_html( get_option( 'blogdescription' ) ) . '</p>';
 						}
-
 					} else {
 						echo '<h1 class="intro-title">' . esc_html( get_option( 'blogname' ) ) . '</h1>';
 						echo '<p class="intro-tagline">' . esc_html( get_option( 'blogdescription' ) ) . '</p>';
-					}
+					}// End if().
 					echo '</div><!--/.text-center-->';
 					echo '</div><!--/.col-md-12-->';
 					echo '</div><!--/.row-->';

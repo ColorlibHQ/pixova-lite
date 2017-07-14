@@ -1,8 +1,13 @@
-( function( $ ) {
+( function( $ ) {// jscs:ignore validateLineBreaks
 
     /* Multi-level panels in customizer */
 
     var api = wp.customize;
+
+    // Extend Panel
+    var _panelEmbed = wp.customize.Panel.prototype.embed;
+    var _panelIsContextuallyActive = wp.customize.Panel.prototype.isContextuallyActive;
+    var _panelAttachEvents = wp.customize.Panel.prototype.attachEvents;
 
     api.bind( 'pane-contents-reflowed', function() {
 
@@ -36,14 +41,9 @@
 
     });
 
-    // Extend Panel
-    var _panelEmbed = wp.customize.Panel.prototype.embed;
-    var _panelIsContextuallyActive = wp.customize.Panel.prototype.isContextuallyActive;
-    var _panelAttachEvents = wp.customize.Panel.prototype.attachEvents;
-
     wp.customize.Panel = wp.customize.Panel.extend({
         attachEvents: function() {
-
+            var panel = this;
             if (
                 'pixova_panel' !== this.params.type ||
                 'undefined' === typeof this.params.panel
@@ -56,8 +56,6 @@
             }
 
             _panelAttachEvents.call( this );
-
-            var panel = this;
 
             panel.expanded.bind( function( expanded ) {
 
@@ -97,6 +95,8 @@
 
         },
         embed: function() {
+            var panel = this;
+            var parentContainer = $( '#sub-accordion-panel-' + this.params.panel );
 
             if (
                 'pixova_panel' !== this.params.type ||
@@ -111,13 +111,13 @@
 
             _panelEmbed.call( this );
 
-            var panel = this;
-            var parentContainer = $( '#sub-accordion-panel-' + this.params.panel );
-
             parentContainer.append( panel.headContainer );
 
         },
         isContextuallyActive: function() {
+            var panel = this;
+            var children = this._children( 'panel', 'section' );
+            var activeCount = 0;
 
             if (
                 'pixova_panel' !== this.params.type
@@ -126,9 +126,6 @@
                 return _panelIsContextuallyActive.call( this );
 
             }
-
-            var panel = this;
-            var children = this._children( 'panel', 'section' );
 
             api.panel.each( function( child ) {
 
@@ -150,9 +147,7 @@
 
             children.sort( api.utils.prioritySort );
 
-            var activeCount = 0;
-
-            _( children ).each( function ( child ) {
+            _( children ).each( function( child ) {
 
                 if ( child.active() && child.isContextuallyActive() ) {
 
@@ -162,7 +157,7 @@
 
             });
 
-            return ( activeCount !== 0 );
+            return ( 0 !== activeCount );
 
         }
 

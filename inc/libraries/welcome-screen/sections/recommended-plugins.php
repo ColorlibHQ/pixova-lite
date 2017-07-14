@@ -45,7 +45,7 @@ add_thickbox();
 
 		?>
 		<div class="col plugin_box">
-			<?php if ( $prop['recommended'] ): ?>
+			<?php if ( $prop['recommended'] ) : ?>
 				<span class="recommended"><?php _e( 'Recommended', 'pixova-lite' ); ?></span>
 			<?php endif; ?>
 			<img src="<?php echo esc_attr( $icon ) ?>" alt="plugin box image">
@@ -54,16 +54,17 @@ add_thickbox();
 			<span
 				class="separator">|</span> <?php echo wp_kses_post( $info->author ) ?>
 			<div
-				class="action_bar <?php echo ( $active['needs'] !== 'install' && $active['status'] ) ? 'active' : '' ?>">
+				class="action_bar <?php echo ( 'install' !== $active['needs'] && $active['status'] ) ? 'active' : '' ?>">
 				<span
-					class="plugin_name"><?php echo ( $active['needs'] !== 'install' && $active['status'] ) ? 'Active: ' : '' ?><?php echo esc_html( $info->name ); ?></span>
+					class="plugin_name"><?php echo ( 'install' !== $active['needs'] && $active['status'] ) ? 'Active: ' : '' ?><?php echo esc_html( $info->name ); ?></span>
 			</div>
 			<span
-				class="plugin-card-<?php echo esc_attr( $plugin ) ?> action_button <?php echo ( $active['needs'] !== 'install' && $active['status'] ) ? 'active' : '' ?>">
+				class="plugin-card-<?php echo esc_attr( $plugin ) ?> action_button <?php echo ( 'install' !== $active['needs'] && $active['status'] ) ? 'active' : '' ?>">
 				<a data-slug="<?php echo esc_attr( $plugin ) ?>" <?php echo ( ! empty( $prop['tracking_url'] ) ) ? ' target="_blank" ' : '' ?>
 				   class="<?php echo esc_attr( $class ); ?>"
 				   href="<?php echo esc_url( $url ) ?>"> <?php echo esc_attr( $label ) ?> </a>
 			</span>
 		</div>
-	<?php } ?>
+	<?php }// End foreach().
+	?>
 </div>

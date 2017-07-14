@@ -40,7 +40,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 			'width'                  => 1920,
 			'height'                 => 1080,
 			'flex-height'            => true,
-			'video'					 => true,
+			'video'                  => true,
 		);
 
 		add_theme_support( 'custom-header', $args );
@@ -167,8 +167,12 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 			require get_template_directory() . '/inc/libraries/class-pixova-notify-system.php';
 
 			$pixova_recommended_plugins = array(
-				'kiwi-social-share'        => array( 'recommended' => false ),
-				'modula-best-grid-gallery' => array( 'recommended' => false ),
+				'kiwi-social-share'        => array(
+					'recommended' => false,
+				),
+				'modula-best-grid-gallery' => array(
+					'recommended' => false,
+				),
 			);
 
 			/*
@@ -186,13 +190,13 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 					'description' => esc_html__( 'If you just installed Pixova Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Static Page".','pixova-lite' ),
 					'check' => Pixova_Notify_System::is_not_static_page(),
 				),
-                array(
-                    "id" => 'pixova-lite-req-ac-install-contact-forms',
-                    "title" => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
-                    "description"=> esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
-                    "check"       => Pixova_Notify_System::has_import_plugin( 'contact-form-7' ),
-                    "plugin_slug" => 'contact-form-7'
-                ),
+				array(
+					'id' => 'pixova-lite-req-ac-install-contact-forms',
+					'title' => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
+					'description' => esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
+					'check'       => Pixova_Notify_System::has_import_plugin( 'contact-form-7' ),
+					'plugin_slug' => 'contact-form-7',
+				),
 			);
 
 			require get_template_directory() . '/inc/libraries/welcome-screen/class-pixova-welcome-screen.php';
@@ -590,7 +594,7 @@ require_once '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';
 $args = array(
 	'controls' => array( 'toggle', 'slider', 'icon-picker', 'text-editor' ), // array of controls to load
 	'sections' => array( 'recommended-actions', 'upsell' ), // array of sections to load
-	'path'     => '/inc/libraries' // path to your epsilon framework in your theme, e.g. theme-name*/inc/libraries*/epsilon-framework
+	'path'     => '/inc/libraries',// path to your epsilon framework in your theme, e.g. theme-name*/inc/libraries*/epsilon-framework
 );
 
 new Epsilon_Framework( $args );

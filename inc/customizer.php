@@ -2624,8 +2624,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'  => 5,
 	) ) );
 
-	
-
 	/* Team: team member #5 section */
 	$wp_customize->add_section( 'pixova_lite_team_member_5', array(
 		'title' => esc_html__( 'Team member #5', 'pixova-lite' ),
@@ -2811,7 +2809,7 @@ if ( ! function_exists( 'pixova_lite_customize_preview_js' ) ) {
 }
 
 function pixova_lite_customizer_js_load() {
-    wp_enqueue_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer.min.js', array('jquery'), '1.0', true  );
+	wp_enqueue_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer.min.js', array( 'jquery' ), '1.0', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'pixova_lite_customizer_js_load' );
 

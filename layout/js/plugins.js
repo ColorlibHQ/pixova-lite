@@ -238,12 +238,12 @@
 		});
 
 		// Sticky Header
-		if ( jQuery('#wpadminbar').length > 0 ) {
+		if ( jQuery( '#wpadminbar' ).length > 0 ) {
 			headerTopSpacing = 32;
 		}
-		jQuery("#header-wrap").sticky({
+		jQuery( '#header-wrap' ).sticky({
 			topSpacing: headerTopSpacing,
-			zIndex : 9
+			zIndex: 9
 		});
 
 	});

@@ -17,32 +17,35 @@ wp_enqueue_script( 'updates' );
 	<?php
 	global $pixova_required_actions;
 	$hooray = true;
-	if ( ! empty( $pixova_required_actions ) ):
+	if ( ! empty( $pixova_required_actions ) ) :
 
 		/* pixova_show_required_actions is an array of true/false for each required action that was dismissed */
-		$pixova_show_required_actions = get_option( "pixova_show_required_actions" );
+		$pixova_show_required_actions = get_option( 'pixova_show_required_actions' );
 
-		foreach ( $pixova_required_actions as $pixova_required_action_key => $pixova_required_action_value ):
+		foreach ( $pixova_required_actions as $pixova_required_action_key => $pixova_required_action_value ) :
 			$hidden = false;
-			if ( @$pixova_show_required_actions[ $pixova_required_action_value['id'] ] === false ) {
+			if ( isset( $pixova_show_required_actions[ $pixova_required_action_value['id'] ] ) && false === $pixova_show_required_actions[ $pixova_required_action_value['id'] ] ) {
 				$hidden = true;
 			}
-			if ( @$pixova_required_action_value['check'] ) {
+			if ( isset( $pixova_required_action_value['check'] ) && $pixova_required_action_value['check'] ) {
 				continue;
 			}
 			?>
 			<div class="pixova-action-required-box">
-				<?php if ( ! $hidden ): ?>
+				<?php if ( ! $hidden ) : ?>
 					<span data-action="dismiss" class="dashicons dashicons-visibility pixova-required-action-button"
-					      id="<?php echo esc_attr( $pixova_required_action_value['id'] ); ?>"></span>
-				<?php else: ?>
+						  id="<?php echo esc_attr( $pixova_required_action_value['id'] ); ?>"></span>
+				<?php else : ?>
 					<span data-action="add" class="dashicons dashicons-hidden pixova-required-action-button"
-					      id="<?php echo esc_attr( $pixova_required_action_value['id'] ); ?>"></span>
+						  id="<?php echo esc_attr( $pixova_required_action_value['id'] ); ?>"></span>
 				<?php endif; ?>
-				<h3><?php if ( ! empty( $pixova_required_action_value['title'] ) ): echo esc_html( $pixova_required_action_value['title'] ); endif; ?></h3>
+				<h3><?php if ( ! empty( $pixova_required_action_value['title'] ) ) : echo esc_html( $pixova_required_action_value['title'] );
+endif; ?></h3>
 				<p>
-					<?php if ( ! empty( $pixova_required_action_value['description'] ) ): echo esc_html( $pixova_required_action_value['description'] ); endif; ?>
-					<?php if ( ! empty( $pixova_required_action_value['help'] ) ): echo '<br/>' . wp_kses_post( $pixova_required_action_value['help'] ); endif; ?>
+					<?php if ( ! empty( $pixova_required_action_value['description'] ) ) : echo esc_html( $pixova_required_action_value['description'] );
+endif; ?>
+					<?php if ( ! empty( $pixova_required_action_value['help'] ) ) : echo '<br/>' . wp_kses_post( $pixova_required_action_value['help'] );
+endif; ?>
 				</p>
 				<?php
 				if ( ! empty( $pixova_required_action_value['plugin_slug'] ) ) {
@@ -66,7 +69,7 @@ wp_enqueue_script( 'updates' );
 					}
 
 					?>
-					<p class="plugin-card-<?php echo esc_attr( $pixova_required_action_value['plugin_slug'] ) ?> action_button <?php echo ( $active['needs'] !== 'install' && $active['status'] ) ? 'active' : '' ?>">
+					<p class="plugin-card-<?php echo esc_attr( $pixova_required_action_value['plugin_slug'] ) ?> action_button <?php echo ( 'install' !== $active['needs'] && $active['status'] ) ? 'active' : '' ?>">
 						<a data-slug="<?php echo esc_attr( $pixova_required_action_value['plugin_slug'] ) ?>"
 						   class="<?php echo esc_attr( $class ); ?>"
 						   href="<?php echo esc_url( $url ) ?>"> <?php echo esc_html( $label ) ?> </a>
@@ -80,7 +83,7 @@ wp_enqueue_script( 'updates' );
 		endforeach;
 	endif;
 
-	if ( $hooray ):
+	if ( $hooray ) :
 		echo '<span class="hooray">' . __( 'Hooray! There are no required actions for you right now.', 'pixova-lite' ) . '</span>';
 	endif;
 	?>

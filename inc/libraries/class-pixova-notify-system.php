@@ -22,7 +22,9 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 	 * @return bool
 	 */
 	public static function pixova_has_posts() {
-		$args  = array( "s" => 'Gary Johns: \'What is Aleppo\'' );
+		$args  = array(
+			's' => 'Gary Johns: \'What is Aleppo\'',
+		);
 		$query = get_posts( $args );
 
 		if ( ! empty( $query ) ) {
@@ -61,7 +63,7 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 		return false;
 	}
 
-	public static function has_import_plugin( $slug = NULL ) {
+	public static function has_import_plugin( $slug = null ) {
 		$return = self::has_content();
 
 		if ( $return ) {
@@ -69,7 +71,7 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 		}
 		$check = array(
 			'installed' => self::check_plugin_is_installed( $slug ),
-			'active'    => self::check_plugin_is_active( $slug )
+			'active'    => self::check_plugin_is_active( $slug ),
 		);
 
 		if ( ! $check['installed'] || ! $check['active'] ) {
@@ -81,8 +83,14 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 
 	public static function has_import_plugins() {
 		$check = array(
-			'wordpress-importer'       => array( 'installed' => false, 'active' => false ),
-			'widget-importer-exporter' => array( 'installed' => false, 'active' => false )
+			'wordpress-importer'       => array(
+				'installed' => false,
+				'active' => false,
+			),
+			'widget-importer-exporter' => array(
+				'installed' => false,
+				'active' => false,
+			),
 		);
 
 		$content = self::has_content();
@@ -104,7 +112,6 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 				$return = true;
 				$stop   = true;
 			}
-
 		}
 
 		return $return;

@@ -23,11 +23,11 @@ class Pixova_Welcome_Screen {
 		/* ajax callback for dismissable required actions */
 		add_action( 'wp_ajax_pixova_dismiss_required_action', array(
 			$this,
-			'pixova_dismiss_required_action_callback'
+			'pixova_dismiss_required_action_callback',
 		) );
 		add_action( 'wp_ajax_nopriv_pixova_dismiss_required_action', array(
 			$this,
-			'pixova_dismiss_required_action_callback'
+			'pixova_dismiss_required_action_callback',
 		) );
 
 		/**
@@ -44,7 +44,7 @@ class Pixova_Welcome_Screen {
 			/**
 			 * Check action
 			 */
-			if ( ! empty( $_GET['action'] ) && $_GET['action'] === 'set_page_automatic' ) {
+			if ( ! empty( $_GET['action'] ) && 'set_page_automatic' === $_GET['action'] ) {
 				$active_tab = $_GET['tab'];
 				$about      = get_page_by_title( 'Homepage' );
 				update_option( 'page_on_front', $about->ID );
@@ -71,7 +71,7 @@ class Pixova_Welcome_Screen {
 
 		add_theme_page( __( 'About pixova', 'pixova-lite' ), $title, 'edit_theme_options', 'pixova-welcome', array(
 			$this,
-			'pixova_welcome_screen'
+			'pixova_welcome_screen',
 		) );
 	}
 
@@ -94,9 +94,9 @@ class Pixova_Welcome_Screen {
 	public function pixova_welcome_admin_notice() {
 		?>
 		<div class="updated notice is-dismissible">
-			<p><?php echo sprintf( esc_html__( 'Welcome! Thank you for choosing pixova! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s.', 'pixova-lite' ), '<a href="' . esc_url( admin_url( 'themes.php?page=pixova-welcome' ) ) . '">', '</a>' ); ?></p>
+			<p><?php echo sprintf( esc_html__( 'Welcome! Thank you for choosing pixova! To fully take advantage of the best our theme can offer please make sure you visit our %1$swelcome page%2$s.', 'pixova-lite' ), '<a href="' . esc_url( admin_url( 'themes.php?page=pixova-welcome' ) ) . '">', '</a>' ); ?></p>
 			<p><a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome' ) ); ?>" class="button"
-			      style="text-decoration: none;"><?php _e( 'Get started with pixova', 'pixova-lite' ); ?></a></p>
+				  style="text-decoration: none;"><?php _e( 'Get started with pixova', 'pixova-lite' ); ?></a></p>
 		</div>
 		<?php
 	}
@@ -114,7 +114,7 @@ class Pixova_Welcome_Screen {
 			'nr_actions_required'      => absint( $this->count_actions() ),
 			'ajaxurl'                  => esc_url( admin_url( 'admin-ajax.php' ) ),
 			'template_directory'       => esc_url( get_template_directory_uri() ),
-			'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.', 'pixova-lite' )
+			'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.', 'pixova-lite' ),
 		) );
 
 	}
@@ -149,10 +149,10 @@ class Pixova_Welcome_Screen {
 
 		echo $action_id; /* this is needed and it's the id of the dismissable required action */
 
-		if ( ! empty( $action_id ) ):
+		if ( ! empty( $action_id ) ) :
 
 			/* if the option exists, update the record for the specified id */
-			if ( get_option( 'pixova_show_required_actions' ) ):
+			if ( get_option( 'pixova_show_required_actions' ) ) :
 
 				$pixova_show_required_actions = get_option( 'pixova_show_required_actions' );
 
@@ -167,18 +167,18 @@ class Pixova_Welcome_Screen {
 
 				update_option( 'pixova_show_required_actions', $pixova_show_required_actions );
 
-			/* create the new option,with false for the specified id */
-			else:
+				/* create the new option,with false for the specified id */
+			else :
 
 				$pixova_show_required_actions_new = array();
 
-				if ( ! empty( $pixova_required_actions ) ):
+				if ( ! empty( $pixova_required_actions ) ) :
 
-					foreach ( $pixova_required_actions as $pixova_required_action ):
+					foreach ( $pixova_required_actions as $pixova_required_action ) :
 
-						if ( $pixova_required_action['id'] == $action_id ):
+						if ( $pixova_required_action['id'] == $action_id ) :
 							$pixova_show_required_actions_new[ $pixova_required_action['id'] ] = false;
-						else:
+						else :
 							$pixova_show_required_actions_new[ $pixova_required_action['id'] ] = true;
 						endif;
 
@@ -225,7 +225,6 @@ class Pixova_Welcome_Screen {
 			}
 		}
 
-
 		return $i;
 	}
 
@@ -237,8 +236,9 @@ class Pixova_Welcome_Screen {
 	 */
 	public function call_plugin_api( $slug ) {
 		include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+		$call_api = get_transient( 'pixova_plugin_information_transient_' . $slug );
 
-		if ( false === ( $call_api = get_transient( 'pixova_plugin_information_transient_' . $slug ) ) ) {
+		if ( false === $call_api ) {
 			$call_api = plugins_api( 'plugin_information', array(
 				'slug'   => $slug,
 				'fields' => array(
@@ -256,8 +256,8 @@ class Pixova_Welcome_Screen {
 					'tested'            => false,
 					'requires'          => false,
 					'downloadlink'      => false,
-					'icons'             => true
-				)
+					'icons'             => true,
+				),
 			) );
 			set_transient( 'pixova_plugin_information_transient_' . $slug, $call_api, 30 * MINUTE_IN_SECONDS );
 		}
@@ -276,10 +276,16 @@ class Pixova_Welcome_Screen {
 
 			$needs = is_plugin_active( $slug . '/' . $slug . '.php' ) ? 'deactivate' : 'activate';
 
-			return array( 'status' => is_plugin_active( $slug . '/' . $slug . '.php' ), 'needs' => $needs );
+			return array(
+				'status' => is_plugin_active( $slug . '/' . $slug . '.php' ),
+				'needs' => $needs,
+			);
 		}
 
-		return array( 'status' => false, 'needs' => 'install' );
+		return array(
+			'status' => false,
+			'needs' => 'install',
+		);
 	}
 
 	/**
@@ -314,7 +320,7 @@ class Pixova_Welcome_Screen {
 					add_query_arg(
 						array(
 							'action' => 'install-plugin',
-							'plugin' => $slug
+							'plugin' => $slug,
 						),
 						network_admin_url( 'update.php' )
 					),
@@ -323,21 +329,21 @@ class Pixova_Welcome_Screen {
 				break;
 			case 'deactivate':
 				return add_query_arg( array(
-					                      'action'        => 'deactivate',
-					                      'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
-					                      'plugin_status' => 'all',
-					                      'paged'         => '1',
-					                      '_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $slug . '.php' ),
-				                      ), network_admin_url( 'plugins.php' ) );
+					'action'        => 'deactivate',
+					'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
+					'plugin_status' => 'all',
+					'paged'         => '1',
+					'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $slug . '.php' ),
+				), network_admin_url( 'plugins.php' ) );
 				break;
 			case 'activate':
 				return add_query_arg( array(
-					                      'action'        => 'activate',
-					                      'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
-					                      'plugin_status' => 'all',
-					                      'paged'         => '1',
-					                      '_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $slug . '.php' ),
-				                      ), network_admin_url( 'plugins.php' ) );
+					'action'        => 'activate',
+					'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
+					'plugin_status' => 'all',
+					'paged'         => '1',
+					'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $slug . '.php' ),
+				), network_admin_url( 'plugins.php' ) );
 				break;
 		}
 	}
@@ -370,14 +376,14 @@ class Pixova_Welcome_Screen {
 
 			<h2 class="nav-tab-wrapper wp-clearfix">
 				<a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome&tab=getting_started' ) ); ?>"
-				   class="nav-tab <?php echo $active_tab == 'getting_started' ? 'nav-tab-active' : ''; ?>"><?php echo esc_html__( 'Getting Started', 'pixova-lite' ); ?></a>
-                <a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome&tab=recommended_actions' ) ); ?>"
-				   class="nav-tab <?php echo $active_tab == 'recommended_actions' ? 'nav-tab-active' : ''; ?> "><?php echo esc_html__( 'Recommended Actions', 'pixova-lite' ); ?>
-                    <?php echo $action_count > 0 ? '<span class="badge-action-count">' . esc_html( $action_count ) . '</span>' : '' ?></a>
-                <a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome&tab=recommended_plugins' ) ); ?>"
-				   class="nav-tab <?php echo $active_tab == 'recommended_plugins' ? 'nav-tab-active' : ''; ?> "><?php echo esc_html__( 'Recommended Plugins', 'pixova-lite' ); ?></a>
-                <a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome&tab=support' ) ); ?>"
-				   class="nav-tab <?php echo $active_tab == 'support' ? 'nav-tab-active' : ''; ?> "><?php echo esc_html__( 'Support', 'pixova-lite' ); ?></a>
+				   class="nav-tab <?php echo 'getting_started' == $active_tab ? 'nav-tab-active' : ''; ?>"><?php echo esc_html__( 'Getting Started', 'pixova-lite' ); ?></a>
+				<a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome&tab=recommended_actions' ) ); ?>"
+				   class="nav-tab <?php echo 'recommended_actions' == $active_tab ? 'nav-tab-active' : ''; ?> "><?php echo esc_html__( 'Recommended Actions', 'pixova-lite' ); ?>
+					<?php echo $action_count > 0 ? '<span class="badge-action-count">' . esc_html( $action_count ) . '</span>' : '' ?></a>
+				<a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome&tab=recommended_plugins' ) ); ?>"
+				   class="nav-tab <?php echo 'recommended_plugins' == $active_tab ? 'nav-tab-active' : ''; ?> "><?php echo esc_html__( 'Recommended Plugins', 'pixova-lite' ); ?></a>
+				<a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome&tab=support' ) ); ?>"
+				   class="nav-tab <?php echo 'support' == $active_tab ? 'nav-tab-active' : ''; ?> "><?php echo esc_html__( 'Support', 'pixova-lite' ); ?></a>
 			</h2>
 
 			<?php

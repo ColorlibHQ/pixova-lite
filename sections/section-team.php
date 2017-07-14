@@ -287,7 +287,7 @@ if ( isset( $pixova_lite_team_member_1_image ) && ! empty( $pixova_lite_team_mem
 
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
-	}
+	}// End if().
 
 	echo '</div> <!--/.mt-team-->';
 }// End if().
@@ -352,7 +352,7 @@ if ( isset( $pixova_lite_team_member_2_image ) && ! empty( $pixova_lite_team_mem
 
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
-	}
+	}// End if().
 
 	echo '</div> <!--/.mt-team-->';
 }// End if().
@@ -417,7 +417,7 @@ if ( isset( $pixova_lite_team_member_3_image ) && ! empty( $pixova_lite_team_mem
 
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
-	}
+	}// End if().
 
 	echo '</div> <!--/.mt-team-->';
 }// End if().
@@ -482,7 +482,7 @@ if ( isset( $pixova_lite_team_member_4_image ) && ! empty( $pixova_lite_team_mem
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
 
-	}
+	}// End if().
 	echo '</div> <!--/.mt-team-->';
 }// End if().
 
@@ -546,7 +546,7 @@ if ( isset( $pixova_lite_team_member_5_image ) && ! empty( $pixova_lite_team_mem
 
 		echo '</div><!--/.mt-team-member-icons-->';
 		echo '</div><!--/.mt-team-description-->';
-	}
+	}// End if().
 
 	echo '</div> <!--/.mt-team-->';
 }// End if().
