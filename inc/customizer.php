@@ -641,7 +641,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	// Front Page Sections
 	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_frontpage_sections', array(
-		'title'    => esc_html__( 'Frontpage sections', 'pixova-lite' ),
+		'title'    => esc_html__( 'Front Page Sections', 'pixova-lite' ),
 		'priority' => 29,
 	) ) );
 
