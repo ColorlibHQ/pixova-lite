@@ -151,9 +151,9 @@ echo '<section id="works" class="has-padding">';
 		echo '<div class="row">';
 			echo '<div class="text-center section-heading">';
 				echo '<h2 class="light-section-heading">';
-					echo esc_html( $pixova_lite_section_title );
+					echo wp_kses_post( $pixova_lite_section_title );
 				echo '</h2>';
-		echo '<div class="section-sub-heading">' . esc_html( $pixova_lite_section_sub_title ) . '</div>';
+		echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
 			echo '</div><!--/.text-center-->';
 		echo '</div><!--/.row-->';
 

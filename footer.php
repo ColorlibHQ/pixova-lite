@@ -90,7 +90,7 @@ $sidebar_args = array(
 										<?php } ?>
 
 									<span class="pixova-lite-footer-text-copyright">
-										<?php echo esc_html( $text_footer_theme_copyright_message ); ?>
+										<?php echo wp_kses_post( $text_footer_theme_copyright_message ); ?>
 								  </span><!--/.pixova-lite-footer-text-copyright-->
 								</p>
 							</div><!--/.text-center-->

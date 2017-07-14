@@ -33,9 +33,9 @@ echo '<section class="has-padding" id="contact">';
 		echo '<div class="row">';
 			echo '<div class="text-center section-heading">';
 				echo '<h2 class="light-section-heading">';
-					echo esc_html( $pixova_lite_section__title );
+					echo wp_kses_post( $pixova_lite_section__title );
 				echo '</h2><!--/.section-heading.light-section-heading-->';
-					echo '<div class="section-sub-heading">' . esc_html( $pixova_lite_section__sub_title ) . '</div>';
+					echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section__sub_title ) . '</div>';
 			echo '</div><!--/.text-center-->';
 		echo '</div><!--/.row-->';
 
@@ -43,16 +43,16 @@ echo '<section class="has-padding" id="contact">';
 
 		echo '<div class="col-md-3">';
 			echo '<div class="mt-contact-info">';
-				echo '<h3 class="address">' . esc_html( $pixova_lite_contact_first_heading ) . '</h3>';
+				echo '<h3 class="address">' . wp_kses_post( $pixova_lite_contact_first_heading ) . '</h3>';
 
-					echo '<p class="contact-info-details address"><span>' . esc_html( $pixova_lite_contact_section_address ) . '</span></p>';
+					echo '<p class="contact-info-details address"><span>' . wp_kses_post( $pixova_lite_contact_section_address ) . '</span></p>';
 
-				echo '<h3 class="support">' . esc_html( $pixova_lite_contact_second_heading ) . '</h3>';
+				echo '<h3 class="support">' . wp_kses_post( $pixova_lite_contact_second_heading ) . '</h3>';
 
-					echo '<p class="contact-info-details-phone">' . __( 'Phone: ', 'pixova-lite' ) . '<span>' . esc_html( $pixova_lite_contact_section_phone ) . '</span>';
+					echo '<p class="contact-info-details-phone">' . __( 'Phone: ', 'pixova-lite' ) . '<span>' . wp_kses_post( $pixova_lite_contact_section_phone ) . '</span>';
 				echo '</p>';
 
-					echo '<p class="contact-info-details-email">' . __( 'Email: ', 'pixova-lite' ) . '<span>' . esc_html( $pixova_lite_contact_section_email ) . '</span>';
+					echo '<p class="contact-info-details-email">' . __( 'Email: ', 'pixova-lite' ) . '<span>' . wp_kses_post( $pixova_lite_contact_section_email ) . '</span>';
 				echo '</p>';
 
 				echo '</div><!--/.contact-info-details-->';

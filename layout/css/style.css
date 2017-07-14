@@ -167,6 +167,10 @@ q {
 	quotes: none
 }
 
+em {
+    font-style: italic;
+}
+
 blockquote:after,
 blockquote:before,
 q:after,
@@ -764,7 +768,8 @@ section {
 .work-description-icon em,
 body .btn-cta-intro {
 	font-weight: 700;
-	text-transform: uppercase
+	text-transform: uppercase;
+	font-style: normal;
 }
 
 body .btn-cta-intro {
@@ -981,7 +986,7 @@ body .btn-cta-intro a {
 
 .work-description-icon {
 	background: rgba(27, 27, 27, .9);
-	padding: 10px
+	padding: 10px;
 }
 
 .work-description-icon:after {
@@ -993,7 +998,7 @@ body .btn-cta-intro a {
 	top: 0;
 	transition: all .3s ease 0s;
 	width: 0;
-	z-index: -1
+	z-index: -1;
 }
 
 #contact-form .col-md-4,
@@ -1002,23 +1007,24 @@ body .btn-cta-intro a {
 .portfolio-picture a,
 .project-pictures a,
 .work-description-icon em {
-	position: relative
+	position: relative;
 }
 
 .work-description-icon:hover:after {
 	background: #f2c351;
-	width: 100%
+	width: 100%;
 }
 
 .work-description-icon:hover {
-	color: #fff
+	color: #fff;
 }
 
 .work-description-icon em {
 	font-family: Roboto, Arial, sans-serif;
 	font-size: 11px;
 	margin-left: 5px;
-	top: -1px
+	top: -1px;
+	font-style:normal;
 }
 
 .big-testimonial .media-body {
@@ -1151,7 +1157,8 @@ body .btn-cta-intro a {
 	padding: 20px 0
 }
 
-#footer .footer-copyright {
+#footer .footer-copyright,
+#footer p {
 	color: rgba(255, 255, 255, .75)
 }
 

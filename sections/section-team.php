@@ -222,9 +222,9 @@ echo '<section class="has-padding" id="team">';
 		echo '<div class="row">';
 			echo '<div class="text-center section-heading">';
 				echo '<h2 class="light-section-heading">';
-					echo esc_html( $pixova_lite_section_title );
+					echo wp_kses_post( $pixova_lite_section_title );
 				echo '</h2>';
-			echo '<div class="section-sub-heading">' . esc_html( $pixova_lite_section_sub_title ) . '</div>';
+			echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
 			echo '</div><!--/.text-center-->';
 		echo '</div><!--/.row-->';
 
@@ -235,7 +235,7 @@ if ( isset( $pixova_lite_team_member_1_image ) && ! empty( $pixova_lite_team_mem
 	echo '<img class="mt-team-img" src="' . esc_url( $pixova_lite_team_member_1_image ) . '" alt="' . ( ( $pixova_lite_team_member_1_name ) ? esc_attr( $pixova_lite_team_member_1_name ) : '' ) . '">';
 
 	echo '<div class="mt-team-member-name">';
-	echo esc_html( $pixova_lite_team_member_1_name );
+	echo wp_kses_post( $pixova_lite_team_member_1_name );
 	echo '</div><!--/.mt-team-member-name-->';
 	if ( $pixova_lite_team_member_1_fburl || $pixova_lite_team_member_1_dribbble_url || $pixova_lite_team_member_1_email ) {
 		echo '<div class="mt-team-description">';
@@ -298,7 +298,7 @@ if ( isset( $pixova_lite_team_member_2_image ) && ! empty( $pixova_lite_team_mem
 	echo '<img class="mt-team-img" src="' . esc_url( $pixova_lite_team_member_2_image ) . '" alt="' . ( ( $pixova_lite_team_member_2_name ) ? esc_attr( $pixova_lite_team_member_2_name ) : '' ) . '">';
 
 	echo '<div class="mt-team-member-name">';
-	echo esc_html( $pixova_lite_team_member_2_name );
+	echo wp_kses_post( $pixova_lite_team_member_2_name );
 	echo '</div><!--/.mt-team-member-name-->';
 
 	if ( $pixova_lite_team_member_2_fburl || $pixova_lite_team_member_2_dribbble_url || $pixova_lite_team_member_2_email ) {
@@ -363,7 +363,7 @@ if ( isset( $pixova_lite_team_member_3_image ) && ! empty( $pixova_lite_team_mem
 	echo '<img class="mt-team-img" src="' . esc_url( $pixova_lite_team_member_3_image ) . '" alt="' . ( ( $pixova_lite_team_member_3_name ) ? esc_attr( $pixova_lite_team_member_3_name ) : '' ) . '">';
 
 	echo '<div class="mt-team-member-name">';
-	echo esc_html( $pixova_lite_team_member_3_name );
+	echo wp_kses_post( $pixova_lite_team_member_3_name );
 	echo '</div><!--/.mt-team-member-name-->';
 
 	if ( $pixova_lite_team_member_3_fburl || $pixova_lite_team_member_3_dribbble_url || $pixova_lite_team_member_3_email ) {
@@ -428,7 +428,7 @@ if ( isset( $pixova_lite_team_member_4_image ) && ! empty( $pixova_lite_team_mem
 	echo '<img class="mt-team-img" src="' . esc_url( $pixova_lite_team_member_4_image ) . '" alt="' . ( ( $pixova_lite_team_member_4_name ) ? esc_attr( $pixova_lite_team_member_4_name ) : '' ) . '">';
 
 	echo '<div class="mt-team-member-name">';
-	echo esc_html( $pixova_lite_team_member_4_name );
+	echo wp_kses_post( $pixova_lite_team_member_4_name );
 	echo '</div><!--/.mt-team-member-name-->';
 
 	if ( $pixova_lite_team_member_4_fburl || $pixova_lite_team_member_4_dribbble_url || $pixova_lite_team_member_4_email ) {
@@ -492,7 +492,7 @@ if ( isset( $pixova_lite_team_member_5_image ) && ! empty( $pixova_lite_team_mem
 	echo '<img class="mt-team-img" src="' . esc_url( $pixova_lite_team_member_5_image ) . '" alt="' . ( ( $pixova_lite_team_member_5_name ) ? esc_attr( $pixova_lite_team_member_5_name ) : '' ) . '">';
 
 	echo '<div class="mt-team-member-name">';
-	echo esc_html( $pixova_lite_team_member_5_name );
+	echo wp_kses_post( $pixova_lite_team_member_5_name );
 	echo '</div><!--/.mt-team-member-name-->';
 
 	if ( $pixova_lite_team_member_5_fburl || $pixova_lite_team_member_5_dribbble_url || $pixova_lite_team_member_5_email ) {

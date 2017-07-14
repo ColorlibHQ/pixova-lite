@@ -109,9 +109,9 @@ echo '<section class="has-padding text-center" id="about">';
 		echo '<div class="row">';
 			echo '<div class="section-heading text-center">';
 				echo '<h2 class="light-section-heading">';
-					echo esc_html( $pixova_lite_section_title );
+					echo wp_kses_post( $pixova_lite_section_title );
 				echo '</h2>';
-				echo '<div class="section-sub-heading">' . esc_html( $pixova_lite_section_sub_title ) . '</div>';
+				echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
 			echo '</div><!--/.text-center-->';
 		echo '</div><!--/.row-->';
 
@@ -179,7 +179,7 @@ if ( isset( $pixova_lite_section_1_chart_percentage ) && is_numeric( $pixova_lit
 
 	if ( isset( $pixova_lite_section_1_chart_heading ) ) {
 		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
-		echo esc_html( $pixova_lite_section_1_chart_heading );
+		echo wp_kses_post( $pixova_lite_section_1_chart_heading );
 		echo '</h4><!--/.mt-heading-->';
 	}
 
@@ -196,7 +196,7 @@ if ( isset( $pixova_lite_section_2_chart_percentage ) && is_numeric( $pixova_lit
 
 	if ( isset( $pixova_lite_section_2_chart_heading ) ) {
 		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
-		echo esc_html( $pixova_lite_section_2_chart_heading );
+		echo wp_kses_post( $pixova_lite_section_2_chart_heading );
 		echo '</h4><!--/.mt-heading-->';
 	}
 	echo '</div><!--/.col-md-->';
@@ -211,7 +211,7 @@ if ( isset( $pixova_lite_section_3_chart_percentage ) && is_numeric( $pixova_lit
 	echo '</div><!--/.mt-chart-->';
 	if ( isset( $pixova_lite_section_3_chart_heading ) ) {
 		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
-		echo esc_html( $pixova_lite_section_3_chart_heading );
+		echo wp_kses_post( $pixova_lite_section_3_chart_heading );
 		echo '</h4><!--/.mt-heading-->';
 	}
 	echo '</div><!--/.col-md-->';
@@ -227,7 +227,7 @@ if ( isset( $pixova_lite_section_4_chart_percentage ) && is_numeric( $pixova_lit
 	echo '</div><!--/.mt-chart-->';
 	if ( isset( $pixova_lite_section_4_chart_heading ) ) {
 		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
-		echo esc_html( $pixova_lite_section_4_chart_heading );
+		echo wp_kses_post( $pixova_lite_section_4_chart_heading );
 		echo '</h4><!--/.mt-heading-->';
 	}
 	echo '</div><!--/.col-md-->';
