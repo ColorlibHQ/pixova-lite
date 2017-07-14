@@ -2161,6 +2161,66 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'  => 5,
 	) ) );
 
+	/* Team: team member #1 Twitter URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_1_twitter', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://twitter.com/colorlib' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_1_twitter', array(
+		'label'     => esc_html__( 'Team member #1 Twitter URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_1',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #1 LinkedIN URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_1_linkedin', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.linkedin.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_1_linkedin', array(
+		'label'     => esc_html__( 'Team member #1 LinkedIN URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_1',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #1 Pinterest URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_1_pinterest', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://pinterest.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_1_pinterest', array(
+		'label'     => esc_html__( 'Team member #1 Pinterest URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_1',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #1 Instagram URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_1_instagram', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.instagram.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_1_instagram', array(
+		'label'     => esc_html__( 'Team member #1 Instagram URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_1',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #1 Google+ URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_1_googleplus', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://plus.google.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_1_googleplus', array(
+		'label'     => esc_html__( 'Team member #1 Google+ URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_1',
+		'priority'  => 5,
+	) ) );
+
 	/* Team: team member #2 section */
 	$wp_customize->add_section( 'pixova_lite_team_member_2', array(
 		'title' => esc_html__( 'Team member #2', 'pixova-lite' ),
@@ -2227,6 +2287,66 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_2_email', array(
 		'label'     => esc_html__( 'Team member #2 Email', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_2',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #2 Twitter URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_2_twitter', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://twitter.com/colorlib' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_2_twitter', array(
+		'label'     => esc_html__( 'Team member #2 Twitter URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_2',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #2 LinkedIN URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_2_linkedin', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.linkedin.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_2_linkedin', array(
+		'label'     => esc_html__( 'Team member #2 LinkedIN URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_2',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #2 Pinterest URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_2_pinterest', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://pinterest.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_2_pinterest', array(
+		'label'     => esc_html__( 'Team member #2 Pinterest URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_2',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #2 Instagram URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_2_instagram', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.instagram.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_2_instagram', array(
+		'label'     => esc_html__( 'Team member #2 Instagram URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_2',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #2 Google+ URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_2_googleplus', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://plus.google.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_2_googleplus', array(
+		'label'     => esc_html__( 'Team member #2 Google+ URL', 'pixova-lite' ),
 		'section'   => 'pixova_lite_team_member_2',
 		'priority'  => 5,
 	) ) );
@@ -2301,6 +2421,66 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'  => 5,
 	) ) );
 
+	/* Team: team member #3 Twitter URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_3_twitter', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://twitter.com/colorlib' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_3_twitter', array(
+		'label'     => esc_html__( 'Team member #3 Twitter URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_3',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #3 LinkedIN URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_3_linkedin', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.linkedin.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_3_linkedin', array(
+		'label'     => esc_html__( 'Team member #3 LinkedIN URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_3',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #3 Pinterest URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_3_pinterest', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://pinterest.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_3_pinterest', array(
+		'label'     => esc_html__( 'Team member #3 Pinterest URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_3',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #3 Instagram URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_3_instagram', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.instagram.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_3_instagram', array(
+		'label'     => esc_html__( 'Team member #3 Instagram URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_3',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #3 Google+ URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_3_googleplus', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://plus.google.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_3_googleplus', array(
+		'label'     => esc_html__( 'Team member #3 Google+ URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_3',
+		'priority'  => 5,
+	) ) );
+
 	/* Team: team member #4 section */
 	$wp_customize->add_section('pixova_lite_team_member_4', array(
 		'title' => esc_html__( 'Team member #4', 'pixova-lite' ),
@@ -2371,6 +2551,68 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'  => 5,
 	) ) );
 
+	/* Team: team member #4 Twitter URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_4_twitter', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://twitter.com/colorlib' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_4_twitter', array(
+		'label'     => esc_html__( 'Team member #4 Twitter URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_4',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #4 LinkedIN URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_4_linkedin', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.linkedin.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_4_linkedin', array(
+		'label'     => esc_html__( 'Team member #4 LinkedIN URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_4',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #4 Pinterest URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_4_pinterest', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://pinterest.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_4_pinterest', array(
+		'label'     => esc_html__( 'Team member #4 Pinterest URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_4',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #4 Instagram URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_4_instagram', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.instagram.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_4_instagram', array(
+		'label'     => esc_html__( 'Team member #4 Instagram URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_4',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #4 Google+ URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_4_googleplus', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://plus.google.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_4_googleplus', array(
+		'label'     => esc_html__( 'Team member #4 Google+ URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_4',
+		'priority'  => 5,
+	) ) );
+
+	
+
 	/* Team: team member #5 section */
 	$wp_customize->add_section( 'pixova_lite_team_member_5', array(
 		'title' => esc_html__( 'Team member #5', 'pixova-lite' ),
@@ -2437,6 +2679,66 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_5_email', array(
 		'label'     => esc_html__( 'Team member #5 E-mail Address', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_5',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #5 Twitter URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_5_twitter', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://twitter.com/colorlib' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_5_twitter', array(
+		'label'     => esc_html__( 'Team member #5 Twitter URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_5',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #5 LinkedIN URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_5_linkedin', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.linkedin.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_5_linkedin', array(
+		'label'     => esc_html__( 'Team member #5 LinkedIN URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_5',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #5 Pinterest URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_5_pinterest', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://pinterest.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_5_pinterest', array(
+		'label'     => esc_html__( 'Team member #5 Pinterest URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_5',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #5 Instagram URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_5_instagram', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://www.instagram.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_5_instagram', array(
+		'label'     => esc_html__( 'Team member #5 Instagram URL', 'pixova-lite' ),
+		'section'   => 'pixova_lite_team_member_5',
+		'priority'  => 5,
+	) ) );
+
+	/* Team: team member #5 Google+ URL */
+	$wp_customize->add_setting( 'pixova_lite_team_member_5_googleplus', array(
+		'sanitize_callback' => 'esc_url',
+		'default' => esc_url( 'https://plus.google.com/' ),
+	) );
+
+	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_5_googleplus', array(
+		'label'     => esc_html__( 'Team member #5 Google+ URL', 'pixova-lite' ),
 		'section'   => 'pixova_lite_team_member_5',
 		'priority'  => 5,
 	) ) );

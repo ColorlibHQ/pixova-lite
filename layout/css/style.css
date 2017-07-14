@@ -2144,7 +2144,9 @@ body.logged-in section {
 	font-size: 14px;
 	line-height: 1.5
 }
-
+.mt-team-member-icon:first-child {
+    margin-left: 12px;
+}
 .mt-team-member-icon {
 	display: inline-block;
 	margin-right: 12px;
