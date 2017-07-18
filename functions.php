@@ -590,7 +590,7 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 
 
 // Include epsilon framework
-require_once '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';
+require_once get_template_directory() . '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';
 $args = array(
 	'controls' => array( 'toggle', 'slider', 'icon-picker', 'text-editor' ), // array of controls to load
 	'sections' => array( 'recommended-actions', 'upsell' ), // array of sections to load
