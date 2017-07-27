@@ -1114,7 +1114,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 0,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_1_heading', array(
-		'selector' => '#about .pixova_lite_chart_1 .mt-heading',
+		'selector' => '#about .pixova_lite_chart_1 .pixova-heading',
 	) );
 
 	/* Chart #1 Settings */
@@ -1179,7 +1179,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 0,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_2_heading', array(
-		'selector' => '#about .pixova_lite_chart_2 .mt-heading',
+		'selector' => '#about .pixova_lite_chart_2 .pixova-heading',
 	) );
 
 	/* Chart #2 Settings */
@@ -1244,7 +1244,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 0,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_3_heading', array(
-		'selector' => '#about .pixova_lite_chart_3 .mt-heading',
+		'selector' => '#about .pixova_lite_chart_3 .pixova-heading',
 	) );
 
 	/* Chart #3 Settings */
@@ -1309,7 +1309,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 0,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_about_section_chart_4_heading', array(
-		'selector' => '#about .pixova_lite_chart_4 .mt-heading',
+		'selector' => '#about .pixova_lite_chart_4 .pixova-heading',
 	) );
 
 	/* Chart #4 Settings */
@@ -2002,7 +2002,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'  => 2,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_contact_first_heading', array(
-		'selector' => '#contact .mt-contact-info h3.address',
+		'selector' => '#contact .pixova-contact-info h3.address',
 	) );
 
 	/* Customer Support Heading */
@@ -2018,7 +2018,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'  => 2,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_contact_second_heading', array(
-		'selector' => '#contact .mt-contact-info h3.support',
+		'selector' => '#contact .pixova-contact-info h3.support',
 	) );
 
 	$wp_customize->add_section('pixova_lite_contact_cf7', array(
@@ -2144,7 +2144,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 1,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_1_name', array(
-		'selector' => '#team .pixova-lite-team-member-1 .mt-team-member-name',
+		'selector' => '#team .pixova-lite-team-member-1 .pixova-team-member-name',
 	) );
 
 	/* Team: team member #1 picture */
@@ -2274,7 +2274,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 1,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_2_name', array(
-		'selector' => '#team .pixova-lite-team-member-2 .mt-team-member-name',
+		'selector' => '#team .pixova-lite-team-member-2 .pixova-team-member-name',
 	) );
 
 	/* Team: team member #2 picture */
@@ -2404,7 +2404,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 1,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_3_name', array(
-		'selector' => '#team .pixova-lite-team-member-3 .mt-team-member-name',
+		'selector' => '#team .pixova-lite-team-member-3 .pixova-team-member-name',
 	) );
 
 	/* Team: team member #3 picture */
@@ -2534,7 +2534,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 1,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_4_name', array(
-		'selector' => '#team .pixova-lite-team-member-4 .mt-team-member-name',
+		'selector' => '#team .pixova-lite-team-member-4 .pixova-team-member-name',
 	) );
 
 	/* Team: team member #4 picture */
@@ -2664,7 +2664,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 1,
 	) ) );
 	$wp_customize->selective_refresh->add_partial( 'pixova_lite_team_member_5_name', array(
-		'selector' => '#team .pixova-lite-team-member-5 .mt-team-member-name',
+		'selector' => '#team .pixova-lite-team-member-5 .pixova-team-member-name',
 	) );
 
 	/* Team: team member #5 picture */

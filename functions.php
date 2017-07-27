@@ -55,7 +55,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		 */
 		require get_template_directory() . '/inc/extras.php';
 		require get_template_directory() . '/inc/components/breadcrumbs/class-pixova-lite-breadcrumbs.php';
-		require get_template_directory() . '/inc/components/related-posts/class-mt-related-posts.php';
+		require get_template_directory() . '/inc/components/related-posts/class-pixova-lite-related-posts.php';
 
 		/**
 		 * Customizer additions.
@@ -432,7 +432,7 @@ if ( ! function_exists( 'pixova_lite_fallback_cb' ) ) {
 	 */
 	function pixova_lite_fallback_cb() {
 
-		$html = '<ul id="menu-pixova-lite-main-menu-container" class="mt-default-menu">';
+		$html = '<ul id="menu-pixova-lite-main-menu-container" class="pixova-default-menu">';
 		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
 			$html .= '<a href="' . get_site_url() . '/#about" title="' . __( 'About', 'pixova-lite' ) . '">';
 				$html .= __( 'About', 'pixova-lite' );

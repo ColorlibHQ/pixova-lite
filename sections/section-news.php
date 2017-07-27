@@ -58,9 +58,9 @@ $pixova_lite_q = new WP_Query( $args );
 if ( $pixova_lite_q->have_posts() ) {
 	// $i is used as counter for clearing blog posts
 	$i = 1;
-	echo '<div class="mt-blog-posts text-center">';
+	echo '<div class="pixova-blog-posts text-center">';
 	echo '<div class="row">';
-	echo '<div class="mt-blogpost-wrapper ' . $pixova_lite_cols . '"  data-slider-items="' . $pixova_lite_news_section_no_posts_per_slide . '">';
+	echo '<div class="pixova-blogpost-wrapper ' . $pixova_lite_cols . '"  data-slider-items="' . $pixova_lite_news_section_no_posts_per_slide . '">';
 	while ( $pixova_lite_q->have_posts() ) {
 		$pixova_lite_q->the_post();
 		echo '<div class="' . $pixova_lite_news_size . '" style="width: 100%;">';
@@ -77,8 +77,8 @@ if ( $pixova_lite_q->have_posts() ) {
 			echo '</div>';
 		}
 		echo '<div class="caption">';
-		echo '<div class="mt-date">' . get_the_date( get_option( 'date-format' ), $pixova_lite_q->post->ID ) . '</div>';
-		echo '<h2><a class="mt-blogpost-title" href="' . esc_url( get_the_permalink() ) . '">' . esc_html( get_the_title() ) . '</a></h2>';
+		echo '<div class="pixova-date">' . get_the_date( get_option( 'date-format' ), $pixova_lite_q->post->ID ) . '</div>';
+		echo '<h2><a class="pixova-blogpost-title" href="' . esc_url( get_the_permalink() ) . '">' . esc_html( get_the_title() ) . '</a></h2>';
 		echo '<p>' . the_excerpt() . '</p>';
 		echo '</div><!--/.caption-->';
 		echo '</div><!--/.thumbnail-->';
@@ -89,14 +89,14 @@ if ( $pixova_lite_q->have_posts() ) {
 			$i = 1;
 		}
 	}
-	echo '</div> <!--/.mt-blogpost-wrapper-->';
+	echo '</div> <!--/.pixova-blogpost-wrapper-->';
 	echo '</div><!--/.row-->';
 	if ( ! empty( $page_which_uses_blog_template ) && is_array( $page_which_uses_blog_template ) ) {
 		echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template[0] ) ) ) . '">' . esc_html( $pixova_lite_news_button_text ) . '</a>';
 	} elseif ( ! empty( $page_which_uses_blog_template ) && ! is_array( $page_which_uses_blog_template ) ) {
 		echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template ) ) ) . '">' . esc_html( $pixova_lite_news_button_text ) . '</a>';
 	}
-	echo '</div><!--/.mt-blog-posts-->';
+	echo '</div><!--/.pixova-blog-posts-->';
 }// End if().
 echo '</div><!--/.row-->';
 echo '</div><!--/.container-->';

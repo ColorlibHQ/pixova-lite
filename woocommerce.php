@@ -17,7 +17,7 @@ $pixova_lite_woocommerce_show_sidebar_on_left_or_right_side = get_theme_mod( 'pi
 			<?php if ( is_shop() ) { ?>
 				<?php if ( 'show' == $pixova_lite_woocommerce_show_sidebar_on_shop_page && 'left' == $pixova_lite_woocommerce_show_sidebar_on_left_or_right_side ) { ?>
 					<div class="col-md-3">
-						<div class="mt-blog-sidebar" style="margin-top: 0;">
+						<div class="pixova-blog-sidebar" style="margin-top: 0;">
 							<?php
 							if ( is_active_sidebar( 'woocommerce-sidebar' ) ) {
 								dynamic_sidebar( 'woocommerce-sidebar' );
@@ -26,7 +26,7 @@ $pixova_lite_woocommerce_show_sidebar_on_left_or_right_side = get_theme_mod( 'pi
 								the_widget( 'WC_Widget_Product_Categories', 'title=' . esc_html__( 'Product Categories', 'pixova-lite' ) );
 							}
 							?>
-						</div><!--/.mt-blog-sidebar-->
+						</div><!--/.pixova-blog-sidebar-->
 					</div><!--/.col-md-3-->
 				<?php } ?>
 				<div class="<?php echo 'show' == $pixova_lite_woocommerce_show_sidebar_on_shop_page ? 'col-md-9' : 'col-md-12' ?>">
@@ -38,7 +38,7 @@ $pixova_lite_woocommerce_show_sidebar_on_left_or_right_side = get_theme_mod( 'pi
 				</div><!-- .content-left-wrap -->
 				<?php if ( 'show' == $pixova_lite_woocommerce_show_sidebar_on_shop_page && 'right' == $pixova_lite_woocommerce_show_sidebar_on_left_or_right_side ) { ?>
 					<div class="col-md-3">
-						<div class="mt-blog-sidebar" style="margin-top: 0;">
+						<div class="pixova-blog-sidebar" style="margin-top: 0;">
 							<?php
 							if ( is_active_sidebar( 'woocommerce-sidebar' ) ) {
 								dynamic_sidebar( 'woocommerce-sidebar' );
@@ -47,7 +47,7 @@ $pixova_lite_woocommerce_show_sidebar_on_left_or_right_side = get_theme_mod( 'pi
 								the_widget( 'WC_Widget_Product_Categories', 'title=' . esc_html__( 'Product Categories', 'pixova-lite' ) );
 							}
 							?>
-						</div><!--/.mt-blog-sidebar-->
+						</div><!--/.pixova-blog-sidebar-->
 					</div><!--/.col-md-3-->
 				<?php } ?>
 			<?php } else { ?>

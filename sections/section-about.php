@@ -171,16 +171,16 @@ echo '<div class="pixova_lite_pie_chart_wrapper ' . $pixova_lite_cols . '">';
 
 if ( isset( $pixova_lite_section_1_chart_percentage ) && is_numeric( $pixova_lite_section_1_chart_percentage ) ) {
 	echo '<div class="pixova_lite_chart_1 ' . $pixova_lite_chart_size . '">';
-	echo '<div class="mt-chart" data-trackColor="' . esc_html( $pixova_lite_section_1_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_1_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_1_chart_percentage ) . '">';
-	echo'<div class="mt-pie-chart-custom-text">';
+	echo '<div class="pixova-chart" data-trackColor="' . esc_html( $pixova_lite_section_1_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_1_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_1_chart_percentage ) . '">';
+	echo'<div class="pixova-pie-chart-custom-text">';
 		echo esc_html( $pixova_lite_section_1_chart_percentage ) . '%';
-	echo'</div><!--/.mt-pie-chart-custom-text-->';
-	echo '</div><!--/.mt-chart-->';
+	echo'</div><!--/.pixova-pie-chart-custom-text-->';
+	echo '</div><!--/.pixova-chart-->';
 
 	if ( isset( $pixova_lite_section_1_chart_heading ) ) {
-		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
+		echo '<h4 class="pixova-heading pixova-heading-single-line text-center">';
 		echo wp_kses_post( $pixova_lite_section_1_chart_heading );
-		echo '</h4><!--/.mt-heading-->';
+		echo '</h4><!--/.pixova-heading-->';
 	}
 
 	echo '</div><!--/.col-md-->';
@@ -188,31 +188,31 @@ if ( isset( $pixova_lite_section_1_chart_percentage ) && is_numeric( $pixova_lit
 
 if ( isset( $pixova_lite_section_2_chart_percentage ) && is_numeric( $pixova_lite_section_2_chart_percentage ) ) {
 	echo '<div class="pixova_lite_chart_2 ' . $pixova_lite_chart_size . '">';
-	echo '<div class="mt-chart" data-trackColor="' . esc_html( $pixova_lite_section_2_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_2_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_2_chart_percentage ) . '">';
-	echo'<div class="mt-pie-chart-custom-text">';
+	echo '<div class="pixova-chart" data-trackColor="' . esc_html( $pixova_lite_section_2_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_2_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_2_chart_percentage ) . '">';
+	echo'<div class="pixova-pie-chart-custom-text">';
 		echo esc_html( $pixova_lite_section_2_chart_percentage ) . '%';
-	echo'</div><!--/.mt-pie-chart-custom-text-->';
-	echo '</div><!--/.mt-chart-->';
+	echo'</div><!--/.pixova-pie-chart-custom-text-->';
+	echo '</div><!--/.pixova-chart-->';
 
 	if ( isset( $pixova_lite_section_2_chart_heading ) ) {
-		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
+		echo '<h4 class="pixova-heading pixova-heading-single-line text-center">';
 		echo wp_kses_post( $pixova_lite_section_2_chart_heading );
-		echo '</h4><!--/.mt-heading-->';
+		echo '</h4><!--/.pixova-heading-->';
 	}
 	echo '</div><!--/.col-md-->';
 }
 
 if ( isset( $pixova_lite_section_3_chart_percentage ) && is_numeric( $pixova_lite_section_3_chart_percentage ) ) {
 	echo '<div class="pixova_lite_chart_3 ' . $pixova_lite_chart_size . '">';
-	echo '<div class="mt-chart" data-trackColor="' . esc_html( $pixova_lite_section_3_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_3_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_3_chart_percentage ) . '">';
-		echo'<div class="mt-pie-chart-custom-text">';
+	echo '<div class="pixova-chart" data-trackColor="' . esc_html( $pixova_lite_section_3_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_3_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_3_chart_percentage ) . '">';
+		echo'<div class="pixova-pie-chart-custom-text">';
 			echo esc_html( $pixova_lite_section_3_chart_percentage ) . '%';
-		echo'</div><!--/.mt-pie-chart-custom-text-->';
-	echo '</div><!--/.mt-chart-->';
+		echo'</div><!--/.pixova-pie-chart-custom-text-->';
+	echo '</div><!--/.pixova-chart-->';
 	if ( isset( $pixova_lite_section_3_chart_heading ) ) {
-		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
+		echo '<h4 class="pixova-heading pixova-heading-single-line text-center">';
 		echo wp_kses_post( $pixova_lite_section_3_chart_heading );
-		echo '</h4><!--/.mt-heading-->';
+		echo '</h4><!--/.pixova-heading-->';
 	}
 	echo '</div><!--/.col-md-->';
 }
@@ -220,19 +220,19 @@ if ( isset( $pixova_lite_section_3_chart_percentage ) && is_numeric( $pixova_lit
 
 if ( isset( $pixova_lite_section_4_chart_percentage ) && is_numeric( $pixova_lite_section_4_chart_percentage ) ) {
 	echo '<div class="pixova_lite_chart_4 ' . $pixova_lite_chart_size . '">';
-	echo '<div class="mt-chart" data-trackColor="' . esc_html( $pixova_lite_section_4_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_4_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_4_chart_percentage ) . '">';
-	echo'<div class="mt-pie-chart-custom-text">';
+	echo '<div class="pixova-chart" data-trackColor="' . esc_html( $pixova_lite_section_4_chart_track_color ) . '" data-barColor="' . esc_html( $pixova_lite_section_4_chart_bar_color ) . '" data-lineWidth="10" data-percent="' . esc_html( $pixova_lite_section_4_chart_percentage ) . '">';
+	echo'<div class="pixova-pie-chart-custom-text">';
 		echo esc_html( $pixova_lite_section_4_chart_percentage ) . '%';
-	echo'</div><!--/.mt-pie-chart-custom-text-->';
-	echo '</div><!--/.mt-chart-->';
+	echo'</div><!--/.pixova-pie-chart-custom-text-->';
+	echo '</div><!--/.pixova-chart-->';
 	if ( isset( $pixova_lite_section_4_chart_heading ) ) {
-		echo '<h4 class="mt-heading mt-heading-single-line text-center">';
+		echo '<h4 class="pixova-heading pixova-heading-single-line text-center">';
 		echo wp_kses_post( $pixova_lite_section_4_chart_heading );
-		echo '</h4><!--/.mt-heading-->';
+		echo '</h4><!--/.pixova-heading-->';
 	}
 	echo '</div><!--/.col-md-->';
 }
-echo '</div><!--/.mt-pie-chart-wrapper-->';
+echo '</div><!--/.pixova-pie-chart-wrapper-->';
 
 		echo '<div class="clearfix"></div>';
 		echo '</div><!--/.row-->';

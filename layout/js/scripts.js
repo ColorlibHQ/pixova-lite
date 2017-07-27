@@ -256,13 +256,13 @@
             scrollTopDuration = 700,
 
         //Grab the "back to top" link
-            $backToTop = $( '.mt-top' );
+            $backToTop = $( '.pixova-top' );
 
         //Hide or show the "back to top" link
         $( window ).scroll(function() {
-            ( $( this ).scrollTop() > offset ) ? $backToTop.addClass( 'mt-is-visible' ) : $backToTop.removeClass( 'mt-is-visible mt-fade-out' );
+            ( $( this ).scrollTop() > offset ) ? $backToTop.addClass( 'pixova-is-visible' ) : $backToTop.removeClass( 'pixova-is-visible pixova-fade-out' );
             if ( $( this ).scrollTop() > offsetOpacity ) {
-                $backToTop.addClass( 'mt-fade-out' );
+                $backToTop.addClass( 'pixova-fade-out' );
             }
         });
 
@@ -296,11 +296,11 @@
     /*  Align team members to center */
     function teamsettings() {
 
-        $( '.mt-team' ).parent().addClass( 'align-center' );
-        $( '.mt-team' ).on( 'mouseenter', function() {
-            $( this ).find( '.mt-team-description' ).addClass( 'mt-is-visible' );
+        $( '.pixova-team' ).parent().addClass( 'align-center' );
+        $( '.pixova-team' ).on( 'mouseenter', function() {
+            $( this ).find( '.pixova-team-description' ).addClass( 'pixova-is-visible' );
         }).on( 'mouseleave', function() {
-            $( this ).find( '.mt-team-description' ).removeClass( 'mt-is-visible' );
+            $( this ).find( '.pixova-team-description' ).removeClass( 'pixova-is-visible' );
         });
 
     }

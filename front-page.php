@@ -15,7 +15,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 							?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-								<div class="mt-date"></div><!--/.mt-date-->
+								<div class="pixova-date"></div><!--/.pixova-date-->
 								<header class="entry-header">
 									<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 								</header><!-- .entry-header -->
@@ -56,7 +56,7 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 				</div><!--/.col-lg-8-->
 
 				<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs pull-right">
-					<aside class="mt-blog-sidebar">
+					<aside class="pixova-blog-sidebar">
 						<?php
 						if ( is_active_sidebar( 'blog-sidebar' ) ) {
 							dynamic_sidebar( 'blog-sidebar' );
@@ -65,12 +65,12 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 							the_widget( 'WP_Widget_Calendar', sprintf( 'title=%s', __( 'Calendar', 'pixova-lite' ) ) );
 						}
 						?>
-					</aside> <!--/.mt-blog-sidebar-->
+					</aside> <!--/.pixova-blog-sidebar-->
 				</div><!--/.col-lg-3-->
 
-				<div class="mt-custom-pagination col-lg-12">
+				<div class="pixova-custom-pagination col-lg-12">
 					<?php the_posts_pagination(); ?>
-				</div><!--/.mt-custom-pagination-->
+				</div><!--/.pixova-custom-pagination-->
 			</section><!--/section-->
 		</div><!--/.row-->
 	</div><!--/.container-->

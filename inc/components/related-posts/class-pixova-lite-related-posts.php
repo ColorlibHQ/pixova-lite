@@ -31,7 +31,7 @@ if ( ! function_exists( 'mtl_call_related_posts_class' ) ) {
 		if ( 1 == $display_related_blog_posts ) {
 
 			// instantiate the class & load everything else
-			MT_Related_Posts::get_instance();
+			Pixova_Lite_Related_Posts::get_instance();
 		}
 	}
 	add_action( 'wp_loaded', 'mtl_call_related_posts_class' );
@@ -43,7 +43,7 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 	/**
 	 * Class MT_Related_Posts
 	 */
-	class MT_Related_Posts {
+	class Pixova_Lite_Related_Posts {
 
 		/**
 		 * @var Singleton The reference to *Singleton* instance of this class
@@ -134,7 +134,7 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 		 **/
 		function output_related_posts() {
 
-			echo '<div class="mt-related-posts">';
+			echo '<div class="pixova-related-posts">';
 
 			// Check if related posts should be shown
 			$related_posts = $this->get_related_posts( get_the_ID(), get_option( 'posts_per_page' ) );
@@ -146,7 +146,7 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 			$auto_play = get_theme_mod( 'pixova_lite_autoplay_blog_posts', 1 );
 			$pagination = get_theme_mod( 'pixova_lite_pagination_blog_posts', 1 );
 
-			echo '<div class="row mt-padded">';
+			echo '<div class="row pixova-padded">';
 
 			/*
 			 * Heading
@@ -159,9 +159,9 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 			 * Arrows
 			 */
 			echo '<div class="col-sm-1 hidden-xs text-right">';
-			echo '<ul class="mt-carousel-arrows clearfix">';
-			echo '<li class="pull-right"><a href="#" class="mt-owl-next fa fa-angle-right"></a></li>';
-			echo '<li class="pull-left"><a href="#" class="mt-owl-prev fa fa-angle-left"></a></li>';
+			echo '<ul class="pixova-carousel-arrows clearfix">';
+			echo '<li class="pull-right"><a href="#" class="pixova-owl-next fa fa-angle-right"></a></li>';
+			echo '<li class="pull-left"><a href="#" class="pixova-owl-prev fa fa-angle-left"></a></li>';
 			echo '</ul>';
 			echo '</div>';
 			echo '</div><!--/.row-->';
@@ -180,12 +180,12 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 				}
 
 				if ( $show_title ) {
-					echo '<div class="mt-related-posts-title">';
+					echo '<div class="pixova-related-posts-title">';
 						echo '<a href="' . esc_url( get_the_permalink() ) . '">' . get_the_title() . '</a>';
 					echo '</div>';
 				}
 				if ( $show_date ) {
-					echo '<div class="mt-related-posts-date">';
+					echo '<div class="pixova-related-posts-date">';
 						echo get_the_date();
 					echo '</div>';
 				}
@@ -195,7 +195,7 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 			}
 
 			echo '</div><!--/.owlCarousel-->';
-			echo '</div><!--/.mt-related-posts-->';
+			echo '</div><!--/.pixova-related-posts-->';
 
 			wp_reset_query();
 			wp_reset_postdata();

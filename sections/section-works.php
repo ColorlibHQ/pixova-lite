@@ -159,7 +159,7 @@ echo '<section id="works" class="has-padding">';
 
 		echo '<div class="row">';
 			echo '<div class="owlCarousel project-carousel">';
-				echo '<div class="mt-projects-wrapper ' . $pixova_lite_cols . '">';
+				echo '<div class="pixova-projects-wrapper ' . $pixova_lite_cols . '">';
 if ( isset( $pixova_lite_project_1_image ) && ! empty( $pixova_lite_project_1_image ) ) {
 
 	// start building the return string for project #1
@@ -255,7 +255,7 @@ if ( isset( $pixova_lite_project_4_image ) && ! empty( $pixova_lite_project_4_im
 
 	echo '</div><!--/.work-->';
 }
-				echo '</div><!--/.mt-projects-wrapper-->';
+				echo '</div><!--/.pixova-projects-wrapper-->';
 			echo '</div><!--/owl-carousel-->';
 		echo '</div> <!--/.row-->';
 	echo '</div><!--/.container-->';

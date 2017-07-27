@@ -11,7 +11,7 @@
 			if ( 'undefined' !== typeof $.fn.easyPieChart ) {
 
 				//Noinspection CssInvalidPseudoSelector
-				$( '.mt-chart:in-viewport' ).each(function() {
+				$( '.pixova-chart:in-viewport' ).each(function() {
 
 					var $t = $( this ),
 						n = $t.parent().width(),
@@ -39,7 +39,7 @@
 						trackColor: $t.attr( 'data-trackColor' ),
 						scaleColor: 'transparent',
 						onStep: function( from, to, percent ) {
-							$( this.el ).find( '.mt-pie-chart-custom-text' ).text( Math.round( percent ) + '%' );
+							$( this.el ).find( '.pixova-pie-chart-custom-text' ).text( Math.round( percent ) + '%' );
 						}
 
 					});
@@ -85,12 +85,12 @@
 				}
 
 				// Custom Navigation events outside of the owlCarousel mark-up
-				$( '.mt-owl-next' ).on( 'click', function() {
+				$( '.pixova-owl-next' ).on( 'click', function() {
 
 					$( sliderSelector ).trigger( 'owl.next' );
 
 				});
-				$( '.mt-owl-prev' ).on( 'click', function() {
+				$( '.pixova-owl-prev' ).on( 'click', function() {
 
 					$( sliderSelector ).trigger( 'owl.prev' );
 
@@ -118,7 +118,7 @@
 		// http://owlgraphic.com/owlcarousel/
 		if ( 'undefined' !== typeof $.fn.owlCarousel ) {
 
-			owl = $( '#mt-twitter-carousel' );
+			owl = $( '#pixova-twitter-carousel' );
 
 			// Footer Twitter Widget
 			if ( 0 !== owl.length ) {
@@ -182,9 +182,9 @@
 				});
 		}
 
-		if ( $( '.mt-blogpost-wrapper' ).length ) {
-			slides = $( '.mt-blogpost-wrapper' ).data( 'slider-items' );
-			$( '.mt-blogpost-wrapper' ).owlCarousel({
+		if ( $( '.pixova-blogpost-wrapper' ).length ) {
+			slides = $( '.pixova-blogpost-wrapper' ).data( 'slider-items' );
+			$( '.pixova-blogpost-wrapper' ).owlCarousel({
 				items: slides,
 				navigation: true,
 				pagination: false,

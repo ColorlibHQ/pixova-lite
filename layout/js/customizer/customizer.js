@@ -88,28 +88,28 @@
 	// Chart - 1 :: Percentage
 	wp.customize( 'pixova_lite_about_section_chart_1_percentage', function( value ) {
 		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_1 .mt-pie-chart-custom-text' ).text( newval + '%' );
+				$( '#about .pixova_lite_chart_1 .pixova-pie-chart-custom-text' ).text( newval + '%' );
 		} );
 	} );
 
 	// Chart - 2 :: Percentage
 	wp.customize( 'pixova_lite_about_section_chart_2_percentage', function( value ) {
 		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_2 .mt-pie-chart-custom-text' ).text( newval + '%' );
+				$( '#about .pixova_lite_chart_2 .pixova-pie-chart-custom-text' ).text( newval + '%' );
 		} );
 	} );
 
 	// Chart - 3 :: Percentage
 	wp.customize( 'pixova_lite_about_section_chart_3_percentage', function( value ) {
 		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_3 .mt-pie-chart-custom-text' ).text( newval + '%' );
+				$( '#about .pixova_lite_chart_3 .pixova-pie-chart-custom-text' ).text( newval + '%' );
 		} );
 	} );
 
 	// Chart - 4 :: Percentage
 	wp.customize( 'pixova_lite_about_section_chart_4_percentage', function( value ) {
 		value.bind( function( newval ) {
-				$( '#about .pixova_lite_chart_4 .mt-pie-chart-custom-text' ).text( newval + '%' );
+				$( '#about .pixova_lite_chart_4 .pixova-pie-chart-custom-text' ).text( newval + '%' );
 		} );
 	} );
 

@@ -64,9 +64,9 @@ if ( $image_logo ) {
 						echo '<div class="text-center">';
 						echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';
 						echo '<p class="intro-tagline">';
-							echo '<span class="mt-tagline-date"><i class="fa fa-calendar"></i><time datetime="' . sprintf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ) . '">' . get_the_date( get_option( 'date_format' ), $post->ID ) . '</time></span>';
-							echo '<span class="mt-tagline-category"><i class="fa fa-folder"></i>' . get_the_category_list( ', ', '', false ) . '</span>';
-							echo '<span class="mt-tagline-comments"><i class="fa fa-comments"></i>' . pixova_lite_get_number_of_comments( $post->ID ) . '</span>';
+							echo '<span class="pixova-tagline-date"><i class="fa fa-calendar"></i><time datetime="' . sprintf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ) . '">' . get_the_date( get_option( 'date_format' ), $post->ID ) . '</time></span>';
+							echo '<span class="pixova-tagline-category"><i class="fa fa-folder"></i>' . get_the_category_list( ', ', '', false ) . '</span>';
+							echo '<span class="pixova-tagline-comments"><i class="fa fa-comments"></i>' . pixova_lite_get_number_of_comments( $post->ID ) . '</span>';
 						echo '</p>';
 						echo '</div><!--/.text-center-->';
 						echo '</div><!--/.col-md-12-->';

@@ -16,7 +16,7 @@
 					</div><!--/.col-lg-8-->
 
 					<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs pull-right">
-						<aside class="mt-blog-sidebar">
+						<aside class="pixova-blog-sidebar">
 							<?php
 							if ( is_active_sidebar( 'blog-sidebar' ) ) {
 								dynamic_sidebar( 'blog-sidebar' );
@@ -25,7 +25,7 @@
 								the_widget( 'WP_Widget_Calendar', sprintf( 'title=%s', __( 'Calendar', 'pixova-lite' ) ) );
 							}
 							?>
-						</aside> <!--/.mt-blog-sidebar-->
+						</aside> <!--/.pixova-blog-sidebar-->
 					</div><!--/.col-md-3-->
 
 
@@ -34,7 +34,7 @@
 		</div> <!-- /.row-->
 
 		<div class="row">
-			<div class="mt-custom-pagination col-lg-12">
+			<div class="pixova-custom-pagination col-lg-12">
 				<?php the_posts_pagination(); ?>
 			</div>
 		</div>

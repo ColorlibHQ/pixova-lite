@@ -188,7 +188,7 @@ if ( isset( $pixova_lite_testimonial_1_person_image ) && ! empty( $pixova_lite_t
 	echo '</p><!--/.align-center-->';
 	echo '<div class="media-heading align-center">';
 	if ( isset( $pixova_lite_testimonial_1_person_name ) && ! empty( $pixova_lite_testimonial_1_person_name ) ) {
-		echo '<span class="mt-person-name">' . wp_kses_post( $pixova_lite_testimonial_1_person_name ) . '</span>';
+		echo '<span class="pixova-person-name">' . wp_kses_post( $pixova_lite_testimonial_1_person_name ) . '</span>';
 		echo ' - ';
 	} else {
 		echo __( 'Please enter testimonial person name.', 'pixova-lite' );
@@ -223,7 +223,7 @@ if ( isset( $pixova_lite_testimonial_2_person_image ) && ! empty( $pixova_lite_t
 	echo '</p>';
 	echo '<div class="media-heading align-center">';
 	if ( isset( $pixova_lite_testimonial_2_person_name ) && ! empty( $pixova_lite_testimonial_2_person_name ) ) {
-		echo '<span class="mt-person-name">' . wp_kses_post( $pixova_lite_testimonial_2_person_name ) . '</span>';
+		echo '<span class="pixova-person-name">' . wp_kses_post( $pixova_lite_testimonial_2_person_name ) . '</span>';
 		echo ' - ';
 	} else {
 		echo __( 'Please enter testimonial person name.', 'pixova-lite' );
@@ -258,7 +258,7 @@ if ( isset( $pixova_lite_testimonial_3_person_image ) && ! empty( $pixova_lite_t
 	echo '</p>';
 	echo '<div class="media-heading align-center">';
 	if ( isset( $pixova_lite_testimonial_3_person_name ) && ! empty( $pixova_lite_testimonial_3_person_name ) ) {
-		echo '<span class="mt-person-name">' . wp_kses_post( $pixova_lite_testimonial_3_person_name ) . '</span>';
+		echo '<span class="pixova-person-name">' . wp_kses_post( $pixova_lite_testimonial_3_person_name ) . '</span>';
 		echo ' - ';
 	} else {
 		echo __( 'Please enter testimonial person name.', 'pixova-lite' );
@@ -292,7 +292,7 @@ if ( isset( $pixova_lite_testimonial_4_person_image ) && ! empty( $pixova_lite_t
 	echo '</p>';
 	echo '<div class="media-heading align-center">';
 	if ( isset( $pixova_lite_testimonial_4_person_name ) && ! empty( $pixova_lite_testimonial_4_person_name ) ) {
-		echo '<span class="mt-person-name">' . wp_kses_post( $pixova_lite_testimonial_4_person_name ) . '</span>';
+		echo '<span class="pixova-person-name">' . wp_kses_post( $pixova_lite_testimonial_4_person_name ) . '</span>';
 		echo ' - ';
 	} else {
 		echo __( 'Please enter testimonial person name.', 'pixova-lite' );
@@ -328,7 +328,7 @@ if ( isset( $pixova_lite_testimonial_5_person_image ) && ! empty( $pixova_lite_t
 	echo '</p>';
 	echo '<div class="media-heading align-center">';
 	if ( isset( $pixova_lite_testimonial_5_person_name ) && ! empty( $pixova_lite_testimonial_5_person_name ) ) {
-		echo '<span class="mt-person-name">' . wp_kses_post( $pixova_lite_testimonial_5_person_name ) . '</span>';
+		echo '<span class="pixova-person-name">' . wp_kses_post( $pixova_lite_testimonial_5_person_name ) . '</span>';
 		echo ' - ';
 	} else {
 		echo __( 'Please enter testimonial person name.', 'pixova-lite' );

@@ -15,14 +15,14 @@ $sidebar_args = array(
 				<div class="row">
 					<?php
 
-					echo '<section class="mt-footer-widget col-md-4 clearfix">';
+					echo '<section class="pixova-footer-widget col-md-4 clearfix">';
 					if ( is_active_sidebar( 'footer-sidebar-1' ) ) {
 							dynamic_sidebar( 'footer-sidebar-1' );
 					} elseif ( current_user_can( 'edit_theme_options' ) ) {
 						the_widget( 'pixova_lite_widget_about', sprintf( 'title=%s', __( 'About', 'pixova-lite' ) ) . '&' . sprintf( 'show_title=1&about_text=%s.', __( 'The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour', 'pixova-lite' ) ), $sidebar_args );
 					}
-					echo '</section><!--/.mt-foter-widget.col-md-4.clearfix-->';
-					echo '<section class="mt-footer-widget col-md-4 clearfix">';
+					echo '</section><!--/.pixova-foter-widget.col-md-4.clearfix-->';
+					echo '<section class="pixova-footer-widget col-md-4 clearfix">';
 
 					if ( is_active_sidebar( 'footer-sidebar-2' ) ) {
 
@@ -43,8 +43,8 @@ $sidebar_args = array(
 							  </div>
 							<?php }
 
-					echo '</section><!--/.mt-foter-widget.col-md-4.clearfix-->';
-					echo '<section class="mt-footer-widget col-md-4 clearfix">';
+					echo '</section><!--/.pixova-foter-widget.col-md-4.clearfix-->';
+					echo '<section class="pixova-footer-widget col-md-4 clearfix">';
 
 					if ( is_active_sidebar( 'footer-sidebar-3' ) ) {
 						   dynamic_sidebar( 'footer-sidebar-3' );
@@ -52,19 +52,19 @@ $sidebar_args = array(
 						the_widget( 'pixova_lite_widget_latest_posts', sprintf( 'title=%s', __( 'Latest Posts', 'pixova-lite' ) ) . '&show_title=1&items=1', $sidebar_args );
 					}
 
-					echo '</section><!--/.mt-foter-widget.col-md-4.clearfix-->';
+					echo '</section><!--/.pixova-foter-widget.col-md-4.clearfix-->';
 
 					?>
 				</div> <!-- /.row-->
 				<?php
 				  echo '<div class="row">';
-					echo '<section class="mt-footer-widget col-md-12 clearfix">';
+					echo '<section class="pixova-footer-widget col-md-12 clearfix">';
 				if ( is_active_sidebar( 'footer-sidebar-4' ) ) {
 					dynamic_sidebar( 'footer-sidebar-4' );
 				} elseif ( current_user_can( 'edit_theme_options' ) ) {
 					the_widget( 'pixova_lite_widget_social_media', sprintf( 'title=%s', __( 'Follow us', 'pixova-lite' ) ) . '&show_title=0&profile_facebook=#&profile_twitter=#&profile_plus=#&profile_pinterest=#&profile_linkedin=#&profile_youtube=#&profile_dribbble=#&profile_tumblr=#&profile_instagram=#&profile_github=#&profile_bitbucket=#&profile_codepen=#.' );
 				}
-					echo '</section><!--/.mt-foter-widget.col-md-12.clearfix-->';
+					echo '</section><!--/.pixova-foter-widget.col-md-12.clearfix-->';
 				  echo '</div><!--/.row-->';
 				?>
 			 </div> <!-- /.container -->
@@ -99,7 +99,7 @@ $sidebar_args = array(
 				</div><!--/.footer-copyright-container-->
 			</div><!--/.fluid-container-->
 		</footer>
-		<a href="#" class="mt-top"><?php _e( 'Top', 'pixova-lite' ); ?></a>
+		<a href="#" class="pixova-top"><?php _e( 'Top', 'pixova-lite' ); ?></a>
 		<?php wp_footer(); ?>
 	</body>
 </html>

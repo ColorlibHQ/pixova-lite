@@ -42,7 +42,7 @@ echo '<section class="has-padding" id="contact">';
 		echo '<div class="row">';
 
 		echo '<div class="col-md-3">';
-			echo '<div class="mt-contact-info">';
+			echo '<div class="pixova-contact-info">';
 				echo '<h3 class="address">' . wp_kses_post( $pixova_lite_contact_first_heading ) . '</h3>';
 
 					echo '<p class="contact-info-details address"><span>' . wp_kses_post( $pixova_lite_contact_section_address ) . '</span></p>';
@@ -56,7 +56,7 @@ echo '<section class="has-padding" id="contact">';
 				echo '</p>';
 
 				echo '</div><!--/.contact-info-details-->';
-			echo '</div><!--/.mt-contact-info-->';
+			echo '</div><!--/.pixova-contact-info-->';
 		//echo '</div><!--/.col-md-3-->';
 		echo '<div class="col-md-9">';
 

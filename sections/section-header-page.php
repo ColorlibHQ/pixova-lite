@@ -68,7 +68,7 @@ if ( $image_logo ) {
 					echo '<div class="text-center">';
 
 					if ( ! function_exists( 'is_woocommerce' ) ) {
-						echo '<div class="mt-date">' . get_the_date( get_option( 'date_format' ), $post->ID ) . '</div>';
+						echo '<div class="pixova-date">' . get_the_date( get_option( 'date_format' ), $post->ID ) . '</div>';
 					}
 
 					echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';

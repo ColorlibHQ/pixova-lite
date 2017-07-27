@@ -9,7 +9,7 @@ Pixova Lite
 A modern design with clean lines and styling for a wide variety of content. Exactly how a business design should be. Pixova features a custom parallax, randomised header - you can add as many images as you want to the main header area. Animations have been added, theme is optimized for loading speed.
 
 = License =
-Pixova Lite WordPress theme, Copyright (C) 2015 Colorlib.com
+Pixova Lite WordPress theme, Copyright (C) 2017 Colorlib.com
 Pixova Lite WordPress theme is licensed under the GPL3.
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
