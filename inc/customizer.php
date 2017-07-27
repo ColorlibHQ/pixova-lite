@@ -2774,6 +2774,265 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'  => 5,
 	) ) );
 
+	// Typography
+	$wp_customize->add_panel( 'pixova_lite_typography_section', array(
+		'title'       => esc_html__( 'Typography', 'pixova-lite' ),
+		'priority'    => 25,
+	) );
+	$wp_customize->add_section( 'pixova_lite_typography_headings', array(
+		'title'       => esc_html__( 'Content', 'pixova-lite' ),
+		'priority'    => 25,
+		'panel'		  => 'pixova_lite_typography_section'
+	) );
+	$wp_customize->add_section( 'pixova_lite_typography_sections', array(
+		'title'       => esc_html__( 'Sections', 'pixova-lite' ),
+		'priority'    => 25,
+		'panel'		  => 'pixova_lite_typography_section'
+	) );
+
+	$wp_customize->add_setting( 'pixova_lite_heading_1', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_heading_1', array(
+        'section'     => 'pixova_lite_typography_headings',
+        'label'       => esc_html__( 'Heading 1', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.entry-content h1'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '36',
+          	'line-height' 	=> '44',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_heading_2', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_heading_2', array(
+        'section'     => 'pixova_lite_typography_headings',
+        'label'       => esc_html__( 'Heading 2', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.entry-content h2'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '32',
+          	'line-height' 	=> '40',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_heading_3', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_heading_3', array(
+        'section'     => 'pixova_lite_typography_headings',
+        'label'       => esc_html__( 'Heading 3', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.entry-content h3'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '28',
+          	'line-height' 	=> '36',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_heading_4', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_heading_4', array(
+        'section'     => 'pixova_lite_typography_headings',
+        'label'       => esc_html__( 'Heading 4', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.entry-content h4'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '24',
+          	'line-height' 	=> '32',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_heading_5', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_heading_5', array(
+        'section'     => 'pixova_lite_typography_headings',
+        'label'       => esc_html__( 'Heading 5', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.entry-content h5'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '20',
+          	'line-height' 	=> '28',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_heading_6', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_heading_6', array(
+        'section'     => 'pixova_lite_typography_headings',
+        'label'       => esc_html__( 'Heading 6', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.entry-content h6'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '18',
+          	'line-height' 	=> '26',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_paragraph', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_paragraph', array(
+        'section'     => 'pixova_lite_typography_headings',
+        'label'       => esc_html__( 'Paragraph', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.entry-content p'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '16',
+          	'line-height' 	=> '28',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_section_title_typography', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_section_title_typography', array(
+        'section'     => 'pixova_lite_typography_sections',
+        'label'       => esc_html__( 'Section Title', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.section-heading h2'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '30',
+          	'line-height' 	=> '42',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Poppins',
+        ),
+	) ) );
+
+	$wp_customize->add_setting( 'pixova_lite_section_subtitle_typography', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new Epsilon_Control_Typography( $wp_customize, 'pixova_lite_section_subtitle_typography', array(
+        'section'     => 'pixova_lite_typography_sections',
+        'label'       => esc_html__( 'Section Subtitle', 'pixova-lite' ),
+        'stylesheet'    => 'pixova-lite-min-style',
+        'choices'     => array(
+        	'font-family',
+          	'font-weight',
+          	'font-style',
+          	'font-size',
+          	'line-height',
+          	'letter-spacing',
+        ),
+        'selectors'   => array(
+          	'.section-heading .section-sub-heading'
+        ),
+        'font_defaults'   => array(
+          	'font-size' 		=> '16',
+          	'line-height' 	=> '23',
+          	'letter-spacing' 	=> '0',
+          	'font-family' => 'Roboto',
+        ),
+	) ) );
+
 }
 add_action( 'customize_register', 'pixova_lite_customize_register' );
 

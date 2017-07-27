@@ -592,9 +592,24 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 // Include epsilon framework
 require_once get_template_directory() . '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';
 $args = array(
-	'controls' => array( 'toggle', 'slider', 'icon-picker', 'text-editor' ), // array of controls to load
+	'controls' => array( 'toggle', 'slider', 'icon-picker', 'text-editor', 'typography', 'color-scheme' ), // array of controls to load
 	'sections' => array( 'recommended-actions', 'upsell' ), // array of sections to load
 	'path'     => '/inc/libraries',// path to your epsilon framework in your theme, e.g. theme-name*/inc/libraries*/epsilon-framework
 );
 
 new Epsilon_Framework( $args );
+
+/**
+ * Instantiate the Epsilon Typography object
+ */
+$options = array(
+	'pixova_lite_heading_1',
+	'pixova_lite_heading_2',
+	'pixova_lite_heading_3',
+	'pixova_lite_heading_4',
+	'pixova_lite_heading_5',
+	'pixova_lite_heading_6',
+);
+
+$handler = 'pixova-lite-min-style';
+Epsilon_Typography::get_instance( $options, $handler );
