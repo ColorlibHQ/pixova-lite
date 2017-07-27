@@ -1124,9 +1124,14 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Number_Custom_Control( $wp_customize, 'pixova_lite_about_section_chart_1_percentage', array(
+	$wp_customize->add_control( new Epsilon_Control_Slider( $wp_customize, 'pixova_lite_about_section_chart_1_percentage', array(
 		'label'     => esc_html__( 'Chart Percentage', 'pixova-lite' ),
 		'section'   => 'pixova_lite_section_chart_1',
+		'choices'     => array(
+          	'min'  => 1,
+          	'max'  => 100,
+          	'step' => 1,
+        ),
 		'priority'  => 1,
 	) ) );
 
@@ -1184,9 +1189,14 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Number_Custom_Control( $wp_customize, 'pixova_lite_about_section_chart_2_percentage', array(
+	$wp_customize->add_control( new Epsilon_Control_Slider( $wp_customize, 'pixova_lite_about_section_chart_2_percentage', array(
 		'label'     => esc_html__( 'Chart Percentage', 'pixova-lite' ),
 		'section'   => 'pixova_lite_section_chart_2',
+		'choices'     => array(
+          	'min'  => 1,
+          	'max'  => 100,
+          	'step' => 1,
+        ),
 		'priority'  => 1,
 	) ) );
 
@@ -1244,9 +1254,14 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Number_Custom_Control( $wp_customize, 'pixova_lite_about_section_chart_3_percentage', array(
+	$wp_customize->add_control( new Epsilon_Control_Slider( $wp_customize, 'pixova_lite_about_section_chart_3_percentage', array(
 		'label'     => esc_html__( 'Chart Percentage', 'pixova-lite' ),
 		'section'   => 'pixova_lite_section_chart_3',
+		'choices'     => array(
+          	'min'  => 1,
+          	'max'  => 100,
+          	'step' => 1,
+        ),
 		'priority'  => 1,
 	) ) );
 
@@ -1304,9 +1319,14 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 
-	$wp_customize->add_control( new Pixova_Lite_Number_Custom_Control( $wp_customize, 'pixova_lite_about_section_chart_4_percentage', array(
+	$wp_customize->add_control( new Epsilon_Control_Slider( $wp_customize, 'pixova_lite_about_section_chart_4_percentage', array(
 		'label'     => esc_html__( 'Chart Percentage', 'pixova-lite' ),
 		'section'   => 'pixova_lite_section_chart_4',
+		'choices'     => array(
+          	'min'  => 1,
+          	'max'  => 100,
+          	'step' => 1,
+        ),
 		'priority'  => 1,
 	) ) );
 
