@@ -326,10 +326,6 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		wp_localize_script( 'pixova-lite-scripts-js', 'pixova_lite_localization', $pixova_lite_scripts_options );
 		wp_enqueue_script( 'pixova-lite-scripts-js' );
 
-		// General theme Stylesheet
-		wp_enqueue_style( 'pixova-lite-min-css', get_template_directory_uri() . '/layout/css/style.min.css' );
-		wp_enqueue_style( 'pixova-lite-min-style', get_stylesheet_uri() );
-
 		// Animate CSS
 		if ( 'animations_enabled' == $animations_enabled ) {
 			wp_enqueue_style( 'animate-min-css', get_template_directory_uri() . '/layout/css/animate.min.css' );
@@ -351,6 +347,10 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		if ( function_exists( 'is_woocommerce' ) ) {
 			wp_enqueue_style( 'pixova-lite-woocommerce-min-css', get_template_directory_uri() . '/layout/css/pixova-woocommerce.min.css' );
 		}
+
+		// General theme Stylesheet
+		wp_enqueue_style( 'pixova-lite-min-css', get_template_directory_uri() . '/layout/css/style.min.css' );
+		wp_enqueue_style( 'pixova-lite-min-style', get_stylesheet_uri() );
 
 	} // function pixova_lite_enqueue_scripts end
 
@@ -613,3 +613,64 @@ $options = array(
 
 $handler = 'pixova-lite-min-style';
 Epsilon_Typography::get_instance( $options, $handler );
+
+/**
+ * Instantiate the Epsilon Color Scheme object
+ */
+$handler = 'pixova-lite-min-style';
+
+$args = array(
+  'fields' => array(
+    'pixova_lite_accent_color' => array(
+      'label'       => __( 'Accent Color', 'pixova-lite' ),
+      'description' => __( 'The main color used for links, buttons, and more.', 'pixova-lite' ),
+      'default'     => '#ffce55',
+      'section'     => 'pixova_lite_colors',
+      'hover-state' => true,
+    ),
+
+    'pixova_lite_heading_color' => array(
+      'label'       => __( 'Heading Color', 'pixova-lite' ),
+      'description' => __( 'The color used for headings.', 'pixova-lite' ),
+      'default'     => '#222533',
+      'section'     => 'pixova_lite_colors',
+      'hover-state' => false,
+    ),
+
+    'pixova_lite_text_color' => array(
+      'label'       => __( 'Text Color', 'pixova-lite' ),
+      'description' => __( 'The color used for paragraphs, links, etc.', 'pixova-lite' ),
+      'default'     => '#777',
+      'section'     => 'pixova_lite_colors',
+      'hover-state' => false,
+    ),
+
+    'pixova_lite_footer_bg_color' => array(
+      'label'       => __( 'Footer Background Color', 'pixova-lite' ),
+      'description' => __( 'The color used for the footer background.', 'pixova-lite' ),
+      'default'     => '#1f1f1f',
+      'section'     => 'pixova_lite_colors',
+      'hover-state' => false,
+    ),
+
+    'pixova_lite_footer_widget_bg_color' => array(
+      'label'       => __( 'Footer Widget Background Color', 'pixova-lite' ),
+      'description' => __( 'The color used for the footer widgets background.', 'pixova-lite' ),
+      'default'     => '#313233',
+      'section'     => 'pixova_lite_colors',
+      'hover-state' => false,
+    ),
+
+    'pixova_lite_footer_text_color' => array(
+      'label'       => __( 'Footer Text Color', 'pixova-lite' ),
+      'description' => __( 'The color used for the footer paragraphs and links.', 'pixova-lite' ),
+      'default'     => '#ffffff',
+      'section'     => 'pixova_lite_colors',
+      'hover-state' => true,
+    )
+  ),
+
+  'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/layout/css/style-overrides.css' )
+);
+
+Epsilon_Color_Scheme::get_instance( $handler, $args );

@@ -133,7 +133,7 @@ module.exports = function( grunt ) {
             files: [{
                 expand: true,
                 cwd: 'layout/css',
-                src: ['*.css', '!*.min.css'],
+                src: ['*.css', '!*.min.css', '!style-overrides.css'],
                 dest: 'layout/css',
                 ext: '.min.css'
             }]

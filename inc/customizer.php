@@ -3033,6 +3033,39 @@ function pixova_lite_customize_register( $wp_customize ) {
         ),
 	) ) );
 
+	// Colors
+	$wp_customize->add_section( 'pixova_lite_colors', array(
+		'title'       => esc_html__( 'Color Schemes', 'pixova-lite' ),
+		'priority'    => 30,
+	) );
+	$wp_customize->add_setting( 'pixova_lite_color_scheme', array(
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport' => 'postMessage',
+		'default' => 'default',
+	) );
+
+	$wp_customize->add_control( new Epsilon_Control_Color_Scheme( $wp_customize, 'pixova_lite_color_scheme', array(
+        'label'       => esc_html__( 'Color Schemes', 'text-domain' ),
+        'type'        => 'epsilon-color-scheme',
+        'priority'    => 0,
+        'default'     => 'yellow',
+        'section'     => 'pixova_lite_colors',
+        'choices'     => array(
+            array(
+                'id'     => 'yellow',
+                'name'   => 'Default',
+                'colors' => array(
+                  	'pixova_lite_accent_color'				=> '#ffce55',
+                  	'pixova_lite_heading_color'           	=> '#222533',
+                  	'pixova_lite_text_color' 				=> '#777777',
+                  	'pixova_lite_footer_bg_color'         	=> '#1f1f1f',
+                  	'pixova_lite_footer_widget_bg_color'	=> '#313233',
+                  	'pixova_lite_footer_text_color'         => '#ffffff'
+                ),
+            ),
+        ),
+    ) ) );
+
 }
 add_action( 'customize_register', 'pixova_lite_customize_register' );
 

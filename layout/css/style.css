@@ -219,33 +219,33 @@ section {
 }
 
 .btn {
-	border-radius: 0 !important;
+	border-radius: 0;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 15px;
-	font-weight: 700 !important;
-	margin: 10px 0 !important;
+	font-weight: 700;
+	margin: 10px 0;
 	text-transform: uppercase
 }
 
 .btn-default {
-	background-image: none !important;
-	border: none !important;
-	box-shadow: none !important;
-	text-shadow: none !important
+	background-image: none;
+	border: none;
+	box-shadow: none;
+	text-shadow: none;
 }
 
 .btn-default:hover {
-	color: #fff !important
+	color: #fff;
 }
 
 a:hover {
-	color: #f2c351 !important;
-	text-decoration: none !important
+	color: #f2c351;
+	text-decoration: none;
 }
 
 a:focus {
-	color: #1b1b1b !important
+	color: #1b1b1b;
 }
 
 * {
@@ -346,6 +346,7 @@ p {
 }
 
 .intro-tagline a:hover {
+	color: #f2c351;
 	text-decoration: none;
 	opacity: .75
 }
@@ -381,12 +382,14 @@ p {
 
 .btn-green {
 	background-color: #2c3d3d;
-	color: #fff !important;
+	color: #fff;
 	border: 2px solid #2c3d3d;
 	padding: 5px 8px;
 	display: block;
 }
-
+.btn.focus, .btn:focus, .btn:hover {
+	color: #f2c351;
+}
 .about-text,
 .app-feature-text,
 .app-testimonial-text,
@@ -1158,10 +1161,13 @@ body .btn-cta-intro a {
 #footer .footer-copyright a {
 	color: #fff
 }
-
 #footer .widget a {
 	color: #fff;
 	text-decoration: none
+}
+#footer .footer-copyright a:hover,
+#footer .widget a:hover {
+	color: #f2c351
 }
 #footer .widget .calendar_wrap a {
 	color: #333;
@@ -1290,7 +1296,6 @@ body .btn-cta-intro a {
 
 #footer .menu li a:hover {
 	color: #f2c351;
-	text-decoration: underline
 }
 
 .tweet {
@@ -2391,15 +2396,13 @@ body.logged-in section {
 	border-top: 1px solid #eee
 }
 
-.recentcomments a,
+.recentcomments a:hover,
 .widget_categories a:hover,
-.widget_recent_entries a:hover {
+.widget_recent_entries a:hover,
+.widget_pages a:hover,
+.widget_archive a:hover,
+.widget_meta a:hover {
 	color: #f2c351
-}
-
-.recentcomments a:focus,
-.recentcomments a:hover {
-	text-decoration: underline !important
 }
 
 .widget_recent_comments ul li {
@@ -2528,7 +2531,8 @@ input#submit {
 }
 
 .entry-meta a:hover {
-	text-decoration: underline
+	text-decoration: underline;
+	color: #f2c351;
 }
 
 #respond {
@@ -2997,6 +3001,10 @@ object {
 .main-navigation a {
 	color: #000
 }
+.logo:hover,
+.main-navigation a:hover {
+	color: #f2c351;
+}
 
 .has-padding.has-shortcode {
 	padding-bottom: 0
@@ -3120,6 +3128,9 @@ div#buy-now {
 	color: #fff;
 	font-size: 13px;
 	text-decoration: none
+}
+#team .pixova-team-member-icon a:hover {
+	color: #f2c351;
 }
 
 div.thumbnail .caption {
@@ -4022,13 +4033,14 @@ ul.page-numbers li,
 }
 
 .btn-read-more {
-	border-radius: 4px !important;
-	font-size: 13px !important;
-	padding: 10px 20px !important
+	border-radius: 4px;
+	font-size: 13px;
+	padding: 10px 20px;
+	display: inline-block;
 }
 
 .bnt-read-more:hover {
-	color: #fff !important
+	color: #fff;
 }
 
 .entry-content .read-more-wrapper {
@@ -4095,7 +4107,7 @@ body .btn-cta-intro-outline {
 .btn.btn-cta-intro-outline:focus,
 .btn.btn-cta-intro-outline:hover {
 	border-color: #ffce55;
-	color: #ffce55 !important;
+	color: #ffce55;
 }
 
 .entry-meta a {
