@@ -4457,7 +4457,7 @@ div#wp-custom-header:after {
 #team,
 #contact,
 #footer {
-	z-index: 2;
+	z-index: 10;
 	position: relative;
 }
 #testimonials,

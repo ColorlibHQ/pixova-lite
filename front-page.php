@@ -77,59 +77,48 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 
 <?php } // End if().
 else {
-	$about_section_show = get_theme_mod( 'pixova_lite_about_visibility', 1 );
 
-	if ( isset( $about_section_show ) && 1 == $about_section_show ) {
-		get_template_part( 'sections/section', 'about' );
+
+	$sections = pixova_get_sections_position();
+	$sections_args = array(
+		'pixova_lite_panel_intro' => array(
+			'check' => 'pixova_lite_intro_visibility',
+			'template' => 'intro',
+		),
+		'pixova_lite_panel_about' => array(
+			'check' => 'pixova_lite_about_visibility',
+			'template' => 'about',
+		),
+		'pixova_lite_panel_works' => array(
+			'check' => 'pixova_lite_works_visibility',
+			'template' => 'works',
+		),
+		'pixova_lite_panel_testimonials' => array(
+			'check' => 'pixova_lite_testimonials_visibility',
+			'template' => 'testimonials',
+		),
+		'pixova_lite_panel_news' => array(
+			'check' => 'pixova_lite_news_visibility',
+			'template' => 'news',
+		),
+		'pixova_lite_panel_team' => array(
+			'check' => 'pixova_lite_team_visibility',
+			'template' => 'team',
+		),
+		'pixova_lite_panel_contact' => array(
+			'check' => 'pixova_lite_contact_visibility',
+			'template' => 'contact',
+		),
+	);
+
+	foreach ( $sections as $section ) {
+		
+		if ( get_theme_mod( $sections_args[ $section ]['check'], 1 ) ) {
+			get_template_part( 'sections/section', $sections_args[ $section ]['template'] );
+		}
+
 	}
 
-		/**
-	 * Recent works section
-	 * @var [type]
-	 */
-	$works_section_show = get_theme_mod( 'pixova_lite_works_visibility', 1 );
-
-	if ( isset( $works_section_show ) && 1 == $works_section_show ) {
-		get_template_part( 'sections/section', 'works' );
-	}
-	/**
-	 * Testimonials section
-	 * @var [type]
-	 */
-	$testimonials_section_show = get_theme_mod( 'pixova_lite_testimonials_visibility', 1 );
-
-	if ( isset( $testimonials_section_show ) && 1 == $testimonials_section_show ) {
-		get_template_part( 'sections/section', 'testimonials' );
-	}
-
-	/**
-	 * News section
-	 * @var [type]
-	 */
-	$news_section_show = get_theme_mod( 'pixova_lite_news_visibility', 1 );
-
-	if ( isset( $news_section_show ) && 1 == $news_section_show ) {
-		get_template_part( 'sections/section', 'news' );
-	}
-
-	/**
-	 * Team section
-	 * @var [type]
-	 */
-	$team_section_show = get_theme_mod( 'pixova_lite_team_visibility', 1 );
-	if ( isset( $team_section_show ) && 1 == $team_section_show ) {
-		get_template_part( 'sections/section', 'team' );
-	}
-
-	/**
-	 * Contact section
-	 * @var [type]
-	 */
-	$contact_section_show = get_theme_mod( 'pixova_lite_contact_visibility', 1 );
-
-	if ( isset( $contact_section_show ) && 1 == $contact_section_show ) {
-		get_template_part( 'sections/section', 'contact' );
-	}
 } // else
 ?>
 

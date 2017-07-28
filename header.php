@@ -40,10 +40,6 @@
 
 if ( 'posts' != get_option( 'show_on_front' ) && is_front_page() ) {
 	get_template_part( 'sections/section', 'header' );
-	$intro_section_show = get_theme_mod( 'pixova_lite_intro_visibility', 1 );
-	if ( isset( $intro_section_show ) && 1 == $intro_section_show ) {
-		get_template_part( 'sections/section', 'intro' );
-	}
 } elseif ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
 	get_template_part( 'sections/section', 'header-woocommerce' );
 } elseif ( is_search() || is_archive() || is_home() || is_page_template( 'page-templates/blog-template.php' ) || is_front_page() ) {

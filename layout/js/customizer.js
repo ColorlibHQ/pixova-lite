@@ -163,4 +163,42 @@
 
     });
 
+    function pixova_sections_order( container ){
+        var sections = $('#sub-accordion-panel-pixova_lite_frontpage_sections').sortable('toArray');
+        var s_ordered = [];
+        $.each(sections, function( index, s_id ) {
+            s_id = s_id.replace( "accordion-panel-", "");
+            s_ordered.push(s_id);
+        });
+
+        $.ajax({
+            url: PixovaCustomizer.ajax_url,
+            type: 'post',
+            dataType: 'html',
+            data: {
+                'action': 'pixova_order_sections',
+                'sections': s_ordered,
+            }
+        })
+        .done( function( data ) {
+            wp.customize.previewer.refresh();
+        });
+
+    }
+
+    wp.customize.bind( 'ready', function() {
+
+        $('#sub-accordion-panel-pixova_lite_frontpage_sections').sortable({
+            helper: 'clone',
+            items: '> li.control-section',
+            cancel: 'li.ui-sortable-handle.open',
+            delay: 150,
+            update: function( event, ui ) {
+
+                pixova_sections_order( $('sub-accordion-panel-pixova_lite_frontpage_sections') );
+
+            },
+        });
+    });
+
 })( jQuery );
