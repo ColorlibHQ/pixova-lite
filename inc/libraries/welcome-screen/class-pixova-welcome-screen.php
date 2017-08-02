@@ -93,10 +93,12 @@ class Pixova_Welcome_Screen {
 	 */
 	public function pixova_welcome_admin_notice() {
 		?>
-		<div class="updated notice is-dismissible">
-			<p><?php echo sprintf( esc_html__( 'Welcome! Thank you for choosing pixova! To fully take advantage of the best our theme can offer please make sure you visit our %1$swelcome page%2$s.', 'pixova-lite' ), '<a href="' . esc_url( admin_url( 'themes.php?page=pixova-welcome' ) ) . '">', '</a>' ); ?></p>
-			<p><a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome' ) ); ?>" class="button"
-				  style="text-decoration: none;"><?php _e( 'Get started with pixova', 'pixova-lite' ); ?></a></p>
+		<div class="updated notice is-dismissible" style="text-align: center; padding: 60px 0;background-color: #e9eff3; border: 10px solid #FFF;">
+            <p><h1><?php echo esc_html__( 'Welcome!', 'pixova-lite' ); ?></h1></p>
+			<p><?php echo sprintf( esc_html__( 'Thank you for choosing Pixova Lite! To fully take advantage of the best our theme can offer please make sure you visit our %1$swelcome page%2$s.', 'pixova-lite' ), '<a href="' . esc_url( admin_url( 'themes.php?page=pixova-welcome' ) ) . '">', '</a>' ); ?></p>
+			<br />
+            <p><a href="<?php echo esc_url( admin_url( 'themes.php?page=pixova-welcome' ) ); ?>" class="button button-primary button-hero"
+				  style="text-decoration: none;"><?php _e( 'Get started with Pixova Lite', 'pixova-lite' ); ?></a></p>
 		</div>
 		<?php
 	}

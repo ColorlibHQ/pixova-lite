@@ -1,5 +1,6 @@
 ### 1.48
-    - Removed extraneous notifices in WP admin dashboard
+    - Removed extraneous notices in WP admin dashboard #72
+    - Improved theme activation notification as per #73
 
 ### 1.46.5
     - Removed Kiwi as recommended plugin
