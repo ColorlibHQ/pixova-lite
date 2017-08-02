@@ -171,8 +171,14 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 					'recommended' => false,
 				),
 				'modula-best-grid-gallery' => array(
-					'recommended' => false,
+					'recommended' => true,
 				),
+                'fancybox-for-wordpress' => array(
+                    'recommended' => false,
+                ),
+                'simple-custom-post-order' => array(
+                    'recommended' => false,
+                ),
 			);
 
 			/*
