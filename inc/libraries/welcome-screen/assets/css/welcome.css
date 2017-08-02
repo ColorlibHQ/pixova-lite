@@ -53,7 +53,7 @@
 .featured-section .free-pro-table {
     border-spacing: 0;
     width: 100%;
-    margin-top:40px;
+    margin-top: 40px;
 }
 
 .featured-section .free-pro-table th {
@@ -74,7 +74,7 @@
 }
 
 .featured-section .free-pro-table .pixova-feature,
-.featured-section .free-pro-table .pixova-pro-feature{
+.featured-section .free-pro-table .pixova-pro-feature {
     text-align: center;
     width: 15%;
 }
@@ -93,9 +93,10 @@
     height: 35px;
     width: 35px;
 }
-.featured-section .button-hero .dashicons{
-    font-size:16px;
-    vertical-align:middle;
+
+.featured-section .button-hero .dashicons {
+    font-size: 16px;
+    vertical-align: middle;
 }
 
 .featured-section .ti-about-page-text-center {
@@ -182,7 +183,7 @@
 .plugin_box {
     height: 330px;
     margin-top: 15px;
-    margin-right:15px;
+    margin-right: 15px;
     text-align: center;
     background: #FFF;
     position: relative;
@@ -258,23 +259,31 @@
 
 }
 
-.three-col.row{
-    width:100%;
-    display:inline-block;
+.three-col.row {
+    width: 100%;
+    display: inline-block;
 }
 
 .about-wrap .three-col .plugin_box.col {
     width: 29.81%;
 }
 
-.text-right{
-    text-align:right;
+.text-right {
+    text-align: right;
 }
 
-.text-left{
-    text-align:left;
+.text-left {
+    text-align: left;
 }
 
-.text-center{
-    text-align:center;
+.text-center {
+    text-align: center;
+}
+
+/* notice styling */
+.pixova-lite-notice {
+    text-align: center;
+    padding: 60px 0;
+    background-color: #e9eff3;
+    border: 10px solid #FFF;
 }
