@@ -2,6 +2,7 @@
     - Removed extraneous notices in WP admin dashboard #72
     - Improved theme activation notification as per #73
     - Removed more-themes.css #74
+    - Adds an easy way of setting the front-page to static #75
 
 ### 1.46.5
     - Removed Kiwi as recommended plugin
