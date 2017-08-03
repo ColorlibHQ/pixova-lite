@@ -4101,6 +4101,7 @@ h1.intro-cta-title:after,
 body .btn-cta-intro-outline {
 	border-width: 2px;
 	margin-right: 25px !important;
+	border-color: #fff;
 }
 
 .btn.btn-cta-intro-outline.focus,

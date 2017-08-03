@@ -1,70 +1,37 @@
 /* Accent Color */
-body .btn-cta-intro:hover,
 h1.intro-cta-title:after,
 .single .intro-title:after,
 .blog-intro .intro-title:after,
 .light-section-heading:after,
-.footer-social-icon:hover,
 .pixova-pricing-table .featured .pixova-pricing-header,
 .pixova-button span.pixova-button-inner,
-.pixova-button:active,
-.pixova-button:hover,
 .pixova-callout,
-.comment-reply-link:focus,
-.comment-reply-link:hover,
-.tagcloud a:focus,
-.tagcloud a:hover,
 #wp-calendar caption,
 input#submit,
-#cancel-comment-reply-link:before,
 .wp-caption .wp-caption-text,
-.footer-photos a:before,
 div#buy-now,
 #buy-now .container-fluid,
 body .btn-cta-light,
-body .btn-cta-dark:hover,
-body .btn-cta-light:hover {
+body .btn-cta-intro {
 	background-color: %1$s;
 }
 
 .pixova-comments a,
 h1.intro-cta-title,
 .btn.btn-cta-intro-outline.focus,
-.btn.btn-cta-intro-outline:focus,
-.btn.btn-cta-intro-outline:hover,
-body a:focus,
-#footer .menu li a:hover,
 .pixova-date,
 .pixova-pie-chart-custom-icon i,
-.pixova-pricing-table .pixova-pricing-content ul li.checked:before,
 .pixova-team-member-description,
 #cancel-comment-reply-link,
-.pixova_lite_widget_social_media li a:hover,
 .about-text.testimonial span,
-.mobile a:focus,
-.mobile-nav a:hover,
 .error-404 .page-title,
 .no-results .page-title,
 .search-results .page-title,
 .pixova-lite-breadcrumbs a,
 .footer-heart-icon,
-a:hover,
-blockquote:before,
-#footer .widget a:hover,
-#footer .footer-copyright a:hover,
-#team .pixova-team-member-icon a:hover,
-.logo:hover,
-.main-navigation a:hover,
 .big-testimonial .media-heading,
 .pixova-person-name,
-.btn.focus, .btn:focus, .btn:hover,
-.intro-tagline a:hover ,
-.recentcomments a:hover,
-.widget_archive a:hover,
-.widget_categories a:hover,
-.widget_meta a:hover,
-.widget_pages a:hover,
-.widget_recent_entries a:hover{
+.btn.focus {
 	color: %1$s;
 }
 ::selection {
@@ -76,25 +43,11 @@ blockquote:before,
 }
 
 .btn.btn-cta-intro-outline.focus,
-.btn.btn-cta-intro-outline:focus,
-.btn.btn-cta-intro-outline:hover,
-.footer-social-icon:hover,
 .pixova-button span.pixova-button-inner,
-.wpcf7-form-control-wrap input:focus,
-.wpcf7-form-control-wrap textarea:focus,
-.pirate_forms_wrap input:focus,
-.pirate_forms_wrap textarea:focus,
-.comment-reply-link:focus,
-.comment-reply-link:hover,
-.tagcloud a:focus,
-.tagcloud a:hover,
-#respond input:focus,
-#respond textarea:focus,
+
 .about-text.testimonial,
 blockquote,
-body .btn-cta-light,
-body .btn-cta-dark:hover,
-body .btn-cta-light:hover {
+body .btn-cta-light {
 	border-color: %1$s;
 }
 
@@ -138,30 +91,71 @@ h6 {
 body {
 	color: %3$s;
 }
+/* Hover Color */
+.btn.btn-cta-intro-outline:focus,
+.btn.btn-cta-intro-outline:hover,
+body a:focus,
+#footer .menu li a:hover,
+.pixova_lite_widget_social_media li a:hover,
+.pixova-pricing-table .pixova-pricing-content ul li.checked:before,
+.mobile a:focus,
+.mobile-nav a:hover,
+a:hover,
+blockquote:before,
+#footer .widget a:hover,
+#footer .footer-copyright a:hover,
+#team .pixova-team-member-icon a:hover,
+.logo:hover,
+.main-navigation a:hover,
+.btn:focus, .btn:hover,
+.intro-tagline a:hover ,
+.recentcomments a:hover,
+.widget_archive a:hover,
+.widget_categories a:hover,
+.widget_meta a:hover,
+.widget_pages a:hover,
+.widget_recent_entries a:hover {
+	color: %4$s;
+}
+
+body .btn-cta-intro:hover,
+.footer-social-icon:hover,
+.pixova-button:active,
+.pixova-button:hover,
+.comment-reply-link:focus,
+.comment-reply-link:hover,
+.tagcloud a:focus,
+.tagcloud a:hover,
+#cancel-comment-reply-link:before,
+.footer-photos a:before,
+body .btn-cta-dark:hover,
+body .btn-cta-light:hover {
+	background-color: %4$s;
+}
+.tagcloud a:hover,
+.comment-reply-link:hover,
+.btn.btn-cta-intro-outline:focus,
+.btn.btn-cta-intro-outline:hover,
+.footer-social-icon:hover,
+.wpcf7-form-control-wrap input:focus,
+.wpcf7-form-control-wrap textarea:focus,
+.pirate_forms_wrap input:focus,
+.pirate_forms_wrap textarea:focus,
+.comment-reply-link:focus,
+.tagcloud a:focus,
+#respond input:focus,
+#respond textarea:focus,
+body .btn-cta-dark:hover,
+body .btn-cta-light:hover {
+	border-color: %4$s;
+}
 
 /* Footer Background Color */
 #footer .footer-copyright-container {
-	background-color: %4$s;
+	background-color: %5$s;
 }
 
 /* Footer Widget Background Color */
 #footer {
-	background-color: %5$s;
-}
-
-/* Footer Text Color */
-#footer .widget-title span,
-#footer .widgettitle,
-#wp-calendar thead,
-#footer .widget a,
-.pixova_lite_widget_social_media li a,
-#footer .footer-copyright,
-#footer p,
-#footer .menu li a,
-#wp-calendar caption {
-	color: %6$s;
-}
-#footer .footer-copyright,
-#footer p {
-	opacity: .75;
+	background-color: %6$s;
 }

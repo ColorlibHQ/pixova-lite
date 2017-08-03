@@ -654,6 +654,14 @@ $args = array(
       'hover-state' => false,
     ),
 
+    'pixova_lite_hover_color' => array(
+      'label'       => __( 'Hover Color', 'pixova-lite' ),
+      'description' => __( 'The color used for hover on elements.' ),
+      'default'     => '#ffce55',
+      'section'     => 'pixova_lite_colors',
+      'hover-state' => true,
+    ),
+
     'pixova_lite_footer_bg_color' => array(
       'label'       => __( 'Footer Background Color', 'pixova-lite' ),
       'description' => __( 'The color used for the footer background.', 'pixova-lite' ),
@@ -669,14 +677,7 @@ $args = array(
       'section'     => 'pixova_lite_colors',
       'hover-state' => false,
     ),
-
-    'pixova_lite_footer_text_color' => array(
-      'label'       => __( 'Footer Text Color', 'pixova-lite' ),
-      'description' => __( 'The color used for the footer paragraphs and links.', 'pixova-lite' ),
-      'default'     => '#ffffff',
-      'section'     => 'pixova_lite_colors',
-      'hover-state' => true,
-    )
+    
   ),
 
   'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/layout/css/style-overrides.css' )

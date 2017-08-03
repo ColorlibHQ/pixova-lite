@@ -3058,9 +3058,57 @@ function pixova_lite_customize_register( $wp_customize ) {
                   	'pixova_lite_accent_color'				=> '#ffce55',
                   	'pixova_lite_heading_color'           	=> '#222533',
                   	'pixova_lite_text_color' 				=> '#777777',
+                  	'pixova_lite_hover_color'         		=> '#ffce55',
                   	'pixova_lite_footer_bg_color'         	=> '#1f1f1f',
                   	'pixova_lite_footer_widget_bg_color'	=> '#313233',
-                  	'pixova_lite_footer_text_color'         => '#ffffff'
+                ),
+            ),
+            array(
+                'id'     => 'pallet-1',
+                'name'   => 'Pallet 1',
+                'colors' => array(
+                  	'pixova_lite_accent_color'				=> '#ff004f',
+                  	'pixova_lite_heading_color'           	=> '#545454',
+                  	'pixova_lite_text_color' 				=> '#8c9597',
+                  	'pixova_lite_hover_color'         		=> '#482c54',
+                  	'pixova_lite_footer_bg_color'         	=> '#1f1f1f',
+                  	'pixova_lite_footer_widget_bg_color'	=> '#313233',
+                ),
+            ),
+            array(
+                'id'     => 'pallet-2',
+                'name'   => 'Pallet 2',
+                'colors' => array(
+                  	'pixova_lite_accent_color'				=> '#f66f6d',
+                  	'pixova_lite_heading_color'           	=> '#545454',
+                  	'pixova_lite_text_color' 				=> '#8c9597',
+                  	'pixova_lite_hover_color'         		=> '#195962',
+                  	'pixova_lite_footer_bg_color'         	=> '#1f1f1f',
+                  	'pixova_lite_footer_widget_bg_color'	=> '#313233',
+                ),
+            ),
+            array(
+                'id'     => 'pallet-3',
+                'name'   => 'Pallet 3',
+                'colors' => array(
+                  	'pixova_lite_accent_color'				=> '#6ebbdc',
+                  	'pixova_lite_heading_color'           	=> '#545454',
+                  	'pixova_lite_text_color' 				=> '#8c9597',
+                  	'pixova_lite_hover_color'         		=> '#2e3d51',
+                  	'pixova_lite_footer_bg_color'         	=> '#1f1f1f',
+                  	'pixova_lite_footer_widget_bg_color'	=> '#313233',
+                ),
+            ),
+            array(
+                'id'     => 'pallet-4',
+                'name'   => 'Pallet 4',
+                'colors' => array(
+                  	'pixova_lite_accent_color'				=> '#507fe2',
+                  	'pixova_lite_heading_color'           	=> '#545454',
+                  	'pixova_lite_text_color' 				=> '#8c9597',
+                  	'pixova_lite_hover_color'         		=> '#1acdcb',
+                  	'pixova_lite_footer_bg_color'         	=> '#1f1f1f',
+                  	'pixova_lite_footer_widget_bg_color'	=> '#313233',
                 ),
             ),
         ),
@@ -3221,11 +3269,11 @@ function pixova_lite_sanitize_allowed_html( $value ) {
  */
 if ( ! function_exists( 'pixova_lite_customizer_css' ) ) {
 	function pixova_lite_customizer_css() {
-		$pixova_lite_intro_button_color = get_theme_mod( 'pixova_lite_intro_button_color', esc_attr( '#f2c351' ) );
-		$pixova_lite_intro_button_text_color = get_theme_mod( 'pixova_lite_intro_button_text_color', esc_attr( '#ffffff' ) );
+		$pixova_lite_intro_button_color = get_theme_mod( 'pixova_lite_intro_button_color' );
+		$pixova_lite_intro_button_text_color = get_theme_mod( 'pixova_lite_intro_button_text_color' );
 
-		$pixova_lite_intro_outline_button_color = get_theme_mod( 'pixova_lite_intro_outline_button_color', esc_attr( '#ffffff' ) );
-		$pixova_lite_intro_outline_button_text_color = get_theme_mod( 'pixova_lite_intro_outline_button_text_color', esc_attr( '#ffffff' ) );
+		$pixova_lite_intro_outline_button_color = get_theme_mod( 'pixova_lite_intro_outline_button_color' );
+		$pixova_lite_intro_outline_button_text_color = get_theme_mod( 'pixova_lite_intro_outline_button_text_color' );
 
 		$output = '';
 
