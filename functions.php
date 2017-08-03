@@ -63,6 +63,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		require get_template_directory() . '/inc/class-pixova-lite-helper.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-panel.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-control.php';
+		require get_template_directory() . '/inc/customizer/class-pixova-custom-setting.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-upload.php';
 		require get_template_directory() . '/inc/customizer.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-lite-cf7-custom-control.php';
@@ -674,3 +675,4 @@ $args = array(
 );
 
 Epsilon_Color_Scheme::get_instance( $handler, $args );
+

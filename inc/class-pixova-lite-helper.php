@@ -167,36 +167,9 @@ class Pixova_Lite_Helper {
 
 	}
 
-	public static function delete_theme_mods_save_page_content() {
+	public static function create_content_from_options() {
 
-		$pixova_settings = get_theme_mods();
-		$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
-		$new_fields = false;
-		foreach ( $pixova_settings as $key => $value ) {
-			if ( in_array( $key, Pixova_Lite_Helper::$pixova_fields ) ) {
-				if ( isset( $existing_settings[ $key ] ) && $existing_settings[ $key ] !== $value ) {
-					$new_fields = true;
-					$existing_settings[ $key ] = $value;
-				} elseif ( ! isset( $existing_settings[ $key ] ) ) {
-					$new_fields = true;
-					$existing_settings[ $key ] = $value;
-				}
-				remove_theme_mod( $key );
-			}
-		}
-
-		if ( $new_fields ) {
-			update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
-			Pixova_Lite_Helper::create_content_from_options( $existing_settings );
-		}
-
-	}
-
-	public static function create_content_from_options( $data = array() ) {
-
-		if ( empty( $data ) ) {
-			$data = get_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', true );
-		}
+		$data = get_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', true );
 
 		$sections = array(
 			array(
@@ -400,7 +373,7 @@ foreach ( Pixova_Lite_Helper::$pixova_fields as $pixova_setting ) {
 	add_filter( "theme_mod_{$pixova_setting}", array( 'Pixova_Lite_Helper', "_get_{$pixova_setting}" ) );
 }
 
-add_action( 'customize_save_after', array( 'Pixova_Lite_Helper', 'delete_theme_mods_save_page_content' ) );
+add_action( 'customize_save_after', array( 'Pixova_Lite_Helper', 'create_content_from_options' ) );
 
 add_action( 'add_meta_boxes', 'pixova_remove_editor_for_pixova_settings', 20, 2 );
 
@@ -433,5 +406,21 @@ function add_states_for_pixova_settings_page( $post_states, $post ) {
 	}
 
 	return $post_states;
+
+}
+
+
+
+add_action( 'customize_update_epsilon_page', 'pixova_lite_save_custom_setting', 10, 2 );
+
+function pixova_lite_save_custom_setting( $value, $setting ){
+
+	$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
+	$key = $setting->id;
+
+	$existing_settings[ $key ] = $value;
+
+	update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
+	return true;
 
 }
