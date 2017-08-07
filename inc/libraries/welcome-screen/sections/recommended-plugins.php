@@ -1,12 +1,13 @@
 <?php
+/**
+ * Template part for the recommended plugins tab in welcome screen
+ *
+ * @package Epsilon Framework
+ */
+
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-/**
- * Recommended Plugins
- */
-global $pixova_required_actions, $pixova_recommended_plugins;
-
 wp_enqueue_style( 'plugin-install' );
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
@@ -14,57 +15,25 @@ add_thickbox();
 ?>
 
 <div class="feature-section recommended-plugins three-col demo-import-boxed" id="plugin-filter">
-	<?php foreach ( $pixova_recommended_plugins as $plugin => $prop ) { ?>
-		<?php
-		$info   = $this->call_plugin_api( $plugin );
-		$icon   = $this->check_for_icon( $info->icons );
-		$active = $this->check_active( $plugin );
-		$url    = $this->create_action_link( $active['needs'], $plugin );
-		$label  = '';
-
-		switch ( $active['needs'] ) {
-			case 'install':
-				$class = 'install-now button';
-				$label = __( 'Install', 'pixova-lite' );
-				break;
-			case 'activate':
-				$class = 'activate-now button button-primary';
-				$label = __( 'Activate', 'pixova-lite' );
-				break;
-			case 'deactivate':
-				$class = 'deactivate-now button';
-				$label = __( 'Deactivate', 'pixova-lite' );
-				break;
-		}
-
-		if ( ! empty( $prop['tracking_url'] ) ) {
-			$url   = $prop['tracking_url'];
-			$class = 'button';
-			$label = __( 'Install', 'pixova-lite' );
-		}
-
+	<?php
+	foreach ( $this->plugins as $plugin => $prop ) {
+		$info = $this->get_plugin_information( $plugin );
 		?>
 		<div class="col plugin_box">
-			<?php if ( $prop['recommended'] ) : ?>
-				<span class="recommended"><?php _e( 'Recommended', 'pixova-lite' ); ?></span>
-			<?php endif; ?>
-			<img src="<?php echo esc_attr( $icon ) ?>" alt="plugin box image">
-			<span
-				class="version"><?php echo __( 'Version:', 'pixova-lite' ); ?><?php echo esc_html( $info->version ) ?></span>
-			<span
-				class="separator">|</span> <?php echo wp_kses_post( $info->author ) ?>
-			<div
-				class="action_bar <?php echo ( 'install' !== $active['needs'] && $active['status'] ) ? 'active' : '' ?>">
-				<span
-					class="plugin_name"><?php echo ( 'install' !== $active['needs'] && $active['status'] ) ? 'Active: ' : '' ?><?php echo esc_html( $info->name ); ?></span>
+
+			<?php if ( $prop['recommended'] ) { ?>
+				<span class="recommended"><?php echo esc_html__( 'Recommended', 'epsilon-framework' ); ?></span>
+			<?php } ?>
+
+			<img src="<?php echo esc_attr( $info['icon'] ); ?>" alt="plugin box image">
+			<span class="version"><?php echo esc_html__( 'Version:', 'epsilon-framework' ); ?><?php echo esc_html( $info['info']->version ); ?></span>
+			<span class="separator">|</span> <?php echo wp_kses_post( $info['info']->author ); ?>
+			<div class="action_bar <?php echo ( 'install' !== $info['needs'] && $info['active'] ) ? 'active' : ''; ?>">
+				<span class="plugin_name"><?php echo ( 'install' !== $info['needs'] && $info['active'] ) ? 'Active: ' : ''; ?><?php echo esc_html( $info['info']->name ); ?></span>
 			</div>
-			<span
-				class="plugin-card-<?php echo esc_attr( $plugin ) ?> action_button <?php echo ( 'install' !== $active['needs'] && $active['status'] ) ? 'active' : '' ?>">
-				<a data-slug="<?php echo esc_attr( $plugin ) ?>" <?php echo ( ! empty( $prop['tracking_url'] ) ) ? ' target="_blank" ' : '' ?>
-				   class="<?php echo esc_attr( $class ); ?>"
-				   href="<?php echo esc_url( $url ) ?>"> <?php echo esc_attr( $label ) ?> </a>
+			<span class="plugin-card-<?php echo esc_attr( $plugin ); ?> action_button <?php echo ( 'install' !== $info['needs'] && $info['active'] ) ? 'active' : ''; ?>">
+				<a data-slug="<?php echo esc_attr( $plugin ); ?>" class="<?php echo esc_attr( $info['class'] ); ?>" href="<?php echo esc_url( $info['url'] ); ?>"> <?php echo esc_attr( $info['label'] ); ?> </a>
 			</span>
 		</div>
-	<?php }// End foreach().
-	?>
+	<?php }// End foreach(). ?>
 </div>

@@ -191,7 +191,6 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
              *
              */
 			$pixova_required_actions  = array(
-
                 array(
                     "id"          => 'pixova-lite-req-ac-static-latest-news',
                     "title"       => esc_html__( 'Set front page to static', 'pixova-lite' ),
@@ -208,7 +207,17 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
                 ),
 			);
 
-			require get_template_directory() . '/inc/libraries/welcome-screen/class-pixova-welcome-screen.php';
+			require get_template_directory() . '/inc/libraries/welcome-screen/class-epsilon-welcome-screen.php';
+
+			Epsilon_Welcome_Screen::get_instance(
+				$config = array(
+					'theme-name'  => 'Pixova Lite',
+					'theme-slug'  => 'pixova-lite',
+					'actions'     => $pixova_required_actions,
+					'plugins'     => $pixova_recommended_plugins,
+					'edd'         => false,
+				)
+			);
 		}// End if().
 
 	} // function pixova_lite_theme_setup
