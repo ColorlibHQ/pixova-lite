@@ -641,8 +641,9 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	// Front Page Sections
 	$wp_customize->add_panel( new Pixova_Custom_Panel( $wp_customize, 'pixova_lite_frontpage_sections', array(
-		'title'    => esc_html__( 'Front Page Sections', 'pixova-lite' ),
-		'priority' => 29,
+		'title'    		=> esc_html__( 'Front Page Sections', 'pixova-lite' ),
+		'description'	=> esc_html__( 'Drag & drop to reorder Front Page sections', 'pixova-lite' ),
+		'priority'		=> 29,
 	) ) );
 
 	/***********************************************/
@@ -3169,10 +3170,12 @@ if ( ! function_exists( 'pixova_lite_customize_preview_js' ) ) {
 }
 
 function pixova_lite_customizer_js_load() {
+
+	wp_enqueue_style( 'pixova-customizer', get_template_directory_uri() . '/layout/css/customizer.css' );
+
 	wp_enqueue_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer.js', array( 'customize-controls' ), '1.0', true );
 
 	$PixovaCustomizer = array();
-	// $PixovaCustomizer['sections'] = Pixova_get_sections_position();
 	$PixovaCustomizer['ajax_url'] = admin_url( 'admin-ajax.php' );
 	$PixovaCustomizer['template_directory'] = get_template_directory_uri();
 	wp_localize_script( 'pixova_lite_customizer_script', 'PixovaCustomizer', $PixovaCustomizer );
