@@ -63,12 +63,8 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 		return false;
 	}
 
-	public static function has_import_plugin( $slug = null ) {
-		$return = self::has_content();
+	public static function has_plugin( $slug = null ) {
 
-		if ( $return ) {
-			return true;
-		}
 		$check = array(
 			'installed' => self::check_plugin_is_installed( $slug ),
 			'active'    => self::check_plugin_is_active( $slug ),
@@ -177,12 +173,23 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 
 	}
 
-	/**
-	 * @return bool
-	 */
-	public static function is_not_template_front_page() {
-		$page_id = get_option( 'page_on_front' );
+	public static function check_for_content() {
 
-		return get_page_template_slug( $page_id ) == 'page-templates/frontpage-template.php' ? true : false;
+		if ( ! self::is_not_static_page() ) {
+			return true;
+		}
+
+		if ( ! self::has_plugin( 'contact-form-7' ) ) {
+			return true;
+		}
+
+		$pixova_settings = get_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', true );
+
+		if ( is_array( $pixova_settings ) ) {
+			return true;
+		}
+
+		return false;
+
 	}
 }

@@ -2,30 +2,12 @@ var welcomeScreenFunctions = {
   /**
    * Import demo content
    */
-  importDemoContent: function() {
-    jQuery( '.epsilon-ajax-button' ).click( function() {
-      var action = jQuery( this ).attr( 'data-action' ) ? jQuery( this ).attr( 'data-action' ) : jQuery( this ).attr( 'id' ),
-          container = jQuery( this ).parents( '.action-required-box' ),
-          checkboxes = container.find( ':checkbox' ),
-          args,
-          importThis = {
-            'content': [],
-            'sections': [],
-            'frontpage': []
-          };
-
-      jQuery.each( checkboxes, function( k, item ) {
-
-        if ( jQuery( item ).prop( 'checked' ) ) {
-          importThis[ jQuery( item ).attr( 'name' ) ].push( jQuery( item ).val() );
-        }
-
-      } );
-
+   importDemoContent: function() {
+    jQuery( '.epsilon-import-content-button' ).click( function() {
       args = {
-        action: [ 'Medzone_Helper', action ],
+        action: [ 'Epsilon_Welcome_Screen', 'import_demo_content' ],
         nonce: welcomeScreen.ajax_nonce,
-        args: importThis
+        args: []
       };
 
       jQuery.ajax( {
@@ -34,15 +16,41 @@ var welcomeScreenFunctions = {
         dataType: 'json',
         url: ajaxurl,
         success: function( json ) {
-          if ( container.length ) {
-            container.html( '<h3>Demo content was imported successfully! </h3>' );
+          location.reload();
+        },
+        /**
+         * Throw errors
+         *
+         * @param jqXHR
+         * @param textStatus
+         * @param errorThrown
+         */
+        error: function( jqXHR, textStatus, errorThrown ) {
+          console.log( jqXHR + ' :: ' + textStatus + ' :: ' + errorThrown );
+        }
 
-            window.setTimeout( function() {
-              container.slideUp( 300, function() {
-                container.remove();
-              } );
-            }, 3000 );
-          }
+      } );
+    } );
+  },
+
+  /**
+   * Automatically set front page
+   */
+  setFrontPage: function() {
+    jQuery( '.epsilon-set-frontpage-button' ).click( function() {
+      args = {
+        action: [ 'Epsilon_Welcome_Screen', 'set_frontpage_to_static' ],
+        nonce: welcomeScreen.ajax_nonce,
+        args: []
+      };
+
+      jQuery.ajax( {
+        type: 'POST',
+        data: { action: 'welcome_screen_ajax_callback', args: args },
+        dataType: 'json',
+        url: ajaxurl,
+        success: function( json ) {
+          location.reload();
         },
         /**
          * Throw errors
@@ -168,6 +176,7 @@ var welcomeScreenFunctions = {
 jQuery( document ).ready( function() {
   welcomeScreenFunctions.rangeSliders( jQuery( '#wpbody-content .widget-content' ) );
   welcomeScreenFunctions.dismissAction();
+  welcomeScreenFunctions.setFrontPage();
   welcomeScreenFunctions.importDemoContent();
   welcomeScreenFunctions.showHiddenContent();
 } );

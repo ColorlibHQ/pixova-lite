@@ -421,6 +421,7 @@ function pixova_lite_save_custom_setting( $value, $setting ){
 	$existing_settings[ $key ] = $value;
 
 	update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
+	
 	return true;
 
 }

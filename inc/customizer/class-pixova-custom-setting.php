@@ -7,7 +7,7 @@ if ( class_exists( 'WP_Customize_Setting' ) && ! class_exists( 'Pixova_Custom_Se
 		public function get_root_value( $default = null ) {
 			$setting_value = Pixova_Lite_Helper::get_pixova_setting( $this->id );
 			if ( false === $setting_value ) {
-				return '';
+				return $default;
 			} else {
 				return $setting_value;
 			}

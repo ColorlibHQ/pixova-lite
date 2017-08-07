@@ -100,7 +100,7 @@ class Epsilon_Welcome_Screen {
 		$defaults = array(
 			'theme-name'  => $theme->get( 'Name' ),
 			'theme-slug'  => $theme->get( 'TextDomain' ),
-			'author-logo' => get_template_directory_uri() . '/inc/libraries/welcome-screen/img/macho-themes-logo.png',
+			'author-logo' => get_template_directory_uri() . '/inc/libraries/welcome-screen/img/colorlib-logo.png',
 			'actions'     => array(),
 			'plugins'     => array(),
 			'notice'      => '',
@@ -365,7 +365,7 @@ class Epsilon_Welcome_Screen {
 		$notifications = Epsilon_Notifications::get_instance();
 		$notifications->add_notice(
 			array(
-				'id'      => 'notification_testing',
+				'id'      => 'pixova_welcome_notice',
 				'type'    => 'notice epsilon-big',
 				'message' => $this->notice,
 			)
@@ -764,6 +764,9 @@ class Epsilon_Welcome_Screen {
 
 			update_option( 'page_on_front', $id );
 			update_option( 'show_on_front', 'page' );
+		}else{
+			update_option( 'page_on_front', $home->ID );
+			update_option( 'show_on_front', 'page' );
 		}
 
 		if ( null === $blog ) {
@@ -776,8 +779,23 @@ class Epsilon_Welcome_Screen {
 			);
 
 			update_option( 'page_for_posts', $id );
+		}else{
+			update_option( 'page_for_posts', $blog->ID );
 		}
 
 		return 'ok';
+	}
+
+	public static function import_demo_content() {
+
+		$content_json = '{"pixova_lite_intro_title_cta":"WELCOME TO PIXOVA LITE","pixova_lite_intro_cta":"Free & Modern One-Page Parallax WordPress Theme","pixova_lite_intro_sub_cta":"Your cool business headline here. You can even \u003Cu\u003E\u003Cstrong\u003Einsert HTML here & images\u003C\/strong\u003E\u003C\/u\u003E.\nLorem ipsum dolor sit amet lorem dolor sit amet.","pixova_lite_intro_outline_button_text":"LEARN MORE","pixova_lite_intro_outline_button_url":"#about","pixova_lite_intro_button_text":"CONTACT US","pixova_lite_intro_button_url":"#about","pixova_lite_intro_what_we_do_1_icon":"fa fa-bold","pixova_lite_intro_what_we_do_1_title":"Web design","pixova_lite_intro_what_we_do_1_description":"Lorem ipsum dolor sit amet. Lorem ipsum.","pixova_lite_intro_what_we_do_2_icon":"fa fa-code","pixova_lite_intro_what_we_do_2_title":"Development","pixova_lite_intro_what_we_do_2_description":"Lorem ipsum dolor sit amet. Lorem ipsum.","pixova_lite_intro_what_we_do_3_icon":"fa fa-envelope-o","pixova_lite_intro_what_we_do_3_title":"Print design","pixova_lite_intro_what_we_do_3_description":"Lorem ipsum dolor sit amet. Lorem ipsum.","pixova_lite_about_section_title":"We build solutions for your everyday problems.","pixova_lite_about_section_sub_title":"This is what we do in a nutshell.","pixova_lite_about_section_textarea":"Creative ut tincidunt nibh, varius cursus nunc. Curabitur molestie, metus vel luctus euismod, mi libero laoreet odio, eu dapibus leo tortor sit amet purus. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.","pixova_lite_about_section_blockquote":"Working with Pixova has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Erlich Bachman, Aviato.","pixova_lite_about_section_chart_1_heading":"Web design","pixova_lite_about_section_chart_2_heading":"Web development","pixova_lite_about_section_chart_3_heading":"Print design","pixova_lite_about_section_chart_3_percentage":"90","pixova_lite_about_section_chart_4_percentage":"50","pixova_lite_about_section_chart_4_heading":"Graphic identity","pixova_lite_work_section_title":"Recent works","pixova_lite_work_section_sub_title":"It\'s show and tell time.","pixova_lite_about_section_chart_1_percentage":"70","pixova_lite_about_section_chart_2_percentage":"90","pixova_lite_works_project_1_url":"https:\/\/colorlib.com\/wp\/themes\/pixova","pixova_lite_works_project_2_url":"https:\/\/colorlib.com\/wp\/themes\/pixova","pixova_lite_works_project_3_url":"https:\/\/colorlib.com\/wp\/themes\/pixova","pixova_lite_works_project_4_url":"https:\/\/colorlib.com\/wp\/themes\/pixova","pixova_lite_testimonial_section_title":"Some words from our clients","pixova_lite_testimonial_section_sub_title":"We don\'t like to brag, others do it for us.","pixova_lite_testimonial_1_person_name":"Katie Parry - Hooli","pixova_lite_testimonial_1_person_description":"Working with Pixova has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.","pixova_lite_testimonial_2_person_name":"John Doe","pixova_lite_testimonial_2_person_description":"Working with Pixova has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.","pixova_lite_testimonial_3_person_name":"Katie Parry - Hooli","pixova_lite_testimonial_3_person_description":"Working with Pixova has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.","pixova_lite_testimonial_4_person_name":"Katie Parry - Hooli","pixova_lite_testimonial_4_person_description":"Working with Pixova has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.","pixova_lite_testimonial_5_person_name":"Katie Parry - Hooli","pixova_lite_testimonial_5_person_description":"Working with Pixva has been an experience for a lifetime. I strongly reccommend these guys for their awesome support. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat eleifend convallis.","pixova_lite_news_section_title":"Latest news","pixova_lite_news_section_sub_title":"Straight from our blog.","pixova_lite_news_section_button_text":"Visit our blog","pixova_lite_news_section_no_posts_per_slide":"2","pixova_lite_team_section_title":"The team","pixova_lite_team_section_sub_title":"Meet the people that made it all happen.","pixova_lite_team_member_1_name":"Angelina Doe","pixova_lite_team_member_1_facebook":"https:\/\/www.facebook.com\/colorlib","pixova_lite_team_member_1_dribbble":"http:\/\/www.dribbble.com\/colorlib","pixova_lite_team_member_1_email":"contact@site.com","pixova_lite_team_member_1_twitter":"https:\/\/twitter.com\/colorlib\/","pixova_lite_team_member_1_linkedin":"https:\/\/www.linkedin.com","pixova_lite_team_member_1_pinterest":"https:\/\/pinterest.com","pixova_lite_team_member_1_instagram":"https:\/\/www.instagram.com","pixova_lite_team_member_1_googleplus":"https:\/\/plus.google.com","pixova_lite_team_member_2_name":"John Doe","pixova_lite_team_member_2_facebook":"https:\/\/www.facebook.com\/colorlib","pixova_lite_team_member_2_dribbble":"http:\/\/www.dribbble.com\/madalin.duca","pixova_lite_team_member_2_email":"contact@site.com","pixova_lite_team_member_2_twitter":"https:\/\/twitter.com\/colorlib\/","pixova_lite_team_member_2_linkedin":"https:\/\/www.linkedin.com","pixova_lite_team_member_2_pinterest":"https:\/\/pinterest.com","pixova_lite_team_member_2_instagram":"https:\/\/www.instagram.com","pixova_lite_team_member_2_googleplus":"https:\/\/plus.google.com","pixova_lite_team_member_3_name":"Angelina Doe","pixova_lite_team_member_3_facebook":"https:\/\/www.facebook.com\/colorlib","pixova_lite_team_member_3_dribbble":"http:\/\/www.dribbble.com\/colorlib","pixova_lite_team_member_3_email":"contact@site.com","pixova_lite_team_member_3_twitter":"https:\/\/twitter.com\/colorlib\/","pixova_lite_team_member_3_linkedin":"https:\/\/www.linkedin.com","pixova_lite_team_member_3_pinterest":"https:\/\/pinterest.com","pixova_lite_team_member_3_instagram":"https:\/\/www.instagram.com","pixova_lite_team_member_3_googleplus":"https:\/\/plus.google.com","pixova_lite_team_member_4_name":"Angelina Doe","pixova_lite_team_member_4_facebook":"https:\/\/www.facebook.com\/colorlib\/","pixova_lite_team_member_4_dribbble":"http:\/\/www.dribbble.com\/colorlib\/","pixova_lite_team_member_4_email":"contact@site.com","pixova_lite_team_member_4_twitter":"https:\/\/twitter.com\/colorlib","pixova_lite_team_member_4_linkedin":"https:\/\/www.linkedin.com","pixova_lite_team_member_4_pinterest":"https:\/\/pinterest.com","pixova_lite_team_member_4_instagram":"https:\/\/www.instagram.com","pixova_lite_team_member_4_googleplus":"https:\/\/plus.google.com","pixova_lite_team_member_5_name":"John Doe","pixova_lite_team_member_5_facebook":"https:\/\/www.facebook.com\/colorlib","pixova_lite_team_member_5_dribbble":"http:\/\/www.dribbble.com\/colorlib","pixova_lite_team_member_5_email":"contact@site.com","pixova_lite_team_member_5_twitter":"https:\/\/twitter.com\/colorlib\/","pixova_lite_team_member_5_linkedin":"https:\/\/www.linkedin.com","pixova_lite_team_member_5_pinterest":"https:\/\/pinterest.com","pixova_lite_team_member_5_instagram":"https:\/\/www.instagram.com","pixova_lite_team_member_5_googleplus":"https:\/\/plus.google.com","pixova_lite_contact_section_title":"Contact us","pixova_lite_contact_section_sub_title":"And we\'ll reply in no time.","pixova_lite_contact_first_heading":"Address","pixova_lite_contact_second_heading":"Customer Support","pixova_lite_email":"contact@site.org","pixova_lite_phone":"0 332 548 955","pixova_lite_address":"Street 221B Baker Street"}';
+
+		$content = json_decode( $content_json, true );
+		$pixova_settings_page_id = Pixova_Lite_Helper::get_setting_page_id();
+		update_post_meta( $pixova_settings_page_id, 'pixova-settings', $content );
+		Pixova_Lite_Helper::create_content_from_options();
+
+		return 'ok';
+
 	}
 }
