@@ -87,3 +87,37 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4.2', '<=' ) ) {
 		echo $output;
 	}
 }
+
+// Back compatible functionality for new customizer
+$check_for_compatibility = get_option( 'pixova-customizer-v2' );
+
+if ( ! $check_for_compatibility ) {
+
+	$pixova_settings = get_theme_mods();
+	if ( $pixova_settings ) {
+		
+		$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
+		$new_fields = false;
+		foreach ( $pixova_settings as $key => $value ) {
+			if ( in_array( $key, Pixova_Lite_Helper::$pixova_fields ) ) {
+				if ( isset( $existing_settings[ $key ] ) && $existing_settings[ $key ] !== $value ) {
+					$new_fields = true;
+					$existing_settings[ $key ] = $value;
+				} elseif ( ! isset( $existing_settings[ $key ] ) ) {
+					$new_fields = true;
+					$existing_settings[ $key ] = $value;
+				}
+				remove_theme_mod( $key );
+			}
+		}
+
+		if ( $new_fields ) {
+			update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
+			Pixova_Lite_Helper::create_content_from_options( $existing_settings );
+		}
+
+	}
+
+	update_option( 'pixova-customizer-v2', true );
+
+}

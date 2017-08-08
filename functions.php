@@ -21,16 +21,6 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		}
 
 		/**
-		 *  Next compatible
-		 */
-		require get_template_directory() . '/inc/next-compatible.php';
-
-		/**
-		 *  Back compatible
-		 */
-		require get_template_directory() . '/inc/back-compatible.php';
-
-		/**
 		 * Custom Header Support
 		 */
 
@@ -80,6 +70,16 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		require get_template_directory() . '/widgets/class-pixova-lite-widget-about.php';
 		require get_template_directory() . '/widgets/class-pixova-lite-widget-latest-posts.php';
 		require get_template_directory() . '/widgets/class-pixova-lite-widget-social-media.php';
+
+		/**
+		 *  Next compatible
+		 */
+		require get_template_directory() . '/inc/next-compatible.php';
+
+		/**
+		 *  Back compatible
+		 */
+		require get_template_directory() . '/inc/back-compatible.php';
 
 		/*
          * Make theme available for translation.
