@@ -34,7 +34,7 @@ $count          = $this->count_actions();
 		<h3><?php esc_html_e( 'Step 2 - Check our documentation', 'epsilon-framework' ); ?></h3>
 		<p><?php esc_html_e( 'Even if you\'re a long-time WordPress user, we still believe you should give our documentation a very quick Read.', 'epsilon-framework' ); ?></p>
 		<p>
-			<a target="_blank" href="<?php echo esc_url( 'http://docs.machothemes.com/' ); ?>"><?php esc_html_e( 'Full documentation', 'epsilon-framework' ); ?></a>
+			<a target="_blank" href="<?php echo esc_url( 'https://colorlib.com/wp/support/pixova/' ); ?>"><?php esc_html_e( 'Full documentation', 'epsilon-framework' ); ?></a>
 		</p>
 	</div><!--/.col-->
 

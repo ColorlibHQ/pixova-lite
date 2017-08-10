@@ -31,7 +31,8 @@ h1.intro-cta-title,
 .footer-heart-icon,
 .big-testimonial .media-heading,
 .pixova-person-name,
-.btn.focus {
+.btn.focus,
+.entry-meta a:hover {
 	color: %1$s;
 }
 ::selection {
