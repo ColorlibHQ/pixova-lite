@@ -185,7 +185,7 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 
 		$pixova_settings = get_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', true );
 
-		if ( is_array( $pixova_settings ) ) {
+		if ( is_array( $pixova_settings ) && ! empty( $pixova_settings ) ) {
 			return true;
 		}
 

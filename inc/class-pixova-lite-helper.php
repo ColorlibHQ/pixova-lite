@@ -387,7 +387,7 @@ function pixova_remove_editor_for_pixova_settings( $post_type, $post ) {
 
 	if ( $pixova_page_id && $pixova_page_id == $post->ID ) {
 		add_action( 'edit_form_after_title', '_pixova_setting_page_notice' );
-		// remove_post_type_support( $post_type, 'editor' );
+		remove_post_type_support( $post_type, 'editor' );
 	}
 
 }

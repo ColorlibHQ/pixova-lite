@@ -99,7 +99,7 @@ if ( ! $check_for_compatibility ) {
 		$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
 		$new_fields = false;
 		foreach ( $pixova_settings as $key => $value ) {
-			if ( in_array( $key, Pixova_Lite_Helper::$pixova_fields ) ) {
+			if ( in_array( $key, Pixova_Lite_Helper::$pixova_fields, true ) ) {
 				if ( isset( $existing_settings[ $key ] ) && $existing_settings[ $key ] !== $value ) {
 					$new_fields = true;
 					$existing_settings[ $key ] = $value;
