@@ -91,9 +91,9 @@ if ( $pixova_lite_q->have_posts() ) {
 	}
 	echo '</div> <!--/.pixova-blogpost-wrapper-->';
 	echo '</div><!--/.row-->';
-	if ( ! empty( $page_which_uses_blog_template ) && is_array( $page_which_uses_blog_template ) ) {
+	if ( ! empty( $page_which_uses_blog_template ) && is_array( $page_which_uses_blog_template ) && '' != $pixova_lite_news_button_text ) {
 		echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template[0] ) ) ) . '">' . esc_html( $pixova_lite_news_button_text ) . '</a>';
-	} elseif ( ! empty( $page_which_uses_blog_template ) && ! is_array( $page_which_uses_blog_template ) ) {
+	} elseif ( ! empty( $page_which_uses_blog_template ) && ! is_array( $page_which_uses_blog_template ) && '' != $pixova_lite_news_button_text ) {
 		echo '<a class="btn btn-cta-dark" href="' . esc_url( get_permalink( absint( $page_which_uses_blog_template ) ) ) . '">' . esc_html( $pixova_lite_news_button_text ) . '</a>';
 	}
 	echo '</div><!--/.pixova-blog-posts-->';

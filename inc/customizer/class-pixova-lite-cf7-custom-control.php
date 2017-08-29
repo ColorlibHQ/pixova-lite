@@ -40,22 +40,27 @@ if ( ! class_exists( 'Pixova_Lite_CF7_Custom_Control' ) ) {
 
 		public function pixova_lite_get_cf7_forms() {
 
-			global $wpdb;
-
 			// no more php warnings
 			$contact_forms = array();
 
 			// check if CF7 is activated
 			if ( $this->active_callback() ) {
-				$cf7 = $wpdb->get_results( "SELECT ID, post_title FROM $wpdb->posts WHERE post_type = 'wpcf7_contact_form' " );
-				if ( $cf7 ) {
 
-					foreach ( $cf7 as $cform ) {
-						$contact_forms[ $cform->ID ] = $cform->post_title;
+				$args = array(
+					'post_type' => 'wpcf7_contact_form',
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+				);
+
+				$cf7forms = new WP_Query( $args );
+				if ( $cf7forms->have_posts() ) {
+					foreach ( $cf7forms->posts as $cf7form ) {
+						$contact_forms[ $cf7form->ID ] = $cf7form->post_title;
 					}
-				} else {
+				}else{
 					$contact_forms[0] = __( 'No contact forms found', 'pixova-lite' );
 				}
+
 			}
 			return $contact_forms;
 		}

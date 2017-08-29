@@ -2300,7 +2300,9 @@ body.logged-in section {
 	padding-left: 16px;
 	width: 100%
 }
-
+.wpcf7-form label {
+	display: block;
+}
 .wpcf7-form-control-wrap input:focus,
 .wpcf7-form-control-wrap textarea:focus {
 	border-color: #f2c351
@@ -2521,7 +2523,8 @@ body.logged-in section {
 h1,
 h2,
 h3,
-input#submit {
+input#submit,
+input[tye="submit"] {
 	font-family: 'Roboto', Arial, sans-serif
 }
 
@@ -2608,16 +2611,20 @@ input#submit {
 	margin-top: 15px
 }
 
-input#submit {
+input#submit,
+input[type="submit"] {
 	background: #f2c351;
 	border: 0;
 	color: #fff;
 	font-size: 15px;
 	font-weight: 700;
 	letter-spacing: 1px;
-	margin: 0 0 30px 15px;
+	margin-bottom: 30px;
 	padding: 14px 28px;
 	width: auto
+}
+input#submit {
+	margin-left: 15px;
 }
 
 #cancel-comment-reply-link {
