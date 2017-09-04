@@ -170,7 +170,79 @@ var welcomeScreenFunctions = {
         } );
       } );
     } );
+  },
+
+  /**
+   * Activate the plugin when the plugin has been installed
+   */
+  activatePlugin: function() {
+    var activateButtonSlug = jQuery( 'a[data-slug]' );
+    jQuery( activateButtonSlug ).on( 'click', function( e ) {
+      var self = jQuery( this ),
+          dataToSend = { plugin: self.attr( 'data-slug' ) };
+      if ( self.hasClass( 'install-now' ) || self.hasClass( 'deactivate-now' ) ) {
+        return;
+      }
+      e.preventDefault();
+
+      jQuery.ajax( {
+        beforeSend: function() {
+          self.replaceWith( '<a class="button updating-message">' + welcomeScreen.activating_string + '...</a>' );
+        },
+        async: true,
+        type: 'GET',
+        dataType: 'html',
+        url: self.attr( 'href' ),
+        success: function( response ) {
+          var actions = jQuery( '#plugin-filter' ).find( '.action-required-box' );
+
+          if ( ! actions.length ) {
+            location.reload();
+          }
+
+          jQuery( '.updating-message' ).removeClass( 'updating-message' ).parents( '.action-required-box' ).slideUp( 200 ).remove();
+          actions = jQuery( '#plugin-filter' ).find( '.action-required-box' );
+
+          jQuery( '.import-content-container' ).find( 'input[data-slug="' + self.attr( 'data-slug' ) + '"]' ).parent().remove();
+
+          if ( ! actions.length ) {
+            jQuery( '#plugin-filter' ).append( '<span class"hooray">' + welcomeScreen.no_actions + '</span>' );
+          }
+
+          jQuery( document ).trigger( 'epsilon-plugin-activated', dataToSend );
+        }
+      } );
+    } );
+
+    jQuery( document ).on( 'wp-plugin-install-success', function( response, data ) {
+      var activateButton = jQuery( 'a[data-slug="' + data.slug + '"]' ),
+          dataToSend = { plugin: data.slug };
+      if ( activateButton.length && ( jQuery( 'body' ).hasClass( welcomeScreen.body_class ) || jQuery( 'body' ).hasClass( 'wp-customizer' ) ) ) {
+
+        jQuery.ajax( {
+          beforeSend: function() {
+            activateButton.replaceWith( '<a class="button updating-message">' + welcomeScreen.activating_string + '...</a>' );
+          },
+          async: true,
+          type: 'GET',
+          dataType: 'html',
+          url: data.activateUrl,
+          success: function( response ) {
+            var actions;
+            jQuery( '.updating-message' ).removeClass( 'updating-message' ).parents( '.action-required-box' ).slideUp( 200 ).remove();
+            actions = jQuery( '#plugin-filter' ).find( '.action-required-box' );
+
+            if ( ! actions.length ) {
+              location.reload();
+            }
+            
+            jQuery( document ).trigger( 'epsilon-plugin-activated', dataToSend );
+          }
+        } );
+      }
+    } );
   }
+
 };
 
 jQuery( document ).ready( function() {
@@ -179,6 +251,7 @@ jQuery( document ).ready( function() {
   welcomeScreenFunctions.setFrontPage();
   welcomeScreenFunctions.importDemoContent();
   welcomeScreenFunctions.showHiddenContent();
+  welcomeScreenFunctions.activatePlugin();
 } );
 
 jQuery( document ).ajaxStop( function() {

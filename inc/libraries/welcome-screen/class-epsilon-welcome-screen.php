@@ -302,6 +302,9 @@ class Epsilon_Welcome_Screen {
 					'template_directory'       => esc_url( get_template_directory_uri() ),
 					'no_required_actions_text' => esc_html__( 'Hooray! There are no required actions for you right now.', 'epsilon-framework' ),
 					'ajax_nonce'               => wp_create_nonce( 'welcome_nonce' ),
+					'activating_string'        => esc_html__( 'Activating', 'epsilon-framework' ),
+					'body_class'               => 'appearance_page_' . $this->theme_slug . '-welcome',
+					'no_actions'               => esc_html__( 'Hooray! There are no required actions for you right now.', 'epsilon-framework' ),
 				)
 			);
 		}
