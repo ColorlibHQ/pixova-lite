@@ -664,7 +664,7 @@ $args = array(
 
     'pixova_lite_hover_color' => array(
       'label'       => __( 'Hover Color', 'pixova-lite' ),
-      'description' => __( 'The color used for hover on elements.' ),
+      'description' => __( 'The color used for hover on elements.', 'pixova-lite' ),
       'default'     => '#ffce55',
       'section'     => 'pixova_lite_colors',
       'hover-state' => true,

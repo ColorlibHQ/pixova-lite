@@ -3047,7 +3047,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new Epsilon_Control_Color_Scheme( $wp_customize, 'pixova_lite_color_scheme', array(
-        'label'       => esc_html__( 'Color Schemes', 'text-domain' ),
+        'label'       => esc_html__( 'Color Schemes', 'pixova-lite' ),
         'type'        => 'epsilon-color-scheme',
         'priority'    => 0,
         'default'     => 'yellow',
