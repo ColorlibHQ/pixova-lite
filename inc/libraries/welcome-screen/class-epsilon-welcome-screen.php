@@ -603,6 +603,7 @@ class Epsilon_Welcome_Screen {
 	 */
 	private function create_plugin_link( $state, $slug ) {
 		$string = '';
+		$complete_slug = Pixova_Notify_System::_get_plugin_basename_from_slug( $slug );
 		switch ( $state ) {
 			case 'install':
 				$string = wp_nonce_url(
@@ -620,10 +621,10 @@ class Epsilon_Welcome_Screen {
 				$string = add_query_arg(
 					array(
 						'action'        => 'deactivate',
-						'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
+						'plugin'        => rawurlencode( $complete_slug ),
 						'plugin_status' => 'all',
 						'paged'         => '1',
-						'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $slug . '.php' ),
+						'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $complete_slug ),
 					),
 					network_admin_url( 'plugins.php' )
 				);
@@ -632,12 +633,12 @@ class Epsilon_Welcome_Screen {
 				$string = add_query_arg(
 					array(
 						'action'        => 'activate',
-						'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
+						'plugin'        => rawurlencode( $complete_slug ),
 						'plugin_status' => 'all',
 						'paged'         => '1',
-						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $slug . '.php' ),
+						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $complete_slug ),
 					),
-					network_admin_url( 'plugins.php' )
+					admin_url( 'plugins.php' )
 				);
 				break;
 			default:
@@ -743,6 +744,41 @@ class Epsilon_Welcome_Screen {
 		update_option( 'pixova_show_required_actions', $actions_left );
 
 		return 'ok';
+	}
+
+	public static function demo_content_html(){
+		$html = '<p><a class="button button-primary epsilon-ajax-button" id="add_default_sections" href="#">' . __( 'Import Demo Content', 'epsilon-framework' ) . '</a>';
+		$html .= '<a class="button epsilon-hidden-content-toggler" href="#" data-toggle="welcome-hidden-content">' . __( 'Advanced', 'epsilon-framework' ) . '</a></p>';
+		$html .= '<div class="import-content-container" id="welcome-hidden-content">';
+		$html .= '<div class="demo-content-container" >';
+		$html .= '<div class="checkbox-group">';
+		$html .= '<label><input checked type="checkbox" class="demo-checkboxes" value="set_frontpage_to_static" name="set_frontpage_to_static"/>' . __( 'Set Front Page Static', 'epsilon-framework' ) . '</label>';
+		$html .= '<label><input checked type="checkbox" class="demo-checkboxes" value="import_demo_content" name="import_demo_content"/>' . __( 'Import Demo Data', 'epsilon-framework' ) . '</label>';
+		$html .= '</div>';
+		$html .= '</div>';
+		$html .= '</div>';
+
+		return $html;
+	}
+
+	public static function process_sample_content( $args = array() ){
+		$imported = true;
+
+		if ( empty( $args ) ) {
+			$args = array( 'set_frontpage_to_static', 'import_demo_content' );
+		}
+
+		foreach ( $args as $k => $v ) {
+			$response = self::$v();
+			if ( $imported && 'ok' != $response ) {
+				$imported = false;
+			}
+		}
+
+		if ( $imported ) {
+			return 'ok';
+		}
+
 	}
 
 	/**

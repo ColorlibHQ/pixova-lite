@@ -21,38 +21,6 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 	/**
 	 * @return bool
 	 */
-	public static function pixova_has_posts() {
-		$args  = array(
-			's' => 'Gary Johns: \'What is Aleppo\'',
-		);
-		$query = get_posts( $args );
-
-		if ( ! empty( $query ) ) {
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * @return bool
-	 */
-	public static function has_content() {
-		$check = array(
-			'widgets' => self::has_widgets(),
-			'posts'   => self::pixova_has_posts(),
-		);
-
-		if ( $check['widgets'] && $check['posts'] ) {
-			return true;
-		}
-
-		return false;
-	}
-
-	/**
-	 * @return bool
-	 */
 	public static function check_wordpress_importer() {
 		if ( file_exists( ABSPATH . 'wp-content/plugins/wordpress-importer/wordpress-importer.php' ) ) {
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -175,11 +143,11 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 
 	public static function check_for_content() {
 
-		if ( ! self::is_not_static_page() ) {
+		if ( ! self::has_plugin( 'contact-form-7' ) ) {
 			return true;
 		}
 
-		if ( ! self::has_plugin( 'contact-form-7' ) ) {
+		if ( self::is_not_static_page() ) {
 			return true;
 		}
 

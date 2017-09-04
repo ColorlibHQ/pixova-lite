@@ -166,6 +166,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 
 			global $pixova_required_actions, $pixova_recommended_plugins;
 			require get_template_directory() . '/inc/libraries/class-pixova-notify-system.php';
+			require get_template_directory() . '/inc/libraries/welcome-screen/class-epsilon-welcome-screen.php';
 
 			$pixova_recommended_plugins = array(
 				'kiwi-social-share'        => array(
@@ -192,13 +193,6 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
              */
 			$pixova_required_actions  = array(
                 array(
-                    "id"          => 'pixova-lite-req-ac-static-latest-news',
-                    "title"       => esc_html__( 'Set front page to static', 'pixova-lite' ),
-                    "description" => esc_html__( 'If you just installed Pixova Lite, and are not able to see the front-page demo, you need to go to Settings -> Reading , Front page displays and select "Static Page".', 'pixova-lite' ),
-                    "help"        => 'If you need more help understanding how this works, check out the following <a target="_blank"  href="https://codex.wordpress.org/Creating_a_Static_Front_Page#WordPress_Static_Front_Page_Process">link</a>. <br/><br/> <a class="button button-secondary" target="_blank"  href="' . self_admin_url( 'options-reading.php' ) . '">' . __( 'Set manually', 'pixova-lite' ) . '</a> <a class="button button-primary epsilon-set-frontpage-button" data-action="set_frontpage_to_static" href="#">' . __( 'Set automatically', 'pixova-lite' ) . '</a>',
-                    "check"       => Pixova_Notify_System::is_not_static_page()
-                ),
-                array(
                     'id' => 'pixova-lite-req-ac-install-contact-forms',
                     'title' => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
                     'description' => esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
@@ -207,14 +201,17 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
                 ),
                 array(
                     'id' => 'pixova-lite-import-demo-content',
-                    'title' => esc_html__( 'Import Demo Content' ,'pixova-lite' ),
-                    'description' => esc_html__( 'This will make your website to look like our demo.','pixova-lite' ),
-                    "help"        => '<a class="button button-primary epsilon-import-content-button" href="#">' . __( 'Import Demo Content', 'pixova-lite' ) . '</a>',
+                    'title'       => esc_html__( 'Add sample content', 'pixova-lite' ),
+					'description' => esc_html__( 'Clicking the button below will add content and set static front page to your WordPress installation. Click advanced to customize the import process.', 'pixova-lite' ),
+                    "help"        => array( 'Epsilon_Welcome_Screen', 'demo_content_html' ),
                     'check'       => Pixova_Notify_System::check_for_content(),
                 ),
 			);
 
-			require get_template_directory() . '/inc/libraries/welcome-screen/class-epsilon-welcome-screen.php';
+			if ( is_customize_preview() ) {
+				$url                = 'themes.php?page=%1$s-welcome&tab=%2$s';
+				$pixova_required_actions[1]['help'] = '<a class="button button-primary" id="" href="' . esc_url( admin_url( sprintf( $url, 'pixova-lite', 'recommended-actions' ) ) ) . '">' . __( 'Import Demo Content', 'pixova-lite' ) . '</a>';
+			}
 
 			Epsilon_Welcome_Screen::get_instance(
 				$config = array(

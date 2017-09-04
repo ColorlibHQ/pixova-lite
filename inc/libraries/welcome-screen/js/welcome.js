@@ -3,12 +3,22 @@ var welcomeScreenFunctions = {
    * Import demo content
    */
    importDemoContent: function() {
-    jQuery( '.epsilon-import-content-button' ).click( function() {
-      args = {
-        action: [ 'Epsilon_Welcome_Screen', 'import_demo_content' ],
-        nonce: welcomeScreen.ajax_nonce,
-        args: []
-      };
+    jQuery( '#add_default_sections' ).click( function() {
+      var container = jQuery( this ).parents( '.action-required-box' ),
+          checkboxes = container.find( ':checkbox' ),
+          args = {
+            action: [ 'Epsilon_Welcome_Screen', 'process_sample_content' ],
+            nonce: welcomeScreen.ajax_nonce,
+            args: []
+          };
+
+      jQuery.each( checkboxes, function( k, item ) {
+
+        if ( jQuery( item ).prop( 'checked' ) ) {
+          args.args.push( jQuery( item ).val() );
+        }
+
+      } );
 
       jQuery.ajax( {
         type: 'POST',
@@ -194,19 +204,12 @@ var welcomeScreenFunctions = {
         dataType: 'html',
         url: self.attr( 'href' ),
         success: function( response ) {
-          var actions = jQuery( '#plugin-filter' ).find( '.action-required-box' );
-
-          if ( ! actions.length ) {
-            location.reload();
-          }
-
+          var actions;
           jQuery( '.updating-message' ).removeClass( 'updating-message' ).parents( '.action-required-box' ).slideUp( 200 ).remove();
           actions = jQuery( '#plugin-filter' ).find( '.action-required-box' );
 
-          jQuery( '.import-content-container' ).find( 'input[data-slug="' + self.attr( 'data-slug' ) + '"]' ).parent().remove();
-
           if ( ! actions.length ) {
-            jQuery( '#plugin-filter' ).append( '<span class"hooray">' + welcomeScreen.no_actions + '</span>' );
+            location.reload();
           }
 
           jQuery( document ).trigger( 'epsilon-plugin-activated', dataToSend );

@@ -24,10 +24,11 @@ function pixova_lite_customize_register( $wp_customize ) {
 			$customizer_pixova_required_actions[] = $required_action;
 		}
 	}
+	$current_theme = wp_get_theme();
 	$theme_slug = 'pixova';
 	$wp_customize->add_section( new Epsilon_Section_Recommended_Actions( $wp_customize, 'epsilon_recomended_section', array(
 		'title'                        => esc_html__( 'Recomended Actions', 'pixova-lite' ),
-		'social_text'                  => esc_html__( 'We are social', 'pixova-lite' ),
+		'social_text'                  => esc_html( $current_theme->get( 'Author' ) ) . esc_html__( ' is social', 'pixova-lite' ),
 		'plugin_text'                  => esc_html__( 'Recomended Plugins', 'pixova-lite' ),
 		'actions'                      => $customizer_pixova_required_actions,
 		'plugins'                      => $customizer_recommended_plugins,
