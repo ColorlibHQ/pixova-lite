@@ -122,7 +122,7 @@ module.exports = function( grunt ) {
           '!composer.json',
           '!composer.lock',
           '!set_tags.sh',
-          '!activello.zip',
+          '!pixova-lite.zip',
           '!nbproject/**' ],
         dest: 'build/'
       }
