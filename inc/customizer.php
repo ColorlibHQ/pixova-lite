@@ -3165,7 +3165,7 @@ if ( ! function_exists( 'pixova_lite_active_callback_contact_section_cf7' ) ) {
 
 if ( ! function_exists( 'pixova_lite_customize_preview_js' ) ) {
 	function pixova_lite_customize_preview_js() {
-		wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'customize-preview' ), '1.0', true );
+		wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array( 'customize-preview', 'smooth-scroll-js' ), '1.0', true );
 	}
 	add_action( 'customize_preview_init', 'pixova_lite_customize_preview_js' );
 }

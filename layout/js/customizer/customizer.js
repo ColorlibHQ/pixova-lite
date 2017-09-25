@@ -277,4 +277,30 @@
 		} );
 	} );
 
+	wp.customize.bind('preview-ready', function () {
+		wp.customize.preview.bind( 'section-highlight', function( data ) {
+			var selectors = {
+				'pixova_lite_panel_intro' : '#intro',
+				'pixova_lite_panel_about' : '#about',
+				'pixova_lite_panel_works' : '#works',
+				'pixova_lite_panel_testimonials' : '#testimonials',
+				'pixova_lite_panel_news' : '#news',
+				'pixova_lite_panel_team' : '#team',
+				'pixova_lite_panel_contact' : '#contact',
+			};
+
+			// Only on the front page.
+			if ( ! $( selectors[ data.section ] ).length ) {
+				return;
+			}
+
+			// When the section is expanded, show and scroll to the content placeholders, exposing the edit links.
+			if ( true === data.expanded ) {
+				$( 'html,body' ).animate({
+	                scrollTop: $( selectors[ data.section ] ).offset().top
+	            }, 1000 );
+			}
+		});
+	});
+
 } )( jQuery );
