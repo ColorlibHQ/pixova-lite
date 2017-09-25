@@ -358,6 +358,7 @@ if ( ! function_exists( 'pixova_lite_get_page_id_by_template' ) ) {
 		$pages_which_use_template = '';
 
 		if ( is_array( $pages ) ) {
+			$pages_which_use_template = array();
 			foreach ( $pages as $page ) {
 				$pages_which_use_template[] = $page;
 			}
