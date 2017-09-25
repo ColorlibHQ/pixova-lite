@@ -1,109 +1,54 @@
 <?php
 
-if ( current_user_can( 'edit_theme_options' ) ) {
+$pixova_lite_section_title = get_theme_mod( 'pixova_lite_work_section_title' );
+$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_work_section_sub_title' );
 
-	$pixova_lite_section_title = get_theme_mod( 'pixova_lite_work_section_title', __( 'Recent works', 'pixova-lite' ) );
-	$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_work_section_sub_title', __( 'Show and tell time', 'pixova-lite' ) );
+// Project #1
 
-	// Project #1
+#image manipulation
+$pixova_lite_project_1_image_customizer = get_theme_mod( 'pixova_lite_works_project_1_image' );
+$pixova_lite_project_1_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_1_image_customizer, 'pixova-lite-recent-works-image' );
 
-	#image manipulation
-	$pixova_lite_project_1_image_customizer = get_theme_mod( 'pixova_lite_works_project_1_image', get_template_directory_uri() . '/layout/images/recent-works/recent-works-1-270x426.jpg' );
-	$pixova_lite_project_1_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_1_image_customizer, 'pixova-lite-recent-works-image' );
+if ( ! $pixova_lite_project_1_image ) {
+	$pixova_lite_project_1_image = $pixova_lite_project_1_image_customizer;
+}
 
-	if ( ! $pixova_lite_project_1_image ) {
-		$pixova_lite_project_1_image = $pixova_lite_project_1_image_customizer;
-	}
+$pixova_lite_project_1_logo = get_theme_mod( 'pixova_lite_works_project_1_logo' );
+$pixova_lite_project_1_url = get_theme_mod( 'pixova_lite_works_project_1_url' );
 
-	$pixova_lite_project_1_logo = get_theme_mod( 'pixova_lite_works_project_1_logo', get_template_directory_uri() . '/layout/images/recent-works/logo1.png' );
-	$pixova_lite_project_1_url = get_theme_mod( 'pixova_lite_works_project_1_url', 'https://colorlib.com/wp/themes/pixova/' );
+// Project #2
+$pixova_lite_project_2_image_customizer = get_theme_mod( 'pixova_lite_works_project_2_image' );
+$pixova_lite_project_2_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_2_image_customizer, 'pixova-lite-recent-works-image' );
 
-	// Project #2
-	$pixova_lite_project_2_image_customizer = get_theme_mod( 'pixova_lite_works_project_2_image', get_template_directory_uri() . '/layout/images/recent-works/recent-works-2-270x426.jpg' );
-	$pixova_lite_project_2_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_2_image_customizer, 'pixova-lite-recent-works-image' );
+if ( ! $pixova_lite_project_2_image ) {
+	$pixova_lite_project_2_image = $pixova_lite_project_2_image_customizer;
+}
 
-	if ( ! $pixova_lite_project_2_image ) {
-		$pixova_lite_project_2_image = $pixova_lite_project_2_image_customizer;
-	}
+$pixova_lite_project_2_logo = get_theme_mod( 'pixova_lite_works_project_2_logo' );
+$pixova_lite_project_2_url = get_theme_mod( 'pixova_lite_works_project_2_url' );
 
-	$pixova_lite_project_2_logo = get_theme_mod( 'pixova_lite_works_project_2_logo', get_template_directory_uri() . '/layout/images/recent-works/logo2.png' );
-	$pixova_lite_project_2_url = get_theme_mod( 'pixova_lite_works_project_2_url', 'https://colorlib.com/wp/themes/pixova/' );
+// Project #3
+$pixova_lite_project_3_image_customizer = get_theme_mod( 'pixova_lite_works_project_3_image' );
+$pixova_lite_project_3_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_3_image_customizer, 'pixova-lite-recent-works-image' );
 
-	// Project #3
-	$pixova_lite_project_3_image_customizer = get_theme_mod( 'pixova_lite_works_project_3_image', get_template_directory_uri() . '/layout/images/recent-works/recent-works-3-270x426.jpg' );
-	$pixova_lite_project_3_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_3_image_customizer, 'pixova-lite-recent-works-image' );
+if ( ! $pixova_lite_project_3_image ) {
+	$pixova_lite_project_3_image = $pixova_lite_project_3_image_customizer;
+}
 
-	if ( ! $pixova_lite_project_3_image ) {
-		$pixova_lite_project_3_image = $pixova_lite_project_3_image_customizer;
-	}
+$pixova_lite_project_3_logo = get_theme_mod( 'pixova_lite_works_project_3_logo' );
+$pixova_lite_project_3_url = get_theme_mod( 'pixova_lite_works_project_3_url' );
 
-	$pixova_lite_project_3_logo = get_theme_mod( 'pixova_lite_works_project_3_logo', get_template_directory_uri() . '/layout/images/recent-works/logo3.png' );
-	$pixova_lite_project_3_url = get_theme_mod( 'pixova_lite_works_project_3_url', 'https://colorlib.com/wp/themes/pixova/' );
+// Project #4
+$pixova_lite_project_4_image_customizer = get_theme_mod( 'pixova_lite_works_project_4_image' );
+$pixova_lite_project_4_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_4_image_customizer, 'pixova-lite-recent-works-image' );
 
-	// Project #4
-	$pixova_lite_project_4_image_customizer = get_theme_mod( 'pixova_lite_works_project_4_image', get_template_directory_uri() . '/layout/images/recent-works/recent-works-4-270x426.jpg' );
-	$pixova_lite_project_4_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_4_image_customizer, 'pixova-lite-recent-works-image' );
+if ( ! $pixova_lite_project_4_image ) {
+	$pixova_lite_project_4_image = $pixova_lite_project_4_image_customizer;
+}
 
-	if ( ! $pixova_lite_project_4_image ) {
-		$pixova_lite_project_4_image = $pixova_lite_project_4_image_customizer;
-	}
+$pixova_lite_project_4_logo = get_theme_mod( 'pixova_lite_works_project_4_logo' );
+$pixova_lite_project_4_url = get_theme_mod( 'pixova_lite_works_project_4_url' );
 
-	$pixova_lite_project_4_logo = get_theme_mod( 'pixova_lite_works_project_4_logo', get_template_directory_uri() . '/layout/images/recent-works/logo4.png' );
-	$pixova_lite_project_4_url = get_theme_mod( 'pixova_lite_works_project_4_url', 'https://colorlib.com/wp/themes/pixova/' );
-
-} else {
-
-	$pixova_lite_section_title = get_theme_mod( 'pixova_lite_work_section_title' );
-	$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_work_section_sub_title' );
-
-	// Project #1
-
-	#image manipulation
-	$pixova_lite_project_1_image_customizer = get_theme_mod( 'pixova_lite_works_project_1_image' );
-	$pixova_lite_project_1_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_1_image_customizer, 'pixova-lite-recent-works-image' );
-
-	if ( ! $pixova_lite_project_1_image ) {
-		$pixova_lite_project_1_image = $pixova_lite_project_1_image_customizer;
-	}
-
-	$pixova_lite_project_1_logo = get_theme_mod( 'pixova_lite_works_project_1_logo' );
-	$pixova_lite_project_1_url = get_theme_mod( 'pixova_lite_works_project_1_url' );
-
-	// Project #2
-	$pixova_lite_project_2_image_customizer = get_theme_mod( 'pixova_lite_works_project_2_image' );
-	$pixova_lite_project_2_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_2_image_customizer, 'pixova-lite-recent-works-image' );
-
-	if ( ! $pixova_lite_project_2_image ) {
-		$pixova_lite_project_2_image = $pixova_lite_project_2_image_customizer;
-	}
-
-	$pixova_lite_project_2_logo = get_theme_mod( 'pixova_lite_works_project_2_logo' );
-	$pixova_lite_project_2_url = get_theme_mod( 'pixova_lite_works_project_2_url' );
-
-	// Project #3
-	$pixova_lite_project_3_image_customizer = get_theme_mod( 'pixova_lite_works_project_3_image' );
-	$pixova_lite_project_3_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_3_image_customizer, 'pixova-lite-recent-works-image' );
-
-	if ( ! $pixova_lite_project_3_image ) {
-		$pixova_lite_project_3_image = $pixova_lite_project_3_image_customizer;
-	}
-
-	$pixova_lite_project_3_logo = get_theme_mod( 'pixova_lite_works_project_3_logo' );
-	$pixova_lite_project_3_url = get_theme_mod( 'pixova_lite_works_project_3_url' );
-
-	// Project #4
-	$pixova_lite_project_4_image_customizer = get_theme_mod( 'pixova_lite_works_project_4_image' );
-	$pixova_lite_project_4_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_project_4_image_customizer, 'pixova-lite-recent-works-image' );
-
-	if ( ! $pixova_lite_project_4_image ) {
-		$pixova_lite_project_4_image = $pixova_lite_project_4_image_customizer;
-	}
-
-	$pixova_lite_project_4_logo = get_theme_mod( 'pixova_lite_works_project_4_logo' );
-	$pixova_lite_project_4_url = get_theme_mod( 'pixova_lite_works_project_4_url' );
-
-
-}// End if().
 
 /**
  * Logic used to dynamically create the layout, based on how many projects are active
@@ -141,10 +86,8 @@ if ( 1 == $pixova_lite_no_of_projects ) {
 	$pixova_lite_cols = 'col-xs-12';
 	$pixova_lite_project_size = 'col-lg-3 col-md-3';
 } elseif ( 0 == $pixova_lite_no_of_projects ) {
-	$pixova_lite_cols = 'col-xs-12';
-	$pixova_lite_no_of_projects = 'col-xs-12';
+	return;
 }
-
 
 echo '<section id="works" class="has-padding">';
 	echo '<div class="container">';

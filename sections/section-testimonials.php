@@ -1,136 +1,68 @@
 <?php
 
-if ( current_user_can( 'edit_theme_options' ) ) {
+$pixova_lite_section_title = get_theme_mod( 'pixova_lite_testimonial_section_title' );
+$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_testimonial_section_sub_title' );
 
-	$pixova_lite_section_title = get_theme_mod( 'pixova_lite_testimonial_section_title', __( 'Some words from our clients', 'pixova-lite' ) );
-	$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_testimonial_section_sub_title', __( 'We don not like to brag, others do it for us.', 'pixova-lite' ) );
+// Testimonial #1
+$pixova_lite_testimonial_1_person_name = get_theme_mod( 'pixova_lite_testimonial_1_person_name' );
+$pixova_lite_testimonial_1_person_description = get_theme_mod( 'pixova_lite_testimonial_1_person_description' );
 
-	// Testimonial #1
-	$pixova_lite_testimonial_1_person_name = get_theme_mod( 'pixova_lite_testimonial_1_person_name', __( 'Katie Parry - Aviato', 'pixova-lite' ) );
-	$pixova_lite_testimonial_1_person_description = get_theme_mod( 'pixova_lite_testimonial_1_person_description', __( 'Working with Pixova has been the experience of a lifetime. I strongly recommend these guys for their amazing support. Lorem ipsum dolor sit amet lorem ipsum.', 'pixova-lite' ) );
+# Image Manipulation
+$pixova_lite_testimonial_1_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_1_person_image' );
+$pixova_lite_testimonial_1_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_1_person_image_customizer, 'thumbnail' );
 
-	# Image Manipulation
-	$pixova_lite_testimonial_1_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_1_person_image', get_template_directory_uri() . '/layout/images/testimonials/teammembru_burned-92x92.jpg' );
-	$pixova_lite_testimonial_1_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_1_person_image_customizer, 'thumbnail' );
+# For default images, we don't have an ID stored
+if ( ! $pixova_lite_testimonial_1_person_image ) {
+	$pixova_lite_testimonial_1_person_image = $pixova_lite_testimonial_1_person_image_customizer;
+}
 
-	# For default images, we don't have an ID stored
-	if ( ! $pixova_lite_testimonial_1_person_image ) {
-		$pixova_lite_testimonial_1_person_image = $pixova_lite_testimonial_1_person_image_customizer;
-	}
+// Testimonial #2
+$pixova_lite_testimonial_2_person_name = get_theme_mod( 'pixova_lite_testimonial_2_person_name' );
+$pixova_lite_testimonial_2_person_description = get_theme_mod( 'pixova_lite_testimonial_2_person_description' );
 
-	// Testimonial #2
-	$pixova_lite_testimonial_2_person_name = get_theme_mod( 'pixova_lite_testimonial_2_person_name', __( 'Katie Parry - Aviato', 'pixova-lite' ) );
-	$pixova_lite_testimonial_2_person_description = get_theme_mod( 'pixova_lite_testimonial_2_person_description', __( 'Working with Pixova has been the experience of a lifetime. I strongly recommend these guys for their amazing support. Lorem ipsum dolor sit amet lorem ipsum.', 'pixova-lite' ) );
+# Image Manipulation
+$pixova_lite_testimonial_2_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_2_person_image' );
+$pixova_lite_testimonial_2_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_2_person_image_customizer, 'thumbnail' );
 
-	# Image Manipulation
-	$pixova_lite_testimonial_2_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_2_person_image', get_template_directory_uri() . '/layout/images/testimonials/teammembru_burned2-92x92.jpg' );
-	$pixova_lite_testimonial_2_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_2_person_image_customizer, 'thumbnail' );
+if ( ! $pixova_lite_testimonial_2_person_image ) {
+	$pixova_lite_testimonial_2_person_image = $pixova_lite_testimonial_2_person_image_customizer;
+}
 
-	if ( ! $pixova_lite_testimonial_2_person_image ) {
-		$pixova_lite_testimonial_2_person_image = $pixova_lite_testimonial_2_person_image_customizer;
-	}
+// Testimonial #3
+$pixova_lite_testimonial_3_person_name = get_theme_mod( 'pixova_lite_testimonial_3_person_name' );
+$pixova_lite_testimonial_3_person_description = get_theme_mod( 'pixova_lite_testimonial_3_person_description' );
 
-	// Testimonial #3
-	$pixova_lite_testimonial_3_person_name = get_theme_mod( 'pixova_lite_testimonial_3_person_name', __( 'Katie Parry - Aviato', 'pixova-lite' ) );
-	$pixova_lite_testimonial_3_person_description = get_theme_mod( 'pixova_lite_testimonial_3_person_description', __( 'Working with Pixova has been the experience of a lifetime. I strongly recommend these guys for their amazing support. Lorem ipsum dolor sit amet lorem ipsum.', 'pixova-lite' ) );
+# Image Manipulation
+$pixova_lite_testimonial_3_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_3_person_image' );
+$pixova_lite_testimonial_3_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_3_person_image_customizer, 'thumbnail' );
 
-	# Image Manipulation
-	$pixova_lite_testimonial_3_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_3_person_image', get_template_directory_uri() . '/layout/images/testimonials/teammembru_burned-92x92.jpg' );
-	$pixova_lite_testimonial_3_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_3_person_image_customizer, 'thumbnail' );
+if ( ! $pixova_lite_testimonial_3_person_image ) {
+	$pixova_lite_testimonial_3_person_image = $pixova_lite_testimonial_3_person_image_customizer;
+}
 
-	if ( ! $pixova_lite_testimonial_3_person_image ) {
-		$pixova_lite_testimonial_3_person_image = $pixova_lite_testimonial_3_person_image_customizer;
-	}
+// Testimonial #4
+$pixova_lite_testimonial_4_person_name = get_theme_mod( 'pixova_lite_testimonial_4_person_name' );
+$pixova_lite_testimonial_4_person_description = get_theme_mod( 'pixova_lite_testimonial_4_person_description' );
 
-	// Testimonial #4
-	$pixova_lite_testimonial_4_person_name = get_theme_mod( 'pixova_lite_testimonial_4_person_name', __( 'Katie Parry - Aviato', 'pixova-lite' ) );
-	$pixova_lite_testimonial_4_person_description = get_theme_mod( 'pixova_lite_testimonial_4_person_description', __( 'Working with Pixova has been the experience of a lifetime. I strongly recommend these guys for their amazing support. Lorem ipsum dolor sit amet lorem ipsum.', 'pixova-lite' ) );
+# Image Manipulation
+$pixova_lite_testimonial_4_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_4_person_image' );
+$pixova_lite_testimonial_4_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_4_person_image_customizer, 'thumbnail' );
 
-	# Image Manipulation
-	$pixova_lite_testimonial_4_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_4_person_image', get_template_directory_uri() . '/layout/images/testimonials/teammembru_burned2-92x92.jpg' );
-	$pixova_lite_testimonial_4_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_4_person_image_customizer, 'thumbnail' );
+if ( ! $pixova_lite_testimonial_4_person_image ) {
+	$pixova_lite_testimonial_4_person_image = $pixova_lite_testimonial_4_person_image_customizer;
+}
 
-	if ( ! $pixova_lite_testimonial_4_person_image ) {
-		$pixova_lite_testimonial_4_person_image = $pixova_lite_testimonial_4_person_image_customizer;
-	}
+// Testimonial #5
+$pixova_lite_testimonial_5_person_name = get_theme_mod( 'pixova_lite_testimonial_5_person_name' );
+$pixova_lite_testimonial_5_person_description = get_theme_mod( 'pixova_lite_testimonial_5_person_description' );
 
-	// Testimonial #5
-	$pixova_lite_testimonial_5_person_name = get_theme_mod( 'pixova_lite_testimonial_5_person_name', __( 'Katie Parry - Aviato', 'pixova-lite' ) );
-	$pixova_lite_testimonial_5_person_description = get_theme_mod( 'pixova_lite_testimonial_5_person_description', __( 'Working with Pixova has been the experience of a lifetime. I strongly recommend these guys for their amazing support. Lorem ipsum dolor sit amet lorem ipsum.', 'pixova-lite' ) );
+# Image Manipulation
+$pixova_lite_testimonial_5_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_5_person_image' );
+$pixova_lite_testimonial_5_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_5_person_image_customizer, 'thumbnail' );
 
-	# Image Manipulation
-	$pixova_lite_testimonial_5_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_5_person_image', get_template_directory_uri() . '/layout/images/testimonials/teammembru_burned-92x92.jpg' );
-	$pixova_lite_testimonial_5_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_5_person_image_customizer, 'thumbnail' );
-
-	if ( ! $pixova_lite_testimonial_5_person_image ) {
-		$pixova_lite_testimonial_5_person_image = $pixova_lite_testimonial_5_person_image_customizer;
-	}
-} else {
-
-	$pixova_lite_section_title = get_theme_mod( 'pixova_lite_testimonial_section_title' );
-	$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_testimonial_section_sub_title' );
-
-	// Testimonial #1
-	$pixova_lite_testimonial_1_person_name = get_theme_mod( 'pixova_lite_testimonial_1_person_name' );
-	$pixova_lite_testimonial_1_person_description = get_theme_mod( 'pixova_lite_testimonial_1_person_description' );
-
-	# Image Manipulation
-	$pixova_lite_testimonial_1_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_1_person_image' );
-	$pixova_lite_testimonial_1_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_1_person_image_customizer, 'thumbnail' );
-
-	# For default images, we don't have an ID stored
-	if ( ! $pixova_lite_testimonial_1_person_image ) {
-		$pixova_lite_testimonial_1_person_image = $pixova_lite_testimonial_1_person_image_customizer;
-	}
-
-	// Testimonial #2
-	$pixova_lite_testimonial_2_person_name = get_theme_mod( 'pixova_lite_testimonial_2_person_name' );
-	$pixova_lite_testimonial_2_person_description = get_theme_mod( 'pixova_lite_testimonial_2_person_description' );
-
-	# Image Manipulation
-	$pixova_lite_testimonial_2_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_2_person_image' );
-	$pixova_lite_testimonial_2_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_2_person_image_customizer, 'thumbnail' );
-
-	if ( ! $pixova_lite_testimonial_2_person_image ) {
-		$pixova_lite_testimonial_2_person_image = $pixova_lite_testimonial_2_person_image_customizer;
-	}
-
-	// Testimonial #3
-	$pixova_lite_testimonial_3_person_name = get_theme_mod( 'pixova_lite_testimonial_3_person_name' );
-	$pixova_lite_testimonial_3_person_description = get_theme_mod( 'pixova_lite_testimonial_3_person_description' );
-
-	# Image Manipulation
-	$pixova_lite_testimonial_3_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_3_person_image' );
-	$pixova_lite_testimonial_3_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_3_person_image_customizer, 'thumbnail' );
-
-	if ( ! $pixova_lite_testimonial_3_person_image ) {
-		$pixova_lite_testimonial_3_person_image = $pixova_lite_testimonial_3_person_image_customizer;
-	}
-
-	// Testimonial #4
-	$pixova_lite_testimonial_4_person_name = get_theme_mod( 'pixova_lite_testimonial_4_person_name' );
-	$pixova_lite_testimonial_4_person_description = get_theme_mod( 'pixova_lite_testimonial_4_person_description' );
-
-	# Image Manipulation
-	$pixova_lite_testimonial_4_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_4_person_image' );
-	$pixova_lite_testimonial_4_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_4_person_image_customizer, 'thumbnail' );
-
-	if ( ! $pixova_lite_testimonial_4_person_image ) {
-		$pixova_lite_testimonial_4_person_image = $pixova_lite_testimonial_4_person_image_customizer;
-	}
-
-	// Testimonial #5
-	$pixova_lite_testimonial_5_person_name = get_theme_mod( 'pixova_lite_testimonial_5_person_name' );
-	$pixova_lite_testimonial_5_person_description = get_theme_mod( 'pixova_lite_testimonial_5_person_description' );
-
-	# Image Manipulation
-	$pixova_lite_testimonial_5_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_5_person_image' );
-	$pixova_lite_testimonial_5_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_5_person_image_customizer, 'thumbnail' );
-
-	if ( ! $pixova_lite_testimonial_5_person_image ) {
-		$pixova_lite_testimonial_5_person_image = $pixova_lite_testimonial_5_person_image_customizer;
-	}
-}// End if().
+if ( ! $pixova_lite_testimonial_5_person_image ) {
+	$pixova_lite_testimonial_5_person_image = $pixova_lite_testimonial_5_person_image_customizer;
+}
 
 $pixova_lite_no_of_testimonials = 0;
 
@@ -142,23 +74,28 @@ if ( isset( $pixova_lite_testimonial_2_person_image ) && ! empty( $pixova_lite_t
 	$pixova_lite_no_of_testimonials++;
 }
 
-if ( 1 == $pixova_lite_no_of_testimonials || 0 == $pixova_lite_no_of_testimonials ) {
+if ( 1 == $pixova_lite_no_of_testimonials ) {
 	$pixova_lite_wrapper_class = '';
 } elseif ( $pixova_lite_no_of_testimonials > 1 ) {
 	$pixova_lite_wrapper_class = 'owlCarousel big-testimonial';
 }
 
+if ( 0 == $pixova_lite_no_of_testimonials && '' == $pixova_lite_section_title && '' == $pixova_lite_section_sub_title ) {
+	return;
+}
+
 echo '<section class="has-padding" id="testimonials">';
 	echo '<div class="container">';
-		echo '<div class="row">';
-			echo '<div class="text-center section-heading">';
-				echo '<h2 class="light-section-heading">';
-					echo wp_kses_post( $pixova_lite_section_title );
-				echo '</h2>';
-				echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
-			echo '</div><!--/.text-center-->';
-		echo '</div><!--/.row-->';
-
+		if ( '' != $pixova_lite_section_title || '' != $pixova_lite_section_sub_title ) {
+			echo '<div class="row">';
+				echo '<div class="text-center section-heading">';
+					echo '<h2 class="light-section-heading">';
+						echo wp_kses_post( $pixova_lite_section_title );
+					echo '</h2>';
+					echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
+				echo '</div><!--/.text-center-->';
+			echo '</div><!--/.row-->';
+		}
 		echo '<div class="row">';
 
 			echo '<div class="' . $pixova_lite_wrapper_class . ' col-lg-12">';

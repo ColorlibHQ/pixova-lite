@@ -1,59 +1,54 @@
 <?php
 
-if ( ! current_user_can( 'edit_theme_options' ) ) {
+$pixova_lite_section_title = get_theme_mod( 'pixova_lite_contact_section_title' );
+$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_contact_section_sub_title' );
 
-	$pixova_lite_section__title = get_theme_mod( 'pixova_lite_contact_section_title' );
-	$pixova_lite_section__sub_title = get_theme_mod( 'pixova_lite_contact_section_sub_title' );
+// section args
+$pixova_lite_contact_section_address = get_theme_mod( 'pixova_lite_address' );
+$pixova_lite_contact_section_phone = get_theme_mod( 'pixova_lite_phone' );
+$pixova_lite_contact_section_email = get_theme_mod( 'pixova_lite_email' );
+$pixova_lite_contact_cf7_form = get_theme_mod( 'pixova_lite_contact_section_cf7' );
+$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
 
-	// section args
-	$pixova_lite_contact_section_address = get_theme_mod( 'pixova_lite_address' );
-	$pixova_lite_contact_section_phone = get_theme_mod( 'pixova_lite_phone' );
-	$pixova_lite_contact_section_email = get_theme_mod( 'pixova_lite_email' );
-	$pixova_lite_contact_cf7_form = get_theme_mod( 'pixova_lite_contact_section_cf7' );
-	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
+$pixova_lite_contact_first_heading = get_theme_mod( 'pixova_lite_contact_first_heading' );
+$pixova_lite_contact_second_heading = get_theme_mod( 'pixova_lite_contact_second_heading' );
 
-} else {
-
-	$pixova_lite_section__title = get_theme_mod( 'pixova_lite_contact_section_title', __( 'Contact us', 'pixova-lite' ) );
-	$pixova_lite_section__sub_title = get_theme_mod( 'pixova_lite_contact_section_sub_title', __( 'And we\'ll reply in no time', 'pixova-lite' ) );
-
-	// section args
-	$pixova_lite_contact_section_address = get_theme_mod( 'pixova_lite_address', __( 'Street 221B Baker Street, London, UK', 'pixova-lite' ) );
-	$pixova_lite_contact_section_phone = get_theme_mod( 'pixova_lite_phone', '+444 974 525' );
-	$pixova_lite_contact_section_email = get_theme_mod( 'pixova_lite_email', 'office@colorlib.com' );
-	$pixova_lite_contact_cf7_form = get_theme_mod( 'pixova_lite_contact_section_cf7', '' );
-	$pixova_lite_contact_section_type = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
+if ( '' == $pixova_lite_section_title && '' == $pixova_lite_section_sub_title && '' == $pixova_lite_contact_section_address && '' == $pixova_lite_contact_section_phone && '' == $pixova_lite_contact_section_email && ( 'contact-form-7' == $pixova_lite_contact_section_type && '' == $pixova_lite_contact_cf7_form ) ) {
+	return;
 }
-
-$pixova_lite_contact_first_heading = get_theme_mod( 'pixova_lite_contact_first_heading', __( 'Address', 'pixova-lite' ) );
-$pixova_lite_contact_second_heading = get_theme_mod( 'pixova_lite_contact_second_heading', __( 'Customer Support', 'pixova-lite' ) );
 
 echo '<section class="has-padding" id="contact">';
 	echo '<div class="container">';
-		echo '<div class="row">';
-			echo '<div class="text-center section-heading">';
-				echo '<h2 class="light-section-heading">';
-					echo wp_kses_post( $pixova_lite_section__title );
-				echo '</h2><!--/.section-heading.light-section-heading-->';
-					echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section__sub_title ) . '</div>';
-			echo '</div><!--/.text-center-->';
-		echo '</div><!--/.row-->';
+		if ( '' != $pixova_lite_section_title || '' != $pixova_lite_section_sub_title ) {
+			echo '<div class="row">';
+				echo '<div class="text-center section-heading">';
+					echo '<h2 class="light-section-heading">';
+						echo wp_kses_post( $pixova_lite_section_title );
+					echo '</h2><!--/.section-heading.light-section-heading-->';
+						echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
+				echo '</div><!--/.text-center-->';
+			echo '</div><!--/.row-->';
+		}
 
 		echo '<div class="row">';
 
 		echo '<div class="col-md-3">';
 			echo '<div class="pixova-contact-info">';
-				echo '<h3 class="address">' . wp_kses_post( $pixova_lite_contact_first_heading ) . '</h3>';
-
+				if ( '' != $pixova_lite_contact_first_heading ) {
+					echo '<h3 class="address">' . wp_kses_post( $pixova_lite_contact_first_heading ) . '</h3>';
+				}
+				if ( '' != $pixova_lite_contact_section_address ) {
 					echo '<p class="contact-info-details address"><span>' . wp_kses_post( $pixova_lite_contact_section_address ) . '</span></p>';
-
-				echo '<h3 class="support">' . wp_kses_post( $pixova_lite_contact_second_heading ) . '</h3>';
-
-					echo '<p class="contact-info-details-phone">' . __( 'Phone: ', 'pixova-lite' ) . '<span>' . wp_kses_post( $pixova_lite_contact_section_phone ) . '</span>';
-				echo '</p>';
-
-					echo '<p class="contact-info-details-email">' . __( 'Email: ', 'pixova-lite' ) . '<span>' . wp_kses_post( $pixova_lite_contact_section_email ) . '</span>';
-				echo '</p>';
+				}
+				if ( '' != $pixova_lite_contact_second_heading ) {
+					echo '<h3 class="support">' . wp_kses_post( $pixova_lite_contact_second_heading ) . '</h3>';
+				}
+				if ( '' != $pixova_lite_contact_section_phone ) {
+					echo '<p class="contact-info-details-phone">' . __( 'Phone: ', 'pixova-lite' ) . '<span>' . wp_kses_post( $pixova_lite_contact_section_phone ) . '</span></p>';
+				}
+				if ( '' != $pixova_lite_contact_section_email ) {
+					echo '<p class="contact-info-details-email">' . __( 'Email: ', 'pixova-lite' ) . '<span>' . wp_kses_post( $pixova_lite_contact_section_email ) . '</span></p>';
+				}
 
 				echo '</div><!--/.contact-info-details-->';
 			echo '</div><!--/.pixova-contact-info-->';

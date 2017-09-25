@@ -1,18 +1,7 @@
 <?php
 
-if ( current_user_can( 'edit_theme_options' ) ) {
-
-	$pixova_lite_section_title     = get_theme_mod( 'pixova_lite_news_section_title', __( 'Latest news', 'pixova-lite' ) );
-	$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_news_section_sub_title', __( 'Straight from our blog', 'pixova-lite' ) );
-
-} else {
-
-	$pixova_lite_section_title     = get_theme_mod( 'pixova_lite_news_section_title' );
-	$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_news_section_sub_title' );
-
-}
-
-
+$pixova_lite_section_title     = get_theme_mod( 'pixova_lite_news_section_title' );
+$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_news_section_sub_title' );
 $pixova_lite_news_button_text                = get_theme_mod( 'pixova_lite_news_section_button_text' );
 $pixova_lite_news_section_no_posts_per_slide = get_theme_mod( 'pixova_lite_news_section_no_posts_per_slide', 2 );
 
@@ -40,12 +29,16 @@ $page_which_uses_blog_template = pixova_lite_get_page_id_by_template();
 $random_featured_images = get_theme_mod( 'pixova_lite_enable_default_images', 'images_disabled' );
 echo '<section class="has-padding" id="news">';
 echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="text-center section-heading">';
-echo '<h2 class="light-section-heading">' . wp_kses_post( $pixova_lite_section_title ) . '</h2>';
-echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
-echo '</div><!--/.text-center.section-heading-->';
-echo '</div><!--/.row-->';
+
+if ( '' != $pixova_lite_section_title || '' != $pixova_lite_section_sub_title ) {
+	echo '<div class="row">';
+	echo '<div class="text-center section-heading">';
+	echo '<h2 class="light-section-heading">' . wp_kses_post( $pixova_lite_section_title ) . '</h2>';
+	echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
+	echo '</div><!--/.text-center.section-heading-->';
+	echo '</div><!--/.row-->';
+}
+
 echo '<div class="row">';
 // query args
 $args          = array(
