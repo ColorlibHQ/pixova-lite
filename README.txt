@@ -1,5 +1,5 @@
 === Pixova Lite ===
-Contributors:		machothemes
+Contributors:		colorlib
 Tags:               one-column, two-columns, three-columns, four-columns, right-sidebar, custom-header, custom-menu, featured-image-header, featured-images, full-width-template, threaded-comments, translation-ready
 Requires at least:	4.0
 Tested up to:		4.4.2
@@ -9,7 +9,7 @@ Pixova Lite
 A modern design with clean lines and styling for a wide variety of content. Exactly how a business design should be. Pixova features a custom parallax, randomised header - you can add as many images as you want to the main header area. Animations have been added, theme is optimized for loading speed.
 
 = License =
-Pixova Lite WordPress theme, Copyright (C) 2015 MachoThemes.com
+Pixova Lite WordPress theme, Copyright (C) 2017 Colorlib.com
 Pixova Lite WordPress theme is licensed under the GPL3.
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.

@@ -1,3 +1,16 @@
+### 2.0.1
+    - Removed user capability checks for displaying content on the front-page ( https://github.com/puikinsh/pixova-lite/issues/83 )
+    - Fixed team social links ( https://github.com/puikinsh/pixova-lite/issues/82 )
+    - When opening a front-page panel now, it automatically scrolls you to it.
+
+### 1.48
+    - Removed extraneous notices in WP admin dashboard #72
+    - Improved theme activation notification as per #73
+    - Removed more-themes.css #74
+    - Adds an easy way of setting the front-page to static #75
+    - Adds Colorlib recommended plugins #77
+    - Adds sortable icon to front-page sections #80
+
 ### 1.46.5
     - Removed Kiwi as recommended plugin
 
