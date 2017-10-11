@@ -175,12 +175,12 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 				'modula-best-grid-gallery' => array(
 					'recommended' => true,
 				),
-                'fancybox-for-wordpress' => array(
-                    'recommended' => false,
-                ),
-                'simple-custom-post-order' => array(
-                    'recommended' => false,
-                ),
+				'fancybox-for-wordpress' => array(
+					'recommended' => false,
+				),
+				'simple-custom-post-order' => array(
+					'recommended' => false,
+				),
 			);
 
 			/*
@@ -192,20 +192,20 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
              *
              */
 			$pixova_required_actions  = array(
-                array(
-                    'id' => 'pixova-lite-req-ac-install-contact-forms',
-                    'title' => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
-                    'description' => esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
-                    'check'       => Pixova_Notify_System::has_plugin( 'contact-form-7' ),
-                    'plugin_slug' => 'contact-form-7',
-                ),
-                array(
-                    'id' => 'pixova-lite-import-demo-content',
-                    'title'       => esc_html__( 'Add sample content', 'pixova-lite' ),
+				array(
+					'id' => 'pixova-lite-req-ac-install-contact-forms',
+					'title' => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
+					'description' => esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
+					'check'       => Pixova_Notify_System::has_plugin( 'contact-form-7' ),
+					'plugin_slug' => 'contact-form-7',
+				),
+				array(
+					'id' => 'pixova-lite-import-demo-content',
+					'title'       => esc_html__( 'Add sample content', 'pixova-lite' ),
 					'description' => esc_html__( 'Clicking the button below will add content and set static front page to your WordPress installation. Click advanced to customize the import process.', 'pixova-lite' ),
-                    "help"        => array( 'Epsilon_Welcome_Screen', 'demo_content_html' ),
-                    'check'       => Pixova_Notify_System::check_for_content(),
-                ),
+					'help'        => array( 'Epsilon_Welcome_Screen', 'demo_content_html' ),
+					'check'       => Pixova_Notify_System::check_for_content(),
+				),
 			);
 
 			if ( is_customize_preview() ) {
@@ -637,58 +637,58 @@ Epsilon_Typography::get_instance( $options, $handler );
 $handler = 'pixova-lite-min-style';
 
 $args = array(
-  'fields' => array(
-    'pixova_lite_accent_color' => array(
-      'label'       => __( 'Accent Color', 'pixova-lite' ),
-      'description' => __( 'The main color used for links, buttons, and more.', 'pixova-lite' ),
-      'default'     => '#ffce55',
-      'section'     => 'pixova_lite_colors',
-      'hover-state' => true,
-    ),
+	'fields' => array(
+		'pixova_lite_accent_color' => array(
+			'label'       => __( 'Accent Color', 'pixova-lite' ),
+			'description' => __( 'The main color used for links, buttons, and more.', 'pixova-lite' ),
+			'default'     => '#ffce55',
+			'section'     => 'pixova_lite_colors',
+			'hover-state' => true,
+		),
 
-    'pixova_lite_heading_color' => array(
-      'label'       => __( 'Heading Color', 'pixova-lite' ),
-      'description' => __( 'The color used for headings.', 'pixova-lite' ),
-      'default'     => '#222533',
-      'section'     => 'pixova_lite_colors',
-      'hover-state' => false,
-    ),
+		'pixova_lite_heading_color' => array(
+			'label'       => __( 'Heading Color', 'pixova-lite' ),
+			'description' => __( 'The color used for headings.', 'pixova-lite' ),
+			'default'     => '#222533',
+			'section'     => 'pixova_lite_colors',
+			'hover-state' => false,
+		),
 
-    'pixova_lite_text_color' => array(
-      'label'       => __( 'Text Color', 'pixova-lite' ),
-      'description' => __( 'The color used for paragraphs, links, etc.', 'pixova-lite' ),
-      'default'     => '#777',
-      'section'     => 'pixova_lite_colors',
-      'hover-state' => false,
-    ),
+		'pixova_lite_text_color' => array(
+			'label'       => __( 'Text Color', 'pixova-lite' ),
+			'description' => __( 'The color used for paragraphs, links, etc.', 'pixova-lite' ),
+			'default'     => '#777',
+			'section'     => 'pixova_lite_colors',
+			'hover-state' => false,
+		),
 
-    'pixova_lite_hover_color' => array(
-      'label'       => __( 'Hover Color', 'pixova-lite' ),
-      'description' => __( 'The color used for hover on elements.', 'pixova-lite' ),
-      'default'     => '#ffce55',
-      'section'     => 'pixova_lite_colors',
-      'hover-state' => true,
-    ),
+		'pixova_lite_hover_color' => array(
+			'label'       => __( 'Hover Color', 'pixova-lite' ),
+			'description' => __( 'The color used for hover on elements.', 'pixova-lite' ),
+			'default'     => '#ffce55',
+			'section'     => 'pixova_lite_colors',
+			'hover-state' => true,
+		),
 
-    'pixova_lite_footer_bg_color' => array(
-      'label'       => __( 'Footer Background Color', 'pixova-lite' ),
-      'description' => __( 'The color used for the footer background.', 'pixova-lite' ),
-      'default'     => '#1f1f1f',
-      'section'     => 'pixova_lite_colors',
-      'hover-state' => false,
-    ),
+		'pixova_lite_footer_bg_color' => array(
+			'label'       => __( 'Footer Background Color', 'pixova-lite' ),
+			'description' => __( 'The color used for the footer background.', 'pixova-lite' ),
+			'default'     => '#1f1f1f',
+			'section'     => 'pixova_lite_colors',
+			'hover-state' => false,
+		),
 
-    'pixova_lite_footer_widget_bg_color' => array(
-      'label'       => __( 'Footer Widget Background Color', 'pixova-lite' ),
-      'description' => __( 'The color used for the footer widgets background.', 'pixova-lite' ),
-      'default'     => '#313233',
-      'section'     => 'pixova_lite_colors',
-      'hover-state' => false,
-    ),
-    
-  ),
+		'pixova_lite_footer_widget_bg_color' => array(
+			'label'       => __( 'Footer Widget Background Color', 'pixova-lite' ),
+			'description' => __( 'The color used for the footer widgets background.', 'pixova-lite' ),
+			'default'     => '#313233',
+			'section'     => 'pixova_lite_colors',
+			'hover-state' => false,
+		),
 
-  'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/layout/css/style-overrides.css' )
+	),
+
+	'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/layout/css/style-overrides.css' ),
 );
 
 Epsilon_Color_Scheme::get_instance( $handler, $args );

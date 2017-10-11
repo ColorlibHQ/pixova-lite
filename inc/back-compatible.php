@@ -95,7 +95,7 @@ if ( ! $check_for_compatibility ) {
 
 	$pixova_settings = get_theme_mods();
 	if ( $pixova_settings ) {
-		
+
 		$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
 		$new_fields = false;
 		foreach ( $pixova_settings as $key => $value ) {
@@ -115,7 +115,6 @@ if ( ! $check_for_compatibility ) {
 			update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
 			Pixova_Lite_Helper::create_content_from_options( $existing_settings );
 		}
-
 	}
 
 	update_option( 'pixova-customizer-v2', true );

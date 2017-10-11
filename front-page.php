@@ -112,13 +112,11 @@ else {
 	);
 
 	foreach ( $sections as $section ) {
-		
+
 		if ( get_theme_mod( $sections_args[ $section ]['check'], 1 ) ) {
 			get_template_part( 'sections/section', $sections_args[ $section ]['template'] );
 		}
-
 	}
-
 } // else
 ?>
 

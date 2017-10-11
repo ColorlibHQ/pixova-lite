@@ -10,8 +10,8 @@ if ( ! defined( 'WPINC' ) ) {
 }
 ?>
 <div class="feature-section two-col">
-    <div class="col">
-        <h3><i class="dashicons dashicons-sos"></i><?php esc_html_e( 'Contact Support', 'epsilon-framework' ); ?></h3>
+	<div class="col">
+		<h3><i class="dashicons dashicons-sos"></i><?php esc_html_e( 'Contact Support', 'epsilon-framework' ); ?></h3>
 		<p>
 			<i><?php esc_html_e( 'We offer excellent support through our advanced ticketing system. Make sure to register your purchase before contacting support!', 'epsilon-framework' ) ?></i>
 		</p>

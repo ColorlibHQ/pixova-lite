@@ -156,7 +156,7 @@ class Pixova_Lite_Helper {
 		'pixova_lite_team_member_5_linkedin',
 		'pixova_lite_team_member_5_pinterest',
 		'pixova_lite_team_member_5_instagram',
-		'pixova_lite_team_member_5_googleplus'
+		'pixova_lite_team_member_5_googleplus',
 	);
 
 
@@ -447,7 +447,7 @@ function add_states_for_pixova_settings_page( $post_states, $post ) {
 
 add_action( 'customize_update_epsilon_page', 'pixova_lite_save_custom_setting', 10, 2 );
 
-function pixova_lite_save_custom_setting( $value, $setting ){
+function pixova_lite_save_custom_setting( $value, $setting ) {
 
 	$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
 	$key = $setting->id;
@@ -455,7 +455,7 @@ function pixova_lite_save_custom_setting( $value, $setting ){
 	$existing_settings[ $key ] = $value;
 
 	update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
-	
+
 	return true;
 
 }

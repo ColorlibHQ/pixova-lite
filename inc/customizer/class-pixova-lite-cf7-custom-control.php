@@ -57,10 +57,9 @@ if ( ! class_exists( 'Pixova_Lite_CF7_Custom_Control' ) ) {
 					foreach ( $cf7forms->posts as $cf7form ) {
 						$contact_forms[ $cf7form->ID ] = $cf7form->post_title;
 					}
-				}else{
+				} else {
 					$contact_forms[0] = __( 'No contact forms found', 'pixova-lite' );
 				}
-
 			}
 			return $contact_forms;
 		}
