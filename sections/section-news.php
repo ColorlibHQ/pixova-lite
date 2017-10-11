@@ -1,7 +1,7 @@
 <?php
 
-$pixova_lite_section_title     = get_theme_mod( 'pixova_lite_news_section_title' );
-$pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_news_section_sub_title' );
+$pixova_lite_section_title                   = get_theme_mod( 'pixova_lite_news_section_title' );
+$pixova_lite_section_sub_title               = get_theme_mod( 'pixova_lite_news_section_sub_title' );
 $pixova_lite_news_button_text                = get_theme_mod( 'pixova_lite_news_section_button_text' );
 $pixova_lite_news_section_no_posts_per_slide = get_theme_mod( 'pixova_lite_news_section_no_posts_per_slide', 2 );
 

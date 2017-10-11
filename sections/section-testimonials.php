@@ -1,15 +1,15 @@
 <?php
 
-$pixova_lite_section_title = get_theme_mod( 'pixova_lite_testimonial_section_title' );
+$pixova_lite_section_title     = get_theme_mod( 'pixova_lite_testimonial_section_title' );
 $pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_testimonial_section_sub_title' );
 
 // Testimonial #1
-$pixova_lite_testimonial_1_person_name = get_theme_mod( 'pixova_lite_testimonial_1_person_name' );
+$pixova_lite_testimonial_1_person_name        = get_theme_mod( 'pixova_lite_testimonial_1_person_name' );
 $pixova_lite_testimonial_1_person_description = get_theme_mod( 'pixova_lite_testimonial_1_person_description' );
 
 # Image Manipulation
 $pixova_lite_testimonial_1_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_1_person_image' );
-$pixova_lite_testimonial_1_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_1_person_image_customizer, 'thumbnail' );
+$pixova_lite_testimonial_1_person_image            = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_1_person_image_customizer, 'thumbnail' );
 
 # For default images, we don't have an ID stored
 if ( ! $pixova_lite_testimonial_1_person_image ) {
@@ -17,48 +17,48 @@ if ( ! $pixova_lite_testimonial_1_person_image ) {
 }
 
 // Testimonial #2
-$pixova_lite_testimonial_2_person_name = get_theme_mod( 'pixova_lite_testimonial_2_person_name' );
+$pixova_lite_testimonial_2_person_name        = get_theme_mod( 'pixova_lite_testimonial_2_person_name' );
 $pixova_lite_testimonial_2_person_description = get_theme_mod( 'pixova_lite_testimonial_2_person_description' );
 
 # Image Manipulation
 $pixova_lite_testimonial_2_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_2_person_image' );
-$pixova_lite_testimonial_2_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_2_person_image_customizer, 'thumbnail' );
+$pixova_lite_testimonial_2_person_image            = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_2_person_image_customizer, 'thumbnail' );
 
 if ( ! $pixova_lite_testimonial_2_person_image ) {
 	$pixova_lite_testimonial_2_person_image = $pixova_lite_testimonial_2_person_image_customizer;
 }
 
 // Testimonial #3
-$pixova_lite_testimonial_3_person_name = get_theme_mod( 'pixova_lite_testimonial_3_person_name' );
+$pixova_lite_testimonial_3_person_name        = get_theme_mod( 'pixova_lite_testimonial_3_person_name' );
 $pixova_lite_testimonial_3_person_description = get_theme_mod( 'pixova_lite_testimonial_3_person_description' );
 
 # Image Manipulation
 $pixova_lite_testimonial_3_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_3_person_image' );
-$pixova_lite_testimonial_3_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_3_person_image_customizer, 'thumbnail' );
+$pixova_lite_testimonial_3_person_image            = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_3_person_image_customizer, 'thumbnail' );
 
 if ( ! $pixova_lite_testimonial_3_person_image ) {
 	$pixova_lite_testimonial_3_person_image = $pixova_lite_testimonial_3_person_image_customizer;
 }
 
 // Testimonial #4
-$pixova_lite_testimonial_4_person_name = get_theme_mod( 'pixova_lite_testimonial_4_person_name' );
+$pixova_lite_testimonial_4_person_name        = get_theme_mod( 'pixova_lite_testimonial_4_person_name' );
 $pixova_lite_testimonial_4_person_description = get_theme_mod( 'pixova_lite_testimonial_4_person_description' );
 
 # Image Manipulation
 $pixova_lite_testimonial_4_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_4_person_image' );
-$pixova_lite_testimonial_4_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_4_person_image_customizer, 'thumbnail' );
+$pixova_lite_testimonial_4_person_image            = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_4_person_image_customizer, 'thumbnail' );
 
 if ( ! $pixova_lite_testimonial_4_person_image ) {
 	$pixova_lite_testimonial_4_person_image = $pixova_lite_testimonial_4_person_image_customizer;
 }
 
 // Testimonial #5
-$pixova_lite_testimonial_5_person_name = get_theme_mod( 'pixova_lite_testimonial_5_person_name' );
+$pixova_lite_testimonial_5_person_name        = get_theme_mod( 'pixova_lite_testimonial_5_person_name' );
 $pixova_lite_testimonial_5_person_description = get_theme_mod( 'pixova_lite_testimonial_5_person_description' );
 
 # Image Manipulation
 $pixova_lite_testimonial_5_person_image_customizer = get_theme_mod( 'pixova_lite_testimonial_5_person_image' );
-$pixova_lite_testimonial_5_person_image = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_5_person_image_customizer, 'thumbnail' );
+$pixova_lite_testimonial_5_person_image            = pixova_lite_get_customizer_image_by_url( $pixova_lite_testimonial_5_person_image_customizer, 'thumbnail' );
 
 if ( ! $pixova_lite_testimonial_5_person_image ) {
 	$pixova_lite_testimonial_5_person_image = $pixova_lite_testimonial_5_person_image_customizer;
@@ -86,16 +86,16 @@ if ( 0 == $pixova_lite_no_of_testimonials && '' == $pixova_lite_section_title &&
 
 echo '<section class="has-padding" id="testimonials">';
 	echo '<div class="container">';
-		if ( '' != $pixova_lite_section_title || '' != $pixova_lite_section_sub_title ) {
-			echo '<div class="row">';
-				echo '<div class="text-center section-heading">';
-					echo '<h2 class="light-section-heading">';
-						echo wp_kses_post( $pixova_lite_section_title );
-					echo '</h2>';
-					echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
-				echo '</div><!--/.text-center-->';
-			echo '</div><!--/.row-->';
-		}
+if ( '' != $pixova_lite_section_title || '' != $pixova_lite_section_sub_title ) {
+	echo '<div class="row">';
+	echo '<div class="text-center section-heading">';
+	echo '<h2 class="light-section-heading">';
+		echo wp_kses_post( $pixova_lite_section_title );
+	echo '</h2>';
+	echo '<div class="section-sub-heading">' . wp_kses_post( $pixova_lite_section_sub_title ) . '</div>';
+	echo '</div><!--/.text-center-->';
+	echo '</div><!--/.row-->';
+}
 		echo '<div class="row">';
 
 			echo '<div class="' . $pixova_lite_wrapper_class . ' col-lg-12">';
@@ -276,7 +276,7 @@ if ( isset( $pixova_lite_testimonial_5_person_image ) && ! empty( $pixova_lite_t
 	echo '</div><!--/.media-->';
 	echo '</div>';
 }// End if().
-			 echo '</div><!--/owl-carousel-->';
-		 echo '</div><!--/.row-->';
-	 echo '</div><!--/.container-->';
+			echo '</div><!--/owl-carousel-->';
+		echo '</div><!--/.row-->';
+	echo '</div><!--/.container-->';
 echo '</section><!--/ SECTION -->';

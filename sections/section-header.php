@@ -23,11 +23,13 @@ if ( $image_logo ) {
 	$main_navigation_class = 'main-navigation';
 }
 
-			   echo '<nav class="' . $main_navigation_class . '">';
-					echo wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'fallback_cb' => 'pixova_lite_fallback_cb',
-					) );
+				echo '<nav class="' . $main_navigation_class . '">';
+					echo wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'fallback_cb'    => 'pixova_lite_fallback_cb',
+						)
+					);
 					echo '</nav>';
 					echo '<!-- /main-navigation -->';
 					echo '</div>';
@@ -39,9 +41,11 @@ if ( $image_logo ) {
 					echo '<nav class="mobile-nav-holder">';
 					echo '<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa fa-close"></span></a>';
 					echo '<div class="mobile-nav">';
-					echo wp_nav_menu( array(
-						'theme_location' => 'primary',
-					) );
+					echo wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+						)
+					);
 					echo '</div><!--/.mobile-nav-->';
 					echo '</nav><!--/.mobile-nav-holder-->';
 					echo '</div><!--ofset-canvas-mobile-->';

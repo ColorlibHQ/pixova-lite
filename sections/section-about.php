@@ -1,41 +1,41 @@
 <?php
 
-$pixova_lite_section_title = get_theme_mod( 'pixova_lite_about_section_title' );
+$pixova_lite_section_title     = get_theme_mod( 'pixova_lite_about_section_title' );
 $pixova_lite_section_sub_title = get_theme_mod( 'pixova_lite_about_section_sub_title' );
 
 // Text blocks
-$pixova_lite_section_text_block = get_theme_mod( 'pixova_lite_about_section_textarea' );
+$pixova_lite_section_text_block      = get_theme_mod( 'pixova_lite_about_section_textarea' );
 $pixova_lite_section_text_blockquote = get_theme_mod( 'pixova_lite_about_section_blockquote' );
 
 
 // Section #1 Chart
-$pixova_lite_section_1_chart_heading = get_theme_mod( 'pixova_lite_about_section_chart_1_heading' );
-$pixova_lite_section_1_chart_percentage = get_theme_mod( 'pixova_lite_about_section_chart_1_percentage' );
-$pixova_lite_section_1_chart_bar_color = get_theme_mod( 'pixova_lite_about_section_chart_1_bar_color' );
+$pixova_lite_section_1_chart_heading     = get_theme_mod( 'pixova_lite_about_section_chart_1_heading' );
+$pixova_lite_section_1_chart_percentage  = get_theme_mod( 'pixova_lite_about_section_chart_1_percentage' );
+$pixova_lite_section_1_chart_bar_color   = get_theme_mod( 'pixova_lite_about_section_chart_1_bar_color' );
 $pixova_lite_section_1_chart_track_color = get_theme_mod( 'pixova_lite_about_section_chart_1_track_color' );
 
 // Section #2 Chart
-$pixova_lite_section_2_chart_heading = get_theme_mod( 'pixova_lite_about_section_chart_2_heading' );
-$pixova_lite_section_2_chart_percentage = get_theme_mod( 'pixova_lite_about_section_chart_2_percentage' );
-$pixova_lite_section_2_chart_bar_color = get_theme_mod( 'pixova_lite_about_section_chart_2_bar_color' );
+$pixova_lite_section_2_chart_heading     = get_theme_mod( 'pixova_lite_about_section_chart_2_heading' );
+$pixova_lite_section_2_chart_percentage  = get_theme_mod( 'pixova_lite_about_section_chart_2_percentage' );
+$pixova_lite_section_2_chart_bar_color   = get_theme_mod( 'pixova_lite_about_section_chart_2_bar_color' );
 $pixova_lite_section_2_chart_track_color = get_theme_mod( 'pixova_lite_about_section_chart_2_track_color' );
 
 // Section #3 Chart
-$pixova_lite_section_3_chart_heading = get_theme_mod( 'pixova_lite_about_section_chart_3_heading' );
-$pixova_lite_section_3_chart_percentage = get_theme_mod( 'pixova_lite_about_section_chart_3_percentage' );
-$pixova_lite_section_3_chart_bar_color = get_theme_mod( 'pixova_lite_about_section_chart_3_bar_color' );
+$pixova_lite_section_3_chart_heading     = get_theme_mod( 'pixova_lite_about_section_chart_3_heading' );
+$pixova_lite_section_3_chart_percentage  = get_theme_mod( 'pixova_lite_about_section_chart_3_percentage' );
+$pixova_lite_section_3_chart_bar_color   = get_theme_mod( 'pixova_lite_about_section_chart_3_bar_color' );
 $pixova_lite_section_3_chart_track_color = get_theme_mod( 'pixova_lite_about_section_chart_3_track_color' );
 
 // Section #4 Chart
-$pixova_lite_section_4_chart_heading = get_theme_mod( 'pixova_lite_about_section_chart_4_heading' );
-$pixova_lite_section_4_chart_percentage = get_theme_mod( 'pixova_lite_about_section_chart_4_percentage' );
-$pixova_lite_section_4_chart_bar_color = get_theme_mod( 'pixova_lite_about_section_chart_4_bar_color' );
+$pixova_lite_section_4_chart_heading     = get_theme_mod( 'pixova_lite_about_section_chart_4_heading' );
+$pixova_lite_section_4_chart_percentage  = get_theme_mod( 'pixova_lite_about_section_chart_4_percentage' );
+$pixova_lite_section_4_chart_bar_color   = get_theme_mod( 'pixova_lite_about_section_chart_4_bar_color' );
 $pixova_lite_section_4_chart_track_color = get_theme_mod( 'pixova_lite_about_section_chart_4_track_color' );
 
 // Logic used to dynamically create the layout, based on how many charts are active
 $pixova_lite_no_of_charts = 0;
-$pixova_lite_cols = '';
-$pixova_lite_chart_size = '';
+$pixova_lite_cols         = '';
+$pixova_lite_chart_size   = '';
 
 if ( isset( $pixova_lite_section_1_chart_percentage ) && is_numeric( $pixova_lite_section_1_chart_percentage ) ) {
 	$pixova_lite_no_of_charts++;
@@ -54,16 +54,16 @@ if ( isset( $pixova_lite_section_4_chart_percentage ) && is_numeric( $pixova_lit
 }
 
 if ( 1 == $pixova_lite_no_of_charts ) {
-	$pixova_lite_cols = 'col-md-offset-4 col-sm-offset-3 col-xs-offset-1 text-center';
+	$pixova_lite_cols       = 'col-md-offset-4 col-sm-offset-3 col-xs-offset-1 text-center';
 	$pixova_lite_chart_size = 'col-md-4 col-sm-6 col-xs-10';
 } elseif ( 2 == $pixova_lite_no_of_charts ) {
-	$pixova_lite_cols = 'col-md-offset-4 col-sm-offset-2 text-center';
+	$pixova_lite_cols       = 'col-md-offset-4 col-sm-offset-2 text-center';
 	$pixova_lite_chart_size = 'col-md-4 col-sm-4 col-xs-12';
 } elseif ( 3 == $pixova_lite_no_of_charts ) {
-	$pixova_lite_cols = 'col-md-offset-1 col-xs-12';
+	$pixova_lite_cols       = 'col-md-offset-1 col-xs-12';
 	$pixova_lite_chart_size = 'col-md-3 col-sm-4 col-xs-12';
 } elseif ( 4 == $pixova_lite_no_of_charts ) {
-	$pixova_lite_cols = 'col-xs-12';
+	$pixova_lite_cols       = 'col-xs-12';
 	$pixova_lite_chart_size = 'col-md-3 col-sm-6 col-xs-12';
 }
 
@@ -89,19 +89,19 @@ if ( isset( $pixova_lite_section_text_block ) && ! empty( $pixova_lite_section_t
 	echo wp_kses(
 		$pixova_lite_section_text_block,
 		array(
-			'a' => array(
-				'href' => array(),
+			'a'      => array(
+				'href'  => array(),
 				'title' => array(),
 			),
-			'img' => array(
-				'alt' => array(),
+			'img'    => array(
+				'alt'   => array(),
 				'title' => array(),
-				'src' => array(),
+				'src'   => array(),
 				'class' => array(),
-				'id' => array(),
+				'id'    => array(),
 			),
-			'br' => array(),
-			'em' => array(),
+			'br'     => array(),
+			'em'     => array(),
 			'strong' => array(),
 		)
 	);
@@ -114,19 +114,19 @@ if ( isset( $pixova_lite_section_text_blockquote ) && ! empty( $pixova_lite_sect
 	echo wp_kses(
 		$pixova_lite_section_text_blockquote,
 		array(
-			'a' => array(
-				'href' => array(),
+			'a'      => array(
+				'href'  => array(),
 				'title' => array(),
 			),
-			'img' => array(
-				'alt' => array(),
+			'img'    => array(
+				'alt'   => array(),
 				'title' => array(),
-				'src' => array(),
+				'src'   => array(),
 				'class' => array(),
-				'id' => array(),
+				'id'    => array(),
 			),
-			'br' => array(),
-			'em' => array(),
+			'br'     => array(),
+			'em'     => array(),
 			'strong' => array(),
 		)
 	);
