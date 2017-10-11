@@ -2,8 +2,8 @@
   "name": "pixova-lite",
   "main": "Gruntfile.js",
   "author": "Macho Themes",
-  "version": "2.0.0",
-  "repository": "https://github.com/MachoThemes/pixova-lite",
+  "version": "2.0.2",
+  "repository": "https://github.com/puikinsh/pixova-lite",
   "license": "GPL v3",
   "devDependencies": {
     "grunt": "^0.4.5",
