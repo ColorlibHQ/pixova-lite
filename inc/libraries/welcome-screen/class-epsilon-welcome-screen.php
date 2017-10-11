@@ -597,12 +597,12 @@ class Epsilon_Welcome_Screen {
 	 * Creates a link to install/activate/deactivate certain plugins
 	 *
 	 * @param string $state Plugin state (active,not installed).
-	 * @param string $slug  Plugin slug.
+	 * @param string $slug Plugin slug.
 	 *
 	 * @return string
 	 */
 	private function create_plugin_link( $state, $slug ) {
-		$string = '';
+		$string        = '';
 		$complete_slug = Pixova_Notify_System::_get_plugin_basename_from_slug( $slug );
 		switch ( $state ) {
 			case 'install':
@@ -747,7 +747,7 @@ class Epsilon_Welcome_Screen {
 	}
 
 	public static function demo_content_html() {
-		$html = '<p><a class="button button-primary epsilon-ajax-button" id="add_default_sections" href="#">' . __( 'Import Demo Content', 'epsilon-framework' ) . '</a>';
+		$html  = '<p><a class="button button-primary epsilon-ajax-button" id="add_default_sections" href="#">' . __( 'Import Demo Content', 'epsilon-framework' ) . '</a>';
 		$html .= '<a class="button epsilon-hidden-content-toggler" href="#" data-toggle="welcome-hidden-content">' . __( 'Advanced', 'epsilon-framework' ) . '</a></p>';
 		$html .= '<div class="import-content-container" id="welcome-hidden-content">';
 		$html .= '<div class="demo-content-container" >';
@@ -833,8 +833,8 @@ class Epsilon_Welcome_Screen {
 
 		// Get contact form
 		$args = array(
-			'post_type' => 'wpcf7_contact_form',
-			'post_status' => 'publish',
+			'post_type'      => 'wpcf7_contact_form',
+			'post_status'    => 'publish',
 			'posts_per_page' => 1,
 		);
 

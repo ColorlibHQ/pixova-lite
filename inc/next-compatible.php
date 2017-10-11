@@ -8,7 +8,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 
 	// Add Theme Support: Custom Logo
 	add_theme_support( 'custom-logo', array(
-		'size'  => 'pixova-lite-custom-logo',
+		'size' => 'pixova-lite-custom-logo',
 	) );
 
 	// If a logo has been set previously, update to use logo feature introduced in WordPress 4.5
@@ -25,7 +25,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4.2', '>' ) ) {
 	// Logo
 	add_action( 'pixova_lite_logo', 'pixova_lite_logo_over_442', 1 );
 	function pixova_lite_logo_over_442() {
-		$text_logo = esc_html( get_option( 'blogname' ) );
+		$text_logo  = esc_html( get_option( 'blogname' ) );
 		$image_logo = get_theme_mod( 'pixova_lite_image_logo', false );
 
 		$output = '';

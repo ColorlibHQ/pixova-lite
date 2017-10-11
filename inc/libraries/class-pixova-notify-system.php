@@ -49,11 +49,11 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 		$check = array(
 			'wordpress-importer'       => array(
 				'installed' => false,
-				'active' => false,
+				'active'    => false,
 			),
 			'widget-importer-exporter' => array(
 				'installed' => false,
-				'active' => false,
+				'active'    => false,
 			),
 		);
 

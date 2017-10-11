@@ -4,7 +4,8 @@
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 	</header><!-- .entry-header -->
 	<div class="entry-meta">
-		<?php printf(
+		<?php
+		printf(
 
 			// Translators: 1 is the post author, 2 is the category list.
 			__( '<span class="post-meta-separator"><i class="fa fa-user"></i>%1$s</span><span class="post-meta-separator"><i class="fa fa-calendar"></i>%2$s</span><span class="post-meta-separator"><i class="fa fa-comment"></i>%3$s</span><span class="post-meta-separator"><i class="fa fa-folder"></i>%4$s</span>', 'pixova-lite' ), get_the_author_link(),
@@ -28,10 +29,12 @@
 
 		echo the_excerpt();
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
-			'after'  => '</div>',
-		) );
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
+				'after'  => '</div>',
+			)
+		);
 
 		?>
 	</div><!-- .entry-content -->

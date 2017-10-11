@@ -16,7 +16,7 @@
 	</div>
 </div>
 
- <div class="container">
+<div class="container">
 		<div class="row">
 			<div class="has-padding single-content">
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -33,7 +33,8 @@
 					<?php } ?>
 
 					<div class="entry-meta">
-						<?php printf(
+						<?php
+						printf(
 
 							// Translators: 1 is the post author, 2 is the category list.
 							__( '<span class="post-meta-separator"><i class="fa fa-user"></i>%1$s</span><span class="post-meta-separator"><i class="fa fa-calendar"></i>%2$s</span><span class="post-meta-separator"><i class="fa fa-comment"></i>%3$s</span><span class="post-meta-separator"><i class="fa fa-folder"></i>%4$s</span>', 'pixova-lite' ),
@@ -52,10 +53,12 @@
 						<?php
 						the_content();
 
-						wp_link_pages( array(
-							'before' => '<nav class="page-links">' . __( 'Pages:', 'pixova-lite' ),
-							'after'  => '</nav>',
-						) );
+						wp_link_pages(
+							array(
+								'before' => '<nav class="page-links">' . __( 'Pages:', 'pixova-lite' ),
+								'after'  => '</nav>',
+							)
+						);
 						?>
 					</div><!-- .entry-content -->
 					<div class="clearfix"></div><!--/.clearfix-->
@@ -73,7 +76,7 @@
 			</aside><!--/.col-lg-3-->
 			<div class="clearfix"></div><!--/.clearfix-->
 			<?php
-			  $show_prev_next = get_theme_mod( 'pixova_lite_enable_content_navigation', 1 );
+			$show_prev_next = get_theme_mod( 'pixova_lite_enable_content_navigation', 1 );
 
 			if ( $show_prev_next ) {
 

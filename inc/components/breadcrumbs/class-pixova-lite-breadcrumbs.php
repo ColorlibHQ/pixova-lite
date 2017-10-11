@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class Pixova_Lite_Breadcrumbs
  *
@@ -10,8 +11,6 @@
  * @package     Colorlib
  * @since       Version 1.4
  */
-
-
 class Pixova_Lite_Breadcrumbs {
 
 	/**
@@ -66,32 +65,32 @@ class Pixova_Lite_Breadcrumbs {
 	public function __construct() {
 
 		// Initialize object variables
-		$this->post    = ( isset( $GLOBALS['post'] ) ? $GLOBALS['post'] : null );
+		$this->post = ( isset( $GLOBALS['post'] ) ? $GLOBALS['post'] : null );
 
 		// Setup default array for changeable variables
 		$defaults = array(
-			'home_prefix'              => get_theme_mod( 'pixova_lite_blog_breadcrumb_menu_prefix', __( 'You Are Here', 'pixova-lite' ) ),
-			'separator'                => get_theme_mod( 'pixova_lite_blog_breadcrumb_menu_separator', 'rarr' ),
-			'show_post_type_archive'   => '1',
-			'show_terms'               => get_theme_mod( 'pixova_lite_blog_breadcrumb_menu_post_category', 1 ),
-			'home_label'               => esc_html__( 'Home', 'pixova-lite' ),
-			'tag_archive_prefix'       => esc_html__( 'Tag:', 'pixova-lite' ),
-			'search_prefix'            => esc_html__( 'Search:', 'pixova-lite' ),
-			'error_prefix'             => esc_html__( '404 - Page not Found', 'pixova-lite' ),
+			'home_prefix'            => get_theme_mod( 'pixova_lite_blog_breadcrumb_menu_prefix', __( 'You Are Here', 'pixova-lite' ) ),
+			'separator'              => get_theme_mod( 'pixova_lite_blog_breadcrumb_menu_separator', 'rarr' ),
+			'show_post_type_archive' => '1',
+			'show_terms'             => get_theme_mod( 'pixova_lite_blog_breadcrumb_menu_post_category', 1 ),
+			'home_label'             => esc_html__( 'Home', 'pixova-lite' ),
+			'tag_archive_prefix'     => esc_html__( 'Tag:', 'pixova-lite' ),
+			'search_prefix'          => esc_html__( 'Search:', 'pixova-lite' ),
+			'error_prefix'           => esc_html__( '404 - Page not Found', 'pixova-lite' ),
 		);
 
 		// Setup a filter for changeable variables and meger it with the defaults
-		$args = apply_filters( 'pixova_lite_breadcrumbs_defaults', $defaults );
+		$args     = apply_filters( 'pixova_lite_breadcrumbs_defaults', $defaults );
 		$defaults = wp_parse_args( $args, $defaults );
 
-		$this->home_prefix              = $defaults['home_prefix'];
-		$this->separator                = $defaults['separator'];
-		$this->show_post_type_archive   = $defaults['show_post_type_archive'];
-		$this->show_terms               = $defaults['show_terms'];
-		$this->home_label               = $defaults['home_label'];
-		$this->tag_archive_prefix       = $defaults['tag_archive_prefix'];
-		$this->search_prefix            = $defaults['search_prefix'];
-		$this->error_prefix             = $defaults['error_prefix'];
+		$this->home_prefix            = $defaults['home_prefix'];
+		$this->separator              = $defaults['separator'];
+		$this->show_post_type_archive = $defaults['show_post_type_archive'];
+		$this->show_terms             = $defaults['show_terms'];
+		$this->home_label             = $defaults['home_label'];
+		$this->tag_archive_prefix     = $defaults['tag_archive_prefix'];
+		$this->search_prefix          = $defaults['search_prefix'];
+		$this->error_prefix           = $defaults['error_prefix'];
 
 		// Set separator
 		if ( 'rarr' == $this->separator ) {
@@ -142,9 +141,7 @@ class Pixova_Lite_Breadcrumbs {
 		$this->html_markup .= esc_url( $this->get_breadcrumb_home() );
 
 		// Woocommerce path prefix (e.g "Shop" )
-		if ( class_exists( 'WooCommerce' ) &&
-			 ( ( is_woocommerce() && is_archive() && ! is_shop() ) || is_cart() || is_checkout() || is_account_page() )
-		) {
+		if ( class_exists( 'WooCommerce' ) && ( ( is_woocommerce() && is_archive() && ! is_shop() ) || is_cart() || is_checkout() || is_account_page() ) ) {
 			$this->html_markup .= $this->get_woocommerce_shop_page();
 		}
 
@@ -190,10 +187,8 @@ class Pixova_Lite_Breadcrumbs {
 				global $wp_locale;
 				// Set variables
 				$year = esc_html( get_query_var( 'year' ) );
-				if ( is_month() ||
-					 is_day()
-				) {
-					$month = get_query_var( 'monthnum' );
+				if ( is_month() || is_day() ) {
+					$month      = get_query_var( 'monthnum' );
 					$month_name = $wp_locale->get_month( $month );
 				}
 				// Year Archive, only is a leaf
@@ -224,7 +219,7 @@ class Pixova_Lite_Breadcrumbs {
 					$this->html_markup .= $this->get_breadcrumb_leaf_markup( '404' );
 				}
 			} elseif ( class_exists( 'bbPress' ) ) {
-				 // Search Page
+				// Search Page
 				if ( bbp_is_search() ) {
 					$this->html_markup .= $this->get_breadcrumb_leaf_markup( 'bbpress_search' );
 					// User page
@@ -358,8 +353,8 @@ class Pixova_Lite_Breadcrumbs {
 			// If the term has a parent we need its ancestors for a full tree
 			if ( $term_parent ) {
 				// Get space separated string of term tree in slugs
-				$term_tree = get_ancestors( $terms[0]->term_id, $taxonomy );
-				$term_tree = array_reverse( $term_tree );
+				$term_tree   = get_ancestors( $terms[0]->term_id, $taxonomy );
+				$term_tree   = array_reverse( $term_tree );
 				$term_tree[] = get_term( $terms[0]->term_id, $taxonomy );
 
 				// Loop through the term tree
@@ -381,11 +376,11 @@ class Pixova_Lite_Breadcrumbs {
 
 			// Loop through the rest of the terms, and add them to string comma separated
 			$max_index = count( $terms );
-			$i = 0;
+			$i         = 0;
 			foreach ( $terms as $term ) {
 
 				// For the last index also add the separator
-				if ( ++$i == $max_index ) {
+				if ( ++ $i == $max_index ) {
 					$terms_markup .= ', ' . $this->get_single_breadcrumb_markup( $term->name, get_term_link( $term ), true, false );
 				} else {
 					$terms_markup .= ', ' . $this->get_single_breadcrumb_markup( $term->name, get_term_link( $term ), false, false );
@@ -409,7 +404,7 @@ class Pixova_Lite_Breadcrumbs {
 
 		// Loop through the ids to get the full tree
 		foreach ( $post_ancestor_ids as $post_ancestor_id ) {
-			$post_ancestor = get_post( $post_ancestor_id );
+			$post_ancestor     = get_post( $post_ancestor_id );
 			$ancestors_markup .= $this->get_single_breadcrumb_markup( $post_ancestor->post_title, get_permalink( $post_ancestor->ID ) );
 		}
 
@@ -423,7 +418,7 @@ class Pixova_Lite_Breadcrumbs {
 	 */
 	private function get_taxonomies() {
 		global $wp_query;
-		$term = $wp_query->get_queried_object();
+		$term         = $wp_query->get_queried_object();
 		$terms_markup = '';
 
 		// Make sure we have hierarchical taxonomy and parents
@@ -432,7 +427,7 @@ class Pixova_Lite_Breadcrumbs {
 			$term_ancestors = array_reverse( $term_ancestors );
 			// Loop through ancestors to get the full tree
 			foreach ( $term_ancestors as $term_ancestor ) {
-				$term_object = get_term( $term_ancestor, $term->taxonomy );
+				$term_object   = get_term( $term_ancestor, $term->taxonomy );
 				$terms_markup .= $this->get_single_breadcrumb_markup( $term_object->name, get_term_link( $term_object->term_id, $term->taxonomy ) );
 			}
 		}
@@ -448,9 +443,9 @@ class Pixova_Lite_Breadcrumbs {
 	private function get_post_type_archive( $linked = true ) {
 		global $wp_query;
 
-		$post_type = $wp_query->queried_object->post_type;
+		$post_type        = $wp_query->queried_object->post_type;
 		$post_type_object = get_post_type_object( $post_type );
-		$link = '';
+		$link             = '';
 
 		// Check if we have a post type object
 		if ( is_object( $post_type_object ) ) {
@@ -492,11 +487,11 @@ class Pixova_Lite_Breadcrumbs {
 		$page_id = get_option( 'page_for_posts' );
 		if ( '' == $post_type && $page_id ) {
 			$archive_title = get_the_title( $page_id );
-			$link = get_permalink( $page_id );
+			$link          = get_permalink( $page_id );
 
 		} elseif ( 'post' == $post_type ) {
 			$archive_title = __( 'Home', 'pixova-lite' );
-			$link = site_url( $page_id );
+			$link          = site_url( $page_id );
 		}
 
 		return $this->get_single_breadcrumb_markup( $archive_title, $link );
@@ -510,15 +505,15 @@ class Pixova_Lite_Breadcrumbs {
 	private function get_woocommerce_shop_page( $linked = true ) {
 		global $wp_query;
 
-		$post_type = 'product';
+		$post_type        = 'product';
 		$post_type_object = get_post_type_object( $post_type );
 		$shop_page_markup = '';
-		$link = '';
+		$link             = '';
 
 		// Make sure we are on a woocommerce page
 		if ( is_object( $post_type_object ) && class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) ) {
 			// Get shop page id and then its name
-			$shop_page_id = wc_get_page_id( 'shop' );
+			$shop_page_id   = wc_get_page_id( 'shop' );
 			$shop_page_name = wc_get_page_id( 'shop' ) ? get_the_title( wc_get_page_id( 'shop' ) ) : '';
 
 			// Use the archive name if no shop page was set.
@@ -550,7 +545,8 @@ class Pixova_Lite_Breadcrumbs {
 
 	/**
 	 * Adds the markup of the breadcrumb leaf
-	 * @param  string   $object_id  ID of the current query object
+	 *
+	 * @param  string $object_id ID of the current query object
 	 *
 	 * @return string               The HTML markup of the breadcrumb leaf
 	 */
@@ -559,7 +555,7 @@ class Pixova_Lite_Breadcrumbs {
 
 		switch ( $object_type ) {
 			case 'term':
-				$term = $wp_query->get_queried_object();
+				$term  = $wp_query->get_queried_object();
 				$title = $term->name;
 				break;
 			case 'year':
@@ -572,7 +568,7 @@ class Pixova_Lite_Breadcrumbs {
 				$title = get_query_var( 'day' );
 				break;
 			case 'author':
-				$user = $wp_query->get_queried_object();
+				$user  = $wp_query->get_queried_object();
 				$title = $user->display_name;
 				break;
 			case 'search':
@@ -586,7 +582,7 @@ class Pixova_Lite_Breadcrumbs {
 				break;
 			case 'bbpress_user':
 				$current_user = wp_get_current_user();
-				$title = $current_user->user_nicename;
+				$title        = $current_user->user_nicename;
 				break;
 			case 'events':
 				$title = tribe_get_events_title();
@@ -601,10 +597,11 @@ class Pixova_Lite_Breadcrumbs {
 
 	/**
 	 * Adds the markup of a single breadcrumb
-	 * @param  string   $title      The title that should be displayed
-	 * @param  string   $link       The URL of the breadcrumb
-	 * @param  boolean  $separator  Set to TRUE to show the separator at the end of the breadcrumb
-	 * @param boolean   $microdata  Set to FALSE to make sure we get a link not being part of the breadcrumb microdata path
+	 *
+	 * @param  string $title The title that should be displayed
+	 * @param  string $link The URL of the breadcrumb
+	 * @param  boolean $separator Set to TRUE to show the separator at the end of the breadcrumb
+	 * @param boolean $microdata Set to FALSE to make sure we get a link not being part of the breadcrumb microdata path
 	 *
 	 * @return string               The HTML markup of a single breadcrumb
 	 */
@@ -612,15 +609,15 @@ class Pixova_Lite_Breadcrumbs {
 
 		// Init vars
 		$microdata_itemscope = '';
-		$microdata_url = '';
-		$microdata_title = '';
-		$separator_markup = '';
+		$microdata_url       = '';
+		$microdata_title     = '';
+		$separator_markup    = '';
 
 		// Setup the elements attributes for breadcrumb microdata rich snippets
 		if ( $microdata ) {
 			$microdata_itemscope = 'itemscope itemtype="http://data-vocabulary.org/Breadcrumb"';
-			$microdata_url = 'itemprop="url"';
-			$microdata_title = 'itemprop="title"';
+			$microdata_url       = 'itemprop="url"';
+			$microdata_title     = 'itemprop="title"';
 		}
 
 		$breadcrumb_content = sprintf( '<span %s>%s</span>', $microdata_title, $title );

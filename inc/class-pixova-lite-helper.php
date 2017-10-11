@@ -167,6 +167,7 @@ class Pixova_Lite_Helper {
 		if ( is_array( $pixova_settings ) ) {
 			return $pixova_settings;
 		}
+
 		return array();
 
 	}
@@ -190,7 +191,7 @@ class Pixova_Lite_Helper {
 	// use $arguments[0] if value doesn't exist.
 	public static function __callStatic( $name, $arguments ) {
 
-		$settings_id = str_replace( '_get_', '', $name );
+		$settings_id   = str_replace( '_get_', '', $name );
 		$setting_value = Pixova_Lite_Helper::get_pixova_setting( $settings_id );
 
 		if ( false === $setting_value ) {
@@ -207,19 +208,19 @@ class Pixova_Lite_Helper {
 
 		$sections = array(
 			array(
-				'title' => __( 'CTA Section', 'pixova-lite' ),
+				'title'  => __( 'CTA Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_intro_title_cta' => __( 'Main CTA title', 'pixova-lite' ),
-					'pixova_lite_intro_cta' => __( 'Main CTA text', 'pixova-lite' ),
-					'pixova_lite_intro_sub_cta' => __( 'Main CTA sub-title', 'pixova-lite' ),
+					'pixova_lite_intro_title_cta'          => __( 'Main CTA title', 'pixova-lite' ),
+					'pixova_lite_intro_cta'                => __( 'Main CTA text', 'pixova-lite' ),
+					'pixova_lite_intro_sub_cta'            => __( 'Main CTA sub-title', 'pixova-lite' ),
 					'pixova_lite_intro_outline_button_text' => __( 'Outline Button Text', 'pixova-lite' ),
 					'pixova_lite_intro_outline_button_url' => __( 'Outline Button URL', 'pixova-lite' ),
-					'pixova_lite_intro_button_text' => __( 'Button Text', 'pixova-lite' ),
-					'pixova_lite_intro_button_url' => __( 'Button URL', 'pixova-lite' ),
+					'pixova_lite_intro_button_text'        => __( 'Button Text', 'pixova-lite' ),
+					'pixova_lite_intro_button_url'         => __( 'Button URL', 'pixova-lite' ),
 				),
 			),
 			array(
-				'title' => __( 'What We Do Section', 'pixova-lite' ),
+				'title'  => __( 'What We Do Section', 'pixova-lite' ),
 				'fields' => array(
 					'pixova_lite_intro_what_we_do_1_title' => __( 'What we do #1 title', 'pixova-lite' ),
 					'pixova_lite_intro_what_we_do_1_description' => __( 'What we do #1 description', 'pixova-lite' ),
@@ -230,11 +231,11 @@ class Pixova_Lite_Helper {
 				),
 			),
 			array(
-				'title' => __( 'Pie Chart Section', 'pixova-lite' ),
+				'title'  => __( 'Pie Chart Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_about_section_title' => __( 'Section title', 'pixova-lite' ),
-					'pixova_lite_about_section_sub_title' => __( 'Section sub-title', 'pixova-lite' ),
-					'pixova_lite_about_section_textarea' => __( 'Section content', 'pixova-lite' ),
+					'pixova_lite_about_section_title'      => __( 'Section title', 'pixova-lite' ),
+					'pixova_lite_about_section_sub_title'  => __( 'Section sub-title', 'pixova-lite' ),
+					'pixova_lite_about_section_textarea'   => __( 'Section content', 'pixova-lite' ),
 					'pixova_lite_about_section_blockquote' => __( 'Section blockquote', 'pixova-lite' ),
 					'pixova_lite_about_section_chart_1_heading' => __( 'Pie Chart #1 Heading', 'pixova-lite' ),
 					'pixova_lite_about_section_chart_1_percentage' => __( 'Pie Chart #1 Percentage', 'pixova-lite' ),
@@ -247,103 +248,103 @@ class Pixova_Lite_Helper {
 				),
 			),
 			array(
-				'title' => __( 'Recent Works Section', 'pixova-lite' ),
+				'title'  => __( 'Recent Works Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_work_section_title' => __( 'Section title', 'pixova-lite' ),
+					'pixova_lite_work_section_title'     => __( 'Section title', 'pixova-lite' ),
 					'pixova_lite_work_section_sub_title' => __( 'Section sub-title', 'pixova-lite' ),
-					'pixova_lite_works_project_1_image' => __( 'Project #1 Image', 'pixova-lite' ),
-					'pixova_lite_works_project_1_logo' => __( 'Project #1 Logo', 'pixova-lite' ),
-					'pixova_lite_works_project_1_url' => __( 'Project #1 URL', 'pixova-lite' ),
-					'pixova_lite_works_project_2_image' => __( 'Project #2 Image', 'pixova-lite' ),
-					'pixova_lite_works_project_2_logo' => __( 'Project #2 Logo', 'pixova-lite' ),
-					'pixova_lite_works_project_2_url' => __( 'Project #2 URL', 'pixova-lite' ),
-					'pixova_lite_works_project_3_image' => __( 'Project #3 Image', 'pixova-lite' ),
-					'pixova_lite_works_project_3_logo' => __( 'Project #3 Logo', 'pixova-lite' ),
-					'pixova_lite_works_project_3_url' => __( 'Project #3 URL', 'pixova-lite' ),
-					'pixova_lite_works_project_4_image' => __( 'Project #4 Image', 'pixova-lite' ),
-					'pixova_lite_works_project_4_logo' => __( 'Project #4 Logo', 'pixova-lite' ),
-					'pixova_lite_works_project_4_url' => __( 'Project #4 URL', 'pixova-lite' ),
+					'pixova_lite_works_project_1_image'  => __( 'Project #1 Image', 'pixova-lite' ),
+					'pixova_lite_works_project_1_logo'   => __( 'Project #1 Logo', 'pixova-lite' ),
+					'pixova_lite_works_project_1_url'    => __( 'Project #1 URL', 'pixova-lite' ),
+					'pixova_lite_works_project_2_image'  => __( 'Project #2 Image', 'pixova-lite' ),
+					'pixova_lite_works_project_2_logo'   => __( 'Project #2 Logo', 'pixova-lite' ),
+					'pixova_lite_works_project_2_url'    => __( 'Project #2 URL', 'pixova-lite' ),
+					'pixova_lite_works_project_3_image'  => __( 'Project #3 Image', 'pixova-lite' ),
+					'pixova_lite_works_project_3_logo'   => __( 'Project #3 Logo', 'pixova-lite' ),
+					'pixova_lite_works_project_3_url'    => __( 'Project #3 URL', 'pixova-lite' ),
+					'pixova_lite_works_project_4_image'  => __( 'Project #4 Image', 'pixova-lite' ),
+					'pixova_lite_works_project_4_logo'   => __( 'Project #4 Logo', 'pixova-lite' ),
+					'pixova_lite_works_project_4_url'    => __( 'Project #4 URL', 'pixova-lite' ),
 				),
 			),
 			array(
-				'title' => __( 'Testimonials Section', 'pixova-lite' ),
+				'title'  => __( 'Testimonials Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_testimonial_section_title' => __( 'Section title', 'pixova-lite' ),
-					'pixova_lite_testimonial_section_sub_title' => __( 'Section sub-title', 'pixova-lite' ),
-					'pixova_lite_testimonial_1_person_name' => __( 'Testimonial #1 Person Name', 'pixova-lite' ),
+					'pixova_lite_testimonial_section_title'        => __( 'Section title', 'pixova-lite' ),
+					'pixova_lite_testimonial_section_sub_title'    => __( 'Section sub-title', 'pixova-lite' ),
+					'pixova_lite_testimonial_1_person_name'        => __( 'Testimonial #1 Person Name', 'pixova-lite' ),
 					'pixova_lite_testimonial_1_person_description' => __( 'Testimonial #1 Content', 'pixova-lite' ),
-					'pixova_lite_testimonial_1_person_image' => __( 'Testimonial #1 Person Image', 'pixova-lite' ),
-					'pixova_lite_testimonial_2_person_name' => __( 'Testimonial #2 Person Name', 'pixova-lite' ),
+					'pixova_lite_testimonial_1_person_image'       => __( 'Testimonial #1 Person Image', 'pixova-lite' ),
+					'pixova_lite_testimonial_2_person_name'        => __( 'Testimonial #2 Person Name', 'pixova-lite' ),
 					'pixova_lite_testimonial_2_person_description' => __( 'Testimonial #2 Content', 'pixova-lite' ),
-					'pixova_lite_testimonial_2_person_image' => __( 'Testimonial #2 Person Image', 'pixova-lite' ),
-					'pixova_lite_testimonial_3_person_name' => __( 'Testimonial #3 Person Name', 'pixova-lite' ),
+					'pixova_lite_testimonial_2_person_image'       => __( 'Testimonial #2 Person Image', 'pixova-lite' ),
+					'pixova_lite_testimonial_3_person_name'        => __( 'Testimonial #3 Person Name', 'pixova-lite' ),
 					'pixova_lite_testimonial_3_person_description' => __( 'Testimonial #3 Content', 'pixova-lite' ),
-					'pixova_lite_testimonial_3_person_image' => __( 'Testimonial #3 Person Image', 'pixova-lite' ),
-					'pixova_lite_testimonial_4_person_name' => __( 'Testimonial #4 Person Name', 'pixova-lite' ),
+					'pixova_lite_testimonial_3_person_image'       => __( 'Testimonial #3 Person Image', 'pixova-lite' ),
+					'pixova_lite_testimonial_4_person_name'        => __( 'Testimonial #4 Person Name', 'pixova-lite' ),
 					'pixova_lite_testimonial_4_person_description' => __( 'Testimonial #4 Content', 'pixova-lite' ),
-					'pixova_lite_testimonial_4_person_image' => __( 'Testimonial #4 Person Image', 'pixova-lite' ),
-					'pixova_lite_testimonial_5_person_name' => __( 'Testimonial #5 Person Name', 'pixova-lite' ),
+					'pixova_lite_testimonial_4_person_image'       => __( 'Testimonial #4 Person Image', 'pixova-lite' ),
+					'pixova_lite_testimonial_5_person_name'        => __( 'Testimonial #5 Person Name', 'pixova-lite' ),
 					'pixova_lite_testimonial_5_person_description' => __( 'Testimonial #5 Content', 'pixova-lite' ),
-					'pixova_lite_testimonial_5_person_image' => __( 'Testimonial #5 Person Image', 'pixova-lite' ),
+					'pixova_lite_testimonial_5_person_image'       => __( 'Testimonial #5 Person Image', 'pixova-lite' ),
 				),
 			),
 			array(
-				'title' => __( 'Latest News Section', 'pixova-lite' ),
+				'title'  => __( 'Latest News Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_news_section_title' => __( 'Section title', 'pixova-lite' ),
-					'pixova_lite_news_section_sub_title' => __( 'Section sub-title', 'pixova-lite' ),
+					'pixova_lite_news_section_title'       => __( 'Section title', 'pixova-lite' ),
+					'pixova_lite_news_section_sub_title'   => __( 'Section sub-title', 'pixova-lite' ),
 					'pixova_lite_news_section_button_text' => __( 'Button Text', 'pixova-lite' ),
 					'pixova_lite_news_section_no_posts_per_slide' => __( 'Number of post per slide', 'pixova-lite' ),
 				),
 			),
 			array(
-				'title' => __( 'Team Section', 'pixova-lite' ),
+				'title'  => __( 'Team Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_team_section_title' => __( 'Section title', 'pixova-lite' ),
+					'pixova_lite_team_section_title'     => __( 'Section title', 'pixova-lite' ),
 					'pixova_lite_team_section_sub_title' => __( 'Section sub-title', 'pixova-lite' ),
-					'pixova_lite_team_member_1_name' => __( 'Team #1 Name', 'pixova-lite' ),
-					'pixova_lite_team_member_1_image' => __( 'Team #1 Image', 'pixova-lite' ),
+					'pixova_lite_team_member_1_name'     => __( 'Team #1 Name', 'pixova-lite' ),
+					'pixova_lite_team_member_1_image'    => __( 'Team #1 Image', 'pixova-lite' ),
 					'pixova_lite_team_member_1_facebook' => __( 'Team #1 Facebook', 'pixova-lite' ),
 					'pixova_lite_team_member_1_dribbble' => __( 'Team #1 Dribbble', 'pixova-lite' ),
-					'pixova_lite_team_member_1_email' => __( 'Team #1 Email', 'pixova-lite' ),
-					'pixova_lite_team_member_2_name' => __( 'Team #2 Name', 'pixova-lite' ),
-					'pixova_lite_team_member_2_image' => __( 'Team #2 Image', 'pixova-lite' ),
+					'pixova_lite_team_member_1_email'    => __( 'Team #1 Email', 'pixova-lite' ),
+					'pixova_lite_team_member_2_name'     => __( 'Team #2 Name', 'pixova-lite' ),
+					'pixova_lite_team_member_2_image'    => __( 'Team #2 Image', 'pixova-lite' ),
 					'pixova_lite_team_member_2_facebook' => __( 'Team #2 Facebook', 'pixova-lite' ),
 					'pixova_lite_team_member_2_dribbble' => __( 'Team #2 Dribbble', 'pixova-lite' ),
-					'pixova_lite_team_member_2_email' => __( 'Team #2 Email', 'pixova-lite' ),
-					'pixova_lite_team_member_3_name' => __( 'Team #3 Name', 'pixova-lite' ),
-					'pixova_lite_team_member_3_image' => __( 'Team #3 Image', 'pixova-lite' ),
+					'pixova_lite_team_member_2_email'    => __( 'Team #2 Email', 'pixova-lite' ),
+					'pixova_lite_team_member_3_name'     => __( 'Team #3 Name', 'pixova-lite' ),
+					'pixova_lite_team_member_3_image'    => __( 'Team #3 Image', 'pixova-lite' ),
 					'pixova_lite_team_member_3_facebook' => __( 'Team #3 Facebook', 'pixova-lite' ),
 					'pixova_lite_team_member_3_dribbble' => __( 'Team #3 Dribbble', 'pixova-lite' ),
-					'pixova_lite_team_member_3_email' => __( 'Team #3 Email', 'pixova-lite' ),
-					'pixova_lite_team_member_4_name' => __( 'Team #4 Name', 'pixova-lite' ),
-					'pixova_lite_team_member_4_image' => __( 'Team #4 Image', 'pixova-lite' ),
+					'pixova_lite_team_member_3_email'    => __( 'Team #3 Email', 'pixova-lite' ),
+					'pixova_lite_team_member_4_name'     => __( 'Team #4 Name', 'pixova-lite' ),
+					'pixova_lite_team_member_4_image'    => __( 'Team #4 Image', 'pixova-lite' ),
 					'pixova_lite_team_member_4_facebook' => __( 'Team #4 Facebook', 'pixova-lite' ),
 					'pixova_lite_team_member_4_dribbble' => __( 'Team #4 Dribbble', 'pixova-lite' ),
-					'pixova_lite_team_member_4_email' => __( 'Team #4 Email', 'pixova-lite' ),
-					'pixova_lite_team_member_5_name' => __( 'Team #5 Name', 'pixova-lite' ),
-					'pixova_lite_team_member_5_image' => __( 'Team #5 Image', 'pixova-lite' ),
+					'pixova_lite_team_member_4_email'    => __( 'Team #4 Email', 'pixova-lite' ),
+					'pixova_lite_team_member_5_name'     => __( 'Team #5 Name', 'pixova-lite' ),
+					'pixova_lite_team_member_5_image'    => __( 'Team #5 Image', 'pixova-lite' ),
 					'pixova_lite_team_member_5_facebook' => __( 'Team #5 Facebook', 'pixova-lite' ),
 					'pixova_lite_team_member_5_dribbble' => __( 'Team #5 Dribbble', 'pixova-lite' ),
-					'pixova_lite_team_member_5_email' => __( 'Team #5 Email', 'pixova-lite' ),
+					'pixova_lite_team_member_5_email'    => __( 'Team #5 Email', 'pixova-lite' ),
 				),
 			),
 			array(
-				'title' => __( 'Contact Section', 'pixova-lite' ),
+				'title'  => __( 'Contact Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_contact_section_title' => __( 'Section title', 'pixova-lite' ),
+					'pixova_lite_contact_section_title'  => __( 'Section title', 'pixova-lite' ),
 					'pixova_lite_contact_section_sub_title' => __( 'Section sub-title', 'pixova-lite' ),
-					'pixova_lite_contact_first_heading' => __( 'Left Heading 1', 'pixova-lite' ),
+					'pixova_lite_contact_first_heading'  => __( 'Left Heading 1', 'pixova-lite' ),
 					'pixova_lite_contact_second_heading' => __( 'Left Heading 2', 'pixova-lite' ),
-					'pixova_lite_email' => __( 'Email', 'pixova-lite' ),
-					'pixova_lite_phone' => __( 'Phone number', 'pixova-lite' ),
-					'pixova_lite_address' => __( 'Address', 'pixova-lite' ),
+					'pixova_lite_email'                  => __( 'Email', 'pixova-lite' ),
+					'pixova_lite_phone'                  => __( 'Phone number', 'pixova-lite' ),
+					'pixova_lite_address'                => __( 'Address', 'pixova-lite' ),
 				),
 			),
 			array(
-				'title' => __( 'WooCommerce Section', 'pixova-lite' ),
+				'title'  => __( 'WooCommerce Section', 'pixova-lite' ),
 				'fields' => array(
-					'pixova_lite_woocommerce_title' => __( 'Section title', 'pixova-lite' ),
+					'pixova_lite_woocommerce_title'       => __( 'Section title', 'pixova-lite' ),
 					'pixova_lite_woocommerce_description' => __( 'Section description', 'pixova-lite' ),
 				),
 			),
@@ -384,9 +385,9 @@ class Pixova_Lite_Helper {
 		} else {
 
 			$page_args = array(
-				'post_title' => 'Pixova Settings',
+				'post_title'  => 'Pixova Settings',
 				'post_status' => 'draft',
-				'post_type' => 'page',
+				'post_type'   => 'page',
 				'post_author' => 0,
 			);
 
@@ -394,6 +395,7 @@ class Pixova_Lite_Helper {
 
 			if ( ! is_wp_error( $page_id ) ) {
 				update_option( 'pixova-settings-id', $page_id );
+
 				return $page_id;
 			}
 		}
@@ -444,13 +446,12 @@ function add_states_for_pixova_settings_page( $post_states, $post ) {
 }
 
 
-
 add_action( 'customize_update_epsilon_page', 'pixova_lite_save_custom_setting', 10, 2 );
 
 function pixova_lite_save_custom_setting( $value, $setting ) {
 
 	$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
-	$key = $setting->id;
+	$key               = $setting->id;
 
 	$existing_settings[ $key ] = $value;
 

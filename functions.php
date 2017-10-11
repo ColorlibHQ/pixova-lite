@@ -25,12 +25,12 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		 */
 
 		$args = array(
-			'default-image'          => get_template_directory_uri() . '/layout/images/header-bg.jpg',
-			'default-text-color'     => '#000',
-			'width'                  => 1920,
-			'height'                 => 1080,
-			'flex-height'            => true,
-			'video'                  => true,
+			'default-image'      => get_template_directory_uri() . '/layout/images/header-bg.jpg',
+			'default-text-color' => '#000',
+			'width'              => 1920,
+			'height'             => 1080,
+			'flex-height'        => true,
+			'video'              => true,
 		);
 
 		add_theme_support( 'custom-header', $args );
@@ -112,28 +112,36 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'primary'   => __( 'Header Menu', 'pixova-lite' ),
-			'secondary' => __( 'Footer Menu', 'pixova-lite' ),
-		) );
+		register_nav_menus(
+			array(
+				'primary'   => __( 'Header Menu', 'pixova-lite' ),
+				'secondary' => __( 'Footer Menu', 'pixova-lite' ),
+			)
+		);
 
 		// Setup the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'pixova_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		add_theme_support(
+			'custom-background', apply_filters(
+				'pixova_custom_background_args', array(
+					'default-color' => 'ffffff',
+					'default-image' => '',
+				)
+			)
+		);
 
 		/*
          * Switch default core markup for search form, comment form, and comments
          * to output valid HTML5.
          */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+		add_theme_support(
+			'html5', array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			)
+		);
 
 		/*
          * Add WooCommerce theme support
@@ -175,7 +183,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 				'modula-best-grid-gallery' => array(
 					'recommended' => true,
 				),
-				'fancybox-for-wordpress' => array(
+				'fancybox-for-wordpress'   => array(
 					'recommended' => false,
 				),
 				'simple-custom-post-order' => array(
@@ -191,16 +199,16 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
              * plugin_slug - the plugin's slug (used for installing the plugin)
              *
              */
-			$pixova_required_actions  = array(
+			$pixova_required_actions = array(
 				array(
-					'id' => 'pixova-lite-req-ac-install-contact-forms',
-					'title' => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
+					'id'          => 'pixova-lite-req-ac-install-contact-forms',
+					'title'       => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
 					'description' => esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
 					'check'       => Pixova_Notify_System::has_plugin( 'contact-form-7' ),
 					'plugin_slug' => 'contact-form-7',
 				),
 				array(
-					'id' => 'pixova-lite-import-demo-content',
+					'id'          => 'pixova-lite-import-demo-content',
 					'title'       => esc_html__( 'Add sample content', 'pixova-lite' ),
 					'description' => esc_html__( 'Clicking the button below will add content and set static front page to your WordPress installation. Click advanced to customize the import process.', 'pixova-lite' ),
 					'help'        => array( 'Epsilon_Welcome_Screen', 'demo_content_html' ),
@@ -209,17 +217,17 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 			);
 
 			if ( is_customize_preview() ) {
-				$url                = 'themes.php?page=%1$s-welcome&tab=%2$s';
+				$url                                = 'themes.php?page=%1$s-welcome&tab=%2$s';
 				$pixova_required_actions[1]['help'] = '<a class="button button-primary" id="" href="' . esc_url( admin_url( sprintf( $url, 'pixova-lite', 'recommended-actions' ) ) ) . '">' . __( 'Import Demo Content', 'pixova-lite' ) . '</a>';
 			}
 
 			Epsilon_Welcome_Screen::get_instance(
 				$config = array(
-					'theme-name'  => 'Pixova Lite',
-					'theme-slug'  => 'pixova-lite',
-					'actions'     => $pixova_required_actions,
-					'plugins'     => $pixova_recommended_plugins,
-					'edd'         => false,
+					'theme-name' => 'Pixova Lite',
+					'theme-slug' => 'pixova-lite',
+					'actions'    => $pixova_required_actions,
+					'plugins'    => $pixova_recommended_plugins,
+					'edd'        => false,
 				)
 			);
 
@@ -342,7 +350,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		$parallax_enabed = get_theme_mod( 'pixova_lite_header_effect_enabled', 'header_effect_enabled' );
 
 		$pixova_lite_scripts_options = array(
-			'parallax_enabled' => $parallax_enabed,
+			'parallax_enabled'   => $parallax_enabed,
 			'animations_enabled' => $animations_enabled,
 		);
 
@@ -455,49 +463,49 @@ if ( ! function_exists( 'pixova_lite_fallback_cb' ) ) {
 	 */
 	function pixova_lite_fallback_cb() {
 
-		$html = '<ul id="menu-pixova-lite-main-menu-container" class="pixova-default-menu">';
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-			$html .= '<a href="' . get_site_url() . '/#about" title="' . __( 'About', 'pixova-lite' ) . '">';
+		$html          = '<ul id="menu-pixova-lite-main-menu-container" class="pixova-default-menu">';
+		$html         .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
+			$html     .= '<a href="' . get_site_url() . '/#about" title="' . __( 'About', 'pixova-lite' ) . '">';
 				$html .= __( 'About', 'pixova-lite' );
-			$html .= '</a>';
-		$html .= '</li>';
+			$html     .= '</a>';
+		$html         .= '</li>';
 
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-			$html .= '<a href="' . get_site_url() . '/#works" title="' . __( 'Recent Works', 'pixova-lite' ) . '">';
+		$html         .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
+			$html     .= '<a href="' . get_site_url() . '/#works" title="' . __( 'Recent Works', 'pixova-lite' ) . '">';
 				$html .= __( 'Recent Works', 'pixova-lite' );
-			$html .= '</a>';
-		$html .= '</li>';
+			$html     .= '</a>';
+		$html         .= '</li>';
 
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-			$html .= '<a href="' . get_site_url() . '/#testimonials" title="' . __( 'Testimonials', 'pixova-lite' ) . '">';
+		$html         .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
+			$html     .= '<a href="' . get_site_url() . '/#testimonials" title="' . __( 'Testimonials', 'pixova-lite' ) . '">';
 				$html .= __( 'Testimonials', 'pixova-lite' );
-			$html .= '</a>';
-		$html .= '</li>';
+			$html     .= '</a>';
+		$html         .= '</li>';
 
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-			$html .= '<a href="' . get_site_url() . '/#team" title="' . __( 'Team', 'pixova-lite' ) . '">';
+		$html         .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
+			$html     .= '<a href="' . get_site_url() . '/#team" title="' . __( 'Team', 'pixova-lite' ) . '">';
 				$html .= __( 'Team', 'pixova-lite' );
-			$html .= '</a>';
-		$html .= '</li>';
+			$html     .= '</a>';
+		$html         .= '</li>';
 
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-			$html .= '<a href="' . get_site_url() . '/#news" title="' . __( 'News', 'pixova-lite' ) . '">';
+		$html         .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
+			$html     .= '<a href="' . get_site_url() . '/#news" title="' . __( 'News', 'pixova-lite' ) . '">';
 				$html .= __( 'News', 'pixova-lite' );
-			$html .= '</a>';
-		$html .= '</li>';
+			$html     .= '</a>';
+		$html         .= '</li>';
 
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-			$html .= '<a href="' . get_site_url() . '/#contact" title="' . __( 'Contact', 'pixova-lite' ) . '">';
+		$html         .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
+			$html     .= '<a href="' . get_site_url() . '/#contact" title="' . __( 'Contact', 'pixova-lite' ) . '">';
 				$html .= __( 'Contact', 'pixova-lite' );
-			$html .= '</a>';
-		$html .= '</li>';
+			$html     .= '</a>';
+		$html         .= '</li>';
 
 		if ( function_exists( 'is_woocommerce' ) ) {
-			$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-				$html .= '<a href="' . get_site_url() . '/shop/" title="' . __( 'Shop', 'pixova-lite' ) . '">';
+			$html         .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
+				$html     .= '<a href="' . get_site_url() . '/shop/" title="' . __( 'Shop', 'pixova-lite' ) . '">';
 					$html .= __( 'Shop', 'pixova-lite' );
-				$html .= '</a>';
-			$html .= '</li>';
+				$html     .= '</a>';
+			$html         .= '</li>';
 		}
 		$html .= '</ul>';
 		echo $html;
@@ -514,8 +522,8 @@ if ( ! function_exists( 'pixova_lite_fonts_url' ) ) {
 	 */
 	function pixova_lite_fonts_url() {
 		$fonts_url = '';
-		$fonts = array();
-		$subsets = 'latin,latin-ext';
+		$fonts     = array();
+		$subsets   = 'latin,latin-ext';
 
 		/*
          * Translators: If there are characters in your language that are not supported
@@ -554,10 +562,12 @@ if ( ! function_exists( 'pixova_lite_fonts_url' ) ) {
 		}
 
 		if ( $fonts ) {
-			$fonts_url = add_query_arg(array(
-				'family' => urlencode( implode( '|', $fonts ) ),
-				'subset' => urlencode( $subsets ),
-			), '//fonts.googleapis.com/css');
+			$fonts_url = add_query_arg(
+				array(
+					'family' => urlencode( implode( '|', $fonts ) ),
+					'subset' => urlencode( $subsets ),
+				), '//fonts.googleapis.com/css'
+			);
 		}
 
 		return $fonts_url;
@@ -566,14 +576,14 @@ if ( ! function_exists( 'pixova_lite_fonts_url' ) ) {
 
 if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 	/**
-  * Function to import widgets based on a JSON config file
-  * JSON file is generated using plugin: Widget Importer / Exporter
-  * @link https://github.com/stevengliebe/widget-importer-exporter
-  */
+	* Function to import widgets based on a JSON config file
+	* JSON file is generated using plugin: Widget Importer / Exporter
+	* @link https://github.com/stevengliebe/widget-importer-exporter
+	*/
 	function pixova_lite_add_default_widgets() {
 
-		$json = '{"orphaned_widgets_1":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"shop-sidebar":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"blog-sidebar":{"search-2":{"title":""},"recent-posts-2":{"title":"","number":5},"recent-comments-2":{"title":"","number":5},"archives-2":{"title":"","count":0,"dropdown":0},"categories-2":{"title":"","count":0,"hierarchical":0,"dropdown":0},"meta-2":{"title":""}},"footer-sidebar-1":{"pixova_lite_widget_about-2":{"title":"About","about_text":"The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour.\r\n\r\n","show_title":"1"}},"footer-sidebar-2":{"text-2":{"title":"Quick nav","text":"  <ul id=\"menu-pixova-footer-menu\" class=\"menu\">\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#about\">About<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#works\">Recent Works<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#testimonials\">Testimonials<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#news\">News<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#team\">Team<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#contact\">Contact<\/a><\/li>\r\n                                    <\/ul>","filter":false}},"footer-sidebar-3":{"pixova_lite_widget_latest_posts-2":{"title":"Latest post","items":"1","show_title":"1"}},"footer-sidebar-4":{"pixova_lite_widget_social_media-3":{"title":"Follow us","profile_facebook":" ","profile_twitter":" ","profile_plus":" ","profile_pinterest":" ","profile_youtube":" ","profile_dribbble":" ","profile_tumblr":" ","profile_instagram":" ","profile_github":" ","profile_bitbucket":" ","profile_codepen":"","show_title":""}}}';
-		$config = json_decode( $json );
+		$json             = '{"orphaned_widgets_1":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"shop-sidebar":{"woocommerce_price_filter-2":{"title":"Filter by price"},"woocommerce_products-2":{"title":"Products","number":"5","show":"","orderby":"date","order":"desc","hide_free":0,"show_hidden":0},"woocommerce_product_tag_cloud-2":{"title":"Product Tags"},"woocommerce_recent_reviews-2":{"title":"Recent Reviews","number":"10"}},"blog-sidebar":{"search-2":{"title":""},"recent-posts-2":{"title":"","number":5},"recent-comments-2":{"title":"","number":5},"archives-2":{"title":"","count":0,"dropdown":0},"categories-2":{"title":"","count":0,"hierarchical":0,"dropdown":0},"meta-2":{"title":""}},"footer-sidebar-1":{"pixova_lite_widget_about-2":{"title":"About","about_text":"The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour.\r\n\r\n","show_title":"1"}},"footer-sidebar-2":{"text-2":{"title":"Quick nav","text":"  <ul id=\"menu-pixova-footer-menu\" class=\"menu\">\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#about\">About<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#works\">Recent Works<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#testimonials\">Testimonials<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#news\">News<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#team\">Team<\/a><\/li>\r\n                                        <li class=\"menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item\"><a href=\"#contact\">Contact<\/a><\/li>\r\n                                    <\/ul>","filter":false}},"footer-sidebar-3":{"pixova_lite_widget_latest_posts-2":{"title":"Latest post","items":"1","show_title":"1"}},"footer-sidebar-4":{"pixova_lite_widget_social_media-3":{"title":"Follow us","profile_facebook":" ","profile_twitter":" ","profile_plus":" ","profile_pinterest":" ","profile_youtube":" ","profile_dribbble":" ","profile_tumblr":" ","profile_instagram":" ","profile_github":" ","profile_bitbucket":" ","profile_codepen":"","show_title":""}}}';
+		$config           = json_decode( $json );
 		$sidebars_widgets = get_option( 'sidebars_widgets' );
 
 		# Parse config
@@ -638,7 +648,7 @@ $handler = 'pixova-lite-min-style';
 
 $args = array(
 	'fields' => array(
-		'pixova_lite_accent_color' => array(
+		'pixova_lite_accent_color'           => array(
 			'label'       => __( 'Accent Color', 'pixova-lite' ),
 			'description' => __( 'The main color used for links, buttons, and more.', 'pixova-lite' ),
 			'default'     => '#ffce55',
@@ -646,7 +656,7 @@ $args = array(
 			'hover-state' => true,
 		),
 
-		'pixova_lite_heading_color' => array(
+		'pixova_lite_heading_color'          => array(
 			'label'       => __( 'Heading Color', 'pixova-lite' ),
 			'description' => __( 'The color used for headings.', 'pixova-lite' ),
 			'default'     => '#222533',
@@ -654,7 +664,7 @@ $args = array(
 			'hover-state' => false,
 		),
 
-		'pixova_lite_text_color' => array(
+		'pixova_lite_text_color'             => array(
 			'label'       => __( 'Text Color', 'pixova-lite' ),
 			'description' => __( 'The color used for paragraphs, links, etc.', 'pixova-lite' ),
 			'default'     => '#777',
@@ -662,7 +672,7 @@ $args = array(
 			'hover-state' => false,
 		),
 
-		'pixova_lite_hover_color' => array(
+		'pixova_lite_hover_color'            => array(
 			'label'       => __( 'Hover Color', 'pixova-lite' ),
 			'description' => __( 'The color used for hover on elements.', 'pixova-lite' ),
 			'default'     => '#ffce55',
@@ -670,7 +680,7 @@ $args = array(
 			'hover-state' => true,
 		),
 
-		'pixova_lite_footer_bg_color' => array(
+		'pixova_lite_footer_bg_color'        => array(
 			'label'       => __( 'Footer Background Color', 'pixova-lite' ),
 			'description' => __( 'The color used for the footer background.', 'pixova-lite' ),
 			'default'     => '#1f1f1f',
@@ -688,7 +698,7 @@ $args = array(
 
 	),
 
-	'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/layout/css/style-overrides.css' ),
+	'css'    => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/layout/css/style-overrides.css' ),
 );
 
 Epsilon_Color_Scheme::get_instance( $handler, $args );

@@ -14,7 +14,8 @@
 	global $wp_customize;
 	$preloader_enabled = get_theme_mod( 'pixova_lite_preloader_enabled', 'preloader_enabled' );
 
-	if ( ! isset( $wp_customize ) && 'preloader_enabled' == $preloader_enabled ) { ?>
+	if ( ! isset( $wp_customize ) && 'preloader_enabled' == $preloader_enabled ) {
+	?>
 
 		<!-- New Site Preloader -->
 
