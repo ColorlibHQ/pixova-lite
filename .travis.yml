@@ -10,7 +10,6 @@ matrix:
   - php: '5.6'
   - php: '7.0'
   - php: '7.1'
-    env: SNIFF=1
     env: DEPLOY=1
 before_script:
 - export PHPCS_DIR=/tmp/phpcs
@@ -61,15 +60,15 @@ cache:
   directories:
   - node_modules
 after_success:
-  - if [[ "$DEPLOY" == "1" ]]; then grunt build-archive; fi
-  - if [[ "$DEPLOY" == "1" ]]; then sh set_tags.sh; fi
+- if [[ "$DEPLOY" == "1" ]]; then grunt build-archive; fi
+- if [[ "$DEPLOY" == "1" ]]; then sh set_tags.sh; fi
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: WZqEhBz8L7lKZ56/DWpdrMYEeT7wp6i8g6P9GFsPkMZ26SfKS5iKK49cjaZClp3B40bT7CmEFGPgrYrEgFZ721mRrQbEthI3/0goWsQLI2TPK0MlbjBiE/aNxdRFbf2pkR8y9FI3i8UE9o8ZSzaBPqJ/PEapHc2eI0udYfHvbYUnh8Bk5znkYp+zsWNhIidjx0DSS2qEM/NiB54mnWouMiR5DdlwGt7GhEjfEC4MgtkkxD9trBq68aZGEMkintmYpoaivKSUOLpHlLosHhGDhpuPiq1RTmIrOj7fRNMPSOy/H4zAjDBW4eLssnMVdmZY3z7hdOmfNHEGPT16OdIi8LbRTz18ZL3floPjvnmB7mu7i/bYrlO35N5qdsvhQnFWQTSJuLBtTUnV+oWVmP9RuAkDwQIz3aFJ9kLwph1KEnlRjH4iv/bim0QvObcc1nXB+baYLA+Ufu2xpDvcI5GuYgD6b8nd3YpT+tevzP1Viu8Ayl/D4SlRohyr4oSAMAj+z9Min7ul4YntJ3CILSyjAhUpQNqn+mg6qxl8tpA+GdQiE/pjOMokX8r3GzJxF8ozdCWsFaeTwGkB4cBzoBpj9SqBeaw7G/YTtar4qx0fXn+sSr6uuaGGIr3gWVxiz/nPlspeCRP4XAcdJ6UI30K1EcKTFz/eOzFfPsGR+sZXbrQ=
+    secure: EXa5PyLm+VBvYfpNde1pbUgr5Ffz7HXKmmH70DTZ0pBqxQ9swQBBOmgXnLovdMA0FkyCdKvyCpxkIqhhBX86gavmGmxc6iopcofOE+JHQkm18FlwGXiCpnTH9m1rhTSpXuV/w3W55/KelmgWwBi3O5E8Wj2J/dBjqzXkizir8yKDJso1Pr0u06s1LSAaL/+RDe3U82aEPi6UtKwV3l3ZKttyicrg2CKXfhSXdHit5FogfY6C801gBIz5HH8op65+vRk7FKXGUIpCu60M4yXhTCUZRzqT8VieBV5CbJ+lBIKhDpaxLLijdabqmkOR3m807W1lpVrH6crFqcH6l/8dZGsEteg7xcugpEtxQyhAGEc4LS0czeKkipVkrF0F6BWy57R8ZUWfXQHM4K8VriQrRkAjDEktLqibu1K4rVEof0XGQnP+DZo06Myxwq9IjiD/Xk3npBGZu6/OqGbehJ+DJzAvpAKRnlQSYVBekSpwxI1ifXK3QPGSjl8SFhtNaCFU0W+18+gvURXs3OV6tUEyukGLJFgK5W9lU+UFZX6/HbB1Uw14MBCxKOnYDRf7D15OepaVQkwpMPX/ZMCj7yt1EmO7PDV8AoUBMVsfhI0kawD0WxxbIYcK2aZOM2s6kROpMaaxglXMMEZMJ3kg/kpQ6yl0UQJ6uEW9MovK2DWu7IY=
   file: pixova-lite.zip
   on:
-    repo: MachoThemes/pixova-lite
+    repo: puikinsh/pixova-lite
     branch: 'production'
     condition: "$DEPLOY = 1"
