@@ -1,22 +1,22 @@
 <?php
 
-$pixova_lite_main_cta_title = get_theme_mod( 'pixova_lite_intro_title_cta' );
-$pixova_lite_main_cta_text = get_theme_mod( 'pixova_lite_intro_cta' );
-$pixova_lite_main_cta_sub_text = get_theme_mod( 'pixova_lite_intro_sub_cta' );
+$pixova_lite_main_cta_title       = get_theme_mod( 'pixova_lite_intro_title_cta' );
+$pixova_lite_main_cta_text        = get_theme_mod( 'pixova_lite_intro_cta' );
+$pixova_lite_main_cta_sub_text    = get_theme_mod( 'pixova_lite_intro_sub_cta' );
 $pixova_lite_main_cta_button_text = get_theme_mod( 'pixova_lite_intro_button_text' );
-$pixova_lite_main_cta_button_url = get_theme_mod( 'pixova_lite_intro_button_url' );
+$pixova_lite_main_cta_button_url  = get_theme_mod( 'pixova_lite_intro_button_url' );
 
 //Outline Button
 
 $pixova_lite_main_cta_outline_button_text = get_theme_mod( 'pixova_lite_intro_outline_button_text' );
-$pixova_lite_main_cta_outline_button_url = get_theme_mod( 'pixova_lite_intro_outline_button_url' );
+$pixova_lite_main_cta_outline_button_url  = get_theme_mod( 'pixova_lite_intro_outline_button_url' );
 
-$pixova_lite_what_we_do_enabled = get_theme_mod( 'pixova_lite_intro_what_we_do_enabled', 0 );
-$pixova_lite_what_we_do_1 = get_theme_mod( 'pixova_lite_intro_what_we_do_1_title' );
+$pixova_lite_what_we_do_enabled       = get_theme_mod( 'pixova_lite_intro_what_we_do_enabled', 0 );
+$pixova_lite_what_we_do_1             = get_theme_mod( 'pixova_lite_intro_what_we_do_1_title' );
 $pixova_lite_what_we_do_1_description = get_theme_mod( 'pixova_lite_intro_what_we_do_1_description' );
-$pixova_lite_what_we_do_2 = get_theme_mod( 'pixova_lite_intro_what_we_do_2_title' );
+$pixova_lite_what_we_do_2             = get_theme_mod( 'pixova_lite_intro_what_we_do_2_title' );
 $pixova_lite_what_we_do_2_description = get_theme_mod( 'pixova_lite_intro_what_we_do_2_description' );
-$pixova_lite_what_we_do_3 = get_theme_mod( 'pixova_lite_intro_what_we_do_3_title' );
+$pixova_lite_what_we_do_3             = get_theme_mod( 'pixova_lite_intro_what_we_do_3_title' );
 $pixova_lite_what_we_do_3_description = get_theme_mod( 'pixova_lite_intro_what_we_do_3_description' );
 
 $pixova_lite_what_we_do_1_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_1_icon' );

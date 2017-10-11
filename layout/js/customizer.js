@@ -166,7 +166,7 @@
     });
 
     // Detect when the front page sections section is expanded (or closed) so we can adjust the preview accordingly.
-    jQuery.each( panels, function ( index, panel ){
+    jQuery.each( panels, function( index, panel ) {
         api.panel( panel, function( panel ) {
             panel.expanded.bind( function( isExpanding ) {
 
@@ -176,12 +176,12 @@
         } );
     });
 
-    function pixova_sections_order( container ){
-        var sections = $('#sub-accordion-panel-pixova_lite_frontpage_sections').sortable('toArray');
-        var s_ordered = [];
-        $.each(sections, function( index, s_id ) {
-            s_id = s_id.replace( "accordion-panel-", "");
-            s_ordered.push(s_id);
+    function pixovaSectionsOrder( container ) {
+        var sections = $( '#sub-accordion-panel-pixova_lite_frontpage_sections' ).sortable( 'toArray' );
+        var sOrdered = [];
+        $.each( sections, function( index, sID ) {
+            sID = sID.replace( 'accordion-panel-', '' );
+            sOrdered.push( sID );
         });
 
         $.ajax({
@@ -190,7 +190,7 @@
             dataType: 'html',
             data: {
                 'action': 'pixova_order_sections',
-                'sections': s_ordered,
+                'sections': sOrdered
             }
         })
         .done( function( data ) {
@@ -201,16 +201,16 @@
 
     wp.customize.bind( 'ready', function() {
 
-        $('#sub-accordion-panel-pixova_lite_frontpage_sections').sortable({
+        $( '#sub-accordion-panel-pixova_lite_frontpage_sections' ).sortable({
             helper: 'clone',
             items: '> li.control-section',
             cancel: 'li.ui-sortable-handle.open',
             delay: 150,
             update: function( event, ui ) {
 
-                pixova_sections_order( $('sub-accordion-panel-pixova_lite_frontpage_sections') );
+                pixovaSectionsOrder( $( 'sub-accordion-panel-pixova_lite_frontpage_sections' ) );
 
-            },
+            }
         });
     });
 

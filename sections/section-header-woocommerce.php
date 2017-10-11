@@ -1,9 +1,9 @@
 <?php
-$image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
+$image_logo                                = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 $pixova_lite_woocommerce_show_header_image = get_theme_mod( 'pixova_lite_woocommerce_show_header_image', 'show' );
-$pixova_lite_woocommerce_header_image = get_theme_mod( 'pixova_lite_woocommerce_header_image', esc_url( get_template_directory_uri() . '/layout/images/header-bg.jpg' ) );
-$pixova_lite_woocommerce_title = get_theme_mod( 'pixova_lite_woocommerce_title', __( 'WooCommerce', 'pixova-lite' ) );
-$pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_description', esc_html__( 'We have the best products.', 'pixova-lite' ) );
+$pixova_lite_woocommerce_header_image      = get_theme_mod( 'pixova_lite_woocommerce_header_image', esc_url( get_template_directory_uri() . '/layout/images/header-bg.jpg' ) );
+$pixova_lite_woocommerce_title             = get_theme_mod( 'pixova_lite_woocommerce_title', __( 'WooCommerce', 'pixova-lite' ) );
+$pixova_lite_woocommerce_description       = get_theme_mod( 'pixova_lite_woocommerce_description', esc_html__( 'We have the best products.', 'pixova-lite' ) );
 ?>
 <header id="header-wrap">
 	<div class="container header clearfix woo">
@@ -24,7 +24,7 @@ $pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_d
 					<?php
 					$menu_args = array(
 						'theme_location' => 'primary',
-						'fallback_cb' => 'pixova_lite_fallback_cb',
+						'fallback_cb'    => 'pixova_lite_fallback_cb',
 					);
 					echo wp_nav_menu( $menu_args );
 					?>
@@ -39,7 +39,7 @@ $pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_d
 				<?php
 				$menu_args = array(
 					'theme_location' => 'primary',
-					'fallback_cb' => 'pixova_lite_fallback_cb',
+					'fallback_cb'    => 'pixova_lite_fallback_cb',
 				);
 				echo wp_nav_menu( $menu_args );
 				?>
@@ -57,7 +57,7 @@ $pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_d
 				<div class="parallax-bg-image" data-image-source="<?php echo get_template_directory_uri(); ?>/layout/images/header-bg.jpg"></div>
 			<?php } ?>
 		</div><!--/.parallax-bg-container-->
-		<div id="intro-holder" class="container" >
+		<div id="intro-holder" class="container">
 			<div class="intro-content parallax-text-fade">
 				<div class="row">
 					<div class="col-md-12">
@@ -74,4 +74,6 @@ $pixova_lite_woocommerce_description = get_theme_mod( 'pixova_lite_woocommerce_d
 			</div><!--/.intro-content.parallax-text-fade-->
 		</div><!--/.container-->
 	</section><!--/#intro.blog-intro-->
-<?php } // End if(). ?>
+<?php
+} // End if().
+?>

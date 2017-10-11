@@ -7,7 +7,6 @@
 							<header class="entry-header">
 								<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 							</header><!-- .entry-header -->
-							
 							<?php if ( has_post_thumbnail() ) { ?>
 								<aside class="entry-featured-image">
 									<?php echo get_the_post_thumbnail( $post->ID, 'pixova-lite-featured-blog-image' ); ?>
@@ -19,7 +18,8 @@
 							<?php } ?>
 
 							<div class="entry-meta">
-								<?php printf(
+								<?php
+								printf(
 
 									// Translators: 1 is the post author, 2 is the category list.
 									__( '<span class="post-meta-separator"><i class="fa fa-user"></i>%1$s</span><span class="post-meta-separator"><i class="fa fa-calendar"></i>%2$s</span><span class="post-meta-separator"><i class="fa fa-comment"></i>%3$s</span><span class="post-meta-separator"><i class="fa fa-folder"></i>%4$s</span>', 'pixova-lite' ),
@@ -38,10 +38,12 @@
 
 									echo apply_filters( 'the_content', substr( get_the_content(), 0, 200 ) );
 
-									wp_link_pages( array(
-										'before' => '<nav class="page-links">' . __( 'Pages:', 'pixova-lite' ),
-										'after'  => '</nav>',
-									) );
+									wp_link_pages(
+										array(
+											'before' => '<nav class="page-links">' . __( 'Pages:', 'pixova-lite' ),
+											'after'  => '</nav>',
+										)
+									);
 
 								?>
 							</div><!-- .entry-content -->

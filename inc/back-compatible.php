@@ -42,9 +42,9 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
 		 * @since Pixova Lite 1.16
 		 */
 		function pixova_lite_customize() {
-			wp_die(sprintf( __( 'Pixova Lite requires at least WordPress version 4.1. You are running version %s. Please upgrade and try again.', 'pixova-lite' ), $GLOBALS['wp_version'] ), '', array(
+			wp_die( sprintf( __( 'Pixova Lite requires at least WordPress version 4.1. You are running version %s. Please upgrade and try again.', 'pixova-lite' ), $GLOBALS['wp_version'] ), '', array(
 				'back_link' => true,
-			));
+			) );
 		}
 
 		add_action( 'load-customize.php', 'pixova_lite_customize' );
@@ -73,7 +73,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.4.2', '<=' ) ) {
 	// Logo
 	add_action( 'pixova_lite_logo', 'pixova_lite_logo_less_45', 1 );
 	function pixova_lite_logo_less_45() {
-		$text_logo = esc_html( get_option( 'blogname' ) );
+		$text_logo  = esc_html( get_option( 'blogname' ) );
 		$image_logo = get_theme_mod( 'pixova_lite_image_logo' );
 
 		$output = '';
@@ -95,16 +95,16 @@ if ( ! $check_for_compatibility ) {
 
 	$pixova_settings = get_theme_mods();
 	if ( $pixova_settings ) {
-		
+
 		$existing_settings = Pixova_Lite_Helper::parse_pixova_settings();
-		$new_fields = false;
+		$new_fields        = false;
 		foreach ( $pixova_settings as $key => $value ) {
 			if ( in_array( $key, Pixova_Lite_Helper::$pixova_fields, true ) ) {
 				if ( isset( $existing_settings[ $key ] ) && $existing_settings[ $key ] !== $value ) {
-					$new_fields = true;
+					$new_fields                = true;
 					$existing_settings[ $key ] = $value;
 				} elseif ( ! isset( $existing_settings[ $key ] ) ) {
-					$new_fields = true;
+					$new_fields                = true;
 					$existing_settings[ $key ] = $value;
 				}
 				remove_theme_mod( $key );
@@ -115,7 +115,6 @@ if ( ! $check_for_compatibility ) {
 			update_post_meta( Pixova_Lite_Helper::get_setting_page_id(), 'pixova-settings', $existing_settings );
 			Pixova_Lite_Helper::create_content_from_options( $existing_settings );
 		}
-
 	}
 
 	update_option( 'pixova-customizer-v2', true );

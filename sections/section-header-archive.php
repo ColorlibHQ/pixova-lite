@@ -1,7 +1,7 @@
 <?php
 $image_logo = get_theme_mod( 'pixova_lite_image_logo', esc_url( get_template_directory_uri() . '/layout/images/pixova-lite-img-logo.png' ) );
 
-$blog_title = get_theme_mod( 'pixova_lite_blog_text_title' );
+$blog_title       = get_theme_mod( 'pixova_lite_blog_text_title' );
 $blog_description = get_theme_mod( 'pixova_lite_blog_text_description' );
 
 echo '<!-- Header -->';
@@ -25,11 +25,13 @@ if ( $image_logo ) {
 } else {
 	$main_navigation_class = 'main-navigation';
 }
-				   echo '<nav class="' . $main_navigation_class . '">';
-					echo wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'fallback_cb' => 'pixova_lite_fallback_cb',
-					) );
+					echo '<nav class="' . $main_navigation_class . '">';
+					echo wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'fallback_cb'    => 'pixova_lite_fallback_cb',
+						)
+					);
 					echo '</nav>';
 					echo '</div><!--/.col-md-12-->';
 					echo '</div><!--/.row-->';
@@ -40,10 +42,12 @@ if ( $image_logo ) {
 					echo '<nav class="mobile-nav-holder">';
 					echo '<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa fa-close"></span></a>';
 					echo '<div class="mobile-nav">';
-					echo wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'fallback_cb' => 'pixova_lite_fallback_cb',
-					) );
+					echo wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'fallback_cb'    => 'pixova_lite_fallback_cb',
+						)
+					);
 					echo '</div><!--/.mobile-nav-->';
 					echo '</nav><!--/.mobile-nav-holder-->';
 					echo '</div><!--/.offset-canvas-mobile-->';

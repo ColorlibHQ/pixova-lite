@@ -19,14 +19,14 @@ if ( ! class_exists( 'Pixova_Lite_CF7_Custom_Control' ) ) {
 
 
 		/**
-	 * Returns true / false if the plugin: Contact Form 7 is activated;
-	 *
-	 * This right here disables the control for selecting a contact form IF the plugin isn\'t active
-	 *
-	 * @since Pixova Lite 1.15
-	 *
-	* @return bool
-	 */
+		 * Returns true / false if the plugin: Contact Form 7 is activated;
+		 *
+		 * This right here disables the control for selecting a contact form IF the plugin isn\'t active
+		 *
+		 * @since Pixova Lite 1.15
+		 *
+		 * @return bool
+		 */
 		public function active_callback() {
 
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -47,9 +47,9 @@ if ( ! class_exists( 'Pixova_Lite_CF7_Custom_Control' ) ) {
 			if ( $this->active_callback() ) {
 
 				$args = array(
-					'post_type' => 'wpcf7_contact_form',
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
+					'post_type'      => 'wpcf7_contact_form',
+					'post_status'    => 'publish',
+					'posts_per_page' => - 1,
 				);
 
 				$cf7forms = new WP_Query( $args );
@@ -57,11 +57,11 @@ if ( ! class_exists( 'Pixova_Lite_CF7_Custom_Control' ) ) {
 					foreach ( $cf7forms->posts as $cf7form ) {
 						$contact_forms[ $cf7form->ID ] = $cf7form->post_title;
 					}
-				}else{
+				} else {
 					$contact_forms[0] = __( 'No contact forms found', 'pixova-lite' );
 				}
-
 			}
+
 			return $contact_forms;
 		}
 
@@ -71,9 +71,11 @@ if ( ! class_exists( 'Pixova_Lite_CF7_Custom_Control' ) ) {
 			if ( ! empty( $pixova_lite_contact_forms ) ) { ?>
 
 				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-				<select <?php $this->link(); ?> style="width:100%;">
+			<select <?php $this->link(); ?> style="width:100%;">
 
-				<?php echo '<option selected="selected" value="default">' . __( 'Select your contact form', 'pixova-lite' ) . '</option>';
+				<?php
+
+				echo '<option selected="selected" value="default">' . __( 'Select your contact form', 'pixova-lite' ) . '</option>';
 
 				foreach ( $pixova_lite_contact_forms as $form_id => $form_title ) {
 					echo '<option value="' . sanitize_key( $form_id ) . '" >' . esc_html( $form_title ) . '</option>';

@@ -22,6 +22,7 @@
     "WOW" : false,
     "pixova_lite_localization" : false,
     "viewportSize" : false,
+    "PixovaCustomizer" : false,
     "classie" : false,
     "_" : false
   }

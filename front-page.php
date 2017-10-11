@@ -1,14 +1,20 @@
-<?php get_header(); ?>
+<?php
+
+get_header();
+
+?>
 
 <?php
 
-if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
+if ( 'posts' == get_option( 'show_on_front' ) ) {
+?>
 
 	<div class="container">
 		<div class="row">
 			<section class="has-padding">
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-					<?php if ( have_posts() ) {
+					<?php
+					if ( have_posts() ) {
 
 						while ( have_posts() ) {
 							the_post();
@@ -26,7 +32,8 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 									</aside><!--/.entry-featured-image-->
 								<?php } ?>
 								<div class="entry-meta">
-									<?php printf(
+									<?php
+									printf(
 										// Translators: 1 is the post author, 2 is the category list.
 										__( '<span class="post-meta-separator"><i class="fa fa-user"></i>%1$s</span><span class="post-meta-separator"><i class="fa fa-calendar"></i>%2$s</span><span class="post-meta-separator"><i class="fa fa-comment"></i>%3$s</span><span class="post-meta-separator"><i class="fa fa-folder"></i>%4$s</span>', 'pixova-lite' ),
 										get_the_author_link(),
@@ -43,16 +50,22 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 									<?php
 										echo apply_filters( 'the_content', substr( get_the_content(), 0, 200 ) );
 
-										wp_link_pages( array(
-											'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
-											'after'  => '</div>',
-										) );
+										wp_link_pages(
+											array(
+												'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
+												'after'  => '</div>',
+											)
+										);
 									?>
 								</div><!-- .entry-content -->
 								<div class="clearfix"></div><!--/.clearfix-->
 							</article><!-- #post-## -->
-						<?php }// End while(). ?>
-					<?php }// End if(). ?>
+						<?php
+						}// End while().
+						?>
+					<?php
+					}// End if().
+					?>
 				</div><!--/.col-lg-8-->
 
 				<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs pull-right">
@@ -75,50 +88,49 @@ if ( 'posts' == get_option( 'show_on_front' ) ) { ?>
 		</div><!--/.row-->
 	</div><!--/.container-->
 
-<?php } // End if().
+<?php
+} // End if().
 else {
 
 
-	$sections = pixova_get_sections_position();
+	$sections      = pixova_get_sections_position();
 	$sections_args = array(
-		'pixova_lite_panel_intro' => array(
-			'check' => 'pixova_lite_intro_visibility',
+		'pixova_lite_panel_intro'        => array(
+			'check'    => 'pixova_lite_intro_visibility',
 			'template' => 'intro',
 		),
-		'pixova_lite_panel_about' => array(
-			'check' => 'pixova_lite_about_visibility',
+		'pixova_lite_panel_about'        => array(
+			'check'    => 'pixova_lite_about_visibility',
 			'template' => 'about',
 		),
-		'pixova_lite_panel_works' => array(
-			'check' => 'pixova_lite_works_visibility',
+		'pixova_lite_panel_works'        => array(
+			'check'    => 'pixova_lite_works_visibility',
 			'template' => 'works',
 		),
 		'pixova_lite_panel_testimonials' => array(
-			'check' => 'pixova_lite_testimonials_visibility',
+			'check'    => 'pixova_lite_testimonials_visibility',
 			'template' => 'testimonials',
 		),
-		'pixova_lite_panel_news' => array(
-			'check' => 'pixova_lite_news_visibility',
+		'pixova_lite_panel_news'         => array(
+			'check'    => 'pixova_lite_news_visibility',
 			'template' => 'news',
 		),
-		'pixova_lite_panel_team' => array(
-			'check' => 'pixova_lite_team_visibility',
+		'pixova_lite_panel_team'         => array(
+			'check'    => 'pixova_lite_team_visibility',
 			'template' => 'team',
 		),
-		'pixova_lite_panel_contact' => array(
-			'check' => 'pixova_lite_contact_visibility',
+		'pixova_lite_panel_contact'      => array(
+			'check'    => 'pixova_lite_contact_visibility',
 			'template' => 'contact',
 		),
 	);
 
 	foreach ( $sections as $section ) {
-		
+
 		if ( get_theme_mod( $sections_args[ $section ]['check'], 1 ) ) {
 			get_template_part( 'sections/section', $sections_args[ $section ]['template'] );
 		}
-
 	}
-
 } // else
 ?>
 

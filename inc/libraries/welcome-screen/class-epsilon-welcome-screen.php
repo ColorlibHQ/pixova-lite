@@ -597,12 +597,12 @@ class Epsilon_Welcome_Screen {
 	 * Creates a link to install/activate/deactivate certain plugins
 	 *
 	 * @param string $state Plugin state (active,not installed).
-	 * @param string $slug  Plugin slug.
+	 * @param string $slug Plugin slug.
 	 *
 	 * @return string
 	 */
 	private function create_plugin_link( $state, $slug ) {
-		$string = '';
+		$string        = '';
 		$complete_slug = Pixova_Notify_System::_get_plugin_basename_from_slug( $slug );
 		switch ( $state ) {
 			case 'install':
@@ -746,8 +746,8 @@ class Epsilon_Welcome_Screen {
 		return 'ok';
 	}
 
-	public static function demo_content_html(){
-		$html = '<p><a class="button button-primary epsilon-ajax-button" id="add_default_sections" href="#">' . __( 'Import Demo Content', 'epsilon-framework' ) . '</a>';
+	public static function demo_content_html() {
+		$html  = '<p><a class="button button-primary epsilon-ajax-button" id="add_default_sections" href="#">' . __( 'Import Demo Content', 'epsilon-framework' ) . '</a>';
 		$html .= '<a class="button epsilon-hidden-content-toggler" href="#" data-toggle="welcome-hidden-content">' . __( 'Advanced', 'epsilon-framework' ) . '</a></p>';
 		$html .= '<div class="import-content-container" id="welcome-hidden-content">';
 		$html .= '<div class="demo-content-container" >';
@@ -761,7 +761,7 @@ class Epsilon_Welcome_Screen {
 		return $html;
 	}
 
-	public static function process_sample_content( $args = array() ){
+	public static function process_sample_content( $args = array() ) {
 		$imported = true;
 
 		if ( empty( $args ) ) {
@@ -803,7 +803,7 @@ class Epsilon_Welcome_Screen {
 
 			update_option( 'page_on_front', $id );
 			update_option( 'show_on_front', 'page' );
-		}else{
+		} else {
 			update_option( 'page_on_front', $home->ID );
 			update_option( 'show_on_front', 'page' );
 		}
@@ -818,7 +818,7 @@ class Epsilon_Welcome_Screen {
 			);
 
 			update_option( 'page_for_posts', $id );
-		}else{
+		} else {
 			update_option( 'page_for_posts', $blog->ID );
 		}
 
@@ -833,8 +833,8 @@ class Epsilon_Welcome_Screen {
 
 		// Get contact form
 		$args = array(
-			'post_type' => 'wpcf7_contact_form',
-			'post_status' => 'publish',
+			'post_type'      => 'wpcf7_contact_form',
+			'post_status'    => 'publish',
 			'posts_per_page' => 1,
 		);
 
@@ -855,7 +855,7 @@ class Epsilon_Welcome_Screen {
 		# Parse config
 		foreach ( $config as $sidebar => $elemements ) {
 			# verify if the sidebar doesn't have ny widgets
-			if ( false === strpos( $sidebar, 'orphaned_widgets' ) && ! is_active_sidebar( $sidebar )  ) {
+			if ( false === strpos( $sidebar, 'orphaned_widgets' ) && ! is_active_sidebar( $sidebar ) ) {
 				# create an empty array for active widgets
 				$this_sidebar_active_widgets = array();
 				# parse all widgets for current sidebar

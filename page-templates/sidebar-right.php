@@ -11,21 +11,26 @@
 				<div class="container">
 					<div class="row">
 						<section class="has-padding">
-						 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-								<?php while ( have_posts() ) : the_post(); ?>
-							<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-								<div class="entry-content">
-									<?php
-										the_content();
-										wp_link_pages( array(
-											'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
-											'after'  => '</div>',
-										) );
-									?>
-								</div><!-- .entry-content -->
-							</article><!-- #post-## -->
-						 </div><!--/.col-lg-8.col-md-8.col-sm-8.col-xs-12-->
-						<?php endwhile; // end of the loop. ?>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+								<?php
+								while ( have_posts() ) :
+									the_post();
+?>
+								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+									<div class="entry-content">
+										<?php
+											the_content();
+											wp_link_pages(
+												array(
+													'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
+													'after'  => '</div>',
+												)
+											);
+										?>
+									</div><!-- .entry-content -->
+								</article><!-- #post-## -->
+							</div><!--/.col-lg-8.col-md-8.col-sm-8.col-xs-12-->
+						<?php endwhile; ?>
 						<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs pull-right">
 							<div class="pixova-blog-sidebar">
 								<?php

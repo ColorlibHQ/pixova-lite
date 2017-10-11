@@ -24,7 +24,10 @@
 								?>
 							</div> <!--/.pixova-blog-sidebar-->
 						</div><!--/.col-lg-3-->
-						<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+						while ( have_posts() ) :
+							the_post();
+?>
 							<div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-12">
 								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -33,16 +36,18 @@
 
 											the_content();
 
-											wp_link_pages( array(
-												'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
-												'after'  => '</div>',
-											) );
+											wp_link_pages(
+												array(
+													'before' => '<div class="page-links">' . __( 'Pages:', 'pixova-lite' ),
+													'after'  => '</div>',
+												)
+											);
 
 										?>
 									</div><!-- .entry-content -->
 								</article><!-- #post-## -->
 							</div><!--/.col-lg-8.col-md-8.col-sm-8.col-xs-12-->
-						<?php endwhile; // end of the loop. ?>
+						<?php endwhile; ?>
 					</section><!--/section-->
 				</div><!--/.row-->
 			</div><!--/.container-->

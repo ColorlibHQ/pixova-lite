@@ -35,7 +35,7 @@ if ( ! function_exists( 'pixova_lite_wp_title' ) ) {
 		 * Filters wp_title to print a neat <title> tag based on what is being viewed.
 		 *
 		 * @param string $title Default title text for current view.
-		 * @param string $sep   Optional separator.
+		 * @param string $sep Optional separator.
 		 *
 		 * @return string The filtered title.
 		 */
@@ -208,21 +208,21 @@ if ( ! function_exists( 'pixova_lite_content_nav' ) ) {
 		<nav id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 			<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'pixova-lite' ); ?></h2>
 
-			<?php if ( is_single() ) : // navigation links for single posts ?>
+			<?php if ( is_single() ) : ?>
 
 				<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'pixova-lite' ) . '</span> %title' ); ?>
 				<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'pixova-lite' ) . '</span>' ); ?>
 
-			<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+			<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : ?>
 
 				<?php if ( get_next_posts_link() ) : ?>
 					<div
-						class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'pixova-lite' ) ); ?></div>
+							class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'pixova-lite' ) ); ?></div>
 				<?php endif; ?>
 
 				<?php if ( get_previous_posts_link() ) : ?>
 					<div
-						class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'pixova-lite' ) ); ?></div>
+							class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'pixova-lite' ) ); ?></div>
 				<?php endif; ?>
 
 			<?php endif; ?>
@@ -294,8 +294,8 @@ if ( ! function_exists( 'pixova_lite_pagination' ) ) {
 		$next_arrow = is_rtl() ? '&larr;' : '&rarr;';
 
 		global $wp_query;
-		$total = $wp_query->max_num_pages;
-		$big   = 999999999; // need an unlikely integer
+		$total        = $wp_query->max_num_pages;
+		$big          = 999999999; // need an unlikely integer
 		$current_page = get_query_var( 'paged' );
 		if ( $total > 1 ) {
 			if ( ! $current_page ) {
@@ -387,8 +387,8 @@ add_filter( 'excerpt_length', 'pixova_lite_excerpt_length', 999 );
 #
 function pixova_lite_excerpt_more( $more ) {
 
-	$return_string = '<div class="read-more-wrapper">';
-		$return_string .= '<a href="' . esc_url( get_the_permalink() ) . '" class="btn btn-green btn-read-more" role="button">' . __( 'Read more', 'pixova-lite' ) . '</a>';
+	$return_string  = '<div class="read-more-wrapper">';
+	$return_string .= '<a href="' . esc_url( get_the_permalink() ) . '" class="btn btn-green btn-read-more" role="button">' . __( 'Read more', 'pixova-lite' ) . '</a>';
 	$return_string .= '</div>';
 
 	return $return_string;
@@ -402,14 +402,12 @@ if ( ! function_exists( 'pixova_lite_nice_debug' ) ) {
 
 		switch ( $type ) {
 			case 'print_r':
-
 				echo '<pre>';
 				print_r( $var );
 				echo '<pre>';
 
 				break;
 			case 'var_dump':
-
 				echo '<pre>';
 				var_dump( $var );
 				echo '<pre>';

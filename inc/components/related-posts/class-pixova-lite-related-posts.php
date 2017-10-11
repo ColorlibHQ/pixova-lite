@@ -34,6 +34,7 @@ if ( ! function_exists( 'mtl_call_related_posts_class' ) ) {
 			Pixova_Lite_Related_Posts::get_instance();
 		}
 	}
+
 	add_action( 'wp_loaded', 'mtl_call_related_posts_class' );
 }
 
@@ -56,7 +57,7 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 		protected function __construct() {
 
 			if ( get_theme_mod( 'pixova_lite_related_posts_enabled', 'pixova_lite_related_posts_enable' ) == 'pixova_lite_related_posts_enable' ) {
-				  add_action( 'mtl_single_after_article', array( $this, 'output_related_posts' ), 2 );
+				add_action( 'mtl_single_after_article', array( $this, 'output_related_posts' ), 2 );
 			}
 
 		}
@@ -140,10 +141,10 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 			$related_posts = $this->get_related_posts( get_the_ID(), get_option( 'posts_per_page' ) );
 
 			// Number of posts to show / view
-			$limit = get_theme_mod( 'pixova_lite_howmany_blog_posts', 3 );
+			$limit      = get_theme_mod( 'pixova_lite_howmany_blog_posts', 3 );
 			$show_title = get_theme_mod( 'pixova_lite_enable_related_title_blog_posts', 1 );
-			$show_date = get_theme_mod( 'pixova_lite_enable_related_date_blog_posts', 1 );
-			$auto_play = get_theme_mod( 'pixova_lite_autoplay_blog_posts', 1 );
+			$show_date  = get_theme_mod( 'pixova_lite_enable_related_date_blog_posts', 1 );
+			$auto_play  = get_theme_mod( 'pixova_lite_autoplay_blog_posts', 1 );
 			$pagination = get_theme_mod( 'pixova_lite_pagination_blog_posts', 1 );
 
 			echo '<div class="row pixova-padded">';
@@ -181,12 +182,12 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 
 				if ( $show_title ) {
 					echo '<div class="pixova-related-posts-title">';
-						echo '<a href="' . esc_url( get_the_permalink() ) . '">' . get_the_title() . '</a>';
+					echo '<a href="' . esc_url( get_the_permalink() ) . '">' . get_the_title() . '</a>';
 					echo '</div>';
 				}
 				if ( $show_date ) {
 					echo '<div class="pixova-related-posts-date">';
-						echo get_the_date();
+					echo get_the_date();
 					echo '</div>';
 				}
 

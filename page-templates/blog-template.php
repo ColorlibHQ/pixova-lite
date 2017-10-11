@@ -1,4 +1,4 @@
-<?php /* Template Name: Blog Template */ ?>
+<?php ;/* Template Name: Blog Template */ ?>
 
 <?php get_header(); ?>
 
@@ -7,13 +7,13 @@
 		<section class="has-padding">
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 					<?php
-					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+					$paged      = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 					$query_args = array(
 						'post_type' => 'post',
 						'showposts' => get_option( 'posts_per_page' ),
-						'paged' => $paged,
+						'paged'     => $paged,
 					);
-					$wp_query = new WP_Query( $query_args );
+					$wp_query   = new WP_Query( $query_args );
 
 					if ( $wp_query->have_posts() ) :
 						while ( $wp_query->have_posts() ) :

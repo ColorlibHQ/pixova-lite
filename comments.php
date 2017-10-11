@@ -7,8 +7,6 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
-	<?php // You can start editing here -- including this comment! ?>
-
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
@@ -33,7 +31,7 @@ if ( post_password_required() ) {
 			?>
 		</h2>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
 			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'pixova-lite' ); ?></h2>
 			<div class="nav-links">
@@ -43,18 +41,20 @@ if ( post_password_required() ) {
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-above -->
-		<?php endif; // check for comment navigation ?>
+		<?php endif; ?>
 
 		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				) );
+				wp_list_comments(
+					array(
+						'style'      => 'ol',
+						'short_ping' => true,
+					)
+				);
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
 			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'pixova-lite' ); ?></h2>
 			<div class="nav-links">
@@ -64,9 +64,9 @@ if ( post_password_required() ) {
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-below -->
-		<?php endif; // check for comment navigation ?>
+		<?php endif; ?>
 
-	<?php endif; // have_comments() ?>
+	<?php endif; ?>
 
 	<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
