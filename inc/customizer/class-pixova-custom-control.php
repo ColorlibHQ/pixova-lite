@@ -20,7 +20,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Pixova_Custom_Co
 					?>
 					<label>
 						<?php
-						echo '<input type="checkbox" value="' . esc_attr( $this->get_value() ) . '" ' . $this->link() . ' ' . checked( $this->get_value() ) . '/>';
+						echo '<input type="checkbox" value="' . esc_attr( $this->get_value() ) . '" ' . $this->get_link() . ' ' . checked( $this->get_value(), 1, false ) . '/>';
 						?>
 						<?php echo esc_html( $this->label ); ?>
 						<?php if ( ! empty( $this->description ) ) : ?>
@@ -48,7 +48,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'Pixova_Custom_Co
 						?>
 						<label>
 							<?php
-							echo '<input type="radio" value="' . esc_attr( $value ) . '" name="' . esc_attr( $name ) . $this->link() . ' ' . checked( $this->get_value(), $value ) . '/>';
+							echo '<input type="radio" value="' . esc_attr( $value ) . '" name="' . esc_attr( $name ) . $this->get_link() . ' ' . checked( $this->get_value(), $value, false ) . '/>';
 							echo esc_html( $label );
 							?>
 							<br/>
