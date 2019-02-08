@@ -1,0 +1,77 @@
+sudo: false
+language: php
+dist: precise
+matrix:
+  fast_finish: true
+  include:
+  - php: '5.3'
+  - php: '5.4'
+  - php: '5.5'
+  - php: '5.6'
+  - php: '7.0'
+    env:
+      - DEPLOY=1
+      - SNIFF=1
+  - php: '7.1'
+
+before_script:
+- export PHPCS_DIR=/tmp/phpcs
+- export SNIFFS_DIR=/tmp/sniffs
+- if [[ "$SNIFF" == "1" ]]; then git clone -b 2.9 --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git
+  $PHPCS_DIR; fi
+- if [[ "$SNIFF" == "1" ]]; then git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git
+  $SNIFFS_DIR; fi
+- if [[ "$SNIFF" == "1" ]]; then git clone -b 7.1.4 --depth 1 https://github.com/wimg/PHPCompatibility.git
+  $SNIFFS_DIR/PHPCompatibility; fi
+- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs --config-set installed_paths
+  $SNIFFS_DIR; fi
+- if [[ "$SNIFF" == "1" ]]; then phpenv rehash; fi
+- if [[ "$SNIFF" == "1" ]]; then npm install -g jscs; fi
+- if [[ "$SNIFF" == "1" ]]; then npm install -g jshint; fi
+- if [[ "$SNIFF" == "1" ]]; then wget https://develop.svn.wordpress.org/trunk/.jshintrc;
+  fi
+- if [[ "$SNIFF" == "1" ]] || [[ "$DEPLOY" == "1" ]]; then npm install -g grunt-cli;
+  fi
+- if [[ "$SNIFF" == "1" ]] || [[ "$DEPLOY" == "1" ]]; then npm install; fi
+- if [[ "$SNIFF" == "1" ]] || [[ "$DEPLOY" == "1" ]]; then npm install -g grunt-checktextdomain;
+  fi
+script:
+- mkdir -p build/logs
+- find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
+- if [[ "$SNIFF" == "1" ]]; then jshint ./layout/js/*.js; fi
+- if [[ "$SNIFF" == "1" ]]; then jscs ./layout/js/*.js; fi
+- if [[ "$SNIFF" == "1" ]]; then grunt textdomain; fi
+- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./*.php --standard=./phpcs.ruleset.xml
+  --extensions=php; fi
+- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/*.php --standard=./phpcs.ruleset.xml
+  --extensions=php --ignore=./inc/plugin-activation.php,./node_modules/*.php; fi
+- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/*.php
+  --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/*.php;
+  fi
+- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/**/*.php
+  --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/**/*.php;
+  fi
+- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/**/**/*.php
+  --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/**/**/*.php,./**/**/epsilon-framework/**/*.php;
+  fi
+- if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n ./**/**/**/**/**/*.php
+  --standard=./phpcs.ruleset.xml --extensions=php --ignore=./node_modules/**/**/**/**/*.php,./**/**/epsilon-framework/**/**/*.php;
+  fi
+notifications:
+  email: false
+cache:
+  directories:
+  - node_modules
+after_success:
+- if [[ "$DEPLOY" == "1" ]]; then grunt build-archive; fi
+- if [[ "$DEPLOY" == "1" ]]; then sh set_tags.sh; fi
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: EXa5PyLm+VBvYfpNde1pbUgr5Ffz7HXKmmH70DTZ0pBqxQ9swQBBOmgXnLovdMA0FkyCdKvyCpxkIqhhBX86gavmGmxc6iopcofOE+JHQkm18FlwGXiCpnTH9m1rhTSpXuV/w3W55/KelmgWwBi3O5E8Wj2J/dBjqzXkizir8yKDJso1Pr0u06s1LSAaL/+RDe3U82aEPi6UtKwV3l3ZKttyicrg2CKXfhSXdHit5FogfY6C801gBIz5HH8op65+vRk7FKXGUIpCu60M4yXhTCUZRzqT8VieBV5CbJ+lBIKhDpaxLLijdabqmkOR3m807W1lpVrH6crFqcH6l/8dZGsEteg7xcugpEtxQyhAGEc4LS0czeKkipVkrF0F6BWy57R8ZUWfXQHM4K8VriQrRkAjDEktLqibu1K4rVEof0XGQnP+DZo06Myxwq9IjiD/Xk3npBGZu6/OqGbehJ+DJzAvpAKRnlQSYVBekSpwxI1ifXK3QPGSjl8SFhtNaCFU0W+18+gvURXs3OV6tUEyukGLJFgK5W9lU+UFZX6/HbB1Uw14MBCxKOnYDRf7D15OepaVQkwpMPX/ZMCj7yt1EmO7PDV8AoUBMVsfhI0kawD0WxxbIYcK2aZOM2s6kROpMaaxglXMMEZMJ3kg/kpQ6yl0UQJ6uEW9MovK2DWu7IY=
+  file: pixova-lite.zip
+  on:
+    repo: puikinsh/pixova-lite
+    branch: 'production'
+    condition: "$DEPLOY = 1"

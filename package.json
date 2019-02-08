@@ -1,7 +1,9 @@
 {
   "name": "pixova-lite",
   "main": "Gruntfile.js",
-  "author": "Macho Themes",
+  "author": "Colorlib",
+  "version": "2.0.3",
+  "repository": "https://github.com/puikinsh/pixova-lite",
   "license": "GPL v3",
   "devDependencies": {
     "grunt": "^0.4.5",
