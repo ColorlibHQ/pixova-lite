@@ -1388,7 +1388,10 @@ body .btn-cta-intro a {
 .pirate_forms_wrap textarea,
 .project-contact-form-enabled .wpcf7 input[type=email],
 .project-contact-form-enabled .wpcf7 input[type=text],
-.project-contact-form-enabled .wpcf7 textarea {
+.project-contact-form-enabled .wpcf7 textarea,
+.kaliforms-form-container input[type=text],
+.kaliforms-form-container input[type=email],
+.kaliforms-form-container textarea {
 	border: 2px solid #a1b1bc;
 	color: #000
 }
@@ -4349,7 +4352,7 @@ span.post-meta-separator .fa {
 
 /* Responsive */
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
 
 	h1.intro-title {
 		font-size: 30px;

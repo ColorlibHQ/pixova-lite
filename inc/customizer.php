@@ -2031,10 +2031,15 @@ function pixova_lite_customize_register( $wp_customize ) {
 
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-	if ( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && is_plugin_active( 'pirate-forms/pirate-forms.php' ) ) {
+	if ( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && is_plugin_active( 'pirate-forms/pirate-forms.php' ) && is_plugin_active( 'kali-forms/kali-forms.php' ) ) {
 		$contact_section_type = array(
 			'contact-form-7' => esc_html__( 'Contact Form 7', 'pixova-lite' ),
 			'pirate-forms'   => esc_html__( 'Pirate Forms', 'pixova-lite' ),
+			'kali-forms'   => esc_html__( 'KaliForms', 'pixova-lite' ),
+		);
+	} elseif ( is_plugin_active( 'kali-forms/kali-forms.php' ) ) {
+		$contact_section_type = array(
+			'kali-forms'   => esc_html__( 'KaliForms', 'pixova-lite' ),
 		);
 	} elseif ( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
 		$contact_section_type = array(
@@ -2049,12 +2054,12 @@ function pixova_lite_customize_register( $wp_customize ) {
 	}
 
 	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_contact_section_type', array(
-		'default'           => 'contact-form-7',
+		'default'           => 'kali-forms',
 		'sanitize_callback' => 'pixova_lite_sanitize_radio_buttons',
 	) ) );
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_contact_section_type', array(
 		'section'         => 'pixova_lite_contact_cf7',
-		'label'           => esc_html__( 'Select the type of Contact Form to show (Contact Form 7 or Pirate Forms)', 'pixova-lite' ),
+		'label'           => esc_html__( 'Select the type of Contact Form to show (Kaliforms / Contact Form 7 / Pirate Forms)', 'pixova-lite' ),
 		'type'            => 'radio',
 		'priority'        => 1,
 		'settings'        => 'pixova_lite_contact_section_type',
@@ -2063,7 +2068,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) ) );
 
 	/* Contact: contact form select */
-	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_contact_section_cf7', array(
+ 	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_contact_section_cf7', array(
 		'sanitize_callback' => 'pixova_lite_sanitize_number',
 	) ) );
 
@@ -2073,6 +2078,19 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority'        => 2,
 		'type'            => 'pixova_lite_contact_form_7',
 		'active_callback' => 'pixova_lite_active_callback_contact_section_cf7',
+	) ) );
+
+	/* Contact: contact form select */
+	$wp_customize->add_setting( 'pixova_lite_contact_section_kali_form', array(
+		'sanitize_callback' => 'pixova_lite_sanitize_number',
+	) );
+
+	$wp_customize->add_control( new Pixova_Lite_Kaliforms_Custom_Control( $wp_customize, 'pixova_lite_contact_section_kali_form', array(
+		'label'           => esc_html__( 'Select the contact form you\'d like to display (powered by Kaliforms)', 'pixova-lite' ),
+		'section'         => 'pixova_lite_contact_cf7',
+		'priority'        => 2,
+		'type'            => 'pixova_lite_kali_forms',
+		'active_callback' => 'pixova_lite_active_callback_contact_section_kaliforms',
 	) ) );
 
 	/***********************************************/
@@ -3157,6 +3175,18 @@ if ( ! function_exists( 'pixova_lite_active_callback_contact_section_cf7' ) ) {
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 		if ( 'contact-form-7' == $control->manager->get_setting( 'pixova_lite_contact_section_type' )->value() && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+if ( ! function_exists( 'pixova_lite_active_callback_contact_section_kaliforms' ) ) {
+	function pixova_lite_active_callback_contact_section_kaliforms( $control ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		if ( 'kali-forms' == $control->manager->get_setting( 'pixova_lite_contact_section_type' )->value() && is_plugin_active( 'kali-forms/kali-forms.php' ) ) {
 			return true;
 		} else {
 			return false;
