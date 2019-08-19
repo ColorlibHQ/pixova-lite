@@ -124,7 +124,7 @@
 
         //Only expand menu on hover on screens bigger than 640px
         if ( viewportSize.getWidth() > 670 ) {
-            $( '#nav-expander' ).on( 'mouseenter', function() {
+            $( '#nav-expander' ).on( 'mouseenter keydown', function() {
                 $( '.main-navigation' ).addClass( 'visible' );
             });
             $( '#header-wrap' ).on( 'mouseleave', function() {
@@ -133,7 +133,7 @@
         } else if ( viewportSize.getWidth() <= 670 ) {
 
             //Only expand menu on click on screens smaller than 640px
-            $( '#nav-expander' ).on( 'click', function( e ) {
+            $( '#nav-expander' ).on( 'click keydown', function( e ) {
                 $( '.offset-canvas-mobile' ).addClass( 'open-canvas' );
                 e.preventDefault();
             });

@@ -409,12 +409,12 @@ if (typeof Object.create !== "function") {
                 buttonsWrapper = $("<div class=\"owl-buttons\"/>");
             base.owlControls.append(buttonsWrapper);
 
-            base.buttonPrev = $("<div/>", {
+            base.buttonPrev = $("<button/>", {
                 "class" : "owl-prev",
                 "html" : base.options.navigationText[0] || ""
             });
 
-            base.buttonNext = $("<div/>", {
+            base.buttonNext = $("<button/>", {
                 "class" : "owl-next",
                 "html" : base.options.navigationText[1] || ""
             });
@@ -423,18 +423,29 @@ if (typeof Object.create !== "function") {
                 .append(base.buttonPrev)
                 .append(base.buttonNext);
 
-            buttonsWrapper.on("touchstart.owlControls mousedown.owlControls", "div[class^=\"owl\"]", function (event) {
+            buttonsWrapper.on("touchstart.owlControls mousedown.owlControls", "[class^=\"owl\"]", function (event) {
                 event.preventDefault();
             });
 
-            buttonsWrapper.on("touchend.owlControls mouseup.owlControls", "div[class^=\"owl\"]", function (event) {
+            buttonsWrapper.on("touchend.owlControls mouseup.owlControls", "[class^=\"owl\"]", function (event) {
                 event.preventDefault();
                 if ($(this).hasClass("owl-next")) {
                     base.next();
                 } else {
                     base.prev();
                 }
+			});
+
+			buttonsWrapper.on("keydown", "[class^=\"owl\"]", function (event) {
+				if(event.keyCode == 13){
+					if ($(this).hasClass("owl-next")) {
+						base.next();
+					} else {
+						base.prev();
+					}
+				}
             });
+
         },
 
         buildPagination : function () {

@@ -975,7 +975,7 @@ body .btn-cta-intro a {
 .project-pictures a:focus:before,
 .project-pictures a:hover:before,
 .work:hover:before,
-.work:focus:before {
+.work:focus-within:before {
 	opacity: 1;
 	visibility: visible
 }
