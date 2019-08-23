@@ -181,7 +181,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 				'kali-forms' => array(
 					'recommended' => true,
 				),
-				'kiwi-social-share'        => array(
+				'strong-testimonials' => array(
 					'recommended' => false,
 				),
 				'modula-best-grid-gallery' => array(

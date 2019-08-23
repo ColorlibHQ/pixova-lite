@@ -1,5 +1,6 @@
 ### 2.0.3
     - Improved accesibility with keyboard navigation
+	- Updated list of recommended plugins
 
 ### 2.0.1
     - Removed user capability checks for displaying content on the front-page ( https://github.com/puikinsh/pixova-lite/issues/83 )
