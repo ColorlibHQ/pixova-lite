@@ -2035,11 +2035,11 @@ function pixova_lite_customize_register( $wp_customize ) {
 		$contact_section_type = array(
 			'contact-form-7' => esc_html__( 'Contact Form 7', 'pixova-lite' ),
 			'pirate-forms'   => esc_html__( 'Pirate Forms', 'pixova-lite' ),
-			'kali-forms'   => esc_html__( 'KaliForms', 'pixova-lite' ),
+			'kali-forms'   => esc_html__( 'Kali Forms', 'pixova-lite' ),
 		);
 	} elseif ( is_plugin_active( 'kali-forms/kali-forms.php' ) ) {
 		$contact_section_type = array(
-			'kali-forms'   => esc_html__( 'KaliForms', 'pixova-lite' ),
+			'kali-forms'   => esc_html__( 'Kali Forms', 'pixova-lite' ),
 		);
 	} elseif ( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
 		$contact_section_type = array(
@@ -2059,7 +2059,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) ) );
 	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_contact_section_type', array(
 		'section'         => 'pixova_lite_contact_cf7',
-		'label'           => esc_html__( 'Select the type of Contact Form to show (Kaliforms / Contact Form 7 / Pirate Forms)', 'pixova-lite' ),
+		'label'           => esc_html__( 'Select the type of Contact Form to show (Kali Forms / Contact Form 7 / Pirate Forms)', 'pixova-lite' ),
 		'type'            => 'radio',
 		'priority'        => 1,
 		'settings'        => 'pixova_lite_contact_section_type',
@@ -2086,7 +2086,7 @@ function pixova_lite_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new Pixova_Lite_Kaliforms_Custom_Control( $wp_customize, 'pixova_lite_contact_section_kali_form', array(
-		'label'           => esc_html__( 'Select the contact form you\'d like to display (powered by Kaliforms)', 'pixova-lite' ),
+		'label'           => esc_html__( 'Select the contact form you\'d like to display (powered by Kali Forms)', 'pixova-lite' ),
 		'section'         => 'pixova_lite_contact_cf7',
 		'priority'        => 2,
 		'type'            => 'pixova_lite_kali_forms',
