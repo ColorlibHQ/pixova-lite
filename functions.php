@@ -178,21 +178,13 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 			require get_template_directory() . '/inc/libraries/welcome-screen/class-epsilon-welcome-screen.php';
 
 			$pixova_recommended_plugins = array(
-				'kali-forms' => array(
-					'recommended' => true,
-				),
-				'strong-testimonials' => array(
-					'recommended' => false,
-				),
-				'modula-best-grid-gallery' => array(
-					'recommended' => true,
-				),
-				'fancybox-for-wordpress'   => array(
-					'recommended' => false,
-				),
-				'simple-custom-post-order' => array(
-					'recommended' => false,
-				),
+				'kali-forms'                       => array( 'recommended' => true ),
+				'modula-best-grid-gallery'         => array( 'recommended' => true ),
+				'fancybox-for-wordpress'           => array( 'recommended' => false ),
+				'simple-custom-post-order'         => array( 'recommended' => false ),
+				'colorlib-404-customizer'          => array( 'recommended' => false ),
+				'colorlib-coming-soon-maintenance' => array( 'recommended' => false ),
+				'colorlib-login-customizer'        => array( 'recommended' => false ),
 			);
 
 			/*
