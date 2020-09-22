@@ -617,6 +617,11 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 	}
 }// End if().
 
+if ( ! function_exists( 'wp_body_open' ) ) {
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
+}
 
 // Include epsilon framework
 require_once get_template_directory() . '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';

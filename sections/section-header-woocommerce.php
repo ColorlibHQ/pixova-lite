@@ -54,7 +54,7 @@ $pixova_lite_woocommerce_description       = get_theme_mod( 'pixova_lite_woocomm
 			<?php if ( $pixova_lite_woocommerce_header_image ) { ?>
 				<div class="parallax-bg-image" data-image-source="<?php echo esc_url( $pixova_lite_woocommerce_header_image ); ?>"></div>
 			<?php } else { ?>
-				<div class="parallax-bg-image" data-image-source="<?php echo get_template_directory_uri(); ?>/layout/images/header-bg.jpg"></div>
+				<div class="parallax-bg-image" data-image-source="<?php echo esc_url( get_template_directory_uri() ); ?>/layout/images/header-bg.jpg"></div>
 			<?php } ?>
 		</div><!--/.parallax-bg-container-->
 		<div id="intro-holder" class="container">
