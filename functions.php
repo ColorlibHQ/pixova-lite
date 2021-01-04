@@ -57,6 +57,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-upload.php';
 		require get_template_directory() . '/inc/customizer.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-lite-cf7-custom-control.php';
+		require get_template_directory() . '/inc/customizer/class-pixova-lite-kaliforms-custom-control.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-lite-number-custom-control.php';
 
 		/**
@@ -177,18 +178,13 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 			require get_template_directory() . '/inc/libraries/welcome-screen/class-epsilon-welcome-screen.php';
 
 			$pixova_recommended_plugins = array(
-				'kiwi-social-share'        => array(
-					'recommended' => false,
-				),
-				'modula-best-grid-gallery' => array(
-					'recommended' => true,
-				),
-				'fancybox-for-wordpress'   => array(
-					'recommended' => false,
-				),
-				'simple-custom-post-order' => array(
-					'recommended' => false,
-				),
+				'kali-forms'                       => array( 'recommended' => true ),
+				'modula-best-grid-gallery'         => array( 'recommended' => true ),
+				'fancybox-for-wordpress'           => array( 'recommended' => false ),
+				'simple-custom-post-order'         => array( 'recommended' => false ),
+				'colorlib-404-customizer'          => array( 'recommended' => false ),
+				'colorlib-coming-soon-maintenance' => array( 'recommended' => false ),
+				'colorlib-login-customizer'        => array( 'recommended' => false ),
 			);
 
 			/*
@@ -201,11 +197,11 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
              */
 			$pixova_required_actions = array(
 				array(
-					'id'          => 'pixova-lite-req-ac-install-contact-forms',
-					'title'       => esc_html__( 'Install Contact Form 7' ,'pixova-lite' ),
-					'description' => esc_html__( 'In the next updates, Pixova Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
-					'check'       => Pixova_Notify_System::has_plugin( 'contact-form-7' ),
-					'plugin_slug' => 'contact-form-7',
+					'id'          => 'pixova-lite-req-ac-install-kali-forms',
+					'title'       => esc_html__( 'Install Kaliforms' ,'pixova-lite' ),
+					'description' => esc_html__( 'Please make sure you install the Kaliforms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
+					'check'       => Pixova_Notify_System::has_plugin( 'kali-forms' ),
+					'plugin_slug' => 'kali-forms',
 				),
 				array(
 					'id'          => 'pixova-lite-import-demo-content',
@@ -621,6 +617,11 @@ if ( ! function_exists( 'pixova_lite_add_default_widgets' ) ) {
 	}
 }// End if().
 
+if ( ! function_exists( 'wp_body_open' ) ) {
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
+}
 
 // Include epsilon framework
 require_once get_template_directory() . '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';

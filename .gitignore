@@ -1,3 +1,4 @@
 node_modules/*
 .idea/*
 pixova-lite.zip
+package-lock.json

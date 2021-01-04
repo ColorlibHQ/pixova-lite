@@ -40,64 +40,59 @@ The exceptions to this license are as follows:
      Licensed under the MIT license. (http://www.opensource.org/licenses/mit-license.php)
 
 
-      * Images
+    * Images
 
-     	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
+ 	License: All images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
 
-     		 * layout/images/header-bg.jpg
-     			Source: https://download.unsplash.com/uploads/14120938606568dde6e2b/c9e42240
+    * layout/images/header-bg.jpg
+    Source: https://pxhere.com/en/photo/99443
 
-      * Faces are from Pixabay.com
+    * Team:
+    * layout/images/team/teammembru-150x150.jpg
+    Source: https://pxhere.com/en/photo/833215
 
-      * Team:
+    * layout/images/team/teammembru2-150x150.jpg
+    Source:  https://pxhere.com/en/photo/771408
 
-     		 * layout/images/team/teammembru-150x150.jpg
-     			Source: https://pixabay.com/en/computer-notebook-girl-work-people-1120754/
+    * layout/images/team/teammembru3-150x150.jpg
+    Source:  https://pxhere.com/en/photo/1260525
 
-             * layout/images/team/teammembru2-150x150.jpg
-                Source:  https://pixabay.com/en/man-crazy-funny-dude-sunglasses-540500/
+    * layout/images/team/teammembru4-150x150.jpg
+    Source:  https://pxhere.com/en/photo/1259106
 
-            * layout/images/team/teammembru3-150x150.jpg
-               Source:  https://pixabay.com/en/beautiful-face-female-girl-happy-15785/
+    * Testimonials:
 
-           * layout/images/team/teammembru4-150x150.jpg
-              Source:  https://pixabay.com/en/anger-angry-bad-isolated-dangerous-18615/
+    * layout/images/testimonials/teammembru_burned2-92x92.jpg
+    * layout/images/testimonials/teammembru_burned-92x92.jpg
+    Source: https://pxhere.com/en/photo/1238378
 
-      * Testimonials:
+    * Recent works images
 
-             * layout/images/testimonials/teammembru_burned2-92x92.jpg
-                Source: https://pixabay.com/en/man-boy-person-portrait-face-324103/
+    * layout/images/recent-works/recent-works-1-270x426.jpg
+    Source:https://stocksnap.io/photo/hardwood-table-F672CBDC0F
 
-             * layout/images/testimonials/teammembru_burned-92x92.jpg
-                Source: https://pixabay.com/en/man-boy-person-portrait-face-324103/
+    * layout/images/recent-works/recent-works-2-270x426.jpg
+    Source: https://pxhere.com/en/photo/971395
 
-      * Recent works images are from Pixabay.com
+    * layout/images/recent-works/recent-works-3-270x426.jpg
+    Source: https://pxhere.com/en/photo/970905
 
-             * layout/images/recent-works/recent-works-1-270x426.jpg
-                Source:https://download.unsplash.com/photo-1416339684178-3a239570f315
+    * layout/images/recent-works/recent-works-4-270x426.jpg
+    Source: https://pxhere.com/en/photo/971381
 
-             * layout/images/recent-works/recent-works-2-270x426.jpg
-                Source: https://download.unsplash.com/19/desktop.JPG
+    * News
 
-              * layout/images/recent-works/recent-works-3-270x426.jpg
-                Source: https://download.unsplash.com/5/unsplash-kitsune-3.jpg
+    * layout/images/blog-defaults/rand-1.jpg
+    Source:     https://pxhere.com/en/photo/722541
 
-             * layout/images/recent-works/recent-works-4-270x426.jpg
-                Source: https://download.unsplash.com/3/doctype-hi-res.jpg
+    * layout/images/blog-defaults/rand-2.jpg
+    Source:     https://pxhere.com/en/photo/1325876
 
-        * News images are from Pixabay.com
+    * layout/images/blog-defaults/rand-3.jpg
+    Source:     https://pxhere.com/en/photo/692223
 
-        * layout/images/blog-defaults/rand-1.jpg
-            Source:     https://pixabay.com/en/man-reading-touchscreen-blog-791049/
-
-        * layout/images/blog-defaults/rand-2.jpg
-            Source:     https://pixabay.com/en/technology-digital-tablet-792180/
-
-        * layout/images/blog-defaults/rand-3.jpg
-            Source:     https://pixabay.com/en/computer-technology-pc-947815/
-
-        * layout/images/blog-defaults/rand-4.jpg
-            Source:    https://pixabay.com/en/coffee-envelopes-work-desk-notebook-1128136/
+    * layout/images/blog-defaults/rand-4.jpg
+    Source:    https://pxhere.com/en/photo/1054115
 
 
  * Font Awesome

@@ -8,7 +8,8 @@ $pixova_lite_contact_section_address = get_theme_mod( 'pixova_lite_address' );
 $pixova_lite_contact_section_phone   = get_theme_mod( 'pixova_lite_phone' );
 $pixova_lite_contact_section_email   = get_theme_mod( 'pixova_lite_email' );
 $pixova_lite_contact_cf7_form        = get_theme_mod( 'pixova_lite_contact_section_cf7' );
-$pixova_lite_contact_section_type    = get_theme_mod( 'pixova_lite_contact_section_type', 'contact-form-7' );
+$pixova_lite_contact_kali_form       = get_theme_mod( 'pixova_lite_contact_section_kali_form' );
+$pixova_lite_contact_section_type    = get_theme_mod( 'pixova_lite_contact_section_type', 'kali-forms' );
 
 $pixova_lite_contact_first_heading  = get_theme_mod( 'pixova_lite_contact_first_heading' );
 $pixova_lite_contact_second_heading = get_theme_mod( 'pixova_lite_contact_second_heading' );
@@ -57,12 +58,16 @@ if ( '' != $pixova_lite_contact_section_email ) {
 
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-if ( 'contact-form-7' == $pixova_lite_contact_section_type && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && null != $pixova_lite_contact_cf7_form && 'default' != $pixova_lite_contact_cf7_form ) {
-	$shortcode = '[contact-form-7 id="' . esc_html( $pixova_lite_contact_cf7_form ) . '"]';
-	echo do_shortcode( $shortcode );
-} elseif ( 'pirate-forms' == $pixova_lite_contact_section_type ) {
-	echo do_shortcode( '[pirate_forms]' );
-} ?>
+		if ( 'kali-forms' == $pixova_lite_contact_section_type && is_plugin_active( 'kali-forms/kali-forms.php' ) && null != $pixova_lite_contact_kali_form && 'default' != $pixova_lite_contact_kali_form ) {
+			$shortcode = '[kaliform id="' . esc_html( $pixova_lite_contact_kali_form ) . '"]';
+			echo do_shortcode( $shortcode );
+		}
+		elseif ( 'contact-form-7' == $pixova_lite_contact_section_type && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && null != $pixova_lite_contact_cf7_form && 'default' != $pixova_lite_contact_cf7_form ) {
+			$shortcode = '[contact-form-7 id="' . esc_html( $pixova_lite_contact_cf7_form ) . '"]';
+			echo do_shortcode( $shortcode );
+		} elseif ( 'pirate-forms' == $pixova_lite_contact_section_type ) {
+			echo do_shortcode( '[pirate_forms]' );
+		} ?>
 <?php
 
 		echo '</div><!--/.row-->';

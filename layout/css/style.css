@@ -235,7 +235,8 @@ section {
 	text-shadow: none;
 }
 
-.btn-default:hover {
+.btn-default:hover,
+.btn-default:focus {
 	color: #fff;
 }
 
@@ -345,7 +346,8 @@ p {
 	margin: 0 5px
 }
 
-.intro-tagline a:hover {
+.intro-tagline a:hover,
+.intro-tagline a:focus {
 	color: #f2c351;
 	text-decoration: none;
 	opacity: .75
@@ -432,7 +434,8 @@ p {
 	text-transform: uppercase
 }
 
-.logo a:hover {
+.logo a:hover,
+.logo a:focus {
 	color: #fff
 }
 
@@ -468,7 +471,8 @@ p {
 	padding: 10px 30px
 }
 
-.mobile-nav a:hover {
+.mobile-nav a:hover,
+.mobile-nav a:focus {
 	box-shadow: none
 }
 
@@ -526,11 +530,17 @@ p {
 
 #intro p,
 #nav-expander:hover,
+#nav-expander:focus,
 .close-btn:hover,
+.close-btn:focus,
 .footer-social-icon:hover,
+.footer-social-icon:focus,
 .pdf-icon:hover:before,
+.pdf-icon:focus:before,
 .play-icon:hover:before,
-.testimonials-clients a:hover {
+.play-icon:focus:before,
+.testimonials-clients a:hover,
+.testimonials-clients a:focus {
 	opacity: .75
 }
 
@@ -578,18 +588,22 @@ body .btn-ghost-black {
 }
 
 body .btn-cta-dark:hover,
-body .btn-cta-light:hover {
+body .btn-cta-dark:focus,
+body .btn-cta-light:hover,
+body .btn-cta-light:focus {
 	background: #f2c351;
 	border: 2px solid #f2c351;
 	color: #fff !important
 }
 
-body .btn-ghost-white:hover {
+body .btn-ghost-white:hover,
+body .btn-ghost-white:focus {
 	background: #fff;
 	color: #000
 }
 
-body .btn-ghost-black:hover {
+body .btn-ghost-black:hover,
+body .btn-ghost-black:focus {
 	background: #000;
 	color: #000
 }
@@ -673,7 +687,8 @@ section {
 	text-decoration: none
 }
 
-.smaller .logo:hover {
+.smaller .logo:hover,
+.smaller .logo:focus-within {
 	color: #000;
 	opacity: .75;
 	text-decoration: none
@@ -683,7 +698,8 @@ section {
 	color: #000
 }
 
-.smaller .main-navigation a:hover {
+.smaller .main-navigation a:hover,
+.smaller .main-navigation a:focus {
 	color: #eee;
 	opacity: 1;
 	text-decoration: underline
@@ -785,7 +801,8 @@ body .btn-cta {
 	font-weight: 500 !important;
 }
 
-body .btn-cta-intro:hover {
+body .btn-cta-intro:hover,
+body .btn-cta-intro:focus {
 	background-color: #ffce55;
 	color: #fff
 }
@@ -830,7 +847,8 @@ body .btn-cta-intro a {
 	color: #fff
 }
 
-.arrow:hover {
+.arrow:hover,
+.arrow:focus {
 	color: #fff !important;
 	opacity: .75;
 	text-decoration: none !important
@@ -924,7 +942,8 @@ body .btn-cta-intro a {
 	position: relative
 }
 
-.work-project-link:hover {
+.work-project-link:hover,
+.work-project-link:focus {
 	text-decoration: underline;
 	background-color: rgba(255, 255, 255, 0) !important
 }
@@ -955,12 +974,14 @@ body .btn-cta-intro a {
 .portfolio-picture a:hover:before,
 .project-pictures a:focus:before,
 .project-pictures a:hover:before,
-.work:hover:before {
+.work:hover:before,
+.work:focus-within:before {
 	opacity: 1;
 	visibility: visible
 }
 
-.work:hover .logo-background {
+.work:hover .logo-background,
+.work:focus-within .logo-background {
 	background: rgba(0, 0, 0, 0)
 }
 
@@ -1006,12 +1027,14 @@ body .btn-cta-intro a {
 	position: relative;
 }
 
-.work-description-icon:hover:after {
+.work-description-icon:hover:after,
+.work-description-icon:focus-within:after {
 	background: #f2c351;
 	width: 100%;
 }
 
-.work-description-icon:hover {
+.work-description-icon:hover,
+.work-description-icon:focus-within {
 	color: #fff;
 }
 
@@ -1166,7 +1189,9 @@ body .btn-cta-intro a {
 	text-decoration: none
 }
 #footer .footer-copyright a:hover,
-#footer .widget a:hover {
+#footer .footer-copyright a:focus,
+#footer .widget a:hover,
+#footer .widget a:focus {
 	color: #f2c351
 }
 #footer .widget .calendar_wrap a {
@@ -1206,7 +1231,8 @@ body .btn-cta-intro a {
 	font-family: 'Roboto', Arial, sans-serif
 }
 
-.footer-social-icon:hover {
+.footer-social-icon:hover,
+.footer-social-icon:focus {
 	background-color: #f2c351;
 	border: 2px solid #f2c351;
 	color: #fff !important
@@ -1256,19 +1282,25 @@ body .btn-cta-intro a {
 }
 
 .footer-photos a:hover span,
+.footer-photos a:focus span,
 .portfolio-picture a:hover span,
-.project-pictures a:hover span {
+.portfolio-picture a:focus span,
+.project-pictures a:hover span,
+.project-pictures a:focus span {
 	opacity: 1;
 	top: 50%;
 	visibility: visible
 }
 
 .footer-photos a:hover span,
-.project-pictures a:hover span {
+.footer-photos a:focus span,
+.project-pictures a:hover span,
+.project-pictures a:focus span {
 	margin-top: -8px
 }
 
-#project-content a:hover span {
+#project-content a:hover span,
+#project-content a:focus span {
 	margin-top: -6px
 }
 
@@ -1294,7 +1326,8 @@ body .btn-cta-intro a {
 	margin-right: 8px
 }
 
-#footer .menu li a:hover {
+#footer .menu li a:hover,
+#footer .menu li a:focus {
 	color: #f2c351;
 }
 
@@ -1388,7 +1421,10 @@ body .btn-cta-intro a {
 .pirate_forms_wrap textarea,
 .project-contact-form-enabled .wpcf7 input[type=email],
 .project-contact-form-enabled .wpcf7 input[type=text],
-.project-contact-form-enabled .wpcf7 textarea {
+.project-contact-form-enabled .wpcf7 textarea,
+.kaliforms-form-container input[type=text],
+.kaliforms-form-container input[type=email],
+.kaliforms-form-container textarea {
 	border: 2px solid #a1b1bc;
 	color: #000
 }
@@ -1524,7 +1560,8 @@ body.logged-in section {
 	padding: 0
 }
 
-.pixova-blog-posts .thumbnail:hover {
+.pixova-blog-posts .thumbnail:hover,
+.pixova-blog-posts .thumbnail:focus-within {
 	opacity: .9
 }
 
@@ -1945,11 +1982,13 @@ body.logged-in section {
 	text-decoration: none
 }
 
-.pixova-button:hover span.pixova-button-inner {
+.pixova-button:hover span.pixova-button-inner,
+.pixova-button:focus span.pixova-button-inner {
 	color: #fff
 }
 
-.pixova-button:hover {
+.pixova-button:hover,
+.pixova-button:focus {
 	-moz-opacity: .9;
 	-webkit-opacity: .9;
 	background-color: #f2c351;
@@ -2073,7 +2112,8 @@ body.logged-in section {
 	vertical-align: top;
 }
 
-.pixova-team:hover:after {
+.pixova-team:hover:after,
+.pixova-team:focus-within:after {
 	width: 40px;
 }
 
@@ -2088,7 +2128,8 @@ body.logged-in section {
 	height: auto;
 }
 
-.pixova-team:hover .pixova-team-img {
+.pixova-team:hover .pixova-team-img,
+.pixova-team:focus-within .pixova-team-img {
 	-ms-transform: scale(.9);
 	-webkit-transform: scale(.9);
 	opacity: .75;
@@ -2360,7 +2401,8 @@ body.logged-in section {
 	font-family: 'Roboto', Arial, sans-serif
 }
 
-.widget_pages a:hover {
+.widget_pages a:hover,
+.widget_pages a:focus {
 	color: #f2c351
 }
 
@@ -2399,11 +2441,17 @@ body.logged-in section {
 }
 
 .recentcomments a:hover,
+.recentcomments a:focus,
 .widget_categories a:hover,
+.widget_categories a:focus,
 .widget_recent_entries a:hover,
+.widget_recent_entries a:focus,
 .widget_pages a:hover,
+.widget_pages a:focus,
 .widget_archive a:hover,
-.widget_meta a:hover {
+.widget_archive a:focus,
+.widget_meta a:hover,
+.widget_meta a:focus {
 	color: #f2c351
 }
 
@@ -2506,8 +2554,9 @@ body.logged-in section {
 	border-radius: 4px
 }
 
-.entry-tags a:hover {
-	text-decoration: underline
+.entry-tags a:hover,
+.entry-tags a:focus {
+	text-decoration: underline;
 }
 
 .entry-meta {
@@ -2533,7 +2582,8 @@ input[tye="submit"] {
 	text-decoration: none
 }
 
-.entry-meta a:hover {
+.entry-meta a:hover,
+.entry-meta a:focus {
 	text-decoration: underline;
 	color: #f2c351;
 }
@@ -2799,7 +2849,8 @@ input#submit {
 	text-decoration: none
 }
 
-.pixova_lite_widget_social_media li a:hover {
+.pixova_lite_widget_social_media li a:hover,
+.pixova_lite_widget_social_media li a:focus {
 	text-decoration: underline;
 	color: #f2c351
 }
@@ -2973,7 +3024,8 @@ object {
 
 .pixova-top.pixova-fade-out,
 .pixova-top.pixova-is-visible,
-.no-touch .pixova-top:hover {
+.no-touch .pixova-top:hover,
+.no-touch .pixova-top:focus {
 	-moz-transition: opacity .3s 0 visibility 0 0;
 	-webkit-transition: opacity .3s 0 visibility 0 0;
 	transition: opacity .3s 0 visibility 0 0
@@ -2983,11 +3035,13 @@ object {
 	opacity: .5
 }
 
-.pixova-top.pixova-fade-out:hover {
+.pixova-top.pixova-fade-out:hover,
+.pixova-top.pixova-fade-out:focus {
 	opacity: 1
 }
 
-.no-touch .pixova-top:hover {
+.no-touch .pixova-top:hover,
+.no-touch .pixova-top:focus {
 	background-color: #e86256;
 	opacity: 1
 }
@@ -3009,7 +3063,9 @@ object {
 	color: #000
 }
 .logo:hover,
-.main-navigation a:hover {
+.logo:focus-within,
+.main-navigation a:hover,
+.main-navigation a:focus {
 	color: #f2c351;
 }
 
@@ -3024,6 +3080,7 @@ object {
 
 #nav-expander,
 #nav-expander:hover i.fa-bars,
+#nav-expander:focus-within i.fa-bars,
 .smaller #nav-expander {
 	color: #000
 }
@@ -3033,8 +3090,9 @@ object {
 	font-size: 21px
 }
 
-body .btn-cta-intro:hover span {
-	color: #fff
+body .btn-cta-intro:hover span,
+body .btn-cta-intro:focus span {
+	color: #fff;
 }
 
 .arrow:active {
@@ -3136,7 +3194,8 @@ div#buy-now {
 	font-size: 13px;
 	text-decoration: none
 }
-#team .pixova-team-member-icon a:hover {
+#team .pixova-team-member-icon a:hover,
+#team .pixova-team-member-icon a:focus {
 	color: #f2c351;
 }
 
@@ -3785,15 +3844,17 @@ ul.page-numbers li,
 }
 
 .page-numbers a:hover,
+.page-numbers a:focus,
 .page-numbers.current,
-.page-numbers.current:hover {
+.page-numbers.current:hover,
+.page-numbers.current:focus {
 	color: #000;
 	background: #f7f7f7;
 	text-decoration: none
 }
 
 .page-numbers:hover {
-	text-decoration: none
+	text-decoration: none;
 }
 
 .error-404,
@@ -3972,8 +4033,10 @@ ul.page-numbers li,
 }
 
 .pixova-lite-breadcrumbs a:hover,
-.pixova-lite-breadcrumbs span:hover {
-	text-decoration: underline
+.pixova-lite-breadcrumbs a:focus,
+.pixova-lite-breadcrumbs span:hover,
+.pixova-lite-breadcrumbs span:focus-within {
+	text-decoration: underline;
 }
 
 .pixova-lite-breadcrumbs span {
@@ -4046,7 +4109,8 @@ ul.page-numbers li,
 	display: inline-block;
 }
 
-.bnt-read-more:hover {
+.bnt-read-more:hover,
+.bnt-read-more:focus {
 	color: #fff;
 }
 
@@ -4349,7 +4413,7 @@ span.post-meta-separator .fa {
 
 /* Responsive */
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 768px) {
 
 	h1.intro-title {
 		font-size: 30px;
