@@ -19,9 +19,9 @@ $pixova_lite_what_we_do_2_description = get_theme_mod( 'pixova_lite_intro_what_w
 $pixova_lite_what_we_do_3             = get_theme_mod( 'pixova_lite_intro_what_we_do_3_title' );
 $pixova_lite_what_we_do_3_description = get_theme_mod( 'pixova_lite_intro_what_we_do_3_description' );
 
-$pixova_lite_what_we_do_1_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_1_icon' );
-$pixova_lite_what_we_do_2_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_2_icon' );
-$pixova_lite_what_we_do_3_icon = get_theme_mod( 'pixova_lite_intro_what_we_do_3_icon' );
+$pixova_lite_what_we_do_1_icon = pixova_lite_fontawesome_class( get_theme_mod( 'pixova_lite_intro_what_we_do_1_icon' ) );
+$pixova_lite_what_we_do_2_icon = pixova_lite_fontawesome_class( get_theme_mod( 'pixova_lite_intro_what_we_do_2_icon' ) );
+$pixova_lite_what_we_do_3_icon = pixova_lite_fontawesome_class( get_theme_mod( 'pixova_lite_intro_what_we_do_3_icon' ) );
 
 
 echo '<section id="intro" class="home-intro" >';

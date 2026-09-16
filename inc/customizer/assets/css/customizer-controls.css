@@ -1,0 +1,171 @@
+/*
+ * Styling for the theme's own Customizer controls.
+ *
+ * These rules used to come from the Epsilon framework's stylesheet. They are
+ * loaded only on the Customizer controls screen.
+ */
+
+/* ---------------------------------------------------------------- Toggle */
+.pixova-lite-toggle {
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: 4px;
+}
+
+.pixova-lite-toggle__input {
+	position: absolute;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+}
+
+.pixova-lite-toggle__track {
+	display: block;
+	position: relative;
+	width: 52px;
+	height: 22px;
+	border-radius: 11px;
+	background: #c3c4c7;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.pixova-lite-toggle__track:after {
+	content: "";
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #fff;
+	transition: transform 0.2s ease;
+}
+
+.pixova-lite-toggle__input:checked + .pixova-lite-toggle__track {
+	background: #2271b1;
+}
+
+.pixova-lite-toggle__input:checked + .pixova-lite-toggle__track:after {
+	transform: translateX(30px);
+}
+
+/* Keyboard focus has to be visible on the track, since the input is hidden. */
+.pixova-lite-toggle__input:focus + .pixova-lite-toggle__track {
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2271b1;
+}
+
+/* ----------------------------------------------------------------- Range */
+.pixova-lite-range {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 6px;
+}
+
+.pixova-lite-range input[type="range"] {
+	flex: 1 1 auto;
+	min-width: 0;
+	margin: 0;
+}
+
+.pixova-lite-range__value {
+	flex: 0 0 auto;
+	min-width: 2.5em;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #f0f0f1;
+	font-variant-numeric: tabular-nums;
+	text-align: center;
+}
+
+/* ----------------------------------------------------------- Icon picker */
+.pixova-lite-icon-picker {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 6px;
+}
+
+.pixova-lite-icon-picker__preview {
+	flex: 0 0 auto;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 15px;
+	color: #1d2327;
+}
+
+.pixova-lite-icon-picker__input {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* ----------------------------------------------------------- Text editor */
+.pixova-lite-text-editor {
+	font-family: Consolas, Monaco, monospace;
+	font-size: 12px;
+}
+
+.customize-control .wp-editor-container {
+	border: 1px solid #dcdcde;
+}
+
+/* ----------------------------------------------------------- Typography */
+.pixova-lite-typography {
+	display: block;
+	margin-top: 8px;
+}
+
+.pixova-lite-typography__row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 6px;
+}
+
+.pixova-lite-typography__row > span {
+	flex: 0 0 auto;
+	font-size: 12px;
+	color: #50575e;
+}
+
+.pixova-lite-typography__row select,
+.pixova-lite-typography__row input {
+	flex: 1 1 auto;
+	min-width: 0;
+	max-width: 60%;
+}
+
+.pixova-lite-typography__check {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	margin-right: 14px;
+	font-size: 12px;
+	color: #50575e;
+}
+
+/* --------------------------------------------------------- Link sections */
+.pixova-lite-section-link {
+	padding: 14px 14px 16px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+.pixova-lite-section-link__title {
+	margin: 0 0 4px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.pixova-lite-section-link__description {
+	margin: 0 0 10px;
+	color: #50575e;
+	font-size: 12px;
+}

@@ -4,9 +4,87 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Class Epsilon_Notify_System
+ * Plugin and content checks behind the theme's recommended actions.
+ *
+ * Previously extended Epsilon_Notify_System. The half-dozen methods it
+ * inherited are here now, and they use WP_PLUGIN_DIR rather than assuming
+ * plugins live under ABSPATH . 'wp-content/plugins/', which is wrong on any
+ * install that has moved wp-content.
  */
-class Pixova_Notify_System extends Epsilon_Notify_System {
+class Pixova_Notify_System {
+
+	/**
+	 * Cached plugin basenames.
+	 *
+	 * @var array
+	 */
+	protected static $plugins = array();
+
+	/**
+	 * @return bool
+	 */
+	public static function is_not_static_page() {
+		return 'page' === get_option( 'show_on_front' );
+	}
+
+	/**
+	 * @return array
+	 */
+	public static function _get_plugins() {
+		if ( ! function_exists( 'get_plugins' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		return get_plugins();
+	}
+
+	/**
+	 * @param string $slug
+	 *
+	 * @return string
+	 */
+	public static function _get_plugin_basename_from_slug( $slug ) {
+		if ( empty( self::$plugins ) ) {
+			self::$plugins = array_keys( self::_get_plugins() );
+		}
+
+		foreach ( self::$plugins as $key ) {
+			if ( 0 === strpos( $key, $slug . '/' ) ) {
+				return $key;
+			}
+		}
+
+		return $slug;
+	}
+
+	/**
+	 * @param string $slug
+	 *
+	 * @return bool
+	 */
+	public static function check_plugin_is_installed( $slug ) {
+		return file_exists( trailingslashit( WP_PLUGIN_DIR ) . self::_get_plugin_basename_from_slug( $slug ) );
+	}
+
+	/**
+	 * @param string $slug
+	 *
+	 * @return bool
+	 */
+	public static function check_plugin_is_active( $slug ) {
+		$plugin_path = self::_get_plugin_basename_from_slug( $slug );
+
+		if ( ! file_exists( trailingslashit( WP_PLUGIN_DIR ) . $plugin_path ) ) {
+			return false;
+		}
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		return is_plugin_active( $plugin_path );
+	}
+
 	/**
 	 * @return bool
 	 */
@@ -22,13 +100,7 @@ class Pixova_Notify_System extends Epsilon_Notify_System {
 	 * @return bool
 	 */
 	public static function check_wordpress_importer() {
-		if ( file_exists( ABSPATH . 'wp-content/plugins/wordpress-importer/wordpress-importer.php' ) ) {
-			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-			return is_plugin_active( 'wordpress-importer/wordpress-importer.php' );
-		}
-
-		return false;
+		return self::check_plugin_is_active( 'wordpress-importer' );
 	}
 
 	public static function has_plugin( $slug = null ) {

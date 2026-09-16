@@ -105,8 +105,8 @@
 					autoPlay: sliderAutoPlay,
 					pagination: sliderPagination,
 					navigationText: [ // Custom navigation text (instead of bullets). navigationText : false to disable arrows / bullets
-						'<i class=\'fa fa-angle-left\'></i>',
-						'<i class=\'fa fa-angle-right\'></i>'
+						'<i class=\'fa-solid fa-angle-left\'></i>',
+						'<i class=\'fa-solid fa-angle-right\'></i>'
 					]
 				});
 
@@ -145,8 +145,8 @@
 							navigation:true,    // Display "next" and "prev" buttons.
 							pagination: false,  // No pagination
 							navigationText: [   // Custom navigation text (instead of bullets). navigationText : false to disable arrows / bullets
-								'<i class=\'fa fa-angle-left\'></i>',
-								'<i class=\'fa fa-angle-right\'></i>'
+								'<i class=\'fa-solid fa-angle-left\'></i>',
+								'<i class=\'fa-solid fa-angle-right\'></i>'
 							],
 							singleItem: true
 						});
@@ -189,8 +189,8 @@
 				navigation: true,
 				pagination: false,
 				navigationText: [
-					'<i class=\'fa fa-angle-left\'></i>',
-					'<i class=\'fa fa-angle-right\'></i>'
+					'<i class=\'fa-solid fa-angle-left\'></i>',
+					'<i class=\'fa-solid fa-angle-right\'></i>'
 				]
 			});
 		}

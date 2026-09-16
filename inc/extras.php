@@ -29,51 +29,6 @@ if ( ! function_exists( 'pixova_lite_body_classes' ) ) {
 	add_filter( 'body_class', 'pixova_lite_body_classes' );
 }
 
-if ( ! function_exists( 'pixova_lite_wp_title' ) ) {
-	if ( ! function_exists( '_wp_render_title_tag' ) ) {
-		/**
-		 * Filters wp_title to print a neat <title> tag based on what is being viewed.
-		 *
-		 * @param string $title Default title text for current view.
-		 * @param string $sep Optional separator.
-		 *
-		 * @return string The filtered title.
-		 */
-
-		function pixova_lite_wp_title( $title, $sep ) {
-
-			if ( is_feed() ) {
-
-				return $title;
-
-			}
-
-			global $page, $paged;
-
-			// Add the blog name
-			$title .= get_bloginfo( 'name', 'display' );
-
-			// Add the blog description for the home/front page.
-			$site_description = get_bloginfo( 'description', 'display' );
-			if ( $site_description && ( is_home() || is_front_page() ) ) {
-				$title .= " $sep $site_description";
-
-			}
-
-			// Add a page number if necessary:
-
-			if ( $paged >= 2 || $page >= 2 ) {
-				$title .= " $sep " . sprintf( __( 'Page %s', 'pixova-lite' ), max( $paged, $page ) );
-			}
-
-			return $title;
-
-		}
-
-		add_filter( 'wp_title', 'pixova_lite_wp_title', 10, 2 );
-	}// End if().
-}// End if().
-
 if ( ! function_exists( 'pixova_lite_setup_author' ) ) {
 	/**
 	 * Sets the authordata global when viewing an author archive.
@@ -426,15 +381,221 @@ if ( ! function_exists( 'pixova_lite_get_customizer_image_by_url' ) ) {
 	 */
 	function pixova_lite_get_customizer_image_by_url( $value, $image_size = '' ) {
 
-		$id = attachment_url_to_postid( $value );
+		$id = $value ? attachment_url_to_postid( $value ) : 0;
 
-		if ( $image_size ) {
-			$thumb = wp_get_attachment_image_src( $id, $image_size );
-		} else { // return full size otherwise
-			$thumb = wp_get_attachment_image_src( $id, 'full' );
+		/*
+		 * Not in the media library -- one of the theme's own bundled defaults,
+		 * for instance. Callers test for an empty return and fall back to the
+		 * raw Customizer value, so keep handing back an empty string; it just
+		 * used to arrive via $thumb[0] on a false, which warns on PHP 8 and
+		 * then passes null into esc_url().
+		 */
+		if ( ! $id ) {
+			return '';
 		}
 
-		return esc_url( $thumb[0] );
+		$thumb = wp_get_attachment_image_src( $id, $image_size ? $image_size : 'full' );
 
+		return empty( $thumb[0] ) ? '' : esc_url( $thumb[0] );
+
+	}
+}
+
+if ( ! function_exists( 'pixova_lite_fontawesome_class' ) ) {
+	/**
+	 * Bring a stored icon class string up to Font Awesome 7.
+	 *
+	 * The icon picker has always stored a class string, and everyone running
+	 * the theme before 2.1.0 has Font Awesome 4 strings saved: "fa fa-bold",
+	 * "fa fa-envelope-o". Font Awesome 7 renamed most of those and split the
+	 * rest across three faces, so shipping 7 without translating them would
+	 * blank every icon anybody had configured.
+	 *
+	 * Rather than enqueue Font Awesome's v4-shims stylesheet -- which is 21KB
+	 * and pulls in the whole unsubsetted family -- the rename map is applied
+	 * here, once per value.
+	 *
+	 * Anything already written in Font Awesome 7 form, or that the map does
+	 * not know, is handed back untouched: someone may have typed a class the
+	 * theme has never heard of, and breaking it would be worse than passing
+	 * it through.
+	 *
+	 * @since Pixova Lite 2.1.0
+	 *
+	 * @param string $class Icon class string as stored.
+	 * @return string Class string safe to put in the markup.
+	 */
+	function pixova_lite_fontawesome_class( $class ) {
+
+		if ( ! is_string( $class ) || '' === trim( $class ) ) {
+			return '';
+		}
+
+		$classes = preg_split( '/\s+/', trim( $class ) );
+
+		// "fa" on its own is Font Awesome 4's base class; 7 uses the style
+		// class for that job, and leaving it in makes 7 fall back to Free.
+		$legacy = in_array( 'fa', $classes, true );
+
+		if ( ! $legacy ) {
+			return $class;
+		}
+
+		static $map = null;
+
+		if ( null === $map ) {
+			$map  = array();
+			$file = get_template_directory() . '/inc/customizer/assets/fontawesome-4-shim.json';
+
+			if ( is_readable( $file ) ) {
+				$decoded = json_decode( file_get_contents( $file ), true );
+
+				if ( is_array( $decoded ) ) {
+					$map = $decoded;
+				}
+			}
+		}
+
+		$out = array();
+
+		foreach ( $classes as $single ) {
+			if ( 'fa' === $single ) {
+				continue;
+			}
+
+			if ( isset( $map[ $single ] ) ) {
+				// The map carries the style class with it, so this one token
+				// expands to two: "fa-bold" becomes "fa-solid fa-bold".
+				$out = array_merge( $out, explode( ' ', $map[ $single ] ) );
+				continue;
+			}
+
+			$out[] = $single;
+		}
+
+		// A sizing-only string such as "fa fa-2x" leaves nothing to draw.
+		if ( ! $out ) {
+			return '';
+		}
+
+		return implode( ' ', array_unique( $out ) );
+	}
+}
+
+if ( ! function_exists( 'pixova_lite_fontawesome_is_subsetted' ) ) {
+	/**
+	 * Can the bundled Font Awesome subset draw every icon this site is set to show?
+	 *
+	 * The subset holds the glyphs the theme's own templates render. The three
+	 * "What we do" icons are not among those -- they are whatever the site owner
+	 * picked in the Customizer, out of the several hundred the picker offers --
+	 * so if one of them falls outside the subset the page would show an empty
+	 * box. In that case the caller loads the complete family instead.
+	 *
+	 * @since Pixova Lite 2.1.0
+	 *
+	 * @return bool True when the subset covers everything, false to load it all.
+	 */
+	function pixova_lite_fontawesome_is_subsetted() {
+
+		static $subsetted = null;
+
+		if ( null !== $subsetted ) {
+			return $subsetted;
+		}
+
+		$manifest = get_template_directory() . '/layout/css/fontawesome/subset/icons.php';
+
+		if ( ! is_readable( $manifest ) ) {
+			$subsetted = false;
+
+			return $subsetted;
+		}
+
+		$available = include $manifest;
+
+		if ( ! is_array( $available ) ) {
+			$subsetted = false;
+
+			return $subsetted;
+		}
+
+		$subsetted = true;
+
+		foreach ( array( 1, 2, 3 ) as $index ) {
+			$icon = pixova_lite_fontawesome_class( get_theme_mod( 'pixova_lite_intro_what_we_do_' . $index . '_icon' ) );
+
+			if ( '' === $icon ) {
+				continue;
+			}
+
+			// The manifest lists "style name" pairs; a stored value may carry
+			// sizing or rotation classes alongside, which no font has to supply.
+			$names = preg_grep( '/^fa-/', preg_split( '/\s+/', $icon ) );
+			$style = '';
+			$name  = '';
+
+			foreach ( $names as $single ) {
+				if ( in_array( $single, array( 'fa-solid', 'fa-regular', 'fa-brands' ), true ) ) {
+					$style = $single;
+				} elseif ( '' === $name ) {
+					$name = $single;
+				}
+			}
+
+			if ( '' === $name ) {
+				continue;
+			}
+
+			if ( ! in_array( trim( $style . ' ' . $name ), $available, true ) ) {
+				$subsetted = false;
+
+				break;
+			}
+		}
+
+		return $subsetted;
+	}
+}
+
+if ( ! function_exists( 'pixova_lite_entry_meta' ) ) {
+	/**
+	 * The author / date / comments / tags row under a post title.
+	 *
+	 * Each item is dropped when it has nothing to show. The row used to be one
+	 * printf with four placeholders, so a post with no tags -- which is most of
+	 * them -- rendered a folder icon with nothing beside it, and a post whose
+	 * author had been deleted rendered a lone silhouette.
+	 *
+	 * @since Pixova Lite 2.1.0
+	 *
+	 * @return string
+	 */
+	function pixova_lite_entry_meta() {
+
+		$items = array(
+			'fa-solid fa-user'          => get_the_author_link(),
+			'fa-solid fa-calendar-alt'  => esc_html( get_the_date( get_option( 'date_format' ) ) ),
+			'fa-solid fa-comment'       => pixova_lite_get_number_of_comments( get_the_ID() ),
+			'fa-solid fa-folder'        => get_the_tag_list( esc_html__( 'Tags: ', 'pixova-lite' ), ', ', '' ),
+		);
+
+		$out = '';
+
+		foreach ( $items as $icon => $content ) {
+			if ( '' === trim( wp_strip_all_tags( (string) $content ) ) ) {
+				continue;
+			}
+
+			// The icon repeats what the text beside it already says, so it is
+			// hidden from assistive technology rather than read out as a word.
+			$out .= sprintf(
+				'<span class="post-meta-separator"><i class="%1$s" aria-hidden="true"></i>%2$s</span>',
+				esc_attr( $icon ),
+				wp_kses_post( $content )
+			);
+		}
+
+		return $out;
 	}
 }

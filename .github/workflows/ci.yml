@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ master, main, modernize ]
+  pull_request:
+
+jobs:
+  php:
+    name: PHP ${{ matrix.php }} syntax
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The oldest version style.css declares support for, and the newest released.
+        php: [ '7.4', '8.4' ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - name: Lint every PHP file
+        run: find . -name '*.php' -not -path './node_modules/*' -print0 | xargs -0 -n1 -P4 php -l
+
+  assets:
+    name: Minified assets are current
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci || npm install
+      - run: pip install fonttools brotli
+      # The theme enqueues the .min files. If a source was edited without
+      # rebuilding, the working tree is dirty after this and the job fails --
+      # which is the only way that mistake gets caught before a release.
+      - run: npm run build
+      - run: npm run verify
+      - name: Fail if the build changed anything
+        run: git diff --exit-code

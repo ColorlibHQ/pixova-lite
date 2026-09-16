@@ -2,7 +2,7 @@
 /**
  * Template part for the recommended actions tab in welcome screen
  *
- * @package Epsilon Framework
+ * @package Pixova Lite
  */
 
 if ( ! defined( 'WPINC' ) ) {
@@ -85,7 +85,7 @@ $hooray = true;
 	?>
 
 	<?php if ( $hooray ) { ?>
-		<span class="hooray"><?php echo esc_html__( 'Hooray! There are no required actions for you right now.', 'epsilon-framework' ); ?> </span>
+		<span class="hooray"><?php echo esc_html__( 'Hooray! There are no required actions for you right now.', 'pixova-lite' ); ?> </span>
 	<?php } ?>
 
 </div>

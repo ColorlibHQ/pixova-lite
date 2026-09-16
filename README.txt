@@ -1,8 +1,10 @@
 === Pixova Lite ===
 Contributors:		colorlib
 Tags:               one-column, two-columns, three-columns, four-columns, right-sidebar, custom-header, custom-menu, featured-image-header, featured-images, full-width-template, threaded-comments, translation-ready
-Requires at least:	4.0
-Tested up to:		4.4.2
+Requires at least:	5.2
+Tested up to:		7.1
+Requires PHP:		7.4
+Stable tag:			2.1.0
 
 Pixova Lite
 == Description ==
@@ -95,10 +97,16 @@ The exceptions to this license are as follows:
     Source:    https://pxhere.com/en/photo/1054115
 
 
- * Font Awesome
+ * Font Awesome Free 7.3.1 (https://fontawesome.com)
+    Copyright Fonticons, Inc.
 
-	License: SIL OFL 1.1
-	URL: http://scripts.sil.org/OFL
+    Icons:  CC BY 4.0      (https://creativecommons.org/licenses/by/4.0/)
+    Fonts:  SIL OFL 1.1    (https://scripts.sil.org/OFL)
+    Code:   MIT            (https://opensource.org/licenses/MIT)
+
+    The bundled font files are subsetted to the glyphs this theme draws.
+    The complete family can be loaded instead with:
+        add_filter( 'pixova_lite_full_fontawesome', '__return_true' );
 
  * Google Fonts:
 

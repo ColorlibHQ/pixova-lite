@@ -99,8 +99,8 @@ class Pixova_Lite_Widget_Latest_Posts extends WP_Widget {
 
 	function form( $instance ) {
 		$defaults = array(
-			'title' => null,
-			'show_title' => null,
+			'title' => '',
+			'show_title' => '',
 			'items' => 2,
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>

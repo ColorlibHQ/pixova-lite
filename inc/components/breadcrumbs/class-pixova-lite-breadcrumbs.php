@@ -34,6 +34,11 @@ class Pixova_Lite_Breadcrumbs {
 	private $show_terms;
 
 	/**
+	 * @var boolean True if the post type archive should be shown in the path
+	 */
+	private $show_post_type_archive;
+
+	/**
 	 * @var string Label for the "Home" link
 	 */
 	private $home_label;

@@ -55,6 +55,17 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-control.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-setting.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-custom-upload.php';
+
+		/**
+		 * Native replacements for the Epsilon framework's Customizer controls.
+		 */
+		require get_template_directory() . '/inc/customizer/controls/class-pixova-lite-control-toggle.php';
+		require get_template_directory() . '/inc/customizer/controls/class-pixova-lite-control-range.php';
+		require get_template_directory() . '/inc/customizer/controls/class-pixova-lite-control-text-editor.php';
+		require get_template_directory() . '/inc/customizer/controls/class-pixova-lite-control-icon-picker.php';
+		require get_template_directory() . '/inc/customizer/controls/class-pixova-lite-control-typography.php';
+		require get_template_directory() . '/inc/customizer/sections/class-pixova-lite-section-link.php';
+
 		require get_template_directory() . '/inc/customizer.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-lite-cf7-custom-control.php';
 		require get_template_directory() . '/inc/customizer/class-pixova-lite-kaliforms-custom-control.php';
@@ -73,14 +84,9 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 		require get_template_directory() . '/widgets/class-pixova-lite-widget-social-media.php';
 
 		/**
-		 *  Next compatible
+		 * Custom logo.
 		 */
-		require get_template_directory() . '/inc/next-compatible.php';
-
-		/**
-		 *  Back compatible
-		 */
-		require get_template_directory() . '/inc/back-compatible.php';
+		require get_template_directory() . '/inc/custom-logo.php';
 
 		/*
          * Make theme available for translation.
@@ -95,7 +101,7 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
          * This theme styles the visual editor to resemble the theme style,
          * specifically font, colors, icons, and column width.
          */
-		add_editor_style( array( 'layout/css/editor-style.min.css', 'layout/css/font-awesome.min.css', pixova_lite_fonts_url() ) );
+		add_editor_style( array( 'layout/css/editor-style.min.css', 'layout/css/fontawesome/subset/fontawesome-subset.min.css', pixova_lite_fonts_url() ) );
 
 		/*
          * Let WordPress manage the document title.
@@ -167,29 +173,48 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
          */
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		/*******************************************/
-		/*************  Welcome screen *************/
-		/*******************************************/
+		/*
+		 * Let the block editor scale embedded videos with their container.
+		 * align-wide and wp-block-styles are deliberately not declared: the
+		 * theme has no wide layout, and core's block styles would fight its
+		 * own.
+		 */
+		add_theme_support( 'responsive-embeds' );
 
-		if ( is_admin() ) {
 
-			global $pixova_required_actions, $pixova_recommended_plugins;
-			require get_template_directory() . '/inc/libraries/class-pixova-notify-system.php';
-			require get_template_directory() . '/inc/libraries/welcome-screen/class-epsilon-welcome-screen.php';
+	} // function pixova_lite_theme_setup
+	add_action( 'after_setup_theme', 'pixova_lite_theme_setup', 9 );
 
-			$pixova_recommended_plugins = array(
-				'kali-forms'                       => array( 'recommended' => true ),
-				'modula-best-grid-gallery'         => array( 'recommended' => true ),
-				'fancybox-for-wordpress'           => array( 'recommended' => false ),
-				'simple-custom-post-order'         => array( 'recommended' => false ),
-				'colorlib-404-customizer'          => array( 'recommended' => false ),
-				'colorlib-coming-soon-maintenance' => array( 'recommended' => false ),
-				'colorlib-login-customizer'        => array( 'recommended' => false ),
-				'kb-support'                       => array( 'recommended' => false ),
-				'rsvp'                             => array( 'recommended' => false )
-			);
+if ( ! function_exists( 'pixova_lite_register_welcome_screen' ) ) {
+	/**
+	 * Set up the theme's About page.
+	 *
+	 * On init rather than after_setup_theme: the action and plugin lists below
+	 * are translated, and after_setup_theme runs before init, where WordPress
+	 * 6.7 and later warn that translations are being loaded too early. Every
+	 * hook the About page goes on to register fires after init.
+	 */
+	function pixova_lite_register_welcome_screen() {
+		if ( ! is_admin() ) {
+			return;
+		}
 
-			/*
+		global $pixova_required_actions, $pixova_recommended_plugins;
+		require get_template_directory() . '/inc/libraries/class-pixova-notify-system.php';
+		require get_template_directory() . '/inc/libraries/welcome-screen/class-pixova-lite-welcome-screen.php';
+
+		$pixova_recommended_plugins = array(
+			'kali-forms'                       => array( 'recommended' => true ),
+			'modula-best-grid-gallery'         => array( 'recommended' => true ),
+			'fancybox-for-wordpress'           => array( 'recommended' => false ),
+			'simple-custom-post-order'         => array( 'recommended' => false ),
+			'colorlib-404-customizer'          => array( 'recommended' => false ),
+			'colorlib-coming-soon-maintenance' => array( 'recommended' => false ),
+			'colorlib-login-customizer'        => array( 'recommended' => false ),
+			'rsvp'                             => array( 'recommended' => false )
+		);
+
+		/*
              * id - unique id; required
              * title
              * description
@@ -197,42 +222,38 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
              * plugin_slug - the plugin's slug (used for installing the plugin)
              *
              */
-			$pixova_required_actions = array(
-				array(
-					'id'          => 'pixova-lite-req-ac-install-kali-forms',
-					'title'       => esc_html__( 'Install Kaliforms' ,'pixova-lite' ),
-					'description' => esc_html__( 'Please make sure you install the Kaliforms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
-					'check'       => Pixova_Notify_System::has_plugin( 'kali-forms' ),
-					'plugin_slug' => 'kali-forms',
-				),
-				array(
-					'id'          => 'pixova-lite-import-demo-content',
-					'title'       => esc_html__( 'Add sample content', 'pixova-lite' ),
-					'description' => esc_html__( 'Clicking the button below will add content and set static front page to your WordPress installation. Click advanced to customize the import process.', 'pixova-lite' ),
-					'help'        => array( 'Epsilon_Welcome_Screen', 'demo_content_html' ),
-					'check'       => Pixova_Notify_System::check_for_content(),
-				),
-			);
+		$pixova_required_actions = array(
+			array(
+			'id'          => 'pixova-lite-req-ac-install-kali-forms',
+			'title'       => esc_html__( 'Install Kaliforms' ,'pixova-lite' ),
+			'description' => esc_html__( 'Please make sure you install the Kaliforms plugin to keep your site updated, and experience a smooth transition to the latest version.','pixova-lite' ),
+			'check'       => Pixova_Notify_System::has_plugin( 'kali-forms' ),
+			'plugin_slug' => 'kali-forms',
+			),
+			array(
+			'id'          => 'pixova-lite-import-demo-content',
+			'title'       => esc_html__( 'Add sample content', 'pixova-lite' ),
+			'description' => esc_html__( 'Clicking the button below will add content and set static front page to your WordPress installation. Click advanced to customize the import process.', 'pixova-lite' ),
+			'help'        => array( 'Pixova_Lite_Welcome_Screen', 'demo_content_html' ),
+			'check'       => Pixova_Notify_System::check_for_content(),
+			),
+		);
 
-			if ( is_customize_preview() ) {
-				$url                                = 'themes.php?page=%1$s-welcome&tab=%2$s';
-				$pixova_required_actions[1]['help'] = '<a class="button button-primary" id="" href="' . esc_url( admin_url( sprintf( $url, 'pixova-lite', 'recommended-actions' ) ) ) . '">' . __( 'Import Demo Content', 'pixova-lite' ) . '</a>';
-			}
+		if ( is_customize_preview() ) {
+			$url                                = 'themes.php?page=%1$s-welcome&tab=%2$s';
+			$pixova_required_actions[1]['help'] = '<a class="button button-primary" id="" href="' . esc_url( admin_url( sprintf( $url, 'pixova-lite', 'recommended-actions' ) ) ) . '">' . __( 'Import Demo Content', 'pixova-lite' ) . '</a>';
+		}
 
-			Epsilon_Welcome_Screen::get_instance(
-				$config = array(
-					'theme-name' => 'Pixova Lite',
-					'theme-slug' => 'pixova-lite',
-					'actions'    => $pixova_required_actions,
-					'plugins'    => $pixova_recommended_plugins,
-					'edd'        => false,
-				)
-			);
+		Pixova_Lite_Welcome_Screen::get_instance( array(
+			'theme-name' => 'Pixova Lite',
+			'theme-slug' => 'pixova-lite',
+			'actions'    => $pixova_required_actions,
+			'plugins'    => $pixova_recommended_plugins,
+		) );
 
-		}// End if().
-
-	} // function pixova_lite_theme_setup
-	add_action( 'after_setup_theme', 'pixova_lite_theme_setup', 9 );
+	}
+	add_action( 'init', 'pixova_lite_register_welcome_screen' );
+}
 } // End if().
 
 if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
@@ -247,7 +268,6 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 	function pixova_lite_enqueue_scripts() {
 
 		// Bootstrap JS (required for theme)
-		wp_register_script( 'bootstrap-min-js' , get_template_directory_uri() . '/layout/js/bootstrap/bootstrap.min.js', array( 'jquery' ), '3.3.4', true );
 
 		# Pace Loader
 		wp_register_script( 'pace-loader-min-js', get_template_directory_uri() . '/layout/js/pace/pace.min.js', array( 'jquery' ), '2.0', true );
@@ -271,7 +291,6 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		wp_register_script( 'classie-js', get_template_directory_uri() . '/layout/js/classie/classie.js', array( 'jquery' ), '1.0.0', true );
 
 		# Smooth Scroll JS
-		wp_register_script( 'smooth-scroll-js', get_template_directory_uri() . '/layout/js/smoothscroll/smoothscroll.min.js', array( 'jquery' ), '0.9.9', true );
 
 		# WOW js
 		wp_register_script( 'wow-min-js', get_template_directory_uri() . '/layout/js/wow/wow.min.js', array( 'jquery' ), '1.0.3', true );
@@ -314,12 +333,10 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 			add_action( 'wp_head', 'pixova_lite_output_css_to_head' );
 		}
 
-		wp_enqueue_script( 'bootstrap-min-js' );
 		wp_enqueue_script( 'pixova-sticky-js' );
 		wp_enqueue_script( 'owlCarousel-js' );
 		wp_enqueue_script( 'classie-js' );
 		wp_enqueue_script( 'simple-placeholder-js' );
-		wp_enqueue_script( 'smooth-scroll-js' );
 		wp_enqueue_script( 'viewport-min-js' );
 		wp_enqueue_script( 'parallax-min-js' );
 
@@ -360,8 +377,31 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 			wp_enqueue_style( 'animate-min-css', get_template_directory_uri() . '/layout/css/animate.min.css' );
 		}
 
-		// Font Awesome Stylesheet
-		wp_enqueue_style( 'font-awesome-min-css', get_template_directory_uri() . '/layout/css/font-awesome.min.css' );
+		/*
+		 * Font Awesome 7, self-hosted and split by style: the core file carries
+		 * the icon name map, each style file adds one @font-face. Only woff2 is
+		 * shipped, which every browser that can run a current WordPress reads.
+		 *
+		 * What ships is subsetted to the glyphs this theme draws -- five
+		 * kilobytes of font rather than two hundred and fifty. Two things fall
+		 * outside that: an icon someone picked in the Customizer that the
+		 * subset does not contain, which pixova_lite_fontawesome_is_subsetted()
+		 * detects, and Font Awesome classes written by something other than the
+		 * theme -- a widget, a page builder, a child theme. For the second:
+		 *
+		 *     add_filter( 'pixova_lite_full_fontawesome', '__return_true' );
+		 */
+		$pixova_lite_fa     = get_template_directory_uri() . '/layout/css/fontawesome/';
+		$pixova_lite_fa_all = apply_filters( 'pixova_lite_full_fontawesome', ! pixova_lite_fontawesome_is_subsetted() );
+
+		if ( $pixova_lite_fa_all ) {
+			wp_enqueue_style( 'pixova-lite-icons', $pixova_lite_fa . 'fontawesome.min.css', array(), '7.3.1' );
+			wp_enqueue_style( 'pixova-lite-icons-solid', $pixova_lite_fa . 'solid.min.css', array( 'pixova-lite-icons' ), '7.3.1' );
+			wp_enqueue_style( 'pixova-lite-icons-regular', $pixova_lite_fa . 'regular.min.css', array( 'pixova-lite-icons' ), '7.3.1' );
+			wp_enqueue_style( 'pixova-lite-icons-brands', $pixova_lite_fa . 'brands.min.css', array( 'pixova-lite-icons' ), '7.3.1' );
+		} else {
+			wp_enqueue_style( 'pixova-lite-icons', $pixova_lite_fa . 'subset/fontawesome-subset.min.css', array(), '7.3.1' );
+		}
 
 		// Google Fonts StyleSheet
 		wp_enqueue_style( 'ga-fonts', pixova_lite_fonts_url() );
@@ -625,83 +665,130 @@ if ( ! function_exists( 'wp_body_open' ) ) {
     }
 }
 
-// Include epsilon framework
-require_once get_template_directory() . '/inc/libraries/epsilon-framework/class-epsilon-autoloader.php';
-new Epsilon_Framework();
+if ( ! function_exists( 'pixova_lite_customize_controls_enqueue' ) ) {
+	/**
+	 * Styles and behaviour for the theme's own Customizer controls.
+	 *
+	 * These used to come from the Epsilon framework's bundle. They load only on
+	 * the Customizer controls screen.
+	 */
+	function pixova_lite_customize_controls_enqueue() {
+		$theme = wp_get_theme();
 
-/**
- * Instantiate the Epsilon Typography object
- */
-$options = array(
-	'pixova_lite_heading_1',
-	'pixova_lite_heading_2',
-	'pixova_lite_heading_3',
-	'pixova_lite_heading_4',
-	'pixova_lite_heading_5',
-	'pixova_lite_heading_6',
-);
+		wp_enqueue_style(
+			'pixova-lite-customizer-controls',
+			get_template_directory_uri() . '/inc/customizer/assets/css/customizer-controls.css',
+			array(),
+			$theme->get( 'Version' )
+		);
 
-$handler = 'pixova-lite-min-style';
-Epsilon_Typography::get_instance( $options, $handler );
+		wp_enqueue_script(
+			'pixova-lite-customizer-controls',
+			get_template_directory_uri() . '/inc/customizer/assets/js/customizer-controls.js',
+			array( 'jquery', 'customize-controls' ),
+			$theme->get( 'Version' ),
+			true
+		);
+	}
+	add_action( 'customize_controls_enqueue_scripts', 'pixova_lite_customize_controls_enqueue' );
+}
 
-/**
- * Instantiate the Epsilon Color Scheme object
- */
-$handler = 'pixova-lite-min-style';
+require_once get_template_directory() . '/inc/customizer/class-pixova-lite-typography.php';
+require_once get_template_directory() . '/inc/customizer/class-pixova-lite-color-scheme.php';
 
-$args = array(
-	'fields' => array(
-		'pixova_lite_accent_color'           => array(
-			'label'       => __( 'Accent Color', 'pixova-lite' ),
-			'description' => __( 'The main color used for links, buttons, and more.', 'pixova-lite' ),
-			'default'     => '#ffce55',
-			'section'     => 'pixova_lite_colors',
-			'hover-state' => true,
-		),
+if ( ! function_exists( 'pixova_lite_register_dynamic_styles' ) ) {
+	/**
+	 * Typography and colour scheme.
+	 *
+	 * On init because the labels below are translated, and WordPress 6.7 and
+	 * later warn when a translation is loaded before it. Both objects only
+	 * register customize_register and wp_enqueue_scripts handlers, which fire
+	 * later still.
+	 */
+	function pixova_lite_register_dynamic_styles() {
+		/**
+		 * Heading and body typography.
+		 *
+		 * The selectors live here rather than in the control, so a stored setting
+		 * cannot introduce one. Earlier releases only generated CSS for the six
+		 * headings, which left the paragraph and section-title controls doing nothing
+		 * when they were changed; all nine are wired up now.
+		 */
 
-		'pixova_lite_heading_color'          => array(
-			'label'       => __( 'Heading Color', 'pixova-lite' ),
-			'description' => __( 'The color used for headings.', 'pixova-lite' ),
-			'default'     => '#222533',
-			'section'     => 'pixova_lite_colors',
-			'hover-state' => false,
-		),
+		Pixova_Lite_Typography::get_instance(
+			array(
+				'pixova_lite_heading_1'                  => array( '.entry-content h1' ),
+				'pixova_lite_heading_2'                  => array( '.entry-content h2' ),
+				'pixova_lite_heading_3'                  => array( '.entry-content h3' ),
+				'pixova_lite_heading_4'                  => array( '.entry-content h4' ),
+				'pixova_lite_heading_5'                  => array( '.entry-content h5' ),
+				'pixova_lite_heading_6'                  => array( '.entry-content h6' ),
+				'pixova_lite_paragraph'                  => array( '.entry-content p' ),
+				'pixova_lite_section_title_typography'   => array( '.section-heading h2' ),
+				'pixova_lite_section_subtitle_typography' => array( '.section-heading .section-sub-heading' ),
+			),
+			'pixova-lite-min-style'
+		);
 
-		'pixova_lite_text_color'             => array(
-			'label'       => __( 'Text Color', 'pixova-lite' ),
-			'description' => __( 'The color used for paragraphs, links, etc.', 'pixova-lite' ),
-			'default'     => '#777',
-			'section'     => 'pixova_lite_colors',
-			'hover-state' => false,
-		),
+		/**
+		 * Colour scheme.
+		 *
+		 * layout/css/style-overrides.css is a vsprintf template; these six fill its
+		 * %1$s to %6$s in order.
+		 */
+		Pixova_Lite_Color_Scheme::get_instance(
+			'pixova-lite-min-style',
+			array(
+				'pixova_lite_accent_color'           => array(
+					'label'       => __( 'Accent Color', 'pixova-lite' ),
+					'description' => __( 'The main color used for links, buttons, and more.', 'pixova-lite' ),
+					'default'     => '#ffce55',
+					'section'     => 'pixova_lite_colors',
+					'hover-state' => true,
+				),
 
-		'pixova_lite_hover_color'            => array(
-			'label'       => __( 'Hover Color', 'pixova-lite' ),
-			'description' => __( 'The color used for hover on elements.', 'pixova-lite' ),
-			'default'     => '#ffce55',
-			'section'     => 'pixova_lite_colors',
-			'hover-state' => true,
-		),
+				'pixova_lite_heading_color'          => array(
+					'label'       => __( 'Heading Color', 'pixova-lite' ),
+					'description' => __( 'The color used for headings.', 'pixova-lite' ),
+					'default'     => '#222533',
+					'section'     => 'pixova_lite_colors',
+					'hover-state' => false,
+				),
 
-		'pixova_lite_footer_bg_color'        => array(
-			'label'       => __( 'Footer Background Color', 'pixova-lite' ),
-			'description' => __( 'The color used for the footer background.', 'pixova-lite' ),
-			'default'     => '#1f1f1f',
-			'section'     => 'pixova_lite_colors',
-			'hover-state' => false,
-		),
+				'pixova_lite_text_color'             => array(
+					'label'       => __( 'Text Color', 'pixova-lite' ),
+					'description' => __( 'The color used for paragraphs, links, etc.', 'pixova-lite' ),
+					'default'     => '#777',
+					'section'     => 'pixova_lite_colors',
+					'hover-state' => false,
+				),
 
-		'pixova_lite_footer_widget_bg_color' => array(
-			'label'       => __( 'Footer Widget Background Color', 'pixova-lite' ),
-			'description' => __( 'The color used for the footer widgets background.', 'pixova-lite' ),
-			'default'     => '#313233',
-			'section'     => 'pixova_lite_colors',
-			'hover-state' => false,
-		),
+				'pixova_lite_hover_color'            => array(
+					'label'       => __( 'Hover Color', 'pixova-lite' ),
+					'description' => __( 'The color used for hover on elements.', 'pixova-lite' ),
+					'default'     => '#ffce55',
+					'section'     => 'pixova_lite_colors',
+					'hover-state' => true,
+				),
 
-	),
+				'pixova_lite_footer_bg_color'        => array(
+					'label'       => __( 'Footer Background Color', 'pixova-lite' ),
+					'description' => __( 'The color used for the footer background.', 'pixova-lite' ),
+					'default'     => '#1f1f1f',
+					'section'     => 'pixova_lite_colors',
+					'hover-state' => false,
+				),
 
-	'css'    => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/layout/css/style-overrides.css' ),
-);
+				'pixova_lite_footer_widget_bg_color' => array(
+					'label'       => __( 'Footer Widget Background Color', 'pixova-lite' ),
+					'description' => __( 'The color used for the footer widgets background.', 'pixova-lite' ),
+					'default'     => '#313233',
+					'section'     => 'pixova_lite_colors',
+					'hover-state' => false,
+				),
 
-Epsilon_Color_Scheme::get_instance( $handler, $args );
+			)
+		);
+	}
+	add_action( 'init', 'pixova_lite_register_dynamic_styles', 5 );
+}

@@ -92,7 +92,8 @@
 /* preloading images */
 .owl-item.loading{
 	min-height: 150px;
-	background: url('images/AjaxLoader.gif') no-repeat center center
+	/* images/AjaxLoader.gif has never shipped with this theme; the rule only
+	   ever produced a 404. The theme does not use Owl's lazy loading. */
 }
 
 .small-testimonial .owl-theme .owl-controls{

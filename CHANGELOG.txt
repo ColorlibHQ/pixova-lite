@@ -1,3 +1,17 @@
+### 2.1.0
+    - Removed the Epsilon framework: the About page, the Customizer controls it
+      provided and the plugin recommendations are now built on WordPress' own
+      APIs, and 2.2MB of bundled framework is gone
+    - Font Awesome 4.7 replaced with Font Awesome 7.3.1, self-hosted and
+      subsetted; icons saved in the Customizer under the old names keep working
+    - Removed the unused Bootstrap 4 JavaScript (CVE-2019-8331)
+    - Fixed three PHP 8 faults that logged on every page load
+    - Replaced the Grunt toolchain, which no longer installed, with npm scripts
+    - Tested up to WordPress 7.1; now requires PHP 7.4
+
+### 2.0.9
+    - WordPress.org release
+
 ### 2.0.8
     - Compatibility with jQuery 3.0
 

@@ -11,7 +11,7 @@ echo '<header id="header-wrap">';
 
 				echo '<!-- menu icon -->';
 				echo '<a id="nav-expander" class="pull-right" href="#">';
-					echo '<i class="fa fa-bars fa-lg white"></i>';
+					echo '<i class="fa-solid fa-bars fa-lg white"></i>';
 				echo '</a>';
 
 				echo '<!-- /menu icon -->';
@@ -38,7 +38,7 @@ if ( $image_logo ) {
 					echo '<!-- main navigation mobile -->';
 					echo '<div class="offset-canvas-mobile">';
 					echo '<nav class="mobile-nav-holder">';
-					echo '<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa fa-close"></span></a>';
+					echo '<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa-solid fa-close"></span></a>';
 					echo '<div class="mobile-nav">';
 					echo wp_nav_menu(
 						array(
@@ -72,7 +72,7 @@ if ( $image_logo ) {
 					echo '<div class="text-center">';
 
 					if ( ! function_exists( 'is_woocommerce' ) ) {
-						echo '<div class="pixova-date">' . get_the_date( get_option( 'date_format' ), $post->ID ) . '</div>';
+						echo '<div class="pixova-date">' . esc_html( get_the_date( get_option( 'date_format' ) ) ) . '</div>';
 					}
 
 					echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';

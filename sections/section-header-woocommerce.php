@@ -11,7 +11,7 @@ $pixova_lite_woocommerce_description       = get_theme_mod( 'pixova_lite_woocomm
 			<div class="col-md-12">
 				<?php do_action( 'pixova_lite_logo' ); ?>
 				<a id="nav-expander" class="pull-right" href="#">
-					<i class="fa fa-bars fa-lg white"></i>
+					<i class="fa-solid fa-bars fa-lg white"></i>
 				</a>
 				<?php
 				if ( $image_logo ) {
@@ -34,7 +34,7 @@ $pixova_lite_woocommerce_description       = get_theme_mod( 'pixova_lite_woocomm
 	</div><!--/.container.header-.clearfix-->
 	<div class="offset-canvas-mobile">
 		<nav class="mobile-nav-holder">
-			<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa fa-close"></span></a>
+			<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa-solid fa-close"></span></a>
 			<div class="mobile-nav">
 				<?php
 				$menu_args = array(

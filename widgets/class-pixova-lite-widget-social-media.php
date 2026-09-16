@@ -51,51 +51,51 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 		  echo '<ul style="padding-left: 10px;">';
 
 		if ( $profile_facebook ) {
-			echo '<li><a title="' . __( 'Facebook', 'pixova-lite' ) . '" class="facebook-icon social-icon" href="' . esc_url( $profile_facebook ) . '"><i class="fa fa-facebook-official"></i></a></li>';
+			echo '<li><a title="' . __( 'Facebook', 'pixova-lite' ) . '" class="facebook-icon social-icon" href="' . esc_url( $profile_facebook ) . '"><i class="fa-brands fa-facebook"></i></a></li>';
 		}
 
 		if ( $profile_twitter ) {
-			echo '<li><a title="' . __( 'Twitter', 'pixova-lite' ) . '" class="twitter-icon social-icon" href="' . esc_url( $profile_twitter ) . '"><i class="fa fa-twitter"></i></a></li>';
+			echo '<li><a title="' . __( 'Twitter', 'pixova-lite' ) . '" class="twitter-icon social-icon" href="' . esc_url( $profile_twitter ) . '"><i class="fa-brands fa-twitter"></i></a></li>';
 		}
 
 		if ( $profile_plus ) {
-			echo '<li><a title="' . __( 'Google+', 'pixova-lite' ) . '" class="googleplus-icon social-icon" href="' . esc_url( $profile_plus ) . '"><i class="fa fa-google-plus"></i></a></li>';
+			echo '<li><a title="' . __( 'Google+', 'pixova-lite' ) . '" class="googleplus-icon social-icon" href="' . esc_url( $profile_plus ) . '"><i class="fa-brands fa-google-plus"></i></a></li>';
 		}
 
 		if ( $profile_pinterest ) {
-			echo '<li><a title="' . __( 'Pinterest', 'pixova-lite' ) . '" class="pinterest-icon social-icon" href="' . esc_url( $profile_pinterest ) . '"><i class="fa fa-pinterest"></i></a></li>';
+			echo '<li><a title="' . __( 'Pinterest', 'pixova-lite' ) . '" class="pinterest-icon social-icon" href="' . esc_url( $profile_pinterest ) . '"><i class="fa-brands fa-pinterest"></i></a></li>';
 		}
 
 		if ( $profile_linkedin ) {
-			echo '<li><a title="' . __( 'LinkedIn', 'pixova-lite' ) . '" class="linkedin-icon social-icon" href="' . esc_url( $profile_linkedin ) . '"><i class="fa fa-linkedin"></i></a></li>';
+			echo '<li><a title="' . __( 'LinkedIn', 'pixova-lite' ) . '" class="linkedin-icon social-icon" href="' . esc_url( $profile_linkedin ) . '"><i class="fa-brands fa-linkedin"></i></a></li>';
 		}
 
 		if ( $profile_youtube ) {
-			echo '<li><a title="' . __( 'YouTube', 'pixova-lite' ) . '" class="youtube-icon social-icon" href="' . esc_url( $profile_youtube ) . '"><i class="fa fa-youtube"></i></a></li>';
+			echo '<li><a title="' . __( 'YouTube', 'pixova-lite' ) . '" class="youtube-icon social-icon" href="' . esc_url( $profile_youtube ) . '"><i class="fa-brands fa-youtube"></i></a></li>';
 		}
 
 		if ( $profile_dribbble ) {
-			echo '<li><a title="' . __( 'Dribbble', 'pixova-lite' ) . '" class="dribble-icon social-icon" href="' . esc_url( $profile_dribbble ) . '"><i class="fa fa-dribbble"></i></a></li>';
+			echo '<li><a title="' . __( 'Dribbble', 'pixova-lite' ) . '" class="dribble-icon social-icon" href="' . esc_url( $profile_dribbble ) . '"><i class="fa-brands fa-dribbble"></i></a></li>';
 		}
 
 		if ( $profile_tumblr ) {
-			echo '<li><a title="' . __( 'Tumblr', 'pixova-lite' ) . '" class="tumblr-icon social-icon" href="' . esc_url( $profile_tumblr ) . '"><i class="fa fa-tumblr"></i></a></li>';
+			echo '<li><a title="' . __( 'Tumblr', 'pixova-lite' ) . '" class="tumblr-icon social-icon" href="' . esc_url( $profile_tumblr ) . '"><i class="fa-brands fa-tumblr"></i></a></li>';
 		}
 
 		if ( $profile_instagram ) {
-			echo '<li><a title="' . __( 'Instagram', 'pixova-lite' ) . '" class="instagram-icon social-icon" href="' . esc_url( $profile_instagram ) . '"><i class="fa fa-instagram"></i></a></li>';
+			echo '<li><a title="' . __( 'Instagram', 'pixova-lite' ) . '" class="instagram-icon social-icon" href="' . esc_url( $profile_instagram ) . '"><i class="fa-brands fa-instagram"></i></a></li>';
 		}
 
 		if ( $profile_github ) {
-			echo '<li><a title="' . __( 'GitHub', 'pixova-lite' ) . '" class="github-icon social-icon" href="' . esc_url( $profile_github ) . '"><i class="fa fa-github"></i></a></li>';
+			echo '<li><a title="' . __( 'GitHub', 'pixova-lite' ) . '" class="github-icon social-icon" href="' . esc_url( $profile_github ) . '"><i class="fa-brands fa-github"></i></a></li>';
 		}
 
 		if ( $profile_bitbucket ) {
-			echo '<li><a title="' . __( 'BitBucket', 'pixova-lite' ) . '" class="bitbucket-icon social-icon" href="' . esc_url( $profile_bitbucket ) . '"><i class="fa fa-bitbucket"></i></a></li>';
+			echo '<li><a title="' . __( 'BitBucket', 'pixova-lite' ) . '" class="bitbucket-icon social-icon" href="' . esc_url( $profile_bitbucket ) . '"><i class="fa-brands fa-bitbucket"></i></a></li>';
 		}
 
 		if ( $profile_codepen ) {
-			echo '<li><a title="' . __( 'Codepen', 'pixova-lite' ) . '" class="codepen-icon social-icon" href="' . esc_url( $profile_codepen ) . '"><i class="fa fa-codepen"></i></a></li>';
+			echo '<li><a title="' . __( 'Codepen', 'pixova-lite' ) . '" class="codepen-icon social-icon" href="' . esc_url( $profile_codepen ) . '"><i class="fa-brands fa-codepen"></i></a></li>';
 		}
 
 		  echo '</ul>';
@@ -129,20 +129,20 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 
 	function form( $instance ) {
 		$defaults = array(
-			'title' => null,
-			'show_title' => null,
-			'profile_facebook' => null,
-			'profile_twitter' => null,
-			'profile_plus' => null,
-			'profile_pinterest' => null,
-			'profile_linkedin' => null,
-			'profile_youtube' => null,
-			'profile_dribbble' => null,
-			'profile_tumblr' => null,
-			'profile_instagram' => null,
-			'profile_github' => null,
-			'profile_bitbucket' => null,
-			'profile_codepen' => null,
+			'title' => '',
+			'show_title' => '',
+			'profile_facebook' => '',
+			'profile_twitter' => '',
+			'profile_plus' => '',
+			'profile_pinterest' => '',
+			'profile_linkedin' => '',
+			'profile_youtube' => '',
+			'profile_dribbble' => '',
+			'profile_tumblr' => '',
+			'profile_instagram' => '',
+			'profile_github' => '',
+			'profile_bitbucket' => '',
+			'profile_codepen' => '',
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>

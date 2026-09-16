@@ -90,7 +90,7 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 		 *
 		 * @return void
 		 */
-		private function __wakeup() {
+		public function __wakeup() {
 		}
 
 
@@ -161,8 +161,8 @@ if ( ! class_exists( 'MT_Related_Posts' ) ) {
 			 */
 			echo '<div class="col-sm-1 hidden-xs text-right">';
 			echo '<ul class="pixova-carousel-arrows clearfix">';
-			echo '<li class="pull-right"><a href="#" class="pixova-owl-next fa fa-angle-right"></a></li>';
-			echo '<li class="pull-left"><a href="#" class="pixova-owl-prev fa fa-angle-left"></a></li>';
+			echo '<li class="pull-right"><a href="#" class="pixova-owl-next fa-solid fa-angle-right"></a></li>';
+			echo '<li class="pull-left"><a href="#" class="pixova-owl-prev fa-solid fa-angle-left"></a></li>';
 			echo '</ul>';
 			echo '</div>';
 			echo '</div><!--/.row-->';

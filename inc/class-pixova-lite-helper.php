@@ -446,7 +446,7 @@ function add_states_for_pixova_settings_page( $post_states, $post ) {
 }
 
 
-add_action( 'customize_update_epsilon_page', 'pixova_lite_save_custom_setting', 10, 2 );
+add_action( 'customize_update_pixova_lite_page', 'pixova_lite_save_custom_setting', 10, 2 );
 
 function pixova_lite_save_custom_setting( $value, $setting ) {
 

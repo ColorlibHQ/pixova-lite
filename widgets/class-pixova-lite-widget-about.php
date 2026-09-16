@@ -66,9 +66,9 @@ class Pixova_Lite_Widget_About extends WP_Widget {
 	function form( $instance ) {
 
 		$defaults = array(
-			'title' => null,
-			'show_title' => null,
-			'about_text' => null,
+			'title' => '',
+			'show_title' => '',
+			'about_text' => '',
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>

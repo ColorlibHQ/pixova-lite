@@ -11,7 +11,7 @@ echo '<header id="header-wrap">';
 
 				echo '<!-- menu icon -->';
 				echo '<a id="nav-expander" class="pull-right" href="#">';
-					echo '<i class="fa fa-bars fa-lg white"></i>';
+					echo '<i class="fa-solid fa-bars fa-lg white"></i>';
 				echo '</a>';
 
 if ( $image_logo ) {
@@ -36,7 +36,7 @@ if ( $image_logo ) {
 						echo '<!-- main navigation mobile -->';
 						echo '<div class="offset-canvas-mobile">';
 						echo '<nav class="mobile-nav-holder">';
-						echo '<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa fa-close"></span></a>';
+						echo '<a href="#" class="close-btn mobile-nav-close-btn"><span class="fa-solid fa-close"></span></a>';
 						echo '<div class="mobile-nav">';
 						echo wp_nav_menu(
 							array(
@@ -68,9 +68,9 @@ if ( $image_logo ) {
 						echo '<div class="text-center">';
 						echo '<h1 class="intro-title">' . esc_html( get_the_title() ) . '</h1>';
 						echo '<p class="intro-tagline">';
-							echo '<span class="pixova-tagline-date"><i class="fa fa-calendar"></i><time datetime="' . sprintf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ) . '">' . get_the_date( get_option( 'date_format' ), $post->ID ) . '</time></span>';
-							echo '<span class="pixova-tagline-category"><i class="fa fa-folder"></i>' . get_the_category_list( ', ', '', false ) . '</span>';
-							echo '<span class="pixova-tagline-comments"><i class="fa fa-comments"></i>' . pixova_lite_get_number_of_comments( $post->ID ) . '</span>';
+							echo '<span class="pixova-tagline-date"><i class="fa-solid fa-calendar-alt"></i><time datetime="' . sprintf( '%s-%s-%s', get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) ) . '">' . get_the_date( get_option( 'date_format' ), $post->ID ) . '</time></span>';
+							echo '<span class="pixova-tagline-category"><i class="fa-solid fa-folder"></i>' . get_the_category_list( ', ', '', false ) . '</span>';
+							echo '<span class="pixova-tagline-comments"><i class="fa-solid fa-comments"></i>' . pixova_lite_get_number_of_comments( $post->ID ) . '</span>';
 						echo '</p>';
 						echo '</div><!--/.text-center-->';
 						echo '</div><!--/.col-md-12-->';

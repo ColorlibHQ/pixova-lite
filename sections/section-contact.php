@@ -65,8 +65,21 @@ if ( '' != $pixova_lite_contact_section_email ) {
 		elseif ( 'contact-form-7' == $pixova_lite_contact_section_type && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && null != $pixova_lite_contact_cf7_form && 'default' != $pixova_lite_contact_cf7_form ) {
 			$shortcode = '[contact-form-7 id="' . esc_html( $pixova_lite_contact_cf7_form ) . '"]';
 			echo do_shortcode( $shortcode );
-		} elseif ( 'pirate-forms' == $pixova_lite_contact_section_type ) {
+		} elseif ( 'pirate-forms' == $pixova_lite_contact_section_type && is_plugin_active( 'pirate-forms/pirate-forms.php' ) ) {
 			echo do_shortcode( '[pirate_forms]' );
+		} elseif ( current_user_can( 'install_plugins' ) ) {
+			/*
+			 * The form itself comes from a plugin -- the section has no form of
+			 * its own. With none of the three installed this column was simply
+			 * empty, which reads as a broken theme rather than a missing plugin,
+			 * and only the person who can fix it ever sees this.
+			 */
+			printf(
+				'<div class="pixova-contact-form-notice"><p>%1$s</p><p><a href="%2$s">%3$s</a></p></div>',
+				esc_html__( 'The contact form comes from a plugin. Install Kali Forms, Contact Form 7 or Pirate Forms, then pick the form to show under Customizer &rarr; Contact Section.', 'pixova-lite' ),
+				esc_url( admin_url( 'themes.php?page=pixova-lite-welcome&tab=recommended_plugins' ) ),
+				esc_html__( 'See recommended plugins', 'pixova-lite' )
+			);
 		} ?>
 <?php
 

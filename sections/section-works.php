@@ -122,7 +122,7 @@ if ( isset( $pixova_lite_project_1_image ) && ! empty( $pixova_lite_project_1_im
 	echo '</div>';
 
 	echo '<div class="work-description">';
-	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_1_url ) . '"><span class="work-description-icon fa fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
+	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_1_url ) . '"><span class="work-description-icon fa-solid fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
 	echo '</div>';
 
 	echo '</div><!--/.work-->';
@@ -146,7 +146,7 @@ if ( isset( $pixova_lite_project_2_image ) && ! empty( $pixova_lite_project_2_im
 	echo '</div>';
 
 	echo '<div class="work-description">';
-	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_2_url ) . '"><span class="work-description-icon fa fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
+	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_2_url ) . '"><span class="work-description-icon fa-solid fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
 	echo '</div>';
 
 	echo '</div><!--/.work-->';
@@ -170,7 +170,7 @@ if ( isset( $pixova_lite_project_3_image ) && ! empty( $pixova_lite_project_3_im
 	echo '</div>';
 
 	echo '<div class="work-description">';
-	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_3_url ) . '"><span class="work-description-icon fa fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
+	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_3_url ) . '"><span class="work-description-icon fa-solid fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
 	echo '</div>';
 
 	echo '</div><!--/.work-->';
@@ -193,7 +193,7 @@ if ( isset( $pixova_lite_project_4_image ) && ! empty( $pixova_lite_project_4_im
 	echo '</div>';
 
 	echo '<div class="work-description">';
-	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_4_url ) . '"><span class="work-description-icon fa fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
+	echo '<a target="_blank" class="work-project-link" href="' . esc_url( $pixova_lite_project_4_url ) . '"><span class="work-description-icon fa-solid fa-eye"><em>' . __( 'See project', 'pixova-lite' ) . '</em></span></a>';
 	echo '</div>';
 
 	echo '</div><!--/.work-->';
