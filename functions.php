@@ -185,6 +185,8 @@ if ( ! function_exists( 'pixova_lite_theme_setup' ) ) {
 				'colorlib-404-customizer'          => array( 'recommended' => false ),
 				'colorlib-coming-soon-maintenance' => array( 'recommended' => false ),
 				'colorlib-login-customizer'        => array( 'recommended' => false ),
+				'kb-support'                       => array( 'recommended' => false ),
+				'rsvp'                             => array( 'recommended' => false )
 			);
 
 			/*
