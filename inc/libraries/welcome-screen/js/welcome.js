@@ -3,7 +3,7 @@ var welcomeScreenFunctions = {
    * Import demo content
    */
    importDemoContent: function() {
-    jQuery( '#add_default_sections' ).click( function() {
+    jQuery( '#add_default_sections' ).on('click', function() {
       var container = jQuery( this ).parents( '.action-required-box' ),
           checkboxes = container.find( ':checkbox' ),
           args = {
@@ -47,7 +47,7 @@ var welcomeScreenFunctions = {
    * Automatically set front page
    */
   setFrontPage: function() {
-    jQuery( '.epsilon-set-frontpage-button' ).click( function() {
+    jQuery( '.epsilon-set-frontpage-button' ).on('click', function() {
       args = {
         action: [ 'Epsilon_Welcome_Screen', 'set_frontpage_to_static' ],
         nonce: welcomeScreen.ajax_nonce,
@@ -93,7 +93,7 @@ var welcomeScreenFunctions = {
   dismissAction: function() {
     var args;
 
-    jQuery( '.required-action-button' ).click( function() {
+    jQuery( '.required-action-button' ).on('click', function() {
       args = {
         action: [ 'Epsilon_Welcome_Screen', 'handle_required_action' ],
         nonce: welcomeScreen.ajax_nonce,
@@ -170,7 +170,7 @@ var welcomeScreenFunctions = {
       } );
 
       jQuery( input ).on( 'focus', function() {
-        jQuery( this ).blur();
+        jQuery( this ).trigger('blur');
       } );
 
       instance.attr( 'value', ( instance.slider( 'value' ) ) );

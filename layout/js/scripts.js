@@ -61,7 +61,7 @@
     ========================================================================== */
     function woocommerceTabs() {
 
-         $( '.woocommerce-tabs .wc-tabs > li > a' ).click(function() {
+         $( '.woocommerce-tabs .wc-tabs > li > a' ).on('click', function() {
 
             var selector = $( this ).attr( 'href' );
 
@@ -259,7 +259,7 @@
             $backToTop = $( '.pixova-top' );
 
         //Hide or show the "back to top" link
-        $( window ).scroll(function() {
+        $( window ).on('scroll', function() {
             ( $( this ).scrollTop() > offset ) ? $backToTop.addClass( 'pixova-is-visible' ) : $backToTop.removeClass( 'pixova-is-visible pixova-fade-out' );
             if ( $( this ).scrollTop() > offsetOpacity ) {
                 $backToTop.addClass( 'pixova-fade-out' );
@@ -321,7 +321,7 @@
         woocommerceTabs();
     });
 
-    jQuery( window ).scroll(function( $ ) {
+    jQuery( window ).on('scroll', function( $ ) {
 
         initNavbar();
 

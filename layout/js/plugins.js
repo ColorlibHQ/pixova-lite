@@ -233,7 +233,7 @@
 		   When the window is scrolled, do
 		   ========================================================================== */
 
-		$( window ).scroll(function() {
+		$( window ).on('scroll', function() {
 			animatePieCharts();
 		});
 

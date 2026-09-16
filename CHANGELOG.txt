@@ -1,3 +1,9 @@
+### 2.0.8
+    - Compatibility with jQuery 3.0
+
+### 2.0.7
+    - Security Fix
+
 ### 2.0.6
     - Security Fix
 
