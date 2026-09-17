@@ -1,6 +1,6 @@
 {
   "name": "pixova-lite",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Build tooling for the Pixova Lite WordPress theme. Nothing here ships with the theme.",
   "repository": "https://github.com/ColorlibHQ/pixova-lite",
   "license": "GPL-3.0-or-later",

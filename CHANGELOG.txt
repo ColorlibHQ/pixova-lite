@@ -1,3 +1,11 @@
+### 2.1.1
+    - Security: reordering the front page sections from the Customizer now
+      requires the edit_theme_options capability and a nonce. Previously any
+      logged-in user could change the order or hide every section
+    - A section order stored before this release is checked when it is read,
+      so an invalid value can no longer hide front page sections or break the
+      Customizer
+
 ### 2.1.0
     - Removed the Epsilon framework: the About page, the Customizer controls it
       provided and the plugin recommendations are now built on WordPress' own
