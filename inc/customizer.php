@@ -3114,6 +3114,7 @@ function pixova_lite_customizer_js_load() {
 	$pioxva_customizer                       = array();
 	$pioxva_customizer['ajax_url']           = admin_url( 'admin-ajax.php' );
 	$pioxva_customizer['template_directory'] = get_template_directory_uri();
+	$pioxva_customizer['sections_nonce']     = wp_create_nonce( 'pixova_order_sections' );
 	wp_localize_script( 'pixova_lite_customizer_script', 'PixovaCustomizer', $pioxva_customizer );
 
 }
@@ -3231,30 +3232,80 @@ if ( ! function_exists( 'pixova_lite_customizer_css' ) ) {
 	add_action( 'wp_head', 'pixova_lite_customizer_css' );
 }
 
-// Ajax for sections ordering
+/**
+ * The front page sections, in their default order.
+ *
+ * @return array
+ */
+function pixova_lite_frontpage_section_ids() {
+	return array(
+		'pixova_lite_panel_intro',
+		'pixova_lite_panel_about',
+		'pixova_lite_panel_works',
+		'pixova_lite_panel_testimonials',
+		'pixova_lite_panel_news',
+		'pixova_lite_panel_team',
+		'pixova_lite_panel_contact',
+	);
+}
+
+/**
+ * Put a section order into a shape the front page can use.
+ *
+ * Unknown ids are dropped, repeats are removed, and any section the list
+ * leaves out keeps its place after the others -- so no order can hide a
+ * section or make the front page look one up that does not exist.
+ *
+ * @param mixed $sections The order to check.
+ *
+ * @return array
+ */
+function pixova_lite_sanitize_section_order( $sections ) {
+	$known = pixova_lite_frontpage_section_ids();
+
+	if ( ! is_array( $sections ) ) {
+		return $known;
+	}
+
+	$sections = array_values( array_unique( array_intersect( array_map( 'strval', array_filter( $sections, 'is_scalar' ) ), $known ) ) );
+
+	return array_merge( $sections, array_values( array_diff( $known, $sections ) ) );
+}
+
+/**
+ * Save the section order after a drag in the Customizer.
+ *
+ * This used to accept the request from any logged-in user, subscribers
+ * included, and stored $_POST['sections'] as it arrived -- enough to reorder
+ * or empty another site owner's front page, or to break the Customizer with a
+ * value that is not a list.
+ */
 add_action( 'wp_ajax_pixova_order_sections', 'pixova_order_sections' );
 function pixova_order_sections() {
-	if ( isset( $_POST['sections'] ) ) {
-		set_theme_mod( 'pixova_frontpage_sections', $_POST['sections'] );
-		echo 'succes';
+	check_ajax_referer( 'pixova_order_sections', 'nonce' );
+
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		wp_send_json_error( null, 403 );
 	}
-	wp_die(); // this is required to terminate immediately and return a proper response
+
+	if ( empty( $_POST['sections'] ) || ! is_array( $_POST['sections'] ) ) {
+		wp_send_json_error( null, 400 );
+	}
+
+	$sections = array_map( 'sanitize_key', array_filter( wp_unslash( $_POST['sections'] ), 'is_string' ) );
+
+	set_theme_mod( 'pixova_frontpage_sections', pixova_lite_sanitize_section_order( $sections ) );
+
+	wp_send_json_success();
 }
 
 if ( ! function_exists( 'pixova_get_sections_position' ) ) {
 	function pixova_get_sections_position() {
-		$defaults = array(
-			'pixova_lite_panel_intro',
-			'pixova_lite_panel_about',
-			'pixova_lite_panel_works',
-			'pixova_lite_panel_testimonials',
-			'pixova_lite_panel_news',
-			'pixova_lite_panel_team',
-			'pixova_lite_panel_contact',
-		);
-		$sections = get_theme_mod( 'pixova_frontpage_sections', $defaults );
-
-		return $sections;
+		/*
+		 * Reconciled on the way out as well, so a value stored before the
+		 * handler was secured cannot keep breaking the front page.
+		 */
+		return pixova_lite_sanitize_section_order( get_theme_mod( 'pixova_frontpage_sections', pixova_lite_frontpage_section_ids() ) );
 	}
 }
 if ( ! function_exists( 'pixova_get_section_position' ) ) {

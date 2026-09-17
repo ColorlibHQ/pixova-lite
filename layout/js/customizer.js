@@ -190,6 +190,7 @@
             dataType: 'html',
             data: {
                 'action': 'pixova_order_sections',
+                'nonce': PixovaCustomizer.sections_nonce,
                 'sections': sOrdered
             }
         })
