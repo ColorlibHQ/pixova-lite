@@ -792,3 +792,15 @@ if ( ! function_exists( 'pixova_lite_register_dynamic_styles' ) ) {
 	}
 	add_action( 'init', 'pixova_lite_register_dynamic_styles', 5 );
 }
+
+
+/**
+ * Editor and markup support this theme predates.
+ */
+if ( ! function_exists( 'pixova_lite_modern_supports' ) ) {
+	function pixova_lite_modern_supports() {
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'editor-styles' );
+	}
+	add_action( 'after_setup_theme', 'pixova_lite_modern_supports', 20 );
+}
