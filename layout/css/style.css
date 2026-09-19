@@ -905,7 +905,7 @@ body .btn-cta-intro a {
 
 /* Font Awesome 7 dropped the bare .fa base class from this theme's markup in
  * favour of the style class, so a rule keyed on .fa alone stopped matching.
- * Both are listed so a hand-written <i class="fa fa-x"> still picks it up. */
+ * Both are listed so a hand-written <i class="fa-solid fa-x"> still picks it up. */
 .pixova-features .fa,
 .pixova-features .fa-solid,
 .pixova-features .fa-regular,

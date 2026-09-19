@@ -270,45 +270,45 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		// Bootstrap JS (required for theme)
 
 		# Pace Loader
-		wp_register_script( 'pace-loader-min-js', get_template_directory_uri() . '/layout/js/pace/pace.min.js', array( 'jquery' ), '2.0', true );
+		wp_register_script( 'pixova-lite-pace-loader-min-js', get_template_directory_uri() . '/layout/js/pace/pace.min.js', array( 'jquery' ), '2.0', true );
 
 		# Sticky JS
-		wp_register_script( 'pixova-sticky-js', get_template_directory_uri() . '/layout/js/sticky/jquery.sticky.js', array( 'jquery' ), '2.0', true );
+		wp_register_script( 'pixova-lite-pixova-sticky-js', get_template_directory_uri() . '/layout/js/sticky/jquery.sticky.js', array( 'jquery' ), '2.0', true );
 
 		# Preloader JS
-		wp_register_script( 'pixova-lite-preloader', get_template_directory_uri() . '/layout/js/preloader.min.js', array( 'pace-loader-min-js' ), '1.0', true );
+		wp_register_script( 'pixova-lite-preloader', get_template_directory_uri() . '/layout/js/preloader.min.js', array( 'pixova-lite-pace-loader-min-js' ), '1.0', true );
 
 		# ViewPort JS
-		wp_register_script( 'viewport-min-js', get_template_directory_uri() . '/layout/js/viewport/viewport.min.js', array( 'jquery' ), '1.0', true );
+		wp_register_script( 'pixova-lite-viewport-min-js', get_template_directory_uri() . '/layout/js/viewport/viewport.min.js', array( 'jquery' ), '1.0', true );
 
 		# Parallax JS
-		wp_register_script( 'parallax-min-js', get_template_directory_uri() . '/layout/js/parallax/parallax.min.js', array( 'jquery' ), '1.3.1', true );
+		wp_register_script( 'pixova-lite-parallax-min-js', get_template_directory_uri() . '/layout/js/parallax/parallax.min.js', array( 'jquery' ), '1.3.1', true );
 
 		# owlCarousel main JS
 		wp_register_script( 'owlCarousel-js', get_template_directory_uri() . '/layout/js/owl-carousel/owl-carousel.min.js', array( 'jquery' ), '1.3.3', true );
 
 		# Classie JS
-		wp_register_script( 'classie-js', get_template_directory_uri() . '/layout/js/classie/classie.js', array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'pixova-lite-classie-js', get_template_directory_uri() . '/layout/js/classie/classie.js', array( 'jquery' ), '1.0.0', true );
 
 		# Smooth Scroll JS
 
 		# WOW js
-		wp_register_script( 'wow-min-js', get_template_directory_uri() . '/layout/js/wow/wow.min.js', array( 'jquery' ), '1.0.3', true );
+		wp_register_script( 'pixova-lite-wow-min-js', get_template_directory_uri() . '/layout/js/wow/wow.min.js', array( 'jquery' ), '1.0.3', true );
 
 		# Simple Placeholders JS
-		wp_register_script( 'simple-placeholder-js', get_template_directory_uri() . '/layout/js/simpleplaceholder/simplePlaceholder.min.js', array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'pixova-lite-simple-placeholder-js', get_template_directory_uri() . '/layout/js/simpleplaceholder/simplePlaceholder.min.js', array( 'jquery' ), '1.0.0', true );
 
 		# jQuery Easy Pie Charts
-		wp_register_script( 'pie-chart-js', get_template_directory_uri() . '/layout/js/easypiechart/easypiechart.min.js', array( 'jquery', 'viewport-min-js' ), '2.1.7', true );
+		wp_register_script( 'pixova-lite-pie-chart-js', get_template_directory_uri() . '/layout/js/easypiechart/easypiechart.min.js', array( 'jquery', 'pixova-lite-viewport-min-js' ), '2.1.7', true );
 
 		# jQuery Easy Pie Charts
-		wp_register_script( 'pathloader-js', get_template_directory_uri() . '/layout/js/pathLoader.js', array(), '2.1.7', true );
+		wp_register_script( 'pixova-lite-pathloader-js', get_template_directory_uri() . '/layout/js/pathLoader.js', array(), '2.1.7', true );
 
 		# Scripts JS
-		wp_register_script( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array( 'jquery', 'classie-js' ), '1.41.1', true );
+		wp_register_script( 'pixova-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array( 'jquery', 'pixova-lite-classie-js' ), '1.41.1', true );
 
 		// Plugins JS
-		wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array( 'jquery', 'pie-chart-js', 'wow-min-js', 'pixova-lite-scripts-js', 'simple-placeholder-js' ), '1.41.1', true );
+		wp_register_script( 'pixova-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.min.js', array( 'jquery', 'pixova-lite-pie-chart-js', 'pixova-lite-wow-min-js', 'pixova-lite-scripts-js', 'pixova-lite-simple-placeholder-js' ), '1.41.1', true );
 
 		/* Enqueue scripts */
 		function pixova_lite_output_css_to_head() {
@@ -326,25 +326,25 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		$preloader_enabled = get_theme_mod( 'pixova_lite_preloader_enabled', 'preloader_enabled' );
 
 		if ( ! isset( $wp_customize ) && 'preloader_enabled' == $preloader_enabled ) {
-			wp_enqueue_script( 'pathloader-js' );
-			wp_enqueue_script( 'pace-loader-min-js' );
+			wp_enqueue_script( 'pixova-lite-pathloader-js' );
+			wp_enqueue_script( 'pixova-lite-pace-loader-min-js' );
 			wp_enqueue_script( 'pixova-lite-preloader' );
 		} else {
 			add_action( 'wp_head', 'pixova_lite_output_css_to_head' );
 		}
 
-		wp_enqueue_script( 'pixova-sticky-js' );
+		wp_enqueue_script( 'pixova-lite-pixova-sticky-js' );
 		wp_enqueue_script( 'owlCarousel-js' );
-		wp_enqueue_script( 'classie-js' );
-		wp_enqueue_script( 'simple-placeholder-js' );
-		wp_enqueue_script( 'viewport-min-js' );
-		wp_enqueue_script( 'parallax-min-js' );
+		wp_enqueue_script( 'pixova-lite-classie-js' );
+		wp_enqueue_script( 'pixova-lite-simple-placeholder-js' );
+		wp_enqueue_script( 'pixova-lite-viewport-min-js' );
+		wp_enqueue_script( 'pixova-lite-parallax-min-js' );
 
 		# Animations Enabled ?
 		$animations_enabled = get_theme_mod( 'pixova_lite_animations_enabled', 'animations_enabled' );
 
 		if ( 'animations_enabled' == $animations_enabled ) {
-			wp_enqueue_script( 'wow-min-js' );
+			wp_enqueue_script( 'pixova-lite-wow-min-js' );
 		}
 
 		#
@@ -374,7 +374,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 
 		// Animate CSS
 		if ( 'animations_enabled' == $animations_enabled ) {
-			wp_enqueue_style( 'animate-min-css', get_template_directory_uri() . '/layout/css/animate.min.css' );
+			wp_enqueue_style( 'pixova-lite-animate-min-css', get_template_directory_uri() . '/layout/css/animate.min.css' );
 		}
 
 		/*
@@ -395,19 +395,19 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		$pixova_lite_fa_all = apply_filters( 'pixova_lite_full_fontawesome', ! pixova_lite_fontawesome_is_subsetted() );
 
 		if ( $pixova_lite_fa_all ) {
-			wp_enqueue_style( 'pixova-lite-icons', $pixova_lite_fa . 'fontawesome.min.css', array(), '7.3.1' );
+			wp_enqueue_style( 'pixova-lite-icons', $pixova_lite_fa . 'fontawesome.min.css', array(), '7.3.1-1' );
 			wp_enqueue_style( 'pixova-lite-icons-solid', $pixova_lite_fa . 'solid.min.css', array( 'pixova-lite-icons' ), '7.3.1' );
 			wp_enqueue_style( 'pixova-lite-icons-regular', $pixova_lite_fa . 'regular.min.css', array( 'pixova-lite-icons' ), '7.3.1' );
 			wp_enqueue_style( 'pixova-lite-icons-brands', $pixova_lite_fa . 'brands.min.css', array( 'pixova-lite-icons' ), '7.3.1' );
 		} else {
-			wp_enqueue_style( 'pixova-lite-icons', $pixova_lite_fa . 'subset/fontawesome-subset.min.css', array(), '7.3.1' );
+			wp_enqueue_style( 'pixova-lite-icons', $pixova_lite_fa . 'subset/fontawesome-subset.min.css', array(), '7.3.1-1' );
 		}
 
 		// Google Fonts StyleSheet
-		wp_enqueue_style( 'ga-fonts', pixova_lite_fonts_url() );
+		wp_enqueue_style( 'pixova-lite-ga-fonts', pixova_lite_fonts_url() );
 
 		// Bootstrap Stylesheet
-		wp_enqueue_style( 'bootstrap-min-css', get_template_directory_uri() . '/layout/css/bootstrap.min.css' );
+		wp_enqueue_style( 'pixova-lite-bootstrap-min-css', get_template_directory_uri() . '/layout/css/bootstrap.min.css' );
 
 		// owlCarousel Stylesheet
 		wp_enqueue_style( 'owlCarousel-main-css', get_template_directory_uri() . '/layout/css/owl.carousel.css' );

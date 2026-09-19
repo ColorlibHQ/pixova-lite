@@ -3097,7 +3097,7 @@ if ( ! function_exists( 'pixova_lite_active_callback_contact_section_kaliforms' 
 
 if ( ! function_exists( 'pixova_lite_customize_preview_js' ) ) {
 	function pixova_lite_customize_preview_js() {
-		wp_enqueue_script( 'pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array(
+		wp_enqueue_script( 'pixova-lite-pixova_lite_customizer', get_template_directory_uri() . '/layout/js/customizer/customizer.js', array(
 			'customize-preview',
 		), '1.0', true );
 	}
@@ -3107,9 +3107,9 @@ if ( ! function_exists( 'pixova_lite_customize_preview_js' ) ) {
 
 function pixova_lite_customizer_js_load() {
 
-	wp_enqueue_style( 'pixova-customizer', get_template_directory_uri() . '/layout/css/customizer.css' );
+	wp_enqueue_style( 'pixova-lite-pixova-customizer', get_template_directory_uri() . '/layout/css/customizer.css' );
 
-	wp_enqueue_script( 'pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer.js', array( 'customize-controls' ), '1.0', true );
+	wp_enqueue_script( 'pixova-lite-pixova_lite_customizer_script', get_template_directory_uri() . '/layout/js/customizer.js', array( 'customize-controls' ), '1.0', true );
 
 	$pioxva_customizer                       = array();
 	$pioxva_customizer['ajax_url']           = admin_url( 'admin-ajax.php' );

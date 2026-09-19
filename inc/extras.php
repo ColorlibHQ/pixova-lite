@@ -406,8 +406,8 @@ if ( ! function_exists( 'pixova_lite_fontawesome_class' ) ) {
 	 * Bring a stored icon class string up to Font Awesome 7.
 	 *
 	 * The icon picker has always stored a class string, and everyone running
-	 * the theme before 2.1.0 has Font Awesome 4 strings saved: "fa fa-bold",
-	 * "fa fa-envelope-o". Font Awesome 7 renamed most of those and split the
+	 * the theme before 2.1.0 has Font Awesome 4 strings saved: "fa-solid fa-bold",
+	 * "fa-regular fa-envelope". Font Awesome 7 renamed most of those and split the
 	 * rest across three faces, so shipping 7 without translating them would
 	 * blank every icon anybody had configured.
 	 *
