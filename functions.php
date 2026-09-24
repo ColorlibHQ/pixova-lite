@@ -407,7 +407,7 @@ if ( ! function_exists( 'pixova_lite_enqueue_scripts' ) ) {
 		wp_enqueue_style( 'pixova-lite-ga-fonts', pixova_lite_fonts_url() );
 
 		// Bootstrap Stylesheet
-		wp_enqueue_style( 'pixova-lite-bootstrap-min-css', get_template_directory_uri() . '/layout/css/bootstrap.min.css' );
+		wp_enqueue_style( 'pixova-lite-bootstrap-min-css', get_template_directory_uri() . '/layout/css/bootstrap.min.css', array(), '3.4.1-1' );
 
 		// owlCarousel Stylesheet
 		wp_enqueue_style( 'owlCarousel-main-css', get_template_directory_uri() . '/layout/css/owl.carousel.css' );
