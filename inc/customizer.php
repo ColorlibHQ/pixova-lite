@@ -2247,17 +2247,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 5,
 	) ) );
 
-	/* Team: team member #1 Google+ URL */
-	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_team_member_1_googleplus', array(
-		'sanitize_callback' => 'esc_url',
-		'default'           => esc_url( 'https://plus.google.com/' ),
-	) ) );
-
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_1_googleplus', array(
-		'label'    => esc_html__( 'Team member #1 Google+ URL', 'pixova-lite' ),
-		'section'  => 'pixova_lite_team_member_1',
-		'priority' => 5,
-	) ) );
 
 	/* Team: team member #2 section */
 	$wp_customize->add_section( 'pixova_lite_team_member_2', array(
@@ -2377,17 +2366,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 5,
 	) ) );
 
-	/* Team: team member #2 Google+ URL */
-	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_team_member_2_googleplus', array(
-		'sanitize_callback' => 'esc_url',
-		'default'           => esc_url( 'https://plus.google.com/' ),
-	) ) );
-
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_2_googleplus', array(
-		'label'    => esc_html__( 'Team member #2 Google+ URL', 'pixova-lite' ),
-		'section'  => 'pixova_lite_team_member_2',
-		'priority' => 5,
-	) ) );
 
 	/* Team: team member #3 section */
 	$wp_customize->add_section( 'pixova_lite_team_member_3', array(
@@ -2507,17 +2485,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 5,
 	) ) );
 
-	/* Team: team member #3 Google+ URL */
-	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_team_member_3_googleplus', array(
-		'sanitize_callback' => 'esc_url',
-		'default'           => esc_url( 'https://plus.google.com/' ),
-	) ) );
-
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_3_googleplus', array(
-		'label'    => esc_html__( 'Team member #3 Google+ URL', 'pixova-lite' ),
-		'section'  => 'pixova_lite_team_member_3',
-		'priority' => 5,
-	) ) );
 
 	/* Team: team member #4 section */
 	$wp_customize->add_section( 'pixova_lite_team_member_4', array(
@@ -2637,17 +2604,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 5,
 	) ) );
 
-	/* Team: team member #4 Google+ URL */
-	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_team_member_4_googleplus', array(
-		'sanitize_callback' => 'esc_url',
-		'default'           => esc_url( 'https://plus.google.com/' ),
-	) ) );
-
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_4_googleplus', array(
-		'label'    => esc_html__( 'Team member #4 Google+ URL', 'pixova-lite' ),
-		'section'  => 'pixova_lite_team_member_4',
-		'priority' => 5,
-	) ) );
 
 	/* Team: team member #5 section */
 	$wp_customize->add_section( 'pixova_lite_team_member_5', array(
@@ -2767,17 +2723,6 @@ function pixova_lite_customize_register( $wp_customize ) {
 		'priority' => 5,
 	) ) );
 
-	/* Team: team member #5 Google+ URL */
-	$wp_customize->add_setting( new Pixova_Custom_Setting( $wp_customize, 'pixova_lite_team_member_5_googleplus', array(
-		'sanitize_callback' => 'esc_url',
-		'default'           => esc_url( 'https://plus.google.com/' ),
-	) ) );
-
-	$wp_customize->add_control( new Pixova_Custom_Control( $wp_customize, 'pixova_lite_team_member_5_googleplus', array(
-		'label'    => esc_html__( 'Team member #5 Google+ URL', 'pixova-lite' ),
-		'section'  => 'pixova_lite_team_member_5',
-		'priority' => 5,
-	) ) );
 
 	// Typography
 	$wp_customize->add_panel( 'pixova_lite_typography_section', array(
