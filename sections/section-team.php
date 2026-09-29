@@ -20,7 +20,6 @@ $pixova_lite_team_member_1_email        = get_theme_mod( 'pixova_lite_team_membe
 $pixova_lite_team_member_1_linkedin     = get_theme_mod( 'pixova_lite_team_member_1_linkedin' );
 $pixova_lite_team_member_1_pinterest    = get_theme_mod( 'pixova_lite_team_member_1_pinterest' );
 $pixova_lite_team_member_1_twitter      = get_theme_mod( 'pixova_lite_team_member_1_twitter' );
-$pixova_lite_team_member_1_googleplus   = get_theme_mod( 'pixova_lite_team_member_1_googleplus' );
 $pixova_lite_team_member_1_instagram    = get_theme_mod( 'pixova_lite_team_member_1_instagram' );
 
 // Team member #2
@@ -40,7 +39,6 @@ $pixova_lite_team_member_2_email        = get_theme_mod( 'pixova_lite_team_membe
 $pixova_lite_team_member_2_linkedin     = get_theme_mod( 'pixova_lite_team_member_2_linkedin' );
 $pixova_lite_team_member_2_pinterest    = get_theme_mod( 'pixova_lite_team_member_2_pinterest' );
 $pixova_lite_team_member_2_twitter      = get_theme_mod( 'pixova_lite_team_member_2_twitter' );
-$pixova_lite_team_member_2_googleplus   = get_theme_mod( 'pixova_lite_team_member_2_googleplus' );
 $pixova_lite_team_member_2_instagram    = get_theme_mod( 'pixova_lite_team_member_2_instagram' );
 
 // Team member #3
@@ -60,7 +58,6 @@ $pixova_lite_team_member_3_email        = get_theme_mod( 'pixova_lite_team_membe
 $pixova_lite_team_member_3_linkedin     = get_theme_mod( 'pixova_lite_team_member_3_linkedin' );
 $pixova_lite_team_member_3_pinterest    = get_theme_mod( 'pixova_lite_team_member_3_pinterest' );
 $pixova_lite_team_member_3_twitter      = get_theme_mod( 'pixova_lite_team_member_3_twitter' );
-$pixova_lite_team_member_3_googleplus   = get_theme_mod( 'pixova_lite_team_member_3_googleplus' );
 $pixova_lite_team_member_3_instagram    = get_theme_mod( 'pixova_lite_team_member_3_instagram' );
 
 // Team member #4
@@ -80,7 +77,6 @@ $pixova_lite_team_member_4_email        = get_theme_mod( 'pixova_lite_team_membe
 $pixova_lite_team_member_4_linkedin     = get_theme_mod( 'pixova_lite_team_member_4_linkedin' );
 $pixova_lite_team_member_4_pinterest    = get_theme_mod( 'pixova_lite_team_member_4_pinterest' );
 $pixova_lite_team_member_4_twitter      = get_theme_mod( 'pixova_lite_team_member_4_twitter' );
-$pixova_lite_team_member_4_googleplus   = get_theme_mod( 'pixova_lite_team_member_4_googleplus' );
 $pixova_lite_team_member_4_instagram    = get_theme_mod( 'pixova_lite_team_member_4_instagram' );
 
 // Team member #5
@@ -100,7 +96,6 @@ $pixova_lite_team_member_5_email        = get_theme_mod( 'pixova_lite_team_membe
 $pixova_lite_team_member_5_linkedin     = get_theme_mod( 'pixova_lite_team_member_5_linkedin' );
 $pixova_lite_team_member_5_pinterest    = get_theme_mod( 'pixova_lite_team_member_5_pinterest' );
 $pixova_lite_team_member_5_twitter      = get_theme_mod( 'pixova_lite_team_member_5_twitter' );
-$pixova_lite_team_member_5_googleplus   = get_theme_mod( 'pixova_lite_team_member_5_googleplus' );
 $pixova_lite_team_member_5_instagram    = get_theme_mod( 'pixova_lite_team_member_5_instagram' );
 
 if ( $pixova_lite_team_member_1_image && $pixova_lite_team_member_2_image && $pixova_lite_team_member_3_image && $pixova_lite_team_member_4_image && ! $pixova_lite_team_member_5_image ) {
@@ -170,11 +165,6 @@ if ( isset( $pixova_lite_team_member_1_image ) && ! empty( $pixova_lite_team_mem
 				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_1_twitter ) . '"><i class="fa-brands fa-twitter"></i></a>';
 			echo '</div><!--/.pixova-team-member-icon-->';
 		}
-		if ( $pixova_lite_team_member_1_googleplus ) {
-			echo '<div class="pixova-team-member-icon">';
-				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_1_googleplus ) . '"><i class="fa-brands fa-google-plus"></i></a>';
-			echo '</div><!--/.pixova-team-member-icon-->';
-		}
 		if ( $pixova_lite_team_member_1_instagram ) {
 			echo '<div class="pixova-team-member-icon">';
 				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_1_instagram ) . '"><i class="fa-brands fa-instagram"></i></a>';
@@ -233,11 +223,6 @@ if ( isset( $pixova_lite_team_member_2_image ) && ! empty( $pixova_lite_team_mem
 		if ( $pixova_lite_team_member_2_twitter ) {
 			echo '<div class="pixova-team-member-icon">';
 				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_2_twitter ) . '"><i class="fa-brands fa-twitter"></i></a>';
-			echo '</div><!--/.pixova-team-member-icon-->';
-		}
-		if ( $pixova_lite_team_member_2_googleplus ) {
-			echo '<div class="pixova-team-member-icon">';
-				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_2_googleplus ) . '"><i class="fa-brands fa-google-plus"></i></a>';
 			echo '</div><!--/.pixova-team-member-icon-->';
 		}
 		if ( $pixova_lite_team_member_2_instagram ) {
@@ -300,11 +285,6 @@ if ( isset( $pixova_lite_team_member_3_image ) && ! empty( $pixova_lite_team_mem
 				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_3_twitter ) . '"><i class="fa-brands fa-twitter"></i></a>';
 			echo '</div><!--/.pixova-team-member-icon-->';
 		}
-		if ( $pixova_lite_team_member_3_googleplus ) {
-			echo '<div class="pixova-team-member-icon">';
-				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_3_googleplus ) . '"><i class="fa-brands fa-google-plus"></i></a>';
-			echo '</div><!--/.pixova-team-member-icon-->';
-		}
 		if ( $pixova_lite_team_member_3_instagram ) {
 			echo '<div class="pixova-team-member-icon">';
 				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_3_instagram ) . '"><i class="fa-brands fa-instagram"></i></a>';
@@ -362,11 +342,6 @@ if ( isset( $pixova_lite_team_member_4_image ) && ! empty( $pixova_lite_team_mem
 		if ( $pixova_lite_team_member_4_twitter ) {
 			echo '<div class="pixova-team-member-icon">';
 				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_4_twitter ) . '"><i class="fa-brands fa-twitter"></i></a>';
-			echo '</div><!--/.pixova-team-member-icon-->';
-		}
-		if ( $pixova_lite_team_member_4_googleplus ) {
-			echo '<div class="pixova-team-member-icon">';
-				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_4_googleplus ) . '"><i class="fa-brands fa-google-plus"></i></a>';
 			echo '</div><!--/.pixova-team-member-icon-->';
 		}
 		if ( $pixova_lite_team_member_4_instagram ) {
@@ -427,11 +402,6 @@ if ( isset( $pixova_lite_team_member_5_image ) && ! empty( $pixova_lite_team_mem
 		if ( $pixova_lite_team_member_5_twitter ) {
 			echo '<div class="pixova-team-member-icon">';
 				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_5_twitter ) . '"><i class="fa-brands fa-twitter"></i></a>';
-			echo '</div><!--/.pixova-team-member-icon-->';
-		}
-		if ( $pixova_lite_team_member_5_googleplus ) {
-			echo '<div class="pixova-team-member-icon">';
-				echo '<a rel="nofollow" href="' . esc_url( $pixova_lite_team_member_5_googleplus ) . '"><i class="fa-brands fa-google-plus"></i></a>';
 			echo '</div><!--/.pixova-team-member-icon-->';
 		}
 		if ( $pixova_lite_team_member_5_instagram ) {

@@ -116,7 +116,6 @@ class Pixova_Lite_Helper {
 		'pixova_lite_team_member_1_linkedin',
 		'pixova_lite_team_member_1_pinterest',
 		'pixova_lite_team_member_1_instagram',
-		'pixova_lite_team_member_1_googleplus',
 		'pixova_lite_team_member_2_name',
 		'pixova_lite_team_member_2_image',
 		'pixova_lite_team_member_2_facebook',
@@ -126,7 +125,6 @@ class Pixova_Lite_Helper {
 		'pixova_lite_team_member_2_linkedin',
 		'pixova_lite_team_member_2_pinterest',
 		'pixova_lite_team_member_2_instagram',
-		'pixova_lite_team_member_2_googleplus',
 		'pixova_lite_team_member_3_name',
 		'pixova_lite_team_member_3_image',
 		'pixova_lite_team_member_3_facebook',
@@ -136,7 +134,6 @@ class Pixova_Lite_Helper {
 		'pixova_lite_team_member_3_linkedin',
 		'pixova_lite_team_member_3_pinterest',
 		'pixova_lite_team_member_3_instagram',
-		'pixova_lite_team_member_3_googleplus',
 		'pixova_lite_team_member_4_name',
 		'pixova_lite_team_member_4_image',
 		'pixova_lite_team_member_4_facebook',
@@ -146,7 +143,6 @@ class Pixova_Lite_Helper {
 		'pixova_lite_team_member_4_linkedin',
 		'pixova_lite_team_member_4_pinterest',
 		'pixova_lite_team_member_4_instagram',
-		'pixova_lite_team_member_4_googleplus',
 		'pixova_lite_team_member_5_name',
 		'pixova_lite_team_member_5_image',
 		'pixova_lite_team_member_5_facebook',
@@ -156,7 +152,6 @@ class Pixova_Lite_Helper {
 		'pixova_lite_team_member_5_linkedin',
 		'pixova_lite_team_member_5_pinterest',
 		'pixova_lite_team_member_5_instagram',
-		'pixova_lite_team_member_5_googleplus',
 	);
 
 

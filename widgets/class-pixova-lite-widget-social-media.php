@@ -28,7 +28,6 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 
 		$profile_facebook   = esc_url( $instance['profile_facebook'] );
 		$profile_twitter    = esc_url( $instance['profile_twitter'] );
-		$profile_plus       = esc_url( $instance['profile_plus'] );
 		$profile_pinterest  = esc_url( $instance['profile_pinterest'] );
 		$profile_linkedin   = esc_url( $instance['profile_linkedin'] );
 		$profile_youtube    = esc_url( $instance['profile_youtube'] );
@@ -58,9 +57,6 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 			echo '<li><a title="' . __( 'Twitter', 'pixova-lite' ) . '" class="twitter-icon social-icon" href="' . esc_url( $profile_twitter ) . '"><i class="fa-brands fa-twitter"></i></a></li>';
 		}
 
-		if ( $profile_plus ) {
-			echo '<li><a title="' . __( 'Google+', 'pixova-lite' ) . '" class="googleplus-icon social-icon" href="' . esc_url( $profile_plus ) . '"><i class="fa-brands fa-google-plus"></i></a></li>';
-		}
 
 		if ( $profile_pinterest ) {
 			echo '<li><a title="' . __( 'Pinterest', 'pixova-lite' ) . '" class="pinterest-icon social-icon" href="' . esc_url( $profile_pinterest ) . '"><i class="fa-brands fa-pinterest"></i></a></li>';
@@ -112,7 +108,6 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 		$instance['show_title']   = strip_tags( $new_instance['show_title'] );
 		$instance['profile_facebook']   = esc_url( $new_instance['profile_facebook'] );
 		$instance['profile_twitter']    = esc_url( $new_instance['profile_twitter'] );
-		$instance['profile_plus']       = esc_url( $new_instance['profile_plus'] );
 		$instance['profile_pinterest']  = esc_url( $new_instance['profile_pinterest'] );
 		$instance['profile_linkedin']   = esc_url( $new_instance['profile_linkedin'] );
 		$instance['profile_youtube']    = esc_url( $new_instance['profile_youtube'] );
@@ -133,7 +128,6 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 			'show_title' => '',
 			'profile_facebook' => '',
 			'profile_twitter' => '',
-			'profile_plus' => '',
 			'profile_pinterest' => '',
 			'profile_linkedin' => '',
 			'profile_youtube' => '',
@@ -170,8 +164,6 @@ class Pixova_Lite_Widget_Social_Media extends WP_Widget {
 			</p>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'profile_plus' ); ?>"><?php _e( 'Google Plus profile URL:', 'pixova-lite' ); ?></label>
-				<input id="<?php echo $this->get_field_id( 'profile_plus' ); ?>" name="<?php echo $this->get_field_name( 'profile_plus' ); ?>" value="<?php echo esc_url( $instance['profile_plus'] ); ?>" style="width:100%;" />
 			</p>
 
 			<p>
